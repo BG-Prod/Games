@@ -18,13 +18,13 @@
 
 
 
-#define CX_SCREEN           GetSystemMetrics(SM_CXSCREEN)            //Largeur
-#define CY_SCREEN           GetSystemMetrics(SM_CYSCREEN)            //Hauteur
+#define CX_SCREEN           GetSystemMetrics(SM_CXSCREEN)            ///Largeur
+#define CY_SCREEN           GetSystemMetrics(SM_CYSCREEN)            ///Hauteur
 #define NB_CARRE_X          10
 #define NB_CARRE_Y          10
 #define TAILLE_CARRE        GetSystemMetrics(SM_CYSCREEN) / 10
-#define LARGEUR_ECRAN       CX_SCREEN   //  1366    //  1920
-#define HAUTEUR_ECRAN       CY_SCREEN   //  768     //  1080
+#define LARGEUR_ECRAN       CX_SCREEN   ///  1366    ///  1920
+#define HAUTEUR_ECRAN       CY_SCREEN   ///  768     ///  1080
 #define SCREEN_REFRESH      40
 #define DEBUG               std::cerr << std::endl <<
 #define NOMBRE_IMAGE        7
@@ -41,7 +41,7 @@ const std::string cheminPolice = cheminRessources + "polices/";
 
 
 
-struct Input
+struct Input    /// structure pour la capture des évènements
 {
 	char key[SDLK_LAST];
 	int mousex,mousey;
@@ -52,19 +52,19 @@ struct Input
 
 
 
-void updateEvents(Input *);
+void updateEvents(Input *);             /// MàJ des évènements
 
-void initialisation(FMOD_SYSTEM * p_system);
-void fermeture(FMOD_SYSTEM * p_system);
+void initialisation(FMOD_SYSTEM * p_system);        /// initialise le jeu
+void fermeture(FMOD_SYSTEM * p_system);             /// ferme le jeu
 
-void load_images(SDL_Surface ** p_images);
-void load_musiques(FMOD_SYSTEM * p_system, FMOD_SOUND ** p_sons);
-void load_polices(TTF_Font ** p_polices);
+void load_images(SDL_Surface ** p_images);                          /// charge les images utiles
+void load_musiques(FMOD_SYSTEM * p_system, FMOD_SOUND ** p_sons);   /// charge les musiques utiles
+void load_polices(TTF_Font ** p_polices);                           /// charge les polices utiles
 
-void free_images(SDL_Surface ** p_images);
-void free_musiques(FMOD_SOUND ** p_sons);
-void free_polices(TTF_Font ** p_polices);
+void free_images(SDL_Surface ** p_images);  /// libère les images chargées
+void free_musiques(FMOD_SOUND ** p_sons);   /// libère les musiques chargées
+void free_polices(TTF_Font ** p_polices);   /// libère les polices chargées
 
 
 
-#endif // UTILE_H_INCLUDED
+#endif /// UTILE_H_INCLUDED

@@ -22,4 +22,4 @@ void afficher_cases(SDL_Surface ** p_images, int ** p_tableau);
 void afficher_pions(SDL_Surface ** p_images, int ** p_tableau);
 
 
-#endif // AFFICHAGE_H_INCLUDED
+#endif /// AFFICHAGE_H_INCLUDED

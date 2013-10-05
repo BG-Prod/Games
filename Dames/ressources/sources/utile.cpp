@@ -43,26 +43,26 @@ void updateEvents(Input *in)
 
 void initialisation(FMOD_SYSTEM * p_system)
 {
-    // initialise SDL video
+    /// initialise SDL video
     if ( SDL_Init( SDL_INIT_VIDEO ) < 0 )
     {
         printf( "Unable to init SDL: %s\n", SDL_GetError() );
     }
 
-    // initialise SDL TTF
+    /// initialise SDL TTF
     TTF_Init();
 
-    // make sure SDL cleans up before exit
+    /// make sure SDL cleans up before exit
     atexit(SDL_Quit);
     atexit(TTF_Quit);
 
-    // initialisation de FMOD
+    /// initialisation de FMOD
     FMOD_System_Init(p_system, 32, FMOD_INIT_NORMAL, NULL);
 }
 
 void fermeture(FMOD_SYSTEM * p_system)
 {
-    // fermeture propre de fmodex
+    /// fermeture propre de fmodex
     FMOD_System_Close(p_system);
     FMOD_System_Release(p_system);
 }
