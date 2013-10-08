@@ -55,6 +55,8 @@
 		</Unit>
 		<Unit filename="ressources/sources/utile.cpp" />
 		<Unit filename="ressources/sources/utile.h" />
+		<Unit filename="ressources/sources/verifier_deplacement.cpp" />
+		<Unit filename="ressources/sources/verifier_deplacement.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
