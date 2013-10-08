@@ -1,6 +1,7 @@
 #include <cstdlib>
 #include <stdlib.h>
 #include <stdio.h>
+#include <math.h>
 #include <fstream>
 #include <string>
 #include <sstream>
@@ -15,6 +16,7 @@
 
 #include "utile.h"
 #include "affichage.h"
+#include "verifier_deplacement.h"
 #include "jeu.h"
 
 
@@ -151,8 +153,9 @@ int main ( int argc, char** argv )
 
 
 
-//// REMARQUES
+/// REMARQUES
 
+/// 08/10/2013 : jeu marche pour hauteur = 768 et 1080 + début de test des mouvements
 /// 05/10/2013 : déplacement de pièces opérationnel
 /// 01/10/2013 : affichage mis en place + implémentation partie mécanique (déplacement pièces)
 /// 30/09/2013 : structure mise en place

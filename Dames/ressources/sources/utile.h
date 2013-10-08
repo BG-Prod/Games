@@ -23,8 +23,8 @@
 #define NB_CARRE_X          10
 #define NB_CARRE_Y          10
 #define TAILLE_CARRE        GetSystemMetrics(SM_CYSCREEN) / 10
-#define LARGEUR_ECRAN       CX_SCREEN   ///  1366    ///  1920
-#define HAUTEUR_ECRAN       CY_SCREEN   ///  768     ///  1080
+#define LARGEUR_ECRAN       CX_SCREEN                   ///  1366    ///  1920
+#define HAUTEUR_ECRAN       size_of_game(CY_SCREEN)     ///  768     ///  1080
 #define SCREEN_REFRESH      40
 #define DEBUG               std::cerr << std::endl <<
 #define NOMBRE_IMAGE        7
@@ -64,6 +64,8 @@ void load_polices(TTF_Font ** p_polices);                           /// charge l
 void free_images(SDL_Surface ** p_images);  /// libère les images chargées
 void free_musiques(FMOD_SOUND ** p_sons);   /// libère les musiques chargées
 void free_polices(TTF_Font ** p_polices);   /// libère les polices chargées
+
+int size_of_game(int p_hauteur_ecran);        /// détermine la hauteur de l'écran
 
 
 

@@ -343,3 +343,82 @@
 
 1381249260 c:\users\benji\documents\github\bg_prod\dames\ressources\sources\verifier_deplacement.h
 
+1380993605 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\affichage.cpp
+	"affichage.h"
+
+1380997042 c:\users\ben\documents\github\bg_prod\dames\ressources\sources\affichage.h
+	<cstdlib>
+	<stdlib.h>
+	<stdio.h>
+	<string>
+	<windows.h>
+	<SDL.h>
+	<SDL_ttf.h>
+	<SDL_image.h>
+	<FMOD/fmod.h>
+	"utile.h"
+
+1381261366 c:\users\ben\documents\github\bg_prod\dames\ressources\sources\utile.h
+	<cstdlib>
+	<stdlib.h>
+	<stdio.h>
+	<fstream>
+	<string>
+	<sstream>
+	<iostream>
+	<windows.h>
+	<SDL.h>
+	<SDL_ttf.h>
+	<SDL_image.h>
+	<FMOD/fmod.h>
+
+1381255195 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\jeu.cpp
+	"jeu.h"
+
+1381259966 c:\users\ben\documents\github\bg_prod\dames\ressources\sources\jeu.h
+	<cstdlib>
+	<stdlib.h>
+	<stdio.h>
+	<string>
+	<windows.h>
+	<math.h>
+	<SDL.h>
+	<SDL_ttf.h>
+	<SDL_image.h>
+	<FMOD/fmod.h>
+	"utile.h"
+	"verifier_deplacement.h"
+	"affichage.h"
+
+1381263633 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\main.cpp
+	<cstdlib>
+	<stdlib.h>
+	<stdio.h>
+	<math.h>
+	<fstream>
+	<string>
+	<sstream>
+	<iostream>
+	<windows.h>
+	<SDL.h>
+	<SDL_ttf.h>
+	<SDL_image.h>
+	<FMOD/fmod.h>
+	"utile.h"
+	"affichage.h"
+	"verifier_deplacement.h"
+	"jeu.h"
+
+1380382171 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\ressources.rc
+
+1381263467 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\utile.cpp
+	"utile.h"
+
+1381255195 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\verifier_deplacement.cpp
+	"verifier_deplacement.h"
+
+1381255195 c:\users\ben\documents\github\bg_prod\dames\ressources\sources\verifier_deplacement.h
+	<stdlib.h>
+	<stdio.h>
+	<math.h>
+

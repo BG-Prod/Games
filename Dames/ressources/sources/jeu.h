@@ -16,6 +16,7 @@
 
 
 #include "utile.h"
+#include "verifier_deplacement.h"
 #include "affichage.h"
 
 

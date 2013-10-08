@@ -1,10 +1,6 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <math.h>
-
 #include "verifier_deplacement.h"
 
-bool test_mouvement(int**p_tableau, int p_piece, int p_origin_x,int p_origin_y,int p_dest_x,int p_dest_y)
+bool test_mouvement(int ** p_tableau, int p_piece, int p_origin_x, int p_origin_y, int p_dest_x, int p_dest_y)
 /*
  *Teste si les déplacemens proposés sont possibles
  *true si il est possible

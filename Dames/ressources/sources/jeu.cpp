@@ -122,7 +122,7 @@ void tester_action()
 
 bool tester_mouvement(int ** p_tableau, int p_piece, int p_origin_X, int p_origin_Y, int p_dest_X, int p_dest_Y)
 {
-    return true;
+    return test_mouvement(p_tableau, p_piece, p_origin_X, p_origin_Y, p_dest_X, p_dest_Y);        /// la fonction de Benji
 }
 
 

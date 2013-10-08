@@ -72,12 +72,23 @@ void load_images(SDL_Surface ** p_images)
 {
     string lien;
     char a[1];
-
-    for(int i = 0 ; i < NOMBRE_IMAGE ; i++)
+    if(HAUTEUR_ECRAN == 760)
     {
-        itoa(i,a,8);
-        lien = cheminImage + "image0" + a + ".png";
-        p_images[i] = SDL_DisplayFormat(IMG_Load(lien.c_str()));
+        for(int i = 0 ; i < NOMBRE_IMAGE ; i++)
+        {
+            itoa(i,a,8);
+            lien = cheminImage + "image0" + a + "x768" + ".png";
+            p_images[i] = SDL_DisplayFormat(IMG_Load(lien.c_str()));
+        }
+    }
+    else
+    {
+        for(int i = 0 ; i < NOMBRE_IMAGE ; i++)
+        {
+            itoa(i,a,8);
+            lien = cheminImage + "image0" + a + ".png";
+            p_images[i] = SDL_DisplayFormat(IMG_Load(lien.c_str()));
+        }
     }
 }
 
@@ -130,5 +141,13 @@ void free_polices(TTF_Font ** p_polices)
     }
     free(p_polices);
 }
+
+int size_of_game(int p_hauteur_ecran)
+{
+    int taille = p_hauteur_ecran;
+    if(taille == 768){taille = 760;}
+    return taille;
+}
+
 
 
