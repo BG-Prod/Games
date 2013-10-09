@@ -72,23 +72,12 @@ void load_images(SDL_Surface ** p_images)
 {
     string lien;
     char a[1];
-    if(HAUTEUR_ECRAN == 760)
+    for(int i = 0 ; i < NOMBRE_IMAGE ; i++)
     {
-        for(int i = 0 ; i < NOMBRE_IMAGE ; i++)
-        {
-            itoa(i,a,8);
-            lien = cheminImage + "image0" + a + "x768" + ".png";
-            p_images[i] = SDL_DisplayFormat(IMG_Load(lien.c_str()));
-        }
-    }
-    else
-    {
-        for(int i = 0 ; i < NOMBRE_IMAGE ; i++)
-        {
-            itoa(i,a,8);
-            lien = cheminImage + "image0" + a + ".png";
-            p_images[i] = SDL_DisplayFormat(IMG_Load(lien.c_str()));
-        }
+        itoa(i,a,8);
+        lien = cheminImage + "image0" + a + ".png";
+        p_images[i] = SDL_DisplayFormat(IMG_Load(lien.c_str()));
+        p_images[i] = rotozoomSurface(p_images[i],0.0,(double)(HAUTEUR_ECRAN/1080.0),1);
     }
 }
 

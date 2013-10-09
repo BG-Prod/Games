@@ -358,7 +358,7 @@
 	<FMOD/fmod.h>
 	"utile.h"
 
-1381306762 c:\users\ben\documents\github\bg_prod\dames\ressources\sources\utile.h
+1381308102 c:\users\ben\documents\github\bg_prod\dames\ressources\sources\utile.h
 	<cstdlib>
 	<stdlib.h>
 	<stdio.h>
@@ -370,6 +370,7 @@
 	<SDL.h>
 	<SDL_ttf.h>
 	<SDL_image.h>
+	<SDL_rotozoom.h>
 	<FMOD/fmod.h>
 
 1381255195 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\jeu.cpp
@@ -390,7 +391,7 @@
 	"verifier_deplacement.h"
 	"affichage.h"
 
-1381306480 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\main.cpp
+1381307879 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\main.cpp
 	<cstdlib>
 	<stdlib.h>
 	<stdio.h>
@@ -403,6 +404,7 @@
 	<SDL.h>
 	<SDL_ttf.h>
 	<SDL_image.h>
+	<SDL_rotozoom.h>
 	<FMOD/fmod.h>
 	"utile.h"
 	"affichage.h"
@@ -411,7 +413,7 @@
 
 1380382171 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\ressources.rc
 
-1381306690 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\utile.cpp
+1381309521 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\utile.cpp
 	"utile.h"
 
 1381304818 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\verifier_deplacement.cpp
@@ -421,4 +423,8 @@
 	<stdlib.h>
 	<stdio.h>
 	<math.h>
+
+1103618586 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_rotozoom.h
+	<math.h>
+	"SDL.h"
 

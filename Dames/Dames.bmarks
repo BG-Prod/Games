@@ -1,40 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <BrowseTracker_layout_file>
 	<ActiveTarget name="Debug" />
-	<File name="ressources\sources\affichage.cpp" open="1" top="0" tabpos="8">
-		<Cursor position="240" topLine="0" />
-	</File>
 	<File name="ressources\sources\affichage.h" open="1" top="0" tabpos="5">
 		<Cursor position="232" topLine="0" />
 	</File>
-	<File name="ressources\sources\verifier_deplacement.cpp" open="1" top="1" tabpos="1">
-		<Cursor position="2748" topLine="0" />
-		<BrowseMarks positions="" />
-		<Book_Marks positions="" />
+	<File name="ressources\sources\verifier_deplacement.cpp" open="1" top="0" tabpos="1">
+		<Cursor position="12886" topLine="0" />
 	</File>
 	<File name="ressources\sources\main.cpp" open="1" top="0" tabpos="6">
-		<Cursor position="843" topLine="18" />
-		<BrowseMarks positions="" />
-		<Book_Marks positions="" />
+		<Cursor position="266" topLine="0" />
+		<BrowseMarks positions="246" />
 	</File>
 	<File name="ressources\sources\verifier_deplacement.h" open="1" top="0" tabpos="9">
-		<Cursor position="168" topLine="0" />
-		<BrowseMarks positions="" />
-		<Book_Marks positions="" />
-	</File>
-	<File name="ressources\sources\utile.h" open="1" top="0" tabpos="4">
-		<Cursor position="741" topLine="9" />
-	</File>
-	<File name="ressources\sources\utile.cpp" open="1" top="0" tabpos="2">
-		<Cursor position="1806" topLine="15" />
-		<BrowseMarks positions="1619,1742" />
-	</File>
-	<File name="ressources\sources\jeu.h" open="1" top="0" tabpos="3">
-		<Cursor position="320" topLine="27" />
+		<Cursor position="165" topLine="0" />
 	</File>
 	<File name="ressources\sources\jeu.cpp" open="1" top="0" tabpos="7">
 		<Cursor position="693" topLine="0" />
 		<BrowseMarks positions="1756,3496" />
 		<Book_Marks positions="313,690,384" />
+	</File>
+	<File name="ressources\sources\affichage.cpp" open="1" top="0" tabpos="8">
+		<Cursor position="240" topLine="0" />
+	</File>
+	<File name="ressources\sources\utile.cpp" open="1" top="1" tabpos="2">
+		<Cursor position="1927" topLine="11" />
+		<BrowseMarks positions="1619" />
+		<Book_Marks positions="" />
+	</File>
+	<File name="ressources\sources\jeu.h" open="1" top="0" tabpos="3">
+		<Cursor position="320" topLine="10" />
+	</File>
+	<File name="ressources\sources\utile.h" open="1" top="0" tabpos="4">
+		<Cursor position="307" topLine="34" />
 	</File>
 </BrowseTracker_layout_file>
