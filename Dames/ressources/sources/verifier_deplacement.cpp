@@ -11,7 +11,7 @@ bool test_mouvement(int ** p_tableau, int p_piece, int p_origin_x, int p_origin_
  */
 {
     int i = 0;
-    bool possible; //si le déplacement est possible ou non
+    bool possible = false; //si le déplacement est possible ou non
 
 	if(1 == p_piece) //cas du pion blanc
 	{
@@ -210,7 +210,7 @@ bool test_mouvement(int ** p_tableau, int p_piece, int p_origin_x, int p_origin_
             possible = false;
         }
 	} //fin dame blanche
-	else //dame noire
+	else if(4 == p_piece) //dame noire
 	{
 	    if((p_dest_x >= 0 and p_dest_x <= 9 and p_dest_y >= 0 and p_dest_y <= 9) and (p_tableau[p_dest_y][p_dest_x] == 0)) //sortie tableau ou case vide
         {
