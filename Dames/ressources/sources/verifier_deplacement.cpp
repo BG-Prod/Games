@@ -27,50 +27,33 @@ bool test_mouvement(int ** p_tableau, int p_piece, int p_origin_x, int p_origin_
 					possible = false;
 				}
 			}
-			else if(p_dest_y == 2 + p_origin_y ) //cas de prise en arierre
+			else if(p_dest_x == 2 + p_origin_x or p_dest_x == p_origin_x - 2) //cas de prise
 			{
-			    if((p_dest_x ==  p_origin_x - 2) and ((p_tableau[p_origin_y + 1][p_origin_x - 1] == 2) or (p_tableau[p_origin_y + 1][p_origin_x - 1] == 4))) //a gauche
-                {
-                    p_tableau[p_origin_y + 1][p_origin_x - 1] = 0;
-                    possible = true;
-                }
-                else if((p_dest_x ==  p_origin_x + 2) and ((p_tableau[p_origin_y + 1][p_origin_x + 1] == 2) or (p_tableau[p_origin_y + 1][p_origin_x + 1] == 4))) //a droite
-                {
-                    p_tableau[p_origin_y + 1][p_origin_x + 1] = 0;
-                    possible = true;
-                }
-                else
-                {
-                    possible = false;
-                }
+				if(p_dest_y == p_dest_y + 2 and (p_tableau[p_origin_y+1][p_origin_x+1]==2 or p_tableau[p_origin_y+1][p_origin_x+1]==4)) //prise en arrière
+				{
+				    ///prise = 1;
+					possible = true;
+				}
+				else if(p_dest_y == p_dest_y - 2 and (p_tableau[p_origin_y+1][p_origin_x+1]==2 or p_tableau[p_origin_y+1][p_origin_x+1]==4)) //prise en avant
+				{
+				    ///prise = 1;
+					possible = true;
+				}
+				else
+				{
+					possible = false;
+				}
 			}
-            else if(p_dest_y == p_origin_y - 2) //cas de prise en avant
-            {
-                if(p_dest_x == p_origin_x - 2 and ((p_tableau[p_origin_y - 1][p_origin_x - 1] == 2) or (p_tableau[p_origin_y - 1][p_origin_x - 1] == 4))) //a gauche
-                {
-                    p_tableau[p_origin_y - 1][p_origin_x - 1] = 0;
-                    possible = true;
-                }
-                else if(p_dest_x == p_origin_x + 2 and ((p_tableau[p_origin_y - 1][p_origin_x + 1] == 2) or (p_tableau[p_origin_y - 1][p_origin_x + 1] == 4))) //a droite
-                {
-                    p_tableau[p_origin_y - 1][p_origin_x + 1] = 0;
-                    possible = true;
-                }
-                else
-                {
-                    possible = false;
-                }
-            }
-            else //mauvais deplacement
-            {
-                possible = false;
-            }
+			else //mauvais deplacement
+			{
+				possible = false;
+			}
 		}
 		else //sortie du p_tableau
 		{
 			possible =  false;
 		}
-	} //fin pion noir
+	} //fin pion blanc
 	else if(2 == p_piece) //cas du pion noir
 	{
 		if((p_dest_x >= 0 and p_dest_x <= 9 and p_dest_y >= 0 and p_dest_y <= 9) and (p_tableau[p_dest_y][p_dest_x] == 0)) //ne pas sortir du p_tableau et case vide
@@ -86,40 +69,23 @@ bool test_mouvement(int ** p_tableau, int p_piece, int p_origin_x, int p_origin_
 					possible = false;
 				}
 			}
-			else if(p_dest_y == 2 + p_origin_y ) //cas de prise en avant
+			else if(p_dest_x == 2 + p_origin_x or p_dest_x == p_origin_x - 2) //cas de prise
 			{
-			    if((p_dest_x ==  p_origin_x - 2) and ((p_tableau[p_origin_y + 1][p_origin_x - 1] == 1) or (p_tableau[p_origin_y + 1][p_origin_x - 1] == 3))) //a gauche
-                {
-                    p_tableau[p_origin_y + 1][p_origin_x - 1] = 0;
-                    possible = true;
-                }
-                else if((p_dest_x ==  p_origin_x + 2) and ((p_tableau[p_origin_y + 1][p_origin_x + 1] == 1) or (p_tableau[p_origin_y + 1][p_origin_x + 1] == 3))) //a droite
-                {
-                    p_tableau[p_origin_y + 1][p_origin_x + 1] = 0;
-                    possible = true;
-                }
-                else
-                {
-                    possible = false;
-                }
+				if(p_dest_y == p_dest_y - 2 and (p_tableau[p_origin_y+1][p_origin_x+1]==1 or p_tableau[p_origin_y+1][p_origin_x+1]==3)) //prise en arrière
+				{
+				    ///prise = 1;
+					possible =  true;
+				}
+				else if(p_dest_y == p_dest_y + 2 and (p_tableau[p_origin_y+1][p_origin_x+1]==1 or p_tableau[p_origin_y+1][p_origin_x+1]==3)) //prise en avant
+				{
+				    ///prise = 1;
+					possible = true;
+				}
+				else
+				{
+					possible = false;
+				}
 			}
-            else if(p_dest_y == p_origin_y - 2) //cas de prise en arierre
-            {
-                if(p_dest_x == p_origin_x - 2 and ((p_tableau[p_origin_y - 1][p_origin_x - 1] == 1) or (p_tableau[p_origin_y - 1][p_origin_x - 1] == 3))) //a gauche
-                {
-                    p_tableau[p_origin_y - 1][p_origin_x - 1] = 0;
-                    possible = true;
-                }
-                else if(p_dest_x == p_origin_x + 2 and ((p_tableau[p_origin_y - 1][p_origin_x + 1] == 2) or (p_tableau[p_origin_y - 1][p_origin_x + 1] == 4))) //a droite
-                {
-                    p_tableau[p_origin_y - 1][p_origin_x + 1] = 0;
-                    possible = true;
-                }
-                else
-                {
-                    possible = false;
-                }
-            }
 			else //mauvais deplacement
 			{
 				possible = false;
