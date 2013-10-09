@@ -34,7 +34,7 @@ int main ( int argc, char** argv )
 
 /// déclaration et chargements des ressources
     /// create a new window
-    SDL_Surface* screen = SDL_SetVideoMode(LARGEUR_ECRAN, HAUTEUR_ECRAN, 32, SDL_HWSURFACE|SDL_DOUBLEBUF|SDL_RESIZABLE/*|SDL_FULLSCREEN*/);
+    SDL_Surface* screen = SDL_SetVideoMode(LARGEUR_ECRAN, HAUTEUR_ECRAN, 32, SDL_HWSURFACE|SDL_DOUBLEBUF|SDL_RESIZABLE|SDL_FULLSCREEN);
     if ( !screen )
     {
         printf("Unable to set 640x480 video: %s\n", SDL_GetError());

@@ -56,7 +56,7 @@ void game(Input * p_in, SDL_Surface ** p_images)
 
 /// loop of the game
     int tempsPrecedent = 0, tempsActuel = 0;
-    while(!p_in->key[SDLK_ESCAPE] && !p_in->quit)
+    while(!p_in->key[SDLK_ESCAPE] && !p_in->quit && !tester_fin(tableauPions))
     {
     /// events
         updateEvents(p_in);
@@ -105,6 +105,8 @@ void jouer_jeu(Input * p_in, bool * p_playa_turn, int ** p_tableau, int * p_pion
     {
         cliquer_prendre_poser(p_in, p_tableau, p_pion, p_origine_X, p_origine_Y, p_destination_X, p_destination_Y);
     }
+
+    pion_to_dame(p_tableau);
 }
 
 
@@ -117,6 +119,30 @@ void time_to_IA()
 void tester_action()
 {
 
+}
+
+
+bool tester_fin(int ** p_tableau)       /// détermine si la partie est finie
+{
+    int blancs = 0, noirs = 0;
+
+    for(int i = 0 ; i < NB_CARRE_Y; i++)
+    {
+        for(int j = 0 ; j < NB_CARRE_X; j++)
+        {
+            if(1 == p_tableau[i][j] || 3 == p_tableau[i][j]){blancs++;}
+            if(2 == p_tableau[i][j] || 4 == p_tableau[i][j]){noirs++;}
+        }
+    }
+
+    if(0 == blancs || 0 == noirs)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 
 
