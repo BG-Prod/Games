@@ -11,7 +11,7 @@ bool test_mouvement(int ** p_tableau, int p_piece, int p_origin_x, int p_origin_
  */
 {
     int i = 0;
-    bool possible = false; //si le déplacement est possible ou non
+    bool possible = true; //si le déplacement est possible ou non
 
 	if(1 == p_piece) //cas du pion blanc
 	{
