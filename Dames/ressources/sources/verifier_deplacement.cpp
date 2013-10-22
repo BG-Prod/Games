@@ -10,7 +10,7 @@ bool test_mouvement(int ** p_tableau, int p_piece, int p_origin_x, int p_origin_
  * et x en seconde coordonée
  */
 {
-    int i = 0;
+    int i = 0, j = 0;
     bool possible = true; //si le déplacement est possible ou non
 
 	if(1 == p_piece) //cas du pion blanc
@@ -133,162 +133,109 @@ bool test_mouvement(int ** p_tableau, int p_piece, int p_origin_x, int p_origin_
 	}//fin pion noir
 	else if(3 == p_piece) //dame blanche
 	{
-	    if((p_dest_x >= 0 and p_dest_x <= 9 and p_dest_y >= 0 and p_dest_y <= 9) and (p_tableau[p_dest_y][p_dest_x] == 0)) //sortie tableau ou case vide
-        {
-            if(abs(p_dest_x - p_origin_x) == abs (p_dest_y - p_origin_y)) //déplacement en diagonale
-            {
-                if((p_dest_y - p_origin_y) < 0) //vers le haut
-                {
-                    if((p_dest_x - p_origin_x) > 0) //vers la droite
-                    {
-                        for(i=1; i<abs(p_dest_x - p_origin_x); i++) //verifie si il y a un pion sur la trajectoire de la dame
-                        {
-                            if((p_tableau[p_origin_y - i][p_origin_x + i] == 1) or (p_tableau[p_origin_y - i][p_origin_x + i] == 3))
-                            {
-                                possible = false;
-                            }
-                        }
-                        if((possible != false) and ((p_tableau[p_dest_y + 1][p_dest_x - 1] == 2) or (p_tableau[p_dest_y + 1][p_dest_x - 1] == 4)))
-                        {
-                            p_tableau[p_dest_y + 1][p_dest_x - 1] = 0;
-                        }
-                    }
-                    else //vers la gauche
-                    {
-                        for(i=1; i<abs(p_dest_x - p_origin_x); i++) //verifie si il y a un pion sur la trajectoire de la dame
-                        {
-                            if((p_tableau[p_origin_y - i][p_origin_x - i] == 1) or (p_tableau[p_origin_y - i][p_origin_x - i] == 3))
-                            {
-                                possible = false;
-                            }
-                        }
-                        if((possible != false) and ((p_tableau[p_dest_y + 1][p_dest_x + 1] == 2) or (p_tableau[p_dest_y + 1][p_dest_x + 1] == 4)))
-                        {
-                            p_tableau[p_dest_y + 1][p_dest_x + 1] = 0;
-                        }
-                    }
-                }
-                else //vers le bas
-                {
-                    if((p_dest_x - p_origin_x) > 0) //vers la droite
-                    {
-                        for(i=1; i<abs(p_dest_x - p_origin_x); i++) //verifie si il y a un pion sur la trajectoire de la dame
-                        {
-                            if((p_tableau[p_origin_y + i][p_origin_x + i] == 1) or (p_tableau[p_origin_y + i][p_origin_x + i] == 3))
-                            {
-                                possible = false;
-                            }
-                        }
-                        if((possible != false) and ((p_tableau[p_dest_y - 1][p_dest_x - 1] == 2) or (p_tableau[p_dest_y - 1][p_dest_x - 1] == 4)))
-                        {
-                            p_tableau[p_dest_y - 1][p_dest_x - 1] = 0;
-                        }
-                    }
-                    else //vers la gauche
-                    {
-                        for(i=1; i<abs(p_dest_x - p_origin_x); i++) //verifie si il y a un pion sur la trajectoire de la dame
-                        {
-                            if((p_tableau[p_origin_y + i][p_origin_x - i] == 1) or (p_tableau[p_origin_y + i][p_origin_x - i] == 3))
-                            {
-                                possible = false;
-                            }
-                        }
-                        if((possible != false) and ((p_tableau[p_dest_y - 1][p_dest_x + 1] == 2) or (p_tableau[p_dest_y - 1][p_dest_x + 1] == 4)))
-                        {
-                            p_tableau[p_dest_y - 1][p_dest_x + 1] = 0;
-                        }
-                    }
-                }
-            }
-            else //mauvais déplacement
-            {
-                possible = false;
-            }
-        }
-        else //sortie de tableau ou case non vide
+	    if(p_tableau[p_dest_y][p_dest_x] != 0)
         {
             possible = false;
         }
-	} //fin dame blanche
+        else
+        {
+            if(abs(p_dest_y-p_origin_y) != abs(p_dest_x-p_origin_x))
+            {
+                possible = false;
+            }
+            else
+            {
+                int noires = 0, blanches = 0;
+                i = p_origin_x;
+                j = p_origin_y;
+
+                while(i!=p_dest_x)
+                {
+                    if(2==p_tableau[j][i] or 4==p_tableau[j][i])
+                    {
+                        noires++;
+                    }
+                    blanches += p_tableau[j][i]%2;
+                    i += ((p_dest_x-p_origin_x)/(abs(p_dest_x-p_origin_x)));
+                    j += ((p_dest_y-p_origin_y)/(abs(p_dest_y-p_origin_y)));
+                }
+
+                if(noires > 1 || blanches > 0)
+                {
+                    possible = false;
+                }
+                else if(noires == 1)
+                {
+                    if(p_tableau[p_dest_y - ((p_dest_y-p_origin_y)/(abs(p_dest_y-p_origin_y)))][p_dest_x - ((p_dest_x-p_origin_x)/(abs(p_dest_x-p_origin_x)))] != 2
+                       and p_tableau[p_dest_y - ((p_dest_y-p_origin_y)/(abs(p_dest_y-p_origin_y)))][p_dest_x - ((p_dest_x-p_origin_x)/(abs(p_dest_x-p_origin_x)))] != 4)
+                    {
+                        possible = false;
+                    }
+                    else
+                    {
+                        possible = true;
+                        p_tableau[p_dest_y - ((p_dest_y-p_origin_y)/(abs(p_dest_y-p_origin_y)))][p_dest_x - ((p_dest_x-p_origin_x)/(abs(p_dest_x-p_origin_x)))] = 0;
+                    }
+                }
+                else
+                {
+                    possible = true;
+                }
+            }
+        }
+    } //fin dame blanche
 	else if(4 == p_piece) //dame noire
 	{
-	    if((p_dest_x >= 0 and p_dest_x <= 9 and p_dest_y >= 0 and p_dest_y <= 9) and (p_tableau[p_dest_y][p_dest_x] == 0)) //sortie tableau ou case vide
-        {
-            if(abs(p_dest_x - p_origin_x) == abs (p_dest_y - p_origin_y)) //déplacement en diagonale
-            {
-                if((p_dest_y - p_origin_y) < 0) //vers le bas
-                {
-                    if((p_dest_x - p_origin_x) > 0) //vers la droite
-                    {
-                        for(i=1; i<abs(p_dest_x - p_origin_x); i++) //verifie si il y a un pion sur la trajectoire de la dame
-                        {
-                            if((p_tableau[p_origin_y - i][p_origin_x + i] == 1) or (p_tableau[p_origin_y - i][p_origin_x + i] == 3))
-                            {
-                                possible = false;
-                            }
-                        }
-                        if((possible != false) and ((p_tableau[p_dest_y + 1][p_dest_x - 1] == 2) or (p_tableau[p_dest_y + 1][p_dest_x - 1] == 4)))
-                        {
-                            p_tableau[p_dest_y + 1][p_dest_x - 1] = 0;
-                        }
-                    }
-                    else //vers la gauche
-                    {
-                        for(i=1; i<abs(p_dest_x - p_origin_x); i++) //verifie si il y a un pion sur la trajectoire de la dame
-                        {
-                            if((p_tableau[p_origin_y - i][p_origin_x - i] == 1) or (p_tableau[p_origin_y - i][p_origin_x - i] == 3))
-                            {
-                                possible = false;
-                            }
-                        }
-                        if((possible != false) and ((p_tableau[p_dest_y + 1][p_dest_x + 1] == 2) or (p_tableau[p_dest_y + 1][p_dest_x + 1] == 4)))
-                        {
-                            p_tableau[p_dest_y + 1][p_dest_x + 1] = 0;
-                        }
-                    }
-                }
-                else //vers le haut
-                {
-                    if((p_dest_x - p_origin_x) > 0) //vers la droite
-                    {
-                        for(i=1; i<abs(p_dest_x - p_origin_x); i++) //verifie si il y a un pion sur la trajectoire de la dame
-                        {
-                            if((p_tableau[p_origin_y + i][p_origin_x + i] == 1) or (p_tableau[p_origin_y + i][p_origin_x + i] == 3))
-                            {
-                                possible = false;
-                            }
-                        }
-                        if((possible != false) and ((p_tableau[p_dest_y - 1][p_dest_x - 1] == 2) or (p_tableau[p_dest_y - 1][p_dest_x - 1] == 4)))
-                        {
-                            p_tableau[p_dest_y - 1][p_dest_x - 1] = 0;
-                        }
-                    }
-                    else //vers la gauche
-                    {
-                        for(i=1; i<abs(p_dest_x - p_origin_x); i++) //verifie si il y a un pion sur la trajectoire de la dame
-                        {
-                            if((p_tableau[p_origin_y + i][p_origin_x - i] == 1) or (p_tableau[p_origin_y + i][p_origin_x - i] == 3))
-                            {
-                                possible = false;
-                            }
-                        }
-                        if((possible != false) and ((p_tableau[p_dest_y - 1][p_dest_x + 1] == 2) or (p_tableau[p_dest_y - 1][p_dest_x + 1] == 4)))
-                        {
-                            p_tableau[p_dest_y - 1][p_dest_x + 1] = 0;
-                        }
-                    }
-                }
-            }
-            else //mauvais déplacement
-            {
-                possible = false;
-            }
-        }
-        else //sortie de tableau ou case non vide
+	    if(p_tableau[p_dest_y][p_dest_x] != 0)
         {
             possible = false;
         }
-	} //fin dame noire
+        else
+        {
+            if(abs(p_dest_y-p_origin_y) != abs(p_dest_x-p_origin_x))
+            {
+                possible = false;
+            }
+            else
+            {
+                int noires = 0, blanches = 0;
+                i = p_origin_x;
+                j = p_origin_y;
+
+                while(i!=p_dest_x)
+                {
+                    if(2==p_tableau[j][i] or 4==p_tableau[j][i])
+                    {
+                        noires++;
+                    }
+                    blanches += p_tableau[j][i]%2;
+                    i += ((p_dest_x-p_origin_x)/(abs(p_dest_x-p_origin_x)));
+                    j += ((p_dest_y-p_origin_y)/(abs(p_dest_y-p_origin_y)));
+                }
+
+                if(noires > 0 || blanches > 1)
+                {
+                    possible = false;
+                }
+                else if(blanches == 1)
+                {
+                    if(!(p_tableau[p_dest_y - ((p_dest_y-p_origin_y)/(abs(p_dest_y-p_origin_y)))][p_dest_x - ((p_dest_x-p_origin_x)/(abs(p_dest_x-p_origin_x)))]%2))
+                    {
+                        possible = false;
+                    }
+                    else
+                    {
+                        possible = true;
+                        p_tableau[p_dest_y - ((p_dest_y-p_origin_y)/(abs(p_dest_y-p_origin_y)))][p_dest_x - ((p_dest_x-p_origin_x)/(abs(p_dest_x-p_origin_x)))] = 0;
+                    }
+                }
+                else
+                {
+                    possible = true;
+                }
+            }
+        }
+    } //fin dame noire
 
     return possible;
 } //fin fonction

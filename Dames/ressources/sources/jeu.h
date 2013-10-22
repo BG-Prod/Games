@@ -28,7 +28,7 @@ bool tester_mouvement(int ** p_tableau,                 /// un tableau 10*10 con
                       int p_piece,                      /// valeur de le pièce qui effectue le mouvement
                       int p_origin_X, int p_origin_Y,   /// origine de la pièce dans le tableau
                       int p_dest_X, int p_dest_Y);      /// destination souhaitée dans le tableau
-bool tester_fin(int ** p_tableau);                       /// détermine si la partie est finie
+bool tester_fin(int ** p_tableau, int p_pion);          /// détermine si la partie est finie
 
 void pion_to_dame(int ** p_tableau);
 

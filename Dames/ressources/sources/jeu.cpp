@@ -48,15 +48,15 @@ void game(Input * p_in, SDL_Surface ** p_images)
     }
 
     bool playa_turn = true;     /// true : tour du joueur    false : tour de l'IA
-    int pion_en_main = 0;       /// représente le pion que l'on veut bouger
-    int temp_origine_X = 0,     /// coordonnées d'origine du pion en mouvement
+    int pion_en_main = 0,       /// représente le pion que l'on veut bouger
+        temp_origine_X = 0,     /// coordonnées d'origine du pion en mouvement
         temp_origine_Y = 0,     ///
         temp_destination_X = 0, /// coordonnées d'arrivée du pion en mouvement
         temp_destination_Y = 0; ///
 
 /// loop of the game
     int tempsPrecedent = 0, tempsActuel = 0;
-    while(!p_in->key[SDLK_ESCAPE] && !p_in->quit && !tester_fin(tableauPions))
+    while(!p_in->key[SDLK_ESCAPE] && !p_in->quit && !tester_fin(tableauPions,pion_en_main))
     {
     /// events
         updateEvents(p_in);
@@ -122,7 +122,7 @@ void tester_action()
 }
 
 
-bool tester_fin(int ** p_tableau)       /// détermine si la partie est finie
+bool tester_fin(int ** p_tableau, int p_pion)       /// détermine si la partie est finie
 {
     int blancs = 0, noirs = 0;
 
@@ -134,6 +134,9 @@ bool tester_fin(int ** p_tableau)       /// détermine si la partie est finie
             if(2 == p_tableau[i][j] || 4 == p_tableau[i][j]){noirs++;}
         }
     }
+
+    if(1 == p_pion || 3 == p_pion){blancs++;}
+    if(2 == p_pion || 4 == p_pion){noirs++;}
 
     if(0 == blancs || 0 == noirs)
     {
