@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Release" />
-	<File name="ressources\sources\jeu.cpp" open="1" top="1" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="ressources\sources\verifier_deplacement.cpp" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="760" topLine="0" />
+		</Cursor>
+		<Folding>
+			<Collapse line="16" />
+			<Collapse line="75" />
+			<Collapse line="134" />
+			<Collapse line="187" />
+		</Folding>
+	</File>
+	<File name="ressources\sources\jeu.cpp" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="1999" topLine="16" />
 		</Cursor>
@@ -13,86 +24,6 @@
 			<Collapse line="34" />
 			<Collapse line="38" />
 			<Collapse line="43" />
-			<Collapse line="67" />
-			<Collapse line="71" />
-			<Collapse line="97" />
-			<Collapse line="99" />
-			<Collapse line="104" />
-			<Collapse line="113" />
-			<Collapse line="119" />
-			<Collapse line="152" />
-			<Collapse line="159" />
-			<Collapse line="169" />
-			<Collapse line="178" />
-			<Collapse line="180" />
-			<Collapse line="182" />
-			<Collapse line="186" />
-			<Collapse line="196" />
-			<Collapse line="198" />
-			<Collapse line="200" />
-			<Collapse line="205" />
-			<Collapse line="210" />
-			<Collapse line="219" />
-			<Collapse line="227" />
-			<Collapse line="229" />
-			<Collapse line="238" />
-		</Folding>
-	</File>
-	<File name="ressources\sources\jeu.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1659" topLine="3" />
-		</Cursor>
-	</File>
-	<File name="ressources\sources\verifier_deplacement.h" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="165" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="ressources\sources\verifier_deplacement.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="7290" topLine="121" />
-		</Cursor>
-		<Folding>
-			<Collapse line="75" />
-		</Folding>
-	</File>
-	<File name="ressources\sources\utile.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="176" topLine="0" />
-		</Cursor>
-		<Folding>
-			<Collapse line="45" />
-		</Folding>
-	</File>
-	<File name="ressources\sources\affichage.cpp" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1019" topLine="0" />
-		</Cursor>
-		<Folding>
-			<Collapse line="7" />
-		</Folding>
-	</File>
-	<File name="ressources\sources\utile.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1066" topLine="0" />
-		</Cursor>
-		<Folding>
-			<Collapse line="6" />
-			<Collapse line="11" />
-			<Collapse line="13" />
-			<Collapse line="44" />
-			<Collapse line="47" />
-			<Collapse line="71" />
-			<Collapse line="75" />
-			<Collapse line="84" />
-			<Collapse line="88" />
-			<Collapse line="95" />
-			<Collapse line="99" />
-			<Collapse line="107" />
-			<Collapse line="109" />
-			<Collapse line="116" />
-			<Collapse line="118" />
-			<Collapse line="134" />
 		</Folding>
 	</File>
 	<File name="ressources\sources\main.cpp" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -112,9 +43,42 @@
 			<Collapse line="127" />
 		</Folding>
 	</File>
+	<File name="ressources\sources\utile.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="176" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="ressources\sources\jeu.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1659" topLine="3" />
+		</Cursor>
+	</File>
+	<File name="ressources\sources\utile.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1066" topLine="0" />
+		</Cursor>
+		<Folding>
+			<Collapse line="6" />
+			<Collapse line="11" />
+			<Collapse line="13" />
+		</Folding>
+	</File>
+	<File name="ressources\sources\affichage.cpp" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1019" topLine="0" />
+		</Cursor>
+		<Folding>
+			<Collapse line="7" />
+		</Folding>
+	</File>
 	<File name="ressources\sources\affichage.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="232" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="ressources\sources\verifier_deplacement.h" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="165" topLine="0" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

@@ -111,7 +111,7 @@ bool test_mouvement(int ** p_tableau, int p_piece, int p_origin_x, int p_origin_
                     p_tableau[p_origin_y - 1][p_origin_x - 1] = 0;
                     possible = true;
                 }
-                else if(p_dest_x == p_origin_x + 2 and ((p_tableau[p_origin_y - 1][p_origin_x + 1] == 2) or (p_tableau[p_origin_y - 1][p_origin_x + 1] == 4))) //a droite
+                else if(p_dest_x == p_origin_x + 2 and ((p_tableau[p_origin_y - 1][p_origin_x + 1] == 1) or (p_tableau[p_origin_y - 1][p_origin_x + 1] == 3))) //a droite
                 {
                     p_tableau[p_origin_y - 1][p_origin_x + 1] = 0;
                     possible = true;

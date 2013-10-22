@@ -282,7 +282,7 @@
 	<FMOD/fmod.h>
 	"utile.h"
 
-1381239787 c:\users\benji\documents\github\bg_prod\dames\ressources\sources\utile.h
+1381311264 c:\users\benji\documents\github\bg_prod\dames\ressources\sources\utile.h
 	<cstdlib>
 	<stdlib.h>
 	<stdio.h>
@@ -294,12 +294,13 @@
 	<SDL.h>
 	<SDL_ttf.h>
 	<SDL_image.h>
+	<SDL_rotozoom.h>
 	<FMOD/fmod.h>
 
-1381239787 source:c:\users\benji\documents\github\bg_prod\dames\ressources\sources\jeu.cpp
+1382453527 source:c:\users\benji\documents\github\bg_prod\dames\ressources\sources\jeu.cpp
 	"jeu.h"
 
-1381239787 c:\users\benji\documents\github\bg_prod\dames\ressources\sources\jeu.h
+1382453527 c:\users\benji\documents\github\bg_prod\dames\ressources\sources\jeu.h
 	<cstdlib>
 	<stdlib.h>
 	<stdio.h>
@@ -311,12 +312,14 @@
 	<SDL_image.h>
 	<FMOD/fmod.h>
 	"utile.h"
+	"verifier_deplacement.h"
 	"affichage.h"
 
-1381239787 source:c:\users\benji\documents\github\bg_prod\dames\ressources\sources\main.cpp
+1381311921 source:c:\users\benji\documents\github\bg_prod\dames\ressources\sources\main.cpp
 	<cstdlib>
 	<stdlib.h>
 	<stdio.h>
+	<math.h>
 	<fstream>
 	<string>
 	<sstream>
@@ -325,23 +328,25 @@
 	<SDL.h>
 	<SDL_ttf.h>
 	<SDL_image.h>
+	<SDL_rotozoom.h>
 	<FMOD/fmod.h>
 	"utile.h"
 	"affichage.h"
+	"verifier_deplacement.h"
 	"jeu.h"
 
 1381239787 source:c:\users\benji\documents\github\bg_prod\dames\ressources\sources\ressources.rc
 
-1381239787 source:c:\users\benji\documents\github\bg_prod\dames\ressources\sources\utile.cpp
+1381311264 source:c:\users\benji\documents\github\bg_prod\dames\ressources\sources\utile.cpp
 	"utile.h"
 
-1381249320 source:c:\users\benji\documents\github\bg_prod\dames\ressources\sources\verifier_deplacement.cpp
+1382453527 source:c:\users\benji\documents\github\bg_prod\dames\ressources\sources\verifier_deplacement.cpp
+	"verifier_deplacement.h"
+
+1381265198 c:\users\benji\documents\github\bg_prod\dames\ressources\sources\verifier_deplacement.h
 	<stdlib.h>
 	<stdio.h>
 	<math.h>
-	"verifier_deplacement.h"
-
-1381249260 c:\users\benji\documents\github\bg_prod\dames\ressources\sources\verifier_deplacement.h
 
 1380993605 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\affichage.cpp
 	"affichage.h"
