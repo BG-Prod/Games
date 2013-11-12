@@ -35,7 +35,7 @@
 	"affichage.h"
 	"jeu.h"
 
-1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl.h
+1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl.h
 	"SDL_main.h"
 	"SDL_stdinc.h"
 	"SDL_audio.h"
@@ -54,14 +54,14 @@
 	"begin_code.h"
 	"close_code.h"
 
-1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_main.h
+1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_main.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 	"begin_code.h"
 	"close_code.h"
 
-1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_stdinc.h
+1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_stdinc.h
 	"SDL_config.h"
 	<sys/types.h>
 	<stdio.h>
@@ -87,7 +87,7 @@
 	<stdlib.h>
 	"close_code.h"
 
-1326114588 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_config.h
+1326110988 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_config.h
 	"SDL_platform.h"
 	"SDL_config_dreamcast.h"
 	"SDL_config_macos.h"
@@ -97,16 +97,16 @@
 	"SDL_config_os2.h"
 	"SDL_config_minimal.h"
 
-1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_platform.h
+1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_platform.h
 
-1326114594 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_config_win32.h
+1326110994 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_config_win32.h
 	"SDL_platform.h"
 
-1326114600 c:\program files (x86)\codeblocks\sdl-1.2.15\include\begin_code.h
+1326111000 c:\program files (x86)\codeblocks\sdl-1.2.15\include\begin_code.h
 
-1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\close_code.h
+1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\close_code.h
 
-1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_audio.h
+1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_audio.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_endian.h"
@@ -116,24 +116,24 @@
 	"begin_code.h"
 	"close_code.h"
 
-1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_error.h
+1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_error.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_endian.h
+1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_endian.h
 	"SDL_stdinc.h"
 	<endian.h>
 	"begin_code.h"
 	"close_code.h"
 
-1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_mutex.h
+1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_mutex.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_thread.h
+1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_thread.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_mutex.h"
@@ -141,24 +141,24 @@
 	<process.h>
 	"close_code.h"
 
-1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_rwops.h
+1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_rwops.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_cdrom.h
+1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_cdrom.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_cpuinfo.h
+1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_cpuinfo.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_events.h
+1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_events.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_active.h"
@@ -169,68 +169,68 @@
 	"begin_code.h"
 	"close_code.h"
 
-1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_active.h
+1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_active.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_keyboard.h
+1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_keyboard.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_keysym.h"
 	"begin_code.h"
 	"close_code.h"
 
-1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_keysym.h
+1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_keysym.h
 
-1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_mouse.h
+1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_mouse.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_video.h
+1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_video.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_rwops.h"
 	"begin_code.h"
 	"close_code.h"
 
-1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_joystick.h
+1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_joystick.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_quit.h
+1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_quit.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 
-1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_loadso.h
-	"SDL_stdinc.h"
-	"SDL_error.h"
-	"begin_code.h"
-	"close_code.h"
-
-1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_timer.h
+1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_loadso.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_version.h
+1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_version.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1325796794 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_ttf.h
+1325793194 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_ttf.h
 	"SDL.h"
 	"begin_code.h"
 	"close_code.h"
 
-1325788834 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_image.h
+1325785234 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_image.h
 	"SDL.h"
 	"SDL_version.h"
 	"begin_code.h"
@@ -348,10 +348,10 @@
 	<stdio.h>
 	<math.h>
 
-1380993605 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\affichage.cpp
+1383934856 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\affichage.cpp
 	"affichage.h"
 
-1380997042 c:\users\ben\documents\github\bg_prod\dames\ressources\sources\affichage.h
+1383934856 c:\users\ben\documents\github\bg_prod\dames\ressources\sources\affichage.h
 	<cstdlib>
 	<stdlib.h>
 	<stdio.h>
@@ -363,7 +363,7 @@
 	<FMOD/fmod.h>
 	"utile.h"
 
-1381308102 c:\users\ben\documents\github\bg_prod\dames\ressources\sources\utile.h
+1383934856 c:\users\ben\documents\github\bg_prod\dames\ressources\sources\utile.h
 	<cstdlib>
 	<stdlib.h>
 	<stdio.h>
@@ -381,7 +381,7 @@
 1382441889 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\jeu.cpp
 	"jeu.h"
 
-1382441830 c:\users\ben\documents\github\bg_prod\dames\ressources\sources\jeu.h
+1383934856 c:\users\ben\documents\github\bg_prod\dames\ressources\sources\jeu.h
 	<cstdlib>
 	<stdlib.h>
 	<stdio.h>
@@ -396,7 +396,7 @@
 	"verifier_deplacement.h"
 	"affichage.h"
 
-1381310437 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\main.cpp
+1383934856 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\main.cpp
 	<cstdlib>
 	<stdlib.h>
 	<stdio.h>
@@ -416,20 +416,20 @@
 	"verifier_deplacement.h"
 	"jeu.h"
 
-1380382171 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\ressources.rc
+1383934856 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\ressources.rc
 
-1381309521 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\utile.cpp
+1383934856 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\utile.cpp
 	"utile.h"
 
 1382441330 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\verifier_deplacement.cpp
 	"verifier_deplacement.h"
 
-1381255195 c:\users\ben\documents\github\bg_prod\dames\ressources\sources\verifier_deplacement.h
+1383934856 c:\users\ben\documents\github\bg_prod\dames\ressources\sources\verifier_deplacement.h
 	<stdlib.h>
 	<stdio.h>
 	<math.h>
 
-1103618586 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_rotozoom.h
+1103614986 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_rotozoom.h
 	<math.h>
 	"SDL.h"
 
