@@ -46,6 +46,8 @@
 			<Add library="..\..\..\..\..\..\Program Files (x86)\CodeBlocks\SDL-1.2.15\lib\sdlgfx.lib" />
 			<Add directory="C:/Program Files (x86)/CodeBlocks/SDL-1.2.15/lib" />
 		</Linker>
+		<Unit filename="ressources/sources/Texte.cpp" />
+		<Unit filename="ressources/sources/Texte.h" />
 		<Unit filename="ressources/sources/affichage.cpp" />
 		<Unit filename="ressources/sources/affichage.h" />
 		<Unit filename="ressources/sources/jeu.cpp" />

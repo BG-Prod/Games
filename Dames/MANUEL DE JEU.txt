@@ -1,4 +1,40 @@
-/*
+###### Draughts - Les Dames ######
+# version 1.0
+# by BG Prod
+# contact : benoit.garconbesson@gmail.com
+
+
+Comment jouer ?
+_______________
+
+
+
+
+But du jeu
+__________
+
+
+
+
+Calcul du score
+_______________
+
+
+
+
+Les cartes
+__________
+
+
+
+
+__________________________________________________________
+
+# Pour plus d'informations : benoit.garconbesson@gmail.com
+__________________________________________________________
+
+
+  
     Draughts - Les Dames
     Copyright (C) 2013  Garçon Benoît
 
@@ -14,33 +50,5 @@
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
+    
     Contact me : benoit.garconbesson@gmail.com
-*/
-
-#ifndef AFFICHAGE_H_INCLUDED
-#define AFFICHAGE_H_INCLUDED
-
-
-
-#include <cstdlib>
-#include <stdlib.h>
-#include <stdio.h>
-#include <string>
-#include <windows.h>
-#include <SDL.h>
-#include <SDL_ttf.h>
-#include <SDL_image.h>
-#include <FMOD/fmod.h>
-
-
-#include "utile.h"
-#include "Texte.h"
-
-
-void afficher_jeu(SDL_Surface ** p_images, Texte * p_page, int ** p_tableau1, int ** p_tableau2);
-void afficher_cases(SDL_Surface ** p_images, int ** p_tableau);
-void afficher_pions(SDL_Surface ** p_images, int ** p_tableau);
-
-
-#endif /// AFFICHAGE_H_INCLUDED

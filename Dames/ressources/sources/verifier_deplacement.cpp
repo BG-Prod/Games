@@ -1,3 +1,23 @@
+/*
+    Draughts - Les Dames
+    Copyright (C) 2013  Garçon Benoît
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+    Contact me : benoit.garconbesson@gmail.com
+*/
+
 #include "verifier_deplacement.h"
 
 
@@ -74,7 +94,7 @@ bool test_mouvement(int ** p_tableau, int p_piece, int p_origin_x, int p_origin_
 	} //fin pion noir
 	else if(2 == p_piece) //cas du pion noir
 	{
-		if((p_dest_x >= 0 and p_dest_x <= 9 and p_dest_y >= 0 and p_dest_y <= 9) and (p_tableau[p_dest_y][p_dest_x] == 0)) //ne pas sortir du p_tableau et case vide
+		if((p_dest_x >= 0 and p_dest_x < 10 and p_dest_y >= 0 and p_dest_y < 10) and (p_tableau[p_dest_y][p_dest_x] == 0)) //ne pas sortir du p_tableau et case vide
 		{
 			if(p_dest_x == 1 + p_origin_x or p_dest_x == p_origin_x - 1) //deplacement diagonal en avant
 			{
@@ -104,14 +124,14 @@ bool test_mouvement(int ** p_tableau, int p_piece, int p_origin_x, int p_origin_
                     possible = false;
                 }
 			}
-            else if(p_dest_y == p_origin_y - 2) //cas de prise en arierre
+            else if(p_dest_y == p_origin_y - 2) //cas de prise en arriere
             {
-                if(p_dest_x == p_origin_x - 2 and ((p_tableau[p_origin_y - 1][p_origin_x - 1] == 1) or (p_tableau[p_origin_y - 1][p_origin_x - 1] == 3))) //a gauche
+                if(p_dest_x == p_origin_x - 2 and (p_tableau[p_origin_y - 1][p_origin_x - 1]%2)) //a gauche
                 {
                     p_tableau[p_origin_y - 1][p_origin_x - 1] = 0;
                     possible = true;
                 }
-                else if(p_dest_x == p_origin_x + 2 and ((p_tableau[p_origin_y - 1][p_origin_x + 1] == 1) or (p_tableau[p_origin_y - 1][p_origin_x + 1] == 3))) //a droite
+                else if(p_dest_x == p_origin_x + 2 and (p_tableau[p_origin_y - 1][p_origin_x + 1]%2)) //a droite
                 {
                     p_tableau[p_origin_y - 1][p_origin_x + 1] = 0;
                     possible = true;
@@ -166,15 +186,18 @@ bool test_mouvement(int ** p_tableau, int p_piece, int p_origin_x, int p_origin_
                 }
                 else if(noires == 1)
                 {
-                    if(p_tableau[p_dest_y - ((p_dest_y-p_origin_y)/(abs(p_dest_y-p_origin_y)))][p_dest_x - ((p_dest_x-p_origin_x)/(abs(p_dest_x-p_origin_x)))] != 2
-                       and p_tableau[p_dest_y - ((p_dest_y-p_origin_y)/(abs(p_dest_y-p_origin_y)))][p_dest_x - ((p_dest_x-p_origin_x)/(abs(p_dest_x-p_origin_x)))] != 4)
+                    possible = true;
+                    i = p_origin_x;
+                    j = p_origin_y;
+                    while(i!=p_dest_x)
                     {
-                        possible = false;
-                    }
-                    else
-                    {
-                        possible = true;
-                        p_tableau[p_dest_y - ((p_dest_y-p_origin_y)/(abs(p_dest_y-p_origin_y)))][p_dest_x - ((p_dest_x-p_origin_x)/(abs(p_dest_x-p_origin_x)))] = 0;
+                        if(2==p_tableau[j][i] or 4==p_tableau[j][i])
+                        {
+                            p_tableau[j][i] = 0;
+                        }
+
+                        i += ((p_dest_x-p_origin_x)/(abs(p_dest_x-p_origin_x)));
+                        j += ((p_dest_y-p_origin_y)/(abs(p_dest_y-p_origin_y)));
                     }
                 }
                 else
@@ -219,15 +242,21 @@ bool test_mouvement(int ** p_tableau, int p_piece, int p_origin_x, int p_origin_
                 }
                 else if(blanches == 1)
                 {
-                    if(!(p_tableau[p_dest_y - ((p_dest_y-p_origin_y)/(abs(p_dest_y-p_origin_y)))][p_dest_x - ((p_dest_x-p_origin_x)/(abs(p_dest_x-p_origin_x)))]%2))
+                    possible = true;
+                    i = p_origin_x;
+                    j = p_origin_y;
+
+                    while(i!=p_dest_x)
                     {
-                        possible = false;
+                        if(p_tableau[j][i]%2)
+                        {
+                            p_tableau[j][i] = 0;
+                        }
+
+                        i += ((p_dest_x-p_origin_x)/(abs(p_dest_x-p_origin_x)));
+                        j += ((p_dest_y-p_origin_y)/(abs(p_dest_y-p_origin_y)));
                     }
-                    else
-                    {
-                        possible = true;
-                        p_tableau[p_dest_y - ((p_dest_y-p_origin_y)/(abs(p_dest_y-p_origin_y)))][p_dest_x - ((p_dest_x-p_origin_x)/(abs(p_dest_x-p_origin_x)))] = 0;
-                    }
+
                 }
                 else
                 {

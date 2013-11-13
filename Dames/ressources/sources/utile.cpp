@@ -1,3 +1,23 @@
+/*
+    Draughts - Les Dames
+    Copyright (C) 2013  Garçon Benoît
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+    Contact me : benoit.garconbesson@gmail.com
+*/
+
 #include "utile.h"
 
 using namespace std;
@@ -138,5 +158,40 @@ int size_of_game(int p_hauteur_ecran)
     return taille;
 }
 
+
+int nombreLignes (const string & filename)
+{
+    ifstream fichier(filename.c_str());
+    string s;
+
+    if(fichier){
+        unsigned int count = 0;
+        while(std::getline(fichier,s)) ++count;
+        return count;
+    }else{
+        std::cout << "Ne peut ouvrir " << filename << std::endl;
+    }
+    fichier.close();
+    return 0;
+}
+
+// attention la ligne suivante renvoie la ligne 1 si on demande la 0
+string niemeLigne(const std::string & filename, int p_count)
+{
+    ifstream p_fichier(filename.c_str());
+    int i = 0;
+    string ligne = "";
+    bool test = false;
+    while(getline(p_fichier, ligne) && !test)
+    {
+        if(i == p_count)
+        {
+            test = true;
+        }
+        i++;
+    }
+    p_fichier.close();
+    return ligne;
+}
 
 

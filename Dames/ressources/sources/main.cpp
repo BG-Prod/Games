@@ -1,3 +1,23 @@
+/*
+    Draughts - Les Dames
+    Copyright (C) 2013  Garçon Benoît
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+    Contact me : benoit.garconbesson@gmail.com
+*/
+
 #include <cstdlib>
 #include <stdlib.h>
 #include <stdio.h>
@@ -11,10 +31,11 @@
 #include <SDL_ttf.h>
 #include <SDL_image.h>
 #include <SDL_rotozoom.h>
+#include <SDL_getenv.h>
 #include <FMOD/fmod.h>
 
 
-
+#include "Texte.h"
 #include "utile.h"
 #include "affichage.h"
 #include "verifier_deplacement.h"
@@ -34,7 +55,8 @@ int main ( int argc, char** argv )
 
 /// déclaration et chargements des ressources
     /// create a new window
-    SDL_Surface* screen = SDL_SetVideoMode(LARGEUR_ECRAN, HAUTEUR_ECRAN, 32, SDL_HWSURFACE|SDL_DOUBLEBUF|SDL_RESIZABLE|SDL_FULLSCREEN);
+    putenv("SDL_VIDEO_WINDOW_POS=center"); /// pour centrer la fenêtre
+    SDL_Surface* screen = SDL_SetVideoMode(LARGEUR_ECRAN, HAUTEUR_ECRAN, 32, SDL_HWSURFACE|SDL_DOUBLEBUF|SDL_RESIZABLE/SDL_FULLSCREEN);
     if ( !screen )
     {
         printf("Unable to set 640x480 video: %s\n", SDL_GetError());
@@ -52,11 +74,6 @@ int main ( int argc, char** argv )
     TTF_Font ** polices = NULL;
     polices = (TTF_Font **) malloc(sizeof(TTF_Font*) * NOMBRE_POLICE);
     load_polices(polices);
-    /// couleurs
-    SDL_Color blanc = {255,255,255};
-    SDL_Color gris_clair = {200,200,200};
-    SDL_Color gris_fonce = {50,50,50};
-    SDL_Color noir = {0,0,0};
 
 
 /// Icone
@@ -156,6 +173,8 @@ int main ( int argc, char** argv )
 
 /// REMARQUES
 
+/// 31/10/2013 : tour par tour + interface graphique + texte
+/// 08/10/2013 : màj mouvements des dames + fin de partie
 /// 08/10/2013 : jeu marche pour hauteur = 768 et 1080 + début de test des mouvements
 /// 05/10/2013 : déplacement de pièces opérationnel
 /// 01/10/2013 : affichage mis en place + implémentation partie mécanique (déplacement pièces)
