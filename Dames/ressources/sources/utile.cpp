@@ -97,7 +97,7 @@ void load_images(SDL_Surface ** p_images)
         itoa(i,a,8);
         lien = cheminImage + "image0" + a + ".png";
         p_images[i] = SDL_DisplayFormat(IMG_Load(lien.c_str()));
-        p_images[i] = rotozoomSurface(p_images[i],0.0,(double)(HAUTEUR_ECRAN/1080.0),1);
+        p_images[i] = rotozoomSurface(p_images[i],0.0,(double)(SDL_GetVideoSurface()->h/1080.0),1);     /// on utilise la hauteur de la fenêtre et non celle de l'écran
     }
 }
 

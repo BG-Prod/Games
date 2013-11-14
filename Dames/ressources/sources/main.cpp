@@ -118,13 +118,13 @@ int main ( int argc, char** argv )
 
 
         /// resize taille écran
-        if(in.key[SDLK_F1])
+        if(in.key[SDLK_F1]) /// fullscreen
         {
             SDL_SetVideoMode(LARGEUR_ECRAN, HAUTEUR_ECRAN, 32, SDL_HWSURFACE|SDL_DOUBLEBUF|SDL_RESIZABLE|SDL_FULLSCREEN);
         }
-        if(in.key[SDLK_F2])
+        if(in.key[SDLK_F2]) /// reduce size
         {
-            SDL_SetVideoMode(LARGEUR_ECRAN, HAUTEUR_ECRAN, 32, SDL_HWSURFACE|SDL_DOUBLEBUF);
+            SDL_SetVideoMode(LARGEUR_ECRAN/2, HAUTEUR_ECRAN/2, 32, SDL_HWSURFACE|SDL_DOUBLEBUF);
         }
 
 
