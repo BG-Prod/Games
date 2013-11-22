@@ -164,34 +164,54 @@ int nombreLignes (const string & filename)
     ifstream fichier(filename.c_str());
     string s;
 
-    if(fichier){
+    if(fichier)
+    {
         unsigned int count = 0;
         while(std::getline(fichier,s)) ++count;
         return count;
-    }else{
-        std::cout << "Ne peut ouvrir " << filename << std::endl;
+    }
+    else
+    {
+        std::cout << "Can not open " << filename << std::endl;
     }
     fichier.close();
     return 0;
 }
 
-// attention la ligne suivante renvoie la ligne 1 si on demande la 0
+/// attention la ligne suivante renvoie la ligne 1 si on demande la 0
 string niemeLigne(const std::string & filename, int p_count)
 {
+    string ligne;
     ifstream p_fichier(filename.c_str());
-    int i = 0;
-    string ligne = "";
-    bool test = false;
-    while(getline(p_fichier, ligne) && !test)
+    if(p_fichier)
     {
-        if(i == p_count)
+        int i = 0;
+        ligne = "";
+        bool test = false;
+        while(getline(p_fichier, ligne) && !test)
         {
-            test = true;
+            if(i == p_count)
+            {
+                test = true;
+            }
+            i++;
         }
-        i++;
+        cout << ligne.c_str();
+    }
+    else
+    {
+        cout << "Can not open " << filename << endl;
     }
     p_fichier.close();
     return ligne;
 }
 
+/// Pour copier une SDL_Surface
+SDL_Surface* copieSurface(SDL_Surface *src)
+{
+  if(src != NULL)
+  {
+      return SDL_ConvertSurface(src, src->format, SDL_SWSURFACE);
+  }
+}
 

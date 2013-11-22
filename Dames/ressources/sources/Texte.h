@@ -32,6 +32,8 @@ class Texte
         void print_text(int k);
         void print_text(int k, int x, int y);
 
+        void chose_text(int k);
+
     protected:
     private:
         unsigned short int m_nombre; //!< Member variable "m_nombre"

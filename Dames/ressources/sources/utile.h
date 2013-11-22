@@ -92,5 +92,7 @@ int nombreLignes (const std::string & filename);
 // attention la ligne suivante renvoie la ligne 1 si on demande la 0
 std::string niemeLigne(const std::string & filename, int p_count);
 
+SDL_Surface* copieSurface(SDL_Surface *surf);
+
 
 #endif /// UTILE_H_INCLUDED

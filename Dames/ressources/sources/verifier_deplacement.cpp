@@ -23,10 +23,10 @@
 
 bool test_mouvement(int ** p_tableau, int p_piece, int p_origin_x, int p_origin_y, int p_dest_x, int p_dest_y)
 /*
- *Teste si les déplacemens proposés sont possibles
- *true si il est possible
- *false s'in n'est pas possible
- *on considère le p_tableau comm ayant y en pemiere coordonnée
+ * Teste si les déplacemens proposés sont possibles
+ * true si il est possible
+ * false s'in n'est pas possible
+ * on considère le p_tableau comm ayant y en pemiere coordonnée
  * et x en seconde coordonée
  */
 {

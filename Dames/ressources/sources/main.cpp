@@ -56,7 +56,7 @@ int main ( int argc, char** argv )
 /// déclaration et chargements des ressources
     /// create a new window
     putenv("SDL_VIDEO_WINDOW_POS=center"); /// pour centrer la fenêtre
-    SDL_Surface* screen = SDL_SetVideoMode(LARGEUR_ECRAN, HAUTEUR_ECRAN, 32, SDL_HWSURFACE|SDL_DOUBLEBUF|SDL_RESIZABLE/SDL_FULLSCREEN);
+    SDL_Surface* screen = SDL_SetVideoMode(LARGEUR_ECRAN, HAUTEUR_ECRAN, 32, SDL_HWSURFACE|SDL_DOUBLEBUF|SDL_RESIZABLE|SDL_FULLSCREEN);
     if ( !screen )
     {
         printf("Unable to set 640x480 video: %s\n", SDL_GetError());
@@ -124,7 +124,7 @@ int main ( int argc, char** argv )
         }
         if(in.key[SDLK_F2]) /// reduce size
         {
-            SDL_SetVideoMode(LARGEUR_ECRAN/2, HAUTEUR_ECRAN/2, 32, SDL_HWSURFACE|SDL_DOUBLEBUF);
+            SDL_SetVideoMode(LARGEUR_ECRAN, HAUTEUR_ECRAN, 32, SDL_HWSURFACE|SDL_DOUBLEBUF);
         }
 
 
@@ -173,6 +173,7 @@ int main ( int argc, char** argv )
 
 /// REMARQUES
 
+/// 22/11/2013 : mise en place du texte et correction de la prise interdite par les joueurs
 /// 31/10/2013 : tour par tour + interface graphique + texte
 /// 08/10/2013 : màj mouvements des dames + fin de partie
 /// 08/10/2013 : jeu marche pour hauteur = 768 et 1080 + début de test des mouvements

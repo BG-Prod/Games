@@ -16,8 +16,12 @@ Texte::Texte()
     gris_clair = {200,200,200};
     gris_fonce = {50,50,50};
     noir = {0,0,0};
-    m_couleur = {0,0,0};
+    m_couleur = noir;
     m_phrases = new string[m_nombre];
+    for(int i = 0 ; i < m_nombre ; i++)
+    {
+        m_phrases[i] = niemeLigne(m_lien.c_str(), i);
+    }
     m_text_image = NULL;
     m_phrase_image = new SDL_Surface*[m_nombre];
     for(int i = 0 ; i < m_nombre ; i++)
@@ -26,13 +30,11 @@ Texte::Texte()
     }
     m_lien = cheminPolice + "calibri" + ".ttf";
     m_style = TTF_OpenFont(m_lien.c_str(),m_taille);
-    load_text();
 }
 
 Texte::~Texte()
 {
     erase_text();
-    SDL_FreeSurface(m_text_image);
     TTF_CloseFont(m_style);
 }
 
@@ -40,9 +42,9 @@ void Texte::load_text()
 {
     for(int i = 0 ; i < m_nombre ; i++)
     {
-        m_phrases[i] = niemeLigne(m_lien, i);
-        create_text(m_phrases[i], "calibri", m_taille, m_couleur);
-        copy_picture(m_text_image, m_phrase_image[i]);
+        m_place_var = m_place_base;
+        create_text(m_phrases[i].c_str(), "calibri", m_taille, m_couleur);
+        m_phrase_image[i] = copieSurface(m_text_image);
     }
 }
 
@@ -61,9 +63,19 @@ void Texte::erase_text()
 
 void Texte::copy_picture(SDL_Surface * origin, SDL_Surface * destination)
 {
-    SDL_FreeSurface(destination);
-    destination = origin;
-    origin = NULL;
+    if(destination != NULL)
+    {
+        SDL_FreeSurface(destination);
+    }
+
+    destination = SDL_CreateRGBSurface(SDL_HWSURFACE, origin->w, origin->h,
+                                       origin->format->BitsPerPixel,
+                                       origin->format->Rmask,
+                                       origin->format->Gmask,
+                                       origin->format->Bmask,
+                                       origin->format->Amask);
+
+    destination = SDL_DisplayFormatAlpha(origin);
 }
 
 void Texte::create_text(string p_string, string p_police, int p_taille, SDL_Color p_couleur)
@@ -73,7 +85,10 @@ void Texte::create_text(string p_string, string p_police, int p_taille, SDL_Colo
     m_lien = cheminPolice + p_police + ".ttf";
     TTF_CloseFont(m_style);
     m_style = TTF_OpenFont(m_lien.c_str(), m_taille);
-    SDL_FreeSurface(m_text_image);
+    if(m_text_image != NULL)
+    {
+        SDL_FreeSurface(m_text_image);
+    }
     m_text_image = TTF_RenderText_Blended(m_style, p_string.c_str(), m_couleur);
 }
 
@@ -113,5 +128,13 @@ void Texte::print_text(int k, int x, int y)
     m_place_var.x = x;
     m_place_var.y = y;
     SDL_BlitSurface(m_phrase_image[k],NULL,SDL_GetVideoSurface(),&m_place_var);
+}
+
+void Texte::chose_text(int k)
+{
+    if(k >= 0 && k < m_nombre)
+    {
+        m_text_image = m_phrase_image[k];
+    }
 }
 

@@ -74,6 +74,7 @@ void game(Input * p_in, SDL_Surface ** p_images)
         temp_destination_X = 0, /// coordonnées d'arrivée du pion en mouvement
         temp_destination_Y = 0; ///
     Texte * feuille = new Texte();
+    feuille->load_text();
 
 /// loop of the game
     int tempsPrecedent = 0, tempsActuel = 0;
@@ -120,10 +121,12 @@ void jouer_jeu(Input * p_in, Texte * p_page, bool * p_playa_turn, int ** p_table
 {
     if(!(*p_playa_turn))        /// si c'est le tour de l'IA
     {
+        p_page->chose_text(1);
         time_to_IA(p_in, p_playa_turn, p_tableau, p_pion, p_origine_X, p_origine_Y, p_destination_X, p_destination_Y);
     }
     else        /// si c'est le tour du joueur
     {
+        p_page->chose_text(0);
         cliquer_prendre_poser(p_in, p_playa_turn, p_tableau, p_pion, p_origine_X, p_origine_Y, p_destination_X, p_destination_Y);
     }
     pion_to_dame(p_tableau);
@@ -222,7 +225,7 @@ void cliquer_prendre_poser(Input * p_in, bool * p_playa_turn, int ** p_tableau, 
             *p_destination_X = ((p_in->mousex)/(TAILLE_CARRE));
             *p_destination_Y = ((p_in->mousey)/(TAILLE_CARRE));
 
-            if(tester_mouvement(p_tableau, *p_playa_turn, *p_pion, *p_origine_X, *p_origine_Y, *p_destination_X, *p_destination_Y) && ((*p_pion)%2 == *p_playa_turn))        /// si le mouvement est possible on la pose
+            if(((*p_pion)%2 == *p_playa_turn) && tester_mouvement(p_tableau, *p_playa_turn, *p_pion, *p_origine_X, *p_origine_Y, *p_destination_X, *p_destination_Y))        /// si le mouvement est possible on la pose
             {
                 poser_piece(p_tableau, *p_destination_X, *p_destination_Y,
                             p_pion, p_destination_X, p_destination_Y);
