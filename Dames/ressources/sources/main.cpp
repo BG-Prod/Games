@@ -33,6 +33,7 @@
 #include <SDL_rotozoom.h>
 #include <SDL_getenv.h>
 #include <FMOD/fmod.h>
+#include <ctime>
 
 
 #include "Texte.h"
@@ -52,11 +53,22 @@ int main ( int argc, char** argv )
     /// initialisation image & son
     initialisation(system);
 
+/// verification de la date
+    struct tm Today;
+	time_t maintenant;
+
+	time(&maintenant);
+	Today = *localtime(&maintenant);
+
+	Today.tm_year += 1900;
+	Today.tm_mon += 1;
+	Today.tm_mday;
+
 
 /// déclaration et chargements des ressources
     /// create a new window
     putenv("SDL_VIDEO_WINDOW_POS=center"); /// pour centrer la fenêtre
-    SDL_Surface* screen = SDL_SetVideoMode(LARGEUR_ECRAN, HAUTEUR_ECRAN, 32, SDL_HWSURFACE|SDL_DOUBLEBUF|SDL_RESIZABLE|SDL_FULLSCREEN);
+    SDL_Surface* screen = SDL_SetVideoMode(LARGEUR_ECRAN, HAUTEUR_ECRAN, 32, SDL_HWSURFACE|SDL_DOUBLEBUF|SDL_RESIZABLE/*|SDL_FULLSCREEN*/);
     if ( !screen )
     {
         printf("Unable to set 640x480 video: %s\n", SDL_GetError());
@@ -91,7 +103,7 @@ int main ( int argc, char** argv )
     int * menu = new int;
     *menu = -1;
 
-    SDL_Rect place = {LARGEUR_ECRAN/2 - images[0]->w/2,HAUTEUR_ECRAN/2 - images[0]->h/2,0,0};
+    SDL_Rect place = {LARGEUR_ECRAN/2 - images[8]->w/2,HAUTEUR_ECRAN/2 - images[8]->h/2,0,0};
 
 ///on joue la musique de fond
     FMOD_System_PlaySound(system, FMOD_CHANNEL_FREE, musiques[0], 0, NULL);
@@ -144,7 +156,18 @@ int main ( int argc, char** argv )
         if(*menu == -1)
         {
             SDL_FillRect(SDL_GetVideoSurface(), 0, SDL_MapRGB(SDL_GetVideoSurface()->format, 0, 0, 0));
-            SDL_BlitSurface(images[0], NULL, SDL_GetVideoSurface(), &place);
+            if(Today.tm_mon == 12)
+            {
+                SDL_BlitSurface(images[9], NULL, SDL_GetVideoSurface(), &place);
+            }
+            else if(Today.tm_mon == 10)
+            {
+                SDL_BlitSurface(images[10], NULL, SDL_GetVideoSurface(), &place);
+            }
+            else
+            {
+                SDL_BlitSurface(images[8], NULL, SDL_GetVideoSurface(), &place);
+            }
         }
 
         SDL_Flip(SDL_GetVideoSurface());

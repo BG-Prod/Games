@@ -68,11 +68,14 @@ void game(Input * p_in, SDL_Surface ** p_images)
     }
 
     bool playa_turn = true;     /// true : tour du joueur    false : tour de l'IA
+    int nb_jouer = 0;
     int pion_en_main = 0,       /// représente le pion que l'on veut bouger
         temp_origine_X = 0,     /// coordonnées d'origine du pion en mouvement
         temp_origine_Y = 0,     ///
         temp_destination_X = 0, /// coordonnées d'arrivée du pion en mouvement
-        temp_destination_Y = 0; ///
+        temp_destination_Y = 0, ///
+        prise_X = 0,            /// coordonnées temporaires
+        prise_Y = 0;            ///
     Texte * feuille = new Texte();
     feuille->load_text();
 
@@ -96,13 +99,25 @@ void game(Input * p_in, SDL_Surface ** p_images)
             tempsPrecedent = tempsActuel;
         }
 
+    /// resize taille écran
+        if(p_in->key[SDLK_F1]) /// fullscreen
+        {
+            SDL_SetVideoMode(LARGEUR_ECRAN, HAUTEUR_ECRAN, 32, SDL_HWSURFACE|SDL_DOUBLEBUF|SDL_RESIZABLE|SDL_FULLSCREEN);
+        }
+        if(p_in->key[SDLK_F2]) /// reduce size
+        {
+            SDL_SetVideoMode(LARGEUR_ECRAN, HAUTEUR_ECRAN, 32, SDL_HWSURFACE|SDL_DOUBLEBUF);
+        }
+
 
     /// mécanique du jeu
-        jouer_jeu(p_in, feuille, &playa_turn, tableauPions, &pion_en_main,
+        jouer_jeu(p_in, feuille, &playa_turn, &nb_jouer, tableauPions, &pion_en_main,
                   &temp_origine_X,
                   &temp_origine_Y,
                   &temp_destination_X,
-                  &temp_destination_Y);
+                  &temp_destination_Y,
+                  &prise_X,
+                  &prise_Y);
     /// affichage du jeu
         afficher_jeu(p_images,feuille,tableauCases,tableauPions);
     }
@@ -117,25 +132,27 @@ void game(Input * p_in, SDL_Surface ** p_images)
     free(tableauPions);
 }
 
-void jouer_jeu(Input * p_in, Texte * p_page, bool * p_playa_turn, int ** p_tableau, int * p_pion, int * p_origine_X, int * p_origine_Y, int * p_destination_X, int * p_destination_Y)
+void jouer_jeu(Input * p_in, Texte * p_page, bool * p_playa_turn, int * p_nb_jouer, int ** p_tableau, int * p_pion,
+               int * p_origine_X, int * p_origine_Y, int * p_destination_X, int * p_destination_Y, int * p_prise_X, int * p_prise_Y)
 {
     if(!(*p_playa_turn))        /// si c'est le tour de l'IA
     {
         p_page->chose_text(1);
-        time_to_IA(p_in, p_playa_turn, p_tableau, p_pion, p_origine_X, p_origine_Y, p_destination_X, p_destination_Y);
+        time_to_IA(p_in, p_playa_turn, p_nb_jouer, p_tableau, p_pion, p_origine_X, p_origine_Y, p_destination_X, p_destination_Y, p_prise_X, p_prise_Y);
     }
     else        /// si c'est le tour du joueur
     {
         p_page->chose_text(0);
-        cliquer_prendre_poser(p_in, p_playa_turn, p_tableau, p_pion, p_origine_X, p_origine_Y, p_destination_X, p_destination_Y);
+        cliquer_prendre_poser(p_in, p_playa_turn, p_nb_jouer, p_tableau, p_pion, p_origine_X, p_origine_Y, p_destination_X, p_destination_Y, p_prise_X, p_prise_Y);
     }
     pion_to_dame(p_tableau);
 }
 
 
-void time_to_IA(Input * p_in, bool * p_playa_turn, int ** p_tableau, int * p_pion, int * p_origine_X, int * p_origine_Y, int * p_destination_X, int * p_destination_Y)
+void time_to_IA(Input * p_in, bool * p_playa_turn, int * p_nb_jouer, int ** p_tableau, int * p_pion,
+                int * p_origine_X, int * p_origine_Y, int * p_destination_X, int * p_destination_Y, int * p_prise_X, int * p_prise_Y)
 {
-    cliquer_prendre_poser(p_in, p_playa_turn, p_tableau, p_pion, p_origine_X, p_origine_Y, p_destination_X, p_destination_Y);
+    cliquer_prendre_poser(p_in, p_playa_turn, p_nb_jouer, p_tableau, p_pion, p_origine_X, p_origine_Y, p_destination_X, p_destination_Y, p_prise_X, p_prise_Y);
 }
 
 
@@ -194,7 +211,6 @@ void poser_piece(int ** p_tableau, int p_arrivee_X, int p_arrivee_Y,
     *p_temp_X = p_arrivee_X;
     *p_temp_Y = p_arrivee_Y;
     p_tableau[*p_temp_Y][*p_temp_X] = *p_pion;
-    *p_pion = 0;
 }
 
 
@@ -214,22 +230,48 @@ void pion_to_dame(int ** p_tableau)         /// change un pion en dame si il est
 }
 
 
-void cliquer_prendre_poser(Input * p_in, bool * p_playa_turn, int ** p_tableau, int * p_pion,
+void cliquer_prendre_poser(Input * p_in, bool * p_playa_turn, int * p_nb_jouer, int ** p_tableau, int * p_pion,
                            int * p_origine_X, int * p_origine_Y,
-                           int * p_destination_X, int * p_destination_Y)
+                           int * p_destination_X, int * p_destination_Y,
+                           int * p_prise_X, int * p_prise_Y)
 {
     if(*p_pion != 0 && (p_in->mousex) < (TAILLE_CARRE * NB_CARRE_X))    /// poser une pièce
     {
         if(p_in->mousebuttons[SDL_BUTTON_LEFT])
         {
+            bool reprend = true;
             *p_destination_X = ((p_in->mousex)/(TAILLE_CARRE));
             *p_destination_Y = ((p_in->mousey)/(TAILLE_CARRE));
 
-            if(((*p_pion)%2 == *p_playa_turn) && tester_mouvement(p_tableau, *p_playa_turn, *p_pion, *p_origine_X, *p_origine_Y, *p_destination_X, *p_destination_Y))        /// si le mouvement est possible on la pose
+            if((*p_nb_jouer) >= 1 && (abs((*p_destination_X)-(*p_origine_X)) < 2 || (*p_origine_X) != (*p_prise_X) || (*p_origine_Y) != (*p_prise_Y)))
+            {
+                reprend = false;
+            }
+            if(((*p_pion)%2 == *p_playa_turn) && reprend && tester_mouvement(p_tableau, *p_playa_turn, *p_pion, *p_origine_X, *p_origine_Y, *p_destination_X, *p_destination_Y))        /// si le mouvement est possible on la pose
             {
                 poser_piece(p_tableau, *p_destination_X, *p_destination_Y,
                             p_pion, p_destination_X, p_destination_Y);
-                (*p_playa_turn) = !(*p_playa_turn);
+                if(abs((*p_destination_X)-(*p_origine_X)) >= 2)
+                {
+                    if(test_reprise(p_tableau, *p_pion, *p_destination_X, *p_destination_Y))
+                    {
+                        (*p_playa_turn) = (*p_playa_turn);
+                        (*p_prise_X) = (*p_destination_X);
+                        (*p_prise_Y) = (*p_destination_Y);
+                        (*p_nb_jouer)++;
+                    }
+                    else
+                    {
+                        (*p_playa_turn) = !(*p_playa_turn);
+                        (*p_nb_jouer) = 0;
+                    }
+                }
+                else
+                {
+                    (*p_playa_turn) = !(*p_playa_turn);
+                    (*p_nb_jouer) = 0;
+                }
+                (*p_pion) = 0;
             }
             else                            /// sinon on la remet à sa place
             {

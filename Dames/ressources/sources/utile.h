@@ -48,7 +48,7 @@
 #define HAUTEUR_ECRAN       size_of_game(CY_SCREEN)     ///     600     ///  768     ///  1080
 #define SCREEN_REFRESH      40
 #define DEBUG               std::cerr << std::endl <<
-#define NOMBRE_IMAGE        8
+#define NOMBRE_IMAGE        11
 #define NOMBRE_MUSIQUE      1
 #define NOMBRE_POLICE       1
 

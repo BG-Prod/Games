@@ -42,8 +42,8 @@
 
 
 void game(Input * p_in, SDL_Surface ** p_images);       /// gère une partie entière
-void jouer_jeu(Input * p_in, Texte * p_page, bool * p_can_play, int ** p_tableau, int * p_pion, int * p_origine_X, int * p_origine_Y, int * p_destination_X, int * p_destination_Y);    /// gère la partie algo
-void time_to_IA(Input * p_in, bool * p_playa_turn, int ** p_tableau, int * p_pion, int * p_origine_X, int * p_origine_Y, int * p_destination_X, int * p_destination_Y); /// gère le comportement de l'IA et si elle peut jouer
+void jouer_jeu(Input * p_in, Texte * p_page, bool * p_can_play, int * p_nb_jouer, int ** p_tableau, int * p_pion, int * p_origine_X, int * p_origine_Y, int * p_destination_X, int * p_destination_Y, int *, int *);    /// gère la partie algo
+void time_to_IA(Input * p_in, bool * p_playa_turn, int * p_nb_jouer, int ** p_tableau, int * p_pion, int * p_origine_X, int * p_origine_Y, int * p_destination_X, int * p_destination_Y, int*, int*); /// gère le comportement de l'IA et si elle peut jouer
 void tester_action();                                   /// test une action
 bool tester_mouvement(int ** p_tableau,                 /// un tableau 10*10 contenant la valeur des pièces
                       bool * p_playa_turn,
@@ -55,9 +55,10 @@ bool tester_fin(int ** p_tableau, int p_pion);          /// détermine si la part
 void pion_to_dame(int ** p_tableau);
 
 /// gère les déplacements de pièces
-void cliquer_prendre_poser(Input * p_in, bool * p_playa_turn, int ** p_tableau, int * p_pion,
+void cliquer_prendre_poser(Input * p_in, bool * p_playa_turn, int * p_nb_jouer, int ** p_tableau, int * p_pion,
                            int * p_origine_X, int * p_origine_Y,
-                           int * p_destination_X, int * p_destination_Y);
+                           int * p_destination_X, int * p_destination_Y,
+                           int * p_prise_X, int * p_prise_Y);
 /// gère les prises de pièces
 void prendre_piece(int ** p_tableau, int p_depart_X, int p_depart_Y,
                    int * p_pion, int * p_temp_X, int * p_temp_Y);

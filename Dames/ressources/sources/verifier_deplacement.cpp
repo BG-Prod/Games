@@ -270,3 +270,24 @@ bool test_mouvement(int ** p_tableau, int p_piece, int p_origin_x, int p_origin_
 } //fin fonction
 
 
+bool test_reprise(int ** p_tableau, int p_piece, int p_origin_x, int p_origin_y)
+/**
+ **
+ ** teste si une prise est possible à une certaine position par une certaine piece
+ **
+ **/
+{
+    bool reprise = false;
+
+    if((p_origin_x < 8 && p_origin_y < 8 && p_tableau[p_origin_y+1][p_origin_x+1]%2 == (p_piece+1)%2 && p_tableau[p_origin_y+1][p_origin_x+1] != 0 && p_tableau[p_origin_y+2][p_origin_x+2] == 0) ||
+       (p_origin_x > 1 && p_origin_y > 1 && p_tableau[p_origin_y-1][p_origin_x-1]%2 == (p_piece+1)%2 && p_tableau[p_origin_y-1][p_origin_x-1] != 0 && p_tableau[p_origin_y-2][p_origin_x-2] == 0) ||
+       (p_origin_x > 1 && p_origin_y < 8 && p_tableau[p_origin_y+1][p_origin_x-1]%2 == (p_piece+1)%2 && p_tableau[p_origin_y+1][p_origin_x-1] != 0 && p_tableau[p_origin_y+2][p_origin_x-2] == 0) ||
+       (p_origin_x < 8 && p_origin_y > 1 && p_tableau[p_origin_y-1][p_origin_x+1]%2 == (p_piece+1)%2 && p_tableau[p_origin_y-1][p_origin_x+1] != 0 && p_tableau[p_origin_y-2][p_origin_x+2] == 0))
+    {
+        reprise = true;
+    }
+    return reprise;
+}
+
+
+
