@@ -46,6 +46,7 @@
 #define TAILLE_CARRE        HAUTEUR_ECRAN / 10
 #define LARGEUR_ECRAN       CX_SCREEN                   ///     800     ///  1366    ///  1920
 #define HAUTEUR_ECRAN       size_of_game(CY_SCREEN)     ///     600     ///  768     ///  1080
+#define RESIZE              HAUTEUR_ECRAN/1080.0
 #define SCREEN_REFRESH      40
 #define DEBUG               std::cerr << std::endl <<
 #define NOMBRE_IMAGE        11

@@ -33,6 +33,8 @@ void afficher_jeu(SDL_Surface ** p_images, Texte * p_page, int ** p_tableau1, in
     afficher_pions(p_images, p_tableau2);
     SDL_BlitSurface(p_images[7], NULL, SDL_GetVideoSurface(), &place);
     p_page->print_text();
+    p_page->print_text(6,1260.0*RESIZE,470.0*RESIZE);
+    p_page->print_text(7,1600.0*RESIZE,470.0*RESIZE);
     SDL_Flip(SDL_GetVideoSurface());
 }
 

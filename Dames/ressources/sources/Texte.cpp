@@ -27,11 +27,11 @@ using namespace std;
 Texte::Texte()
 {
     m_lien = cheminFile + "texte.txt";
-    m_place_base = {HAUTEUR_ECRAN+(120./840.)*HAUTEUR_ECRAN,(840./1080.)*HAUTEUR_ECRAN,0,0};
+    m_place_base = {HAUTEUR_ECRAN+(100./840.)*HAUTEUR_ECRAN,(840./1080.)*HAUTEUR_ECRAN,0,0};
     m_place_var = {0,0,0,0};
-    m_nombre = nombreLignes(m_lien.c_str())-1;
+    m_nombre = nombreLignes(m_lien.c_str())-1+2;
     m_id = 0;
-    m_taille = 20;
+    m_taille = 30.0*RESIZE;
     blanc = {255,255,255};
     gris_clair = {200,200,200};
     gris_fonce = {50,50,50};
@@ -48,7 +48,7 @@ Texte::Texte()
     {
         m_phrase_image[i] = NULL;
     }
-    m_lien = cheminPolice + "calibri" + ".ttf";
+    m_lien = cheminPolice + "arial" + ".ttf";
     m_style = TTF_OpenFont(m_lien.c_str(),m_taille);
 }
 
@@ -60,12 +60,25 @@ Texte::~Texte()
 
 void Texte::load_text()
 {
-    for(int i = 0 ; i < m_nombre ; i++)
+    for(int i = 0 ; i < m_nombre-2 ; i++)
     {
         m_place_var = m_place_base;
         create_text(m_phrases[i].c_str(), "calibri", m_taille, m_couleur);
         m_phrase_image[i] = copieSurface(m_text_image);
     }
+    /// username
+    DWORD StrLen = 256;
+    TCHAR SysInfoStr[256];
+    GetComputerName(SysInfoStr, &StrLen);
+    std::string nameComputeur = SysInfoStr;
+    GetUserName(SysInfoStr, &StrLen);
+    std::string nameUser = SysInfoStr;
+
+    create_text(nameUser.c_str(), "calibri", m_taille, m_couleur);
+    m_phrase_image[m_nombre-2] = copieSurface(m_text_image);
+
+    create_text(nameComputeur.c_str(), "calibri", m_taille, m_couleur);
+    m_phrase_image[m_nombre-1] = copieSurface(m_text_image);
 }
 
 void Texte::erase_text()
@@ -135,7 +148,7 @@ void Texte::print_text(int x, int y)
 
 void Texte::print_text()
 {
-    SDL_BlitSurface(m_text_image,NULL,SDL_GetVideoSurface(),&m_place_var);
+    SDL_BlitSurface(m_text_image,NULL,SDL_GetVideoSurface(),&m_place_base);
 }
 
 void Texte::print_text(int k)

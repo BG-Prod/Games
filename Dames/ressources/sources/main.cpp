@@ -64,11 +64,18 @@ int main ( int argc, char** argv )
 	Today.tm_mon += 1;
 	Today.tm_mday;
 
+/// username
+    DWORD StrLen = 256;
+    TCHAR SysInfoStr[256];
+    GetComputerName(SysInfoStr, &StrLen);
+    std::string nameComputeur = SysInfoStr;
+    GetUserName(SysInfoStr, &StrLen);
+    std::string nameUser = SysInfoStr;
 
 /// déclaration et chargements des ressources
     /// create a new window
     putenv("SDL_VIDEO_WINDOW_POS=center"); /// pour centrer la fenêtre
-    SDL_Surface* screen = SDL_SetVideoMode(LARGEUR_ECRAN, HAUTEUR_ECRAN, 32, SDL_HWSURFACE|SDL_DOUBLEBUF|SDL_RESIZABLE/*|SDL_FULLSCREEN*/);
+    SDL_Surface* screen = SDL_SetVideoMode(LARGEUR_ECRAN, HAUTEUR_ECRAN, 32, SDL_HWSURFACE|SDL_DOUBLEBUF|SDL_RESIZABLE|SDL_FULLSCREEN);
     if ( !screen )
     {
         printf("Unable to set 640x480 video: %s\n", SDL_GetError());
@@ -92,7 +99,7 @@ int main ( int argc, char** argv )
     SDL_WM_SetIcon(images[0], NULL);
 
 /// titre
-    SDL_WM_SetCaption("Dames", NULL);
+    SDL_WM_SetCaption("Draughts : Jeu de Dames", NULL);
 
 
 /// program main loop
