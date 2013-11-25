@@ -143,7 +143,7 @@ int main ( int argc, char** argv )
         }
         if(in.key[SDLK_F2]) /// reduce size
         {
-            SDL_SetVideoMode(LARGEUR_ECRAN, HAUTEUR_ECRAN, 32, SDL_HWSURFACE|SDL_DOUBLEBUF);
+            SDL_SetVideoMode(LARGEUR_ECRAN/2, HAUTEUR_ECRAN/2, 32, SDL_HWSURFACE|SDL_RESIZABLE|SDL_DOUBLEBUF);
         }
 
 

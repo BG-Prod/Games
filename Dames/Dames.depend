@@ -302,3 +302,101 @@
 1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_getenv.h
 	"SDL_stdinc.h"
 
+1385408141 source:c:\users\benji\documents\github\bg_prod\dames\ressources\sources\affichage.cpp
+	"affichage.h"
+
+1384328926 c:\users\benji\documents\github\bg_prod\dames\ressources\sources\affichage.h
+	<cstdlib>
+	<stdlib.h>
+	<stdio.h>
+	<string>
+	<windows.h>
+	<SDL.h>
+	<SDL_ttf.h>
+	<SDL_image.h>
+	<FMOD/fmod.h>
+	"utile.h"
+	"Texte.h"
+
+1385408141 c:\users\benji\documents\github\bg_prod\dames\ressources\sources\utile.h
+	<cstdlib>
+	<stdlib.h>
+	<stdio.h>
+	<fstream>
+	<string>
+	<sstream>
+	<iostream>
+	<windows.h>
+	<SDL.h>
+	<SDL_ttf.h>
+	<SDL_image.h>
+	<SDL_rotozoom.h>
+	<FMOD/fmod.h>
+
+1385371449 c:\users\benji\documents\github\bg_prod\dames\ressources\sources\texte.h
+	<iostream>
+	<SDL.h>
+	<SDL_ttf.h>
+	"utile.h"
+
+1385371449 source:c:\users\benji\documents\github\bg_prod\dames\ressources\sources\jeu.cpp
+	"jeu.h"
+
+1385409024 c:\users\benji\documents\github\bg_prod\dames\ressources\sources\jeu.h
+	<cstdlib>
+	<stdlib.h>
+	<stdio.h>
+	<string>
+	<windows.h>
+	<math.h>
+	<SDL.h>
+	<SDL_ttf.h>
+	<SDL_image.h>
+	<FMOD/fmod.h>
+	"utile.h"
+	"Texte.h"
+	"verifier_deplacement.h"
+	"affichage.h"
+	"intell.h"
+
+1385371449 c:\users\benji\documents\github\bg_prod\dames\ressources\sources\verifier_deplacement.h
+	<stdlib.h>
+	<stdio.h>
+	<math.h>
+
+1385408815 c:\users\benji\documents\github\bg_prod\dames\ressources\sources\intell.h
+
+1384328926 source:c:\users\benji\documents\github\bg_prod\dames\ressources\sources\ressources.rc
+
+1385408141 source:c:\users\benji\documents\github\bg_prod\dames\ressources\sources\texte.cpp
+	"Texte.h"
+
+1385371449 source:c:\users\benji\documents\github\bg_prod\dames\ressources\sources\utile.cpp
+	"utile.h"
+
+1385371449 source:c:\users\benji\documents\github\bg_prod\dames\ressources\sources\verifier_deplacement.cpp
+	"verifier_deplacement.h"
+
+1385409791 source:c:\users\benji\documents\github\bg_prod\dames\ressources\sources\main.cpp
+	<cstdlib>
+	<stdlib.h>
+	<stdio.h>
+	<math.h>
+	<fstream>
+	<string>
+	<sstream>
+	<iostream>
+	<windows.h>
+	<SDL.h>
+	<SDL_ttf.h>
+	<SDL_image.h>
+	<SDL_rotozoom.h>
+	<SDL_getenv.h>
+	<FMOD/fmod.h>
+	<ctime>
+	"Texte.h"
+	"utile.h"
+	"affichage.h"
+	"verifier_deplacement.h"
+	"jeu.h"
+

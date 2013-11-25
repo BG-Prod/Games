@@ -39,6 +39,7 @@
 #include "Texte.h"
 #include "verifier_deplacement.h"
 #include "affichage.h"
+#include "intell.h"
 
 
 void game(Input * p_in, SDL_Surface ** p_images);       /// gère une partie entière
