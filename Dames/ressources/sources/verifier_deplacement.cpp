@@ -153,7 +153,7 @@ bool test_mouvement(int ** p_tableau, int p_piece, int p_origin_x, int p_origin_
 	}//fin pion noir
 	else if(3 == p_piece) //dame blanche
 	{
-	    if(p_tableau[p_dest_y][p_dest_x] != 0)
+	    if(p_tableau[p_dest_y][p_dest_x] != 0 || (p_dest_y-p_origin_y == 0 && p_dest_x-p_origin_x == 0))
         {
             possible = false;
         }
@@ -209,7 +209,7 @@ bool test_mouvement(int ** p_tableau, int p_piece, int p_origin_x, int p_origin_
     } //fin dame blanche
 	else if(4 == p_piece) //dame noire
 	{
-	    if(p_tableau[p_dest_y][p_dest_x] != 0)
+	    if(p_tableau[p_dest_y][p_dest_x] != 0 || (p_dest_y-p_origin_y == 0 && p_dest_x-p_origin_x == 0))
         {
             possible = false;
         }
