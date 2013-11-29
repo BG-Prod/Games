@@ -35,13 +35,28 @@
 
 void faire_jouer_ia( ) ///je ne sais pas encore ce que ca va prendre, mais ca va prendre cher !
 {
-    int ** deplacements = (int*)malloc(XXX * sizeof(int*)); ///XXX a remplacer par le nombre de fonctions de test de deplacement
+    int ** deplacements = (int**)malloc(XXX * sizeof(int*)); ///XXX a remplacer par le nombre de fonctions de test de deplacement
+    for(int i =0; i < XXX; i++)
+    {
+        deplacements[i] = (int*)malloc(3 * sizeof(int));
+    }
 
+    ///initialisation du tableau de deplacements a 0
+    for(int i = 0; i < 5; i++)
+    {
+        for(int j = 0 ;j < 3; j++)
+        {
+            deplacement[i][j] = 0;
+        }
+    }
 
+    /**
+        tableaux de priorites
+                                */
 
 }
 
-int ** dame() ///va sans doute prendre un tableau
+int * dame(int ** p_tableau, int * tableau_priorite) ///va sans doute prendre un tableau
 {
     /// variables, ne pas oublier de free()
 
@@ -50,6 +65,8 @@ int ** dame() ///va sans doute prendre un tableau
     {
         deplacement[i] = (int*)malloc(3 * sizeof(int));
     }
+
+    int * retour ;
 
     int ligne = 0; ///indice pour placer les deplacement dans le tableau
 
@@ -91,9 +108,16 @@ int ** dame() ///va sans doute prendre un tableau
         ligne++; ///on va ecrire sur la ligne suivante
     }
 
-    ///nettoyer les deplacement, prendre le plus important, free() deplacement et retourner un int* depl
+    retour = selection_deplacement(deplacement, 5); ///choisit le deplacement le plus important
 
-    return ;
+    ///liberation de grand tableau de deplacements
+    for(int i = 0; i < 5; i++)
+    {
+        free(deplacement[i]);
+    }
+    free(deplacement);
+
+    return retour;
 }
 
 bool pion_menace_arierre(int x, int y)
@@ -122,4 +146,27 @@ bool pion_une_menace_avant(int x, int y)
 */
 {
 
+}
+
+int * selection_deplacement(int ** tableau_deplacement, int taille_deplacement)
+/**
+    v retourner le meilleur deplacement de la liste de deplacements
+    prend aussi en argument le nombre de ligns du tableau de deplacement
+*/
+{
+    int * retour = (int *)malloc(3 * sizeof(int));
+    int maxi = 0;
+
+    for(int i=0; i < taille_deplacement; i++)
+    {
+        if(tableau_deplacement[i][3] >= maxi)
+        {
+            retour[1] = tableau_deplacement[i][1];
+            retour[2] = tableau_deplacement[i][2];
+            retour[3] = tableau_deplacement[i][3];
+
+            maxi = tableau_deplacement[i][3];
+        }
+    }
+    return retour;
 }
