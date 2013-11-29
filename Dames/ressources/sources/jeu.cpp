@@ -240,8 +240,11 @@ void cliquer_prendre_poser(Input * p_in, bool * p_playa_turn, int * p_nb_jouer, 
         if(p_in->mousebuttons[SDL_BUTTON_LEFT])
         {
             bool reprend = true;
-            *p_destination_X = ((p_in->mousex)/(TAILLE_CARRE));
-            *p_destination_Y = ((p_in->mousey)/(TAILLE_CARRE));
+        ///    if(*p_playa_turn)
+        ///    {
+                *p_destination_X = ((p_in->mousex)/(TAILLE_CARRE));
+                *p_destination_Y = ((p_in->mousey)/(TAILLE_CARRE));
+        ///    }
 
             if((*p_nb_jouer) >= 1 && (abs((*p_destination_X)-(*p_origine_X)) < 2 || (*p_origine_X) != (*p_prise_X) || (*p_origine_Y) != (*p_prise_Y)))
             {

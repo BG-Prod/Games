@@ -203,7 +203,6 @@ string niemeLigne(const std::string & filename, int p_count)
             }
             i++;
         }
-        cout << ligne.c_str();
     }
     else
     {

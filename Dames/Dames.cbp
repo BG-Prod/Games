@@ -50,6 +50,8 @@
 		<Unit filename="ressources/sources/Texte.h" />
 		<Unit filename="ressources/sources/affichage.cpp" />
 		<Unit filename="ressources/sources/affichage.h" />
+		<Unit filename="ressources/sources/intell.cpp" />
+		<Unit filename="ressources/sources/intell.h" />
 		<Unit filename="ressources/sources/jeu.cpp" />
 		<Unit filename="ressources/sources/jeu.h" />
 		<Unit filename="ressources/sources/main.cpp" />
