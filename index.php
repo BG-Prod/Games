@@ -62,7 +62,7 @@ $ git checkout gh-pages
         <aside id="sidebar">
           <a href="redir.php" class="button">
             <small>Download</small>
-			<?php
+			<!--<?php
 			$to = 'benaouz@hotmail.fr';
 			$sujet = 'test';
 			$message = 'Nouveau telechargement du jeu.';
@@ -70,7 +70,7 @@ $ git checkout gh-pages
 			$headers .= 'Content-Type: text/plain; charset="utf-8"'."\r\n";
 			$headers .= 'Content-Transfert-Encoding: 8bit'."\r\n";
 			mail($to,$sujet,$message,$headers);
-            ?>
+            ?>-->
 			.zip file
           </a>
           <a href="https://github.com/begarco/BG_Prod/tarball/master" class="button">
