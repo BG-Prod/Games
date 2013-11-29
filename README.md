@@ -1,6 +1,4 @@
-BG_Prod
-=======
+BG_PROD
+===========
 
-Repository of my projects.
-
-SDL : http://alexandre-laurent.developpez.com/tutoriels/sdl-2/afficher-sprites-sdl-2/#LI
+A growing up company of various games
