@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<BrowseTracker_layout_file>
+	<ActiveTarget name="Debug" />
+	<File name="ressources\sources\jeu.cpp" open="1" top="0" tabpos="4">
+		<Cursor position="9515" topLine="194" />
+	</File>
+	<File name="ressources\sources\affichage.cpp" open="1" top="0" tabpos="5">
+		<Cursor position="1410" topLine="9" />
+		<BrowseMarks positions="1352" />
+		<Book_Marks positions="" />
+	</File>
+	<File name="ressources\sources\utile.cpp" open="1" top="0" tabpos="2">
+		<Cursor position="872" topLine="14" />
+	</File>
+	<File name="ressources\sources\Texte.cpp" open="1" top="0" tabpos="3">
+		<Cursor position="4363" topLine="114" />
+		<BrowseMarks positions="902" />
+		<Book_Marks positions="" />
+	</File>
+	<File name="ressources\sources\verifier_deplacement.cpp" open="1" top="0" tabpos="9">
+		<Cursor position="5845" topLine="41" />
+	</File>
+	<File name="ressources\sources\verifier_deplacement.h" open="1" top="0" tabpos="10">
+		<Cursor position="1140" topLine="0" />
+	</File>
+	<File name="ressources\sources\utile.h" open="1" top="0" tabpos="7">
+		<Cursor position="1718" topLine="32" />
+		<BrowseMarks positions="" />
+		<Book_Marks positions="" />
+	</File>
+	<File name="ressources\sources\Texte.h" open="1" top="0" tabpos="6">
+		<Cursor position="793" topLine="0" />
+	</File>
+	<File name="ressources\sources\affichage.h" open="1" top="0" tabpos="8">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="ressources\sources\jeu.h" open="1" top="0" tabpos="11">
+		<Cursor position="1963" topLine="15" />
+	</File>
+	<File name="ressources\sources\main.cpp" open="1" top="1" tabpos="1">
+		<Cursor position="1996" topLine="52" />
+		<BrowseMarks positions="" />
+		<Book_Marks positions="" />
+	</File>
+</BrowseTracker_layout_file>
