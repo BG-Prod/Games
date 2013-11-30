@@ -131,12 +131,12 @@ aside#sidebar p.repo-owner a {
 a.button {
   width: 134px;
   height: 58px;
-  line-height: 1.2;
-  font-size: 23px;
+  line-height: 1.0;
+  font-size: 20px;
   color: #fff;
   padding-left: 68px;
   padding-top: 22px;
-  font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif; 
+  font-family: 'Arial', 'Helvetica Neue', Helvetica, Arial, serif; 
 }
 a.button small {
   display: block;
