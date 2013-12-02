@@ -21,7 +21,7 @@
 #include "verifier_deplacement.h"
 
 
-bool test_mouvement(int ** p_tableau, int p_piece, int p_origin_x, int p_origin_y, int p_dest_x, int p_dest_y)
+bool test_mouvement(int ** p_tableau, int p_piece, int p_origin_x, int p_origin_y, int p_dest_x, int p_dest_y, Animation * p_repas)
 /*
  * Teste si les déplacemens proposés sont possibles
  * true si il est possible
@@ -53,11 +53,17 @@ bool test_mouvement(int ** p_tableau, int p_piece, int p_origin_x, int p_origin_
 			    if((p_dest_x ==  p_origin_x - 2) and ((p_tableau[p_origin_y + 1][p_origin_x - 1] == 2) or (p_tableau[p_origin_y + 1][p_origin_x - 1] == 4))) //a gauche
                 {
                     p_tableau[p_origin_y + 1][p_origin_x - 1] = 0;
+                    p_repas->temps = 0;
+                    p_repas->place.x = p_origin_x - 1;
+                    p_repas->place.y = p_origin_y + 1;
                     possible = true;
                 }
                 else if((p_dest_x ==  p_origin_x + 2) and ((p_tableau[p_origin_y + 1][p_origin_x + 1] == 2) or (p_tableau[p_origin_y + 1][p_origin_x + 1] == 4))) //a droite
                 {
                     p_tableau[p_origin_y + 1][p_origin_x + 1] = 0;
+                    p_repas->temps = 0;
+                    p_repas->place.x = p_origin_x + 1;
+                    p_repas->place.y = p_origin_y + 1;
                     possible = true;
                 }
                 else
@@ -70,11 +76,17 @@ bool test_mouvement(int ** p_tableau, int p_piece, int p_origin_x, int p_origin_
                 if(p_dest_x == p_origin_x - 2 and ((p_tableau[p_origin_y - 1][p_origin_x - 1] == 2) or (p_tableau[p_origin_y - 1][p_origin_x - 1] == 4))) //a gauche
                 {
                     p_tableau[p_origin_y - 1][p_origin_x - 1] = 0;
+                    p_repas->temps = 0;
+                    p_repas->place.x = p_origin_x - 1;
+                    p_repas->place.y = p_origin_y - 1;
                     possible = true;
                 }
                 else if(p_dest_x == p_origin_x + 2 and ((p_tableau[p_origin_y - 1][p_origin_x + 1] == 2) or (p_tableau[p_origin_y - 1][p_origin_x + 1] == 4))) //a droite
                 {
                     p_tableau[p_origin_y - 1][p_origin_x + 1] = 0;
+                    p_repas->temps = 0;
+                    p_repas->place.x = p_origin_x + 1;
+                    p_repas->place.y = p_origin_y - 1;
                     possible = true;
                 }
                 else
@@ -112,11 +124,17 @@ bool test_mouvement(int ** p_tableau, int p_piece, int p_origin_x, int p_origin_
 			    if((p_dest_x ==  p_origin_x - 2) and ((p_tableau[p_origin_y + 1][p_origin_x - 1] == 1) or (p_tableau[p_origin_y + 1][p_origin_x - 1] == 3))) //a gauche
                 {
                     p_tableau[p_origin_y + 1][p_origin_x - 1] = 0;
+                    p_repas->temps = 0;
+                    p_repas->place.x = p_origin_x - 1;
+                    p_repas->place.y = p_origin_y + 1;
                     possible = true;
                 }
                 else if((p_dest_x ==  p_origin_x + 2) and ((p_tableau[p_origin_y + 1][p_origin_x + 1] == 1) or (p_tableau[p_origin_y + 1][p_origin_x + 1] == 3))) //a droite
                 {
                     p_tableau[p_origin_y + 1][p_origin_x + 1] = 0;
+                    p_repas->temps = 0;
+                    p_repas->place.x = p_origin_x + 1;
+                    p_repas->place.y = p_origin_y + 1;
                     possible = true;
                 }
                 else
@@ -129,11 +147,17 @@ bool test_mouvement(int ** p_tableau, int p_piece, int p_origin_x, int p_origin_
                 if(p_dest_x == p_origin_x - 2 and (p_tableau[p_origin_y - 1][p_origin_x - 1]%2)) //a gauche
                 {
                     p_tableau[p_origin_y - 1][p_origin_x - 1] = 0;
+                    p_repas->temps = 0;
+                    p_repas->place.x = p_origin_x - 1;
+                    p_repas->place.y = p_origin_y - 1;
                     possible = true;
                 }
                 else if(p_dest_x == p_origin_x + 2 and (p_tableau[p_origin_y - 1][p_origin_x + 1]%2)) //a droite
                 {
                     p_tableau[p_origin_y - 1][p_origin_x + 1] = 0;
+                    p_repas->temps = 0;
+                    p_repas->place.x = p_origin_x + 1;
+                    p_repas->place.y = p_origin_y - 1;
                     possible = true;
                 }
                 else

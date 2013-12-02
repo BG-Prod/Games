@@ -20,11 +20,11 @@
 
 #include "affichage.h"
 
+
 using namespace std;
 
 
-
-void afficher_jeu(SDL_Surface ** p_images, Texte * p_page, int ** p_tableau1, int ** p_tableau2, Input p_in, int p_pion)
+void afficher_jeu(SDL_Surface ** p_images, Texte * p_page, int ** p_tableau1, int ** p_tableau2, Input p_in, int p_pion, Animation * p_repas)
 {
     SDL_Rect place = {0,0,0,0};
     place.x = p_images[5]->w*10;
@@ -35,6 +35,8 @@ void afficher_jeu(SDL_Surface ** p_images, Texte * p_page, int ** p_tableau1, in
     p_page->print_text();
     p_page->print_text(6,1260.0*RESIZE,470.0*RESIZE);
     p_page->print_text(7,1600.0*RESIZE,470.0*RESIZE);
+
+    explosion(p_images, p_repas);
 
     if(p_pion)
     {
@@ -74,4 +76,33 @@ void afficher_pions(SDL_Surface ** p_images, int ** p_tableau)
         }
     }
 }
+
+void explosion(SDL_Surface ** p_images, Animation * animation) /// permet d'afficher une explosion lorsque temps = 0
+{
+    if(animation->temps != -1)
+    {
+        if(!animation->temps)
+        {
+            animation->place.x = (animation->place.x * p_images[5]->w) + p_images[5]->w/2 - p_images[12]->w/8;
+            animation->place.y = (p_images[5]->h * animation->place.y) + p_images[5]->h/2 - p_images[12]->h/10;
+        }
+        if(animation->temps < 20)
+        {
+            /// faire les calculs de l'image
+            SDL_Rect place;
+            place.x = (animation->temps%4) * p_images[12]->w/4;
+            place.y = (animation->temps/4) * p_images[12]->h/5;
+            place.w = p_images[12]->w / 4;
+            place.h = p_images[12]->h / 5;
+            SDL_BlitSurface(p_images[12], &place, SDL_GetVideoSurface(), &(animation->place));
+            animation->temps = animation->temps + 1;
+        }
+        else
+        {
+            animation->temps = -1;
+        }
+    }
+}
+
+
 

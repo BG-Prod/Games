@@ -27,7 +27,10 @@
 #include <math.h>
 
 
-bool test_mouvement(int ** p_tableau, int p_piece, int p_origin_x, int p_origin_y, int p_dest_x, int p_dest_y);
+#include "utile.h"
+
+
+bool test_mouvement(int ** p_tableau, int p_piece, int p_origin_x, int p_origin_y, int p_dest_x, int p_dest_y, Animation * p_repas);
 
 bool test_reprise(int ** p_tableau, int p_piece, int p_origin_x, int p_origin_y);
 

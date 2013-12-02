@@ -43,11 +43,12 @@
 
 
 void game(Input * p_in, SDL_Surface ** p_images);       /// gère une partie entière
-void jouer_jeu(Input * p_in, Texte * p_page, bool * p_can_play, int * p_nb_jouer, int ** p_tableau, int * p_pion, int * p_origine_X, int * p_origine_Y, int * p_destination_X, int * p_destination_Y, int *, int *);    /// gère la partie algo
-void time_to_IA(Input * p_in, bool * p_playa_turn, int * p_nb_jouer, int ** p_tableau, int * p_pion, int * p_origine_X, int * p_origine_Y, int * p_destination_X, int * p_destination_Y, int*, int*); /// gère le comportement de l'IA et si elle peut jouer
+void jouer_jeu(Input * p_in, Texte * p_page, bool * p_can_play, int * p_nb_jouer, int ** p_tableau, Animation * p_repas, int * p_pion, int * p_origine_X, int * p_origine_Y, int * p_destination_X, int * p_destination_Y, int *, int *);    /// gère la partie algo
+void time_to_IA(Input * p_in, bool * p_playa_turn, int * p_nb_jouer, int ** p_tableau, Animation * p_repas, int * p_pion, int * p_origine_X, int * p_origine_Y, int * p_destination_X, int * p_destination_Y, int*, int*); /// gère le comportement de l'IA et si elle peut jouer
 void tester_action();                                   /// test une action
 bool tester_mouvement(int ** p_tableau,                 /// un tableau 10*10 contenant la valeur des pièces
                       bool * p_playa_turn,
+                      Animation * p_repas,
                       int p_piece,                      /// valeur de le pièce qui effectue le mouvement
                       int p_origin_X, int p_origin_Y,   /// origine de la pièce dans le tableau
                       int p_dest_X, int p_dest_Y);      /// destination souhaitée dans le tableau
@@ -56,7 +57,7 @@ bool tester_fin(int ** p_tableau, int p_pion);          /// détermine si la part
 void pion_to_dame(int ** p_tableau);
 
 /// gère les déplacements de pièces
-void cliquer_prendre_poser(Input * p_in, bool * p_playa_turn, int * p_nb_jouer, int ** p_tableau, int * p_pion,
+void cliquer_prendre_poser(Input * p_in, bool * p_playa_turn, int * p_nb_jouer, int ** p_tableau, Animation * p_repas, int * p_pion,
                            int * p_origine_X, int * p_origine_Y,
                            int * p_destination_X, int * p_destination_Y,
                            int * p_prise_X, int * p_prise_Y);
@@ -69,6 +70,7 @@ void poser_piece(int ** p_tableau, int p_arrivee_X, int p_arrivee_Y,
 /// nettoie les variables de déplacement
 void nettoyer_deplacement(int * p_pion, int * p_origine_X, int * p_origine_Y,
                           int * p_destination_X, int * p_destination_Y);
+
 
 
 

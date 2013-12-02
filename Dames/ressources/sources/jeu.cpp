@@ -76,6 +76,8 @@ void game(Input * p_in, SDL_Surface ** p_images)
         temp_destination_Y = 0, ///
         prise_X = 0,            /// coordonnées temporaires
         prise_Y = 0;            ///
+    Animation repas;
+    repas.temps = -1;
     Texte * feuille = new Texte();
     feuille->load_text();
 
@@ -111,7 +113,7 @@ void game(Input * p_in, SDL_Surface ** p_images)
 
 
     /// mécanique du jeu
-        jouer_jeu(p_in, feuille, &playa_turn, &nb_jouer, tableauPions, &pion_en_main,
+        jouer_jeu(p_in, feuille, &playa_turn, &nb_jouer, tableauPions, &repas, &pion_en_main,
                   &temp_origine_X,
                   &temp_origine_Y,
                   &temp_destination_X,
@@ -119,7 +121,7 @@ void game(Input * p_in, SDL_Surface ** p_images)
                   &prise_X,
                   &prise_Y);
     /// affichage du jeu
-        afficher_jeu(p_images,feuille,tableauCases,tableauPions, *p_in, pion_en_main);
+        afficher_jeu(p_images,feuille,tableauCases,tableauPions, *p_in, pion_en_main, &repas);
     }
 
 /// fermeture du jeu
@@ -132,27 +134,27 @@ void game(Input * p_in, SDL_Surface ** p_images)
     free(tableauPions);
 }
 
-void jouer_jeu(Input * p_in, Texte * p_page, bool * p_playa_turn, int * p_nb_jouer, int ** p_tableau, int * p_pion,
+void jouer_jeu(Input * p_in, Texte * p_page, bool * p_playa_turn, int * p_nb_jouer, int ** p_tableau, Animation * p_repas, int * p_pion,
                int * p_origine_X, int * p_origine_Y, int * p_destination_X, int * p_destination_Y, int * p_prise_X, int * p_prise_Y)
 {
     if(!(*p_playa_turn))        /// si c'est le tour de l'IA
     {
         p_page->chose_text(1);
-        time_to_IA(p_in, p_playa_turn, p_nb_jouer, p_tableau, p_pion, p_origine_X, p_origine_Y, p_destination_X, p_destination_Y, p_prise_X, p_prise_Y);
+        time_to_IA(p_in, p_playa_turn, p_nb_jouer, p_tableau, p_repas, p_pion, p_origine_X, p_origine_Y, p_destination_X, p_destination_Y, p_prise_X, p_prise_Y);
     }
     else        /// si c'est le tour du joueur
     {
         p_page->chose_text(0);
-        cliquer_prendre_poser(p_in, p_playa_turn, p_nb_jouer, p_tableau, p_pion, p_origine_X, p_origine_Y, p_destination_X, p_destination_Y, p_prise_X, p_prise_Y);
+        cliquer_prendre_poser(p_in, p_playa_turn, p_nb_jouer, p_tableau, p_repas, p_pion, p_origine_X, p_origine_Y, p_destination_X, p_destination_Y, p_prise_X, p_prise_Y);
     }
     pion_to_dame(p_tableau);
 }
 
 
-void time_to_IA(Input * p_in, bool * p_playa_turn, int * p_nb_jouer, int ** p_tableau, int * p_pion,
+void time_to_IA(Input * p_in, bool * p_playa_turn, int * p_nb_jouer, int ** p_tableau, Animation * p_repas, int * p_pion,
                 int * p_origine_X, int * p_origine_Y, int * p_destination_X, int * p_destination_Y, int * p_prise_X, int * p_prise_Y)
 {
-    cliquer_prendre_poser(p_in, p_playa_turn, p_nb_jouer, p_tableau, p_pion, p_origine_X, p_origine_Y, p_destination_X, p_destination_Y, p_prise_X, p_prise_Y);
+    cliquer_prendre_poser(p_in, p_playa_turn, p_nb_jouer, p_tableau, p_repas, p_pion, p_origine_X, p_origine_Y, p_destination_X, p_destination_Y, p_prise_X, p_prise_Y);
 }
 
 
@@ -189,9 +191,9 @@ bool tester_fin(int ** p_tableau, int p_pion)       /// détermine si la partie e
 }
 
 
-bool tester_mouvement(int ** p_tableau, bool p_playa_turn, int p_piece, int p_origin_X, int p_origin_Y, int p_dest_X, int p_dest_Y)
+bool tester_mouvement(int ** p_tableau, bool p_playa_turn, Animation * p_repas, int p_piece, int p_origin_X, int p_origin_Y, int p_dest_X, int p_dest_Y)
 {
-    return test_mouvement(p_tableau, p_piece, p_origin_X, p_origin_Y, p_dest_X, p_dest_Y);        /// la fonction de Benji
+    return test_mouvement(p_tableau, p_piece, p_origin_X, p_origin_Y, p_dest_X, p_dest_Y, p_repas);        /// la fonction de Benji
 }
 
 
@@ -230,7 +232,7 @@ void pion_to_dame(int ** p_tableau)         /// change un pion en dame si il est
 }
 
 
-void cliquer_prendre_poser(Input * p_in, bool * p_playa_turn, int * p_nb_jouer, int ** p_tableau, int * p_pion,
+void cliquer_prendre_poser(Input * p_in, bool * p_playa_turn, int * p_nb_jouer, int ** p_tableau, Animation * p_repas, int * p_pion,
                            int * p_origine_X, int * p_origine_Y,
                            int * p_destination_X, int * p_destination_Y,
                            int * p_prise_X, int * p_prise_Y)
@@ -250,7 +252,7 @@ void cliquer_prendre_poser(Input * p_in, bool * p_playa_turn, int * p_nb_jouer, 
             {
                 reprend = false;
             }
-            if(((*p_pion)%2 == *p_playa_turn) && reprend && tester_mouvement(p_tableau, *p_playa_turn, *p_pion, *p_origine_X, *p_origine_Y, *p_destination_X, *p_destination_Y))        /// si le mouvement est possible on la pose
+            if(((*p_pion)%2 == *p_playa_turn) && reprend && tester_mouvement(p_tableau, *p_playa_turn, p_repas, *p_pion, *p_origine_X, *p_origine_Y, *p_destination_X, *p_destination_Y))        /// si le mouvement est possible on la pose
             {
                 poser_piece(p_tableau, *p_destination_X, *p_destination_Y,
                             p_pion, p_destination_X, p_destination_Y);

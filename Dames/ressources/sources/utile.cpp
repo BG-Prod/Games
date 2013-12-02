@@ -106,6 +106,12 @@ void load_images(SDL_Surface ** p_images)
         p_images[i] = SDL_DisplayFormat(IMG_Load(lien.c_str()));
         p_images[i] = rotozoomSurface(p_images[i],0.0,(double)(SDL_GetVideoSurface()->h/1080.0),1);     /// on utilise la hauteur de la fenêtre et non celle de l'écran
     }
+
+    SDL_SetColorKey(p_images[1], SDL_SRCCOLORKEY, SDL_MapRGB(p_images[1]->format, 0, 0, 0));
+    SDL_SetColorKey(p_images[2], SDL_SRCCOLORKEY, SDL_MapRGB(p_images[2]->format, 0, 0, 0));
+    SDL_SetColorKey(p_images[3], SDL_SRCCOLORKEY, SDL_MapRGB(p_images[3]->format, 0, 0, 0));
+    SDL_SetColorKey(p_images[4], SDL_SRCCOLORKEY, SDL_MapRGB(p_images[4]->format, 0, 0, 0));
+    SDL_SetColorKey(p_images[12], SDL_SRCCOLORKEY, SDL_MapRGB(p_images[12]->format, 0, 0, 0));
 }
 
 void load_musiques(FMOD_SYSTEM * p_system, FMOD_SOUND ** p_musiques)

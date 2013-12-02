@@ -38,9 +38,10 @@
 #include "Texte.h"
 
 
-void afficher_jeu(SDL_Surface ** p_images, Texte * p_page, int ** p_tableau1, int ** p_tableau2, Input p_in, int p_pion);
+void afficher_jeu(SDL_Surface ** p_images, Texte * p_page, int ** p_tableau1, int ** p_tableau2, Input p_in, int p_pion, Animation * p_repas);
 void afficher_cases(SDL_Surface ** p_images, int ** p_tableau);
 void afficher_pions(SDL_Surface ** p_images, int ** p_tableau);
+void explosion(SDL_Surface ** p_images, Animation * animation); /// permet d'afficher une explosion lorsque temps = 0
 
 
 #endif /// AFFICHAGE_H_INCLUDED
