@@ -119,7 +119,7 @@ void game(Input * p_in, SDL_Surface ** p_images)
                   &prise_X,
                   &prise_Y);
     /// affichage du jeu
-        afficher_jeu(p_images,feuille,tableauCases,tableauPions);
+        afficher_jeu(p_images,feuille,tableauCases,tableauPions, *p_in, pion_en_main);
     }
 
 /// fermeture du jeu

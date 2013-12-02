@@ -1,8 +1,8 @@
 # depslib dependency file v1.0
-1385743512 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\affichage.cpp
+1386008573 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\affichage.cpp
 	"affichage.h"
 
-1385743512 c:\users\ben\documents\github\bg_prod\dames\ressources\sources\affichage.h
+1386008573 c:\users\ben\documents\github\bg_prod\dames\ressources\sources\affichage.h
 	<cstdlib>
 	<stdlib.h>
 	<stdio.h>
@@ -216,7 +216,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1385743512 c:\users\ben\documents\github\bg_prod\dames\ressources\sources\utile.h
+1386007397 c:\users\ben\documents\github\bg_prod\dames\ressources\sources\utile.h
 	<cstdlib>
 	<stdlib.h>
 	<stdio.h>
@@ -235,16 +235,16 @@
 	<math.h>
 	"SDL.h"
 
-1385743512 c:\users\ben\documents\github\bg_prod\dames\ressources\sources\texte.h
+1386007396 c:\users\ben\documents\github\bg_prod\dames\ressources\sources\texte.h
 	<iostream>
 	<SDL.h>
 	<SDL_ttf.h>
 	"utile.h"
 
-1385743529 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\jeu.cpp
+1386008573 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\jeu.cpp
 	"jeu.h"
 
-1385743512 c:\users\ben\documents\github\bg_prod\dames\ressources\sources\jeu.h
+1386007396 c:\users\ben\documents\github\bg_prod\dames\ressources\sources\jeu.h
 	<cstdlib>
 	<stdlib.h>
 	<stdio.h>
@@ -261,23 +261,23 @@
 	"affichage.h"
 	"intell.h"
 
-1385743512 c:\users\ben\documents\github\bg_prod\dames\ressources\sources\verifier_deplacement.h
+1386007397 c:\users\ben\documents\github\bg_prod\dames\ressources\sources\verifier_deplacement.h
 	<stdlib.h>
 	<stdio.h>
 	<math.h>
 
-1385743758 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\ressources.rc
+1386007396 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\ressources.rc
 
-1385743512 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\texte.cpp
+1386007396 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\texte.cpp
 	"Texte.h"
 
-1385743529 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\utile.cpp
+1386007397 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\utile.cpp
 	"utile.h"
 
-1385743512 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\verifier_deplacement.cpp
+1386007397 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\verifier_deplacement.cpp
 	"verifier_deplacement.h"
 
-1385743512 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\main.cpp
+1386007396 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\main.cpp
 	<cstdlib>
 	<stdlib.h>
 	<stdio.h>
@@ -401,8 +401,8 @@
 	"verifier_deplacement.h"
 	"jeu.h"
 
-1385743512 c:\users\ben\documents\github\bg_prod\dames\ressources\sources\intell.h
+1386007396 c:\users\ben\documents\github\bg_prod\dames\ressources\sources\intell.h
 
-1385743529 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\intell.cpp
+1386007396 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\intell.cpp
 	"intell.h"
 

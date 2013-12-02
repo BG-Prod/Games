@@ -24,7 +24,7 @@ using namespace std;
 
 
 
-void afficher_jeu(SDL_Surface ** p_images, Texte * p_page, int ** p_tableau1, int ** p_tableau2)
+void afficher_jeu(SDL_Surface ** p_images, Texte * p_page, int ** p_tableau1, int ** p_tableau2, Input p_in, int p_pion)
 {
     SDL_Rect place = {0,0,0,0};
     place.x = p_images[5]->w*10;
@@ -35,6 +35,14 @@ void afficher_jeu(SDL_Surface ** p_images, Texte * p_page, int ** p_tableau1, in
     p_page->print_text();
     p_page->print_text(6,1260.0*RESIZE,470.0*RESIZE);
     p_page->print_text(7,1600.0*RESIZE,470.0*RESIZE);
+
+    if(p_pion)
+    {
+        place.x = p_in.mousex - p_images[p_pion]->w/2;
+        place.y = p_in.mousey - p_images[p_pion]->h/2;
+        SDL_BlitSurface(p_images[p_pion], NULL, SDL_GetVideoSurface(), &place);
+    }
+
     SDL_Flip(SDL_GetVideoSurface());
 }
 
