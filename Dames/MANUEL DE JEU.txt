@@ -1,7 +1,7 @@
 ###### Draughts - Les Dames ######
 # version 1.0
 # by BG Prod
-# contact : benoit.garconbesson@gmail.com
+# contact : bgprod@outlook.com
 
 
 Comment jouer ?
@@ -13,7 +13,7 @@ Si le mouvement n'est pas autorisé, ceci sera indiqué dans la partie
 droite du plateau, dans le bloc notes.
 
 Vous ne pouvez déplacer vos pièces que vers l'avant. Les seuls
-déplacements autorisés vers l'arierre sont ceux pour prendre un pion
+déplacements autorisés vers l'arrière sont ceux pour prendre un pion
 adverse.
 Si lorsque vous avez pris un pion adverse il est possible de reprendre
 un pion adverse avec le pion que vous venez de jouer, vous pouvez rejouer.
@@ -33,27 +33,16 @@ Le but du jeu de Dames est de prendre toutes les pièces de l'adversaire
 avant que celui-ci n'ait pris les votre.
 
 
-Calcul du score
-_______________
-
-
-
-
-Les cartes
-__________
-
-
-
 
 __________________________________________________________
 
-# Pour plus d'informations : benoit.garconbesson@gmail.com
+# Pour plus d'informations : bgprod@outlook.com
 __________________________________________________________
 
 
   
     Draughts - Les Dames
-    Copyright (C) 2013  Garçon Benoît
+    Copyright (C) 2013  BG Prod
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -68,4 +57,4 @@ __________________________________________________________
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
     
-    Contact me : benoit.garconbesson@gmail.com
+    Contact us : bgprod@outlook.com
