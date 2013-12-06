@@ -18,29 +18,26 @@
     Contact me : bgprod@outlook.com
 */
 
-#ifndef JEU_H_INCLUDED
-#define JEU_H_INCLUDED
+#ifndef ZONE_H
+#define ZONE_H
 
 
-
-#include <cstdlib>
-#include <stdlib.h>
-#include <stdio.h>
-#include <string>
-#include <windows.h>
+#include <iostream>
 #include <SDL.h>
 #include <SDL_ttf.h>
-#include <SDL_image.h>
-#include <FMOD/fmod.h>
 
 
 #include "utile.h"
-#include "affichage.h"
 
 
-void game();
-void jouer_jeu();
+class Zone
+{
+    public:
+        Zone();
+        virtual ~Zone();
 
+    protected:
+    private:
+};
 
-
-#endif // JEU_H_INCLUDED
+#endif // ZONE_H

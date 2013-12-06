@@ -1,8 +1,8 @@
 # depslib dependency file v1.0
-1380447297 source:c:\users\ben\documents\github\bg_prod\pk project\ressources\sources\affichage.cpp
+1386343254 source:c:\users\ben\documents\github\bg_prod\pk project\ressources\sources\affichage.cpp
 	"affichage.h"
 
-1380447870 c:\users\ben\documents\github\bg_prod\pk project\ressources\sources\affichage.h
+1386343254 c:\users\ben\documents\github\bg_prod\pk project\ressources\sources\affichage.h
 	<cstdlib>
 	<stdlib.h>
 	<stdio.h>
@@ -215,7 +215,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1380447763 c:\users\ben\documents\github\bg_prod\pk project\ressources\sources\utile.h
+1386343254 c:\users\ben\documents\github\bg_prod\pk project\ressources\sources\utile.h
 	<cstdlib>
 	<stdlib.h>
 	<stdio.h>
@@ -227,12 +227,26 @@
 	<SDL.h>
 	<SDL_ttf.h>
 	<SDL_image.h>
+	<SDL_rotozoom.h>
 	<FMOD/fmod.h>
 
-1380447297 source:c:\users\ben\documents\github\bg_prod\pk project\ressources\sources\jeu.cpp
+1103614986 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_rotozoom.h
+	<math.h>
+	"SDL.h"
+
+1386343254 source:c:\users\ben\documents\github\bg_prod\pk project\ressources\sources\base.cpp
+	"Base.h"
+
+1386343254 c:\users\ben\documents\github\bg_prod\pk project\ressources\sources\base.h
+	<iostream>
+	<SDL.h>
+	<SDL_ttf.h>
+	"utile.h"
+
+1386343254 source:c:\users\ben\documents\github\bg_prod\pk project\ressources\sources\jeu.cpp
 	"jeu.h"
 
-1380447870 c:\users\ben\documents\github\bg_prod\pk project\ressources\sources\jeu.h
+1386343254 c:\users\ben\documents\github\bg_prod\pk project\ressources\sources\jeu.h
 	<cstdlib>
 	<stdlib.h>
 	<stdio.h>
@@ -245,10 +259,11 @@
 	"utile.h"
 	"affichage.h"
 
-1380448342 source:c:\users\ben\documents\github\bg_prod\pk project\ressources\sources\main.cpp
+1386345166 source:c:\users\ben\documents\github\bg_prod\pk project\ressources\sources\main.cpp
 	<cstdlib>
 	<stdlib.h>
 	<stdio.h>
+	<math.h>
 	<fstream>
 	<string>
 	<sstream>
@@ -257,8 +272,40 @@
 	<SDL.h>
 	<SDL_ttf.h>
 	<SDL_image.h>
+	<SDL_rotozoom.h>
+	<SDL_getenv.h>
 	<FMOD/fmod.h>
+	<ctime>
+	"Texte.h"
 	"utile.h"
 	"affichage.h"
+	"Base.h"
+	"Zone.h"
 	"jeu.h"
+
+1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_getenv.h
+	"SDL_stdinc.h"
+
+1386343254 c:\users\ben\documents\github\bg_prod\pk project\ressources\sources\texte.h
+	<iostream>
+	<SDL.h>
+	<SDL_ttf.h>
+	"utile.h"
+
+1386343254 c:\users\ben\documents\github\bg_prod\pk project\ressources\sources\zone.h
+	<iostream>
+	<SDL.h>
+	<SDL_ttf.h>
+	"utile.h"
+
+1386090811 source:c:\users\ben\documents\github\bg_prod\pk project\ressources\sources\ressources.rc
+
+1386343254 source:c:\users\ben\documents\github\bg_prod\pk project\ressources\sources\texte.cpp
+	"Texte.h"
+
+1386344995 source:c:\users\ben\documents\github\bg_prod\pk project\ressources\sources\utile.cpp
+	"utile.h"
+
+1386343254 source:c:\users\ben\documents\github\bg_prod\pk project\ressources\sources\zone.cpp
+	"Zone.h"
 

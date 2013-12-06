@@ -1,8 +1,8 @@
 # depslib dependency file v1.0
-1386074943 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\affichage.cpp
+1386090811 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\affichage.cpp
 	"affichage.h"
 
-1386074943 c:\users\ben\documents\github\bg_prod\dames\ressources\sources\affichage.h
+1386090811 c:\users\ben\documents\github\bg_prod\dames\ressources\sources\affichage.h
 	<cstdlib>
 	<stdlib.h>
 	<stdio.h>
@@ -216,7 +216,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1386074943 c:\users\ben\documents\github\bg_prod\dames\ressources\sources\utile.h
+1386090811 c:\users\ben\documents\github\bg_prod\dames\ressources\sources\utile.h
 	<cstdlib>
 	<stdlib.h>
 	<stdio.h>
@@ -235,21 +235,21 @@
 	<math.h>
 	"SDL.h"
 
-1386074943 c:\users\ben\documents\github\bg_prod\dames\ressources\sources\texte.h
+1386090811 c:\users\ben\documents\github\bg_prod\dames\ressources\sources\texte.h
 	<iostream>
 	<SDL.h>
 	<SDL_ttf.h>
 	"utile.h"
 
-1386074943 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\intell.cpp
+1386090811 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\intell.cpp
 	"intell.h"
 
-1386074943 c:\users\ben\documents\github\bg_prod\dames\ressources\sources\intell.h
+1386090811 c:\users\ben\documents\github\bg_prod\dames\ressources\sources\intell.h
 
-1386074943 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\jeu.cpp
+1386090811 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\jeu.cpp
 	"jeu.h"
 
-1386074943 c:\users\ben\documents\github\bg_prod\dames\ressources\sources\jeu.h
+1386090811 c:\users\ben\documents\github\bg_prod\dames\ressources\sources\jeu.h
 	<cstdlib>
 	<stdlib.h>
 	<stdio.h>
@@ -266,13 +266,13 @@
 	"affichage.h"
 	"intell.h"
 
-1386074943 c:\users\ben\documents\github\bg_prod\dames\ressources\sources\verifier_deplacement.h
+1386090811 c:\users\ben\documents\github\bg_prod\dames\ressources\sources\verifier_deplacement.h
 	<stdlib.h>
 	<stdio.h>
 	<math.h>
 	"utile.h"
 
-1386074943 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\main.cpp
+1386090811 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\main.cpp
 	<cstdlib>
 	<stdlib.h>
 	<stdio.h>
@@ -298,14 +298,14 @@
 1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_getenv.h
 	"SDL_stdinc.h"
 
-1386074943 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\ressources.rc
+1386090811 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\ressources.rc
 
-1386074943 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\texte.cpp
+1386090811 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\texte.cpp
 	"Texte.h"
 
-1386074943 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\utile.cpp
+1386090811 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\utile.cpp
 	"utile.h"
 
-1386074943 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\verifier_deplacement.cpp
+1386090811 source:c:\users\ben\documents\github\bg_prod\dames\ressources\sources\verifier_deplacement.cpp
 	"verifier_deplacement.h"
 

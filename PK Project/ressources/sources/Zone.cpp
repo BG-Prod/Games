@@ -18,29 +18,19 @@
     Contact me : bgprod@outlook.com
 */
 
-#ifndef JEU_H_INCLUDED
-#define JEU_H_INCLUDED
+#include "Zone.h"
 
 
-
-#include <cstdlib>
-#include <stdlib.h>
-#include <stdio.h>
-#include <string>
-#include <windows.h>
-#include <SDL.h>
-#include <SDL_ttf.h>
-#include <SDL_image.h>
-#include <FMOD/fmod.h>
+using namespace std;
 
 
-#include "utile.h"
-#include "affichage.h"
+Zone::Zone()
+{
 
+}
 
-void game();
-void jouer_jeu();
+Zone::~Zone()
+{
 
+}
 
-
-#endif // JEU_H_INCLUDED

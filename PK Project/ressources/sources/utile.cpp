@@ -1,3 +1,23 @@
+/*
+    PK Project
+    Copyright (C) 2013  BG Prod
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+    Contact me : bgprod@outlook.com
+*/
+
 #include "utile.h"
 
 using namespace std;
@@ -43,26 +63,26 @@ void updateEvents(Input *in)
 
 void initialisation(FMOD_SYSTEM * p_system)
 {
-    // initialise SDL video
+    /// initialise SDL video
     if ( SDL_Init( SDL_INIT_VIDEO ) < 0 )
     {
         printf( "Unable to init SDL: %s\n", SDL_GetError() );
     }
 
-    // initialise SDL TTF
+    /// initialise SDL TTF
     TTF_Init();
 
-    // make sure SDL cleans up before exit
+    /// make sure SDL cleans up before exit
     atexit(SDL_Quit);
     atexit(TTF_Quit);
 
-    // initialisation de FMOD
+    /// initialisation de FMOD
     FMOD_System_Init(p_system, 32, FMOD_INIT_NORMAL, NULL);
 }
 
 void fermeture(FMOD_SYSTEM * p_system)
 {
-    // fermeture propre de fmodex
+    /// fermeture propre de fmodex
     FMOD_System_Close(p_system);
     FMOD_System_Release(p_system);
 }
@@ -71,12 +91,22 @@ void fermeture(FMOD_SYSTEM * p_system)
 void load_images(SDL_Surface ** p_images)
 {
     string lien;
-
+    char a[2];
     for(int i = 0 ; i < NOMBRE_IMAGE ; i++)
     {
-        lien = cheminImage + "logo_bgprod.png";
-        DEBUG lien.c_str();
-        p_images[i] = IMG_Load(lien.c_str());
+        itoa(i,a,10);
+        if(i < 10)
+        {
+            lien = cheminImage + "image0" + a + ".png";
+        }
+        else
+        {
+            lien = cheminImage + "image" + a + ".png";
+        }
+
+        p_images[i] = SDL_DisplayFormat(IMG_Load(lien.c_str()));
+
+        p_images[i] = rotozoomSurface(p_images[i], 0.0,(double)(SDL_GetVideoSurface()->h/1080.0),1);     /// on utilise la hauteur de la fenêtre et non celle de l'écran
     }
 }
 
@@ -130,4 +160,70 @@ void free_polices(TTF_Font ** p_polices)
     free(p_polices);
 }
 
+int size_of_game(int p_hauteur_ecran)
+{
+    int taille = p_hauteur_ecran;
+    if(taille == 768){taille = 760;}
+    return taille;
+}
+
+
+int nombreLignes (const string & filename)
+{
+    ifstream fichier(filename.c_str());
+    string s;
+
+    if(fichier)
+    {
+        unsigned int count = 0;
+        while(std::getline(fichier,s)) ++count;
+        return count;
+    }
+    else
+    {
+        std::cout << "Can not open " << filename << std::endl;
+    }
+    fichier.close();
+    return 0;
+}
+
+/// attention la ligne suivante renvoie la ligne 1 si on demande la 0
+string niemeLigne(const std::string & filename, int p_count)
+{
+    string ligne;
+    ifstream p_fichier(filename.c_str());
+    if(p_fichier)
+    {
+        int i = 0;
+        ligne = "";
+        bool test = false;
+        while(getline(p_fichier, ligne) && !test)
+        {
+            if(i == p_count)
+            {
+                test = true;
+            }
+            i++;
+        }
+    }
+    else
+    {
+        cout << "Can not open " << filename << endl;
+    }
+    p_fichier.close();
+    return ligne;
+}
+
+/// Pour copier une SDL_Surface
+SDL_Surface* copieSurface(SDL_Surface *src)
+{
+    if(src != NULL)
+    {
+        return SDL_ConvertSurface(src, src->format, SDL_SWSURFACE);
+    }
+    else
+    {
+        return NULL;
+    }
+}
 
