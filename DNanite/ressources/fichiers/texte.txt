@@ -1,0 +1,2 @@
+/*********TEXTS OF DNANITE*********/
+Hello world.
