@@ -49,7 +49,7 @@
 #define RESIZE              HAUTEUR_ECRAN/1080.0
 #define SCREEN_REFRESH      40
 #define DEBUG               std::cerr << std::endl <<
-#define NOMBRE_IMAGE        13
+#define NOMBRE_IMAGE        14
 #define NOMBRE_MUSIQUE      1
 #define NOMBRE_POLICE       1
 

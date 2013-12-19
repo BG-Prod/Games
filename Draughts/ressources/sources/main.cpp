@@ -111,11 +111,35 @@ int main ( int argc, char** argv )
     *menu = -1;
     int ghost = 255;
     bool devient_ghost = true;
+    SDL_Rect place;
 
-    SDL_Rect place = {LARGEUR_ECRAN/2 - images[8]->w/2,HAUTEUR_ECRAN/2 - images[8]->h/2,0,0};
-
-///on joue la musique de fond
+/// on joue la musique de fond
     FMOD_System_PlaySound(system, FMOD_CHANNEL_FREE, musiques[0], 0, NULL);
+
+/// affichage du logo
+    int i = 0;
+    while(i<256)
+    {
+        SDL_FillRect(SDL_GetVideoSurface(), 0, SDL_MapRGB(SDL_GetVideoSurface()->format, 0, 0, 0));
+        place = {LARGEUR_ECRAN/2 - images[13]->w/2,HAUTEUR_ECRAN/2 - images[13]->h/2,0,0};
+        SDL_SetAlpha(images[13], SDL_SRCALPHA, i);
+        SDL_BlitSurface(images[13], NULL, SDL_GetVideoSurface(), &place);
+        i++;
+        SDL_Flip(SDL_GetVideoSurface());
+    }
+
+    while(i>=0)
+    {
+        SDL_FillRect(SDL_GetVideoSurface(), 0, SDL_MapRGB(SDL_GetVideoSurface()->format, 0, 0, 0));
+        place = {LARGEUR_ECRAN/2 - images[13]->w/2,HAUTEUR_ECRAN/2 - images[13]->h/2,0,0};
+        SDL_SetAlpha(images[13], SDL_SRCALPHA, i);
+        SDL_BlitSurface(images[13], NULL, SDL_GetVideoSurface(), &place);
+        i--;
+        SDL_Flip(SDL_GetVideoSurface());
+    }
+
+
+    place = {LARGEUR_ECRAN/2 - images[8]->w/2,HAUTEUR_ECRAN/2 - images[8]->h/2,0,0};
 
     while(!in.key[SDLK_ESCAPE] && !in.quit)         /// boucle principale
     {
