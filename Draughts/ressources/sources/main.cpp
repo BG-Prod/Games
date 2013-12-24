@@ -236,9 +236,6 @@ int main ( int argc, char** argv )
     /// fermeture propre de ce qui est ouvert dans initialisation()
     fermeture(system);
 
-
-/// all is well ;)
-    printf("Exited cleanly\n");
     return 0;
 }
 
