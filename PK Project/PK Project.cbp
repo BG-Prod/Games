@@ -54,12 +54,19 @@
 		<Unit filename="ressources/sources/Zone.h" />
 		<Unit filename="ressources/sources/affichage.cpp" />
 		<Unit filename="ressources/sources/affichage.h" />
+		<Unit filename="ressources/sources/bdd.cpp" />
+		<Unit filename="ressources/sources/bdd.h" />
 		<Unit filename="ressources/sources/jeu.cpp" />
 		<Unit filename="ressources/sources/jeu.h" />
 		<Unit filename="ressources/sources/main.cpp" />
 		<Unit filename="ressources/sources/ressources.rc">
 			<Option compilerVar="WINDRES" />
 		</Unit>
+		<Unit filename="ressources/sources/sqlite3.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="ressources/sources/sqlite3.h" />
+		<Unit filename="ressources/sources/sqlite3ext.h" />
 		<Unit filename="ressources/sources/utile.cpp" />
 		<Unit filename="ressources/sources/utile.h" />
 		<Extensions>

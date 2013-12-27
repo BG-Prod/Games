@@ -53,10 +53,21 @@ void game()
         }
 
 
+        // resize taille écran
+        if(in.key[SDLK_F1])
+        {
+            SDL_SetVideoMode(LARGEUR_ECRAN, HAUTEUR_ECRAN, 32, SDL_HWSURFACE|SDL_DOUBLEBUF|SDL_RESIZABLE|SDL_FULLSCREEN);
+        }
+        if(in.key[SDLK_F2])
+        {
+            SDL_SetVideoMode(LARGEUR_ECRAN, HAUTEUR_ECRAN, 32, SDL_HWSURFACE|SDL_DOUBLEBUF);
+        }
+
+
     // mécanique du jeu
-    jouer_jeu();
+        jouer_jeu();
     // affichage du jeu
-    afficher_jeu();
+        afficher_jeu();
     }
 
 // fermeture du jeu

@@ -36,6 +36,8 @@
 #include <ctime>
 
 
+#include "sqlite3.h"
+#include "bdd.h"
 #include "Texte.h"
 #include "utile.h"
 #include "affichage.h"
@@ -110,13 +112,43 @@ int main ( int argc, char** argv )
     memset(&in,0,sizeof(in));
     int tempsPrecedent = 0, tempsActuel = 0;
 
+    int ghost = 255;
+    bool devient_ghost = true;
+
     int * menu = new int;
     *menu = -1;
 
     SDL_Rect place = {LARGEUR_ECRAN/2 - images[0]->w/2,HAUTEUR_ECRAN/2 - images[0]->h/2,0,0};
 
+
 /// on joue la musique de fond
     FMOD_System_PlaySound(system, FMOD_CHANNEL_FREE, musiques[0], 0, NULL);
+
+/// affichage du logo
+    int i = 0;
+    while(i<256)
+    {
+        SDL_FillRect(SDL_GetVideoSurface(), 0, SDL_MapRGB(SDL_GetVideoSurface()->format, 0, 0, 0));
+        place = {LARGEUR_ECRAN/2 - images[0]->w/2,HAUTEUR_ECRAN/2 - images[0]->h/2,0,0};
+        SDL_SetAlpha(images[0], SDL_SRCALPHA, i);
+        SDL_BlitSurface(images[0], NULL, SDL_GetVideoSurface(), &place);
+        i++;
+        SDL_Flip(SDL_GetVideoSurface());
+    }
+
+    while(i>=0)
+    {
+        SDL_FillRect(SDL_GetVideoSurface(), 0, SDL_MapRGB(SDL_GetVideoSurface()->format, 0, 0, 0));
+        place = {LARGEUR_ECRAN/2 - images[0]->w/2,HAUTEUR_ECRAN/2 - images[0]->h/2,0,0};
+        SDL_SetAlpha(images[0], SDL_SRCALPHA, i);
+        SDL_BlitSurface(images[0], NULL, SDL_GetVideoSurface(), &place);
+        i--;
+        SDL_Flip(SDL_GetVideoSurface());
+    }
+
+
+    place = {LARGEUR_ECRAN/2 - images[1]->w/2,HAUTEUR_ECRAN/2 - images[1]->h/2,0,0};
+
 
     while(!in.key[SDLK_ESCAPE] && !in.quit)         // boucle principale
     {
@@ -153,23 +185,41 @@ int main ( int argc, char** argv )
 
 
 
-        if(*menu == 1 || in.key[SDLK_RETURN]) // jouer
+        if(*menu == 1 || in.key[SDLK_RETURN]) /// jouer
         {
             game();
         }
 
-        if(*menu == -9) // quitter le jeu
+        if(*menu == -9) /// quitter le jeu
         {
             in.quit = 1;
         }
 
         if(*menu == -1)
         {
-            SDL_BlitSurface(images[0], NULL, screen, &place);
+            SDL_FillRect(SDL_GetVideoSurface(), 0, SDL_MapRGB(SDL_GetVideoSurface()->format, 0, 0, 0));
+            place = {LARGEUR_ECRAN/2 - images[1]->w/2,HAUTEUR_ECRAN/2 - images[1]->h/2,0,0};
+            SDL_BlitSurface(images[1], NULL, SDL_GetVideoSurface(), &place);
+
+            if(devient_ghost)
+            {
+                ghost -= 8;
+            }
+            else
+            {
+                ghost += 8;
+            }
+            if(ghost >= 255 || ghost <= 88)
+            {
+                devient_ghost = !devient_ghost;
+            }
+            place = {LARGEUR_ECRAN/2 - images[2]->w/2,3*HAUTEUR_ECRAN/4 - images[2]->h/2,0,0};
+            SDL_SetAlpha(images[2], SDL_SRCALPHA, ghost);
+            SDL_BlitSurface(images[2], NULL, SDL_GetVideoSurface(), &place);
         }
 
         SDL_Flip(screen);
-    }// end main loop
+    }/// end main loop
 
 
 /// nettoyage
