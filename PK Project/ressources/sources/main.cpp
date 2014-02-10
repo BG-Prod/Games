@@ -37,14 +37,13 @@
 
 
 #include "sqlite3.h"
-#include "bdd.h"
+#include "Input.h"
+#include "BDD.h"
 #include "Texte.h"
 #include "utile.h"
-#include "affichage.h"
 #include "Base.h"
 #include "Zone.h"
-#include "jeu.h"
-
+#include "Jeu.h"
 
 
 int main ( int argc, char** argv )
@@ -102,14 +101,11 @@ int main ( int argc, char** argv )
 /// Icone
     SDL_WM_SetIcon(images[0], NULL);
 
-
 /// titre
     SDL_WM_SetCaption("PK Project", NULL);
 
-
 /// program main loop
-    Input in;
-    memset(&in,0,sizeof(in));
+    Input * in = new Input;
     int tempsPrecedent = 0, tempsActuel = 0;
 
     int ghost = 255;
@@ -150,49 +146,29 @@ int main ( int argc, char** argv )
     place = {LARGEUR_ECRAN/2 - images[1]->w/2,HAUTEUR_ECRAN/2 - images[1]->h/2,0,0};
 
 
-    while(!in.key[SDLK_ESCAPE] && !in.quit)         // boucle principale
+    while(!in->get_touche(SDLK_ESCAPE) && !in->get_exit())  /// boucle principale
     {
-        // mise à jour des events
-        updateEvents(&in);
+        /// mise à jour des events
+        in->update();
 
+        /// gestion du frame
+        fps(&tempsPrecedent, &tempsActuel, SCREEN_REFRESH);
 
-        // gestion du frame
-        tempsActuel = SDL_GetTicks();
+        /// resize taille écran
+        resize_screen(*in);
 
-        if(tempsActuel - tempsPrecedent >= SCREEN_REFRESH)
+        if(*menu == 1 || in->get_touche(SDLK_RETURN)) /// jouer
         {
-            tempsPrecedent = tempsActuel;
-        }
-        else if (tempsActuel - tempsPrecedent < SCREEN_REFRESH)
-        {
-            SDL_Delay(tempsActuel - tempsPrecedent);
-            tempsPrecedent = tempsActuel;
-        }
-
-
-
-        // resize taille écran
-        if(in.key[SDLK_F1])
-        {
-            SDL_SetVideoMode(LARGEUR_ECRAN, HAUTEUR_ECRAN, 32, SDL_HWSURFACE|SDL_DOUBLEBUF|SDL_RESIZABLE|SDL_FULLSCREEN);
-        }
-        if(in.key[SDLK_F2])
-        {
-            SDL_SetVideoMode(LARGEUR_ECRAN, HAUTEUR_ECRAN, 32, SDL_HWSURFACE|SDL_DOUBLEBUF);
-        }
-
-
-
-
-
-        if(*menu == 1 || in.key[SDLK_RETURN]) /// jouer
-        {
-            game();
+            in->set_touche(SDLK_RETURN, 0);
+            Jeu * party = new Jeu;
+            party->game();
+            delete party;
+            in->set_touche(SDLK_ESCAPE, 0);
         }
 
         if(*menu == -9) /// quitter le jeu
         {
-            in.quit = 1;
+            in->set_exit(1);
         }
 
         if(*menu == -1)
@@ -225,6 +201,7 @@ int main ( int argc, char** argv )
 /// nettoyage
     /// free pointeurs
     delete menu;
+    delete in;
     /// free loaded bitmap and created surface
     SDL_FreeSurface(screen);
     free_images(images);

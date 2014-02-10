@@ -1,23 +1,12 @@
 # depslib dependency file v1.0
-1388054304 source:c:\users\ben\documents\github\bg_prod\pk project\ressources\sources\ressources.rc
+1389695113 source:c:\users\ben\documents\github\games\pk project\ressources\sources\base.cpp
+	"Base.h"
 
-1388054304 source:c:\users\ben\documents\github\bg_prod\pk project\ressources\sources\utile.cpp
-	"utile.h"
-
-1388072133 c:\users\ben\documents\github\bg_prod\pk project\ressources\sources\utile.h
-	<cstdlib>
-	<stdlib.h>
-	<stdio.h>
-	<fstream>
-	<string>
-	<sstream>
+1389634570 c:\users\ben\documents\github\games\pk project\ressources\sources\base.h
 	<iostream>
-	<windows.h>
 	<SDL.h>
 	<SDL_ttf.h>
-	<SDL_image.h>
-	<SDL_rotozoom.h>
-	<FMOD/fmod.h>
+	"utile.h"
 
 1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl.h
 	"SDL_main.h"
@@ -214,6 +203,22 @@
 	"begin_code.h"
 	"close_code.h"
 
+1389944893 c:\users\ben\documents\github\games\pk project\ressources\sources\utile.h
+	<cstdlib>
+	<stdlib.h>
+	<stdio.h>
+	<fstream>
+	<string>
+	<sstream>
+	<iostream>
+	<windows.h>
+	<SDL.h>
+	<SDL_ttf.h>
+	<SDL_image.h>
+	<SDL_rotozoom.h>
+	<FMOD/fmod.h>
+	"Input.h"
+
 1325785234 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_image.h
 	"SDL.h"
 	"SDL_version.h"
@@ -224,34 +229,47 @@
 	<math.h>
 	"SDL.h"
 
-1388054304 source:c:\users\ben\documents\github\bg_prod\pk project\ressources\sources\affichage.cpp
-	"affichage.h"
-
-1388054304 c:\users\ben\documents\github\bg_prod\pk project\ressources\sources\affichage.h
+1389944893 c:\users\ben\documents\github\games\pk project\ressources\sources\input.h
 	<cstdlib>
 	<stdlib.h>
 	<stdio.h>
+	<math.h>
+	<fstream>
 	<string>
+	<sstream>
+	<iostream>
 	<windows.h>
 	<SDL.h>
 	<SDL_ttf.h>
 	<SDL_image.h>
+	<SDL_rotozoom.h>
+	<SDL_getenv.h>
 	<FMOD/fmod.h>
-	"utile.h"
+	<ctime>
 
-1388054304 source:c:\users\ben\documents\github\bg_prod\pk project\ressources\sources\base.cpp
-	"Base.h"
+1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_getenv.h
+	"SDL_stdinc.h"
 
-1388054304 c:\users\ben\documents\github\bg_prod\pk project\ressources\sources\base.h
+1389945853 source:c:\users\ben\documents\github\games\pk project\ressources\sources\bdd.cpp
+	"bdd.h"
+
+1389695777 c:\users\ben\documents\github\games\pk project\ressources\sources\bdd.h
+	<stdio.h>
 	<iostream>
-	<SDL.h>
-	<SDL_ttf.h>
-	"utile.h"
+	<string>
+	<vector>
+	"sqlite3.h"
 
-1388054743 source:c:\users\ben\documents\github\bg_prod\pk project\ressources\sources\jeu.cpp
+1389634570 c:\users\ben\documents\github\games\pk project\ressources\sources\sqlite3.h
+	<stdarg.h>
+
+1389944552 source:c:\users\ben\documents\github\games\pk project\ressources\sources\input.cpp
+	"Input.h"
+
+1389945763 source:c:\users\ben\documents\github\games\pk project\ressources\sources\jeu.cpp
 	"jeu.h"
 
-1388054304 c:\users\ben\documents\github\bg_prod\pk project\ressources\sources\jeu.h
+1389943862 c:\users\ben\documents\github\games\pk project\ressources\sources\jeu.h
 	<cstdlib>
 	<stdlib.h>
 	<stdio.h>
@@ -261,28 +279,10 @@
 	<SDL_ttf.h>
 	<SDL_image.h>
 	<FMOD/fmod.h>
-	"utile.h"
-	"affichage.h"
-
-1388054304 source:c:\users\ben\documents\github\bg_prod\pk project\ressources\sources\texte.cpp
-	"Texte.h"
-
-1388054304 c:\users\ben\documents\github\bg_prod\pk project\ressources\sources\texte.h
-	<iostream>
-	<SDL.h>
-	<SDL_ttf.h>
+	"Input.h"
 	"utile.h"
 
-1388054304 source:c:\users\ben\documents\github\bg_prod\pk project\ressources\sources\zone.cpp
-	"Zone.h"
-
-1388054304 c:\users\ben\documents\github\bg_prod\pk project\ressources\sources\zone.h
-	<iostream>
-	<SDL.h>
-	<SDL_ttf.h>
-	"utile.h"
-
-1388155641 source:c:\users\ben\documents\github\bg_prod\pk project\ressources\sources\main.cpp
+1389945560 source:c:\users\ben\documents\github\games\pk project\ressources\sources\main.cpp
 	<cstdlib>
 	<stdlib.h>
 	<stdio.h>
@@ -300,24 +300,29 @@
 	<FMOD/fmod.h>
 	<ctime>
 	"sqlite3.h"
-	"bdd.h"
+	"Input.h"
+	"BDD.h"
 	"Texte.h"
 	"utile.h"
-	"affichage.h"
 	"Base.h"
 	"Zone.h"
-	"jeu.h"
+	"Jeu.h"
 
-1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_getenv.h
-	"SDL_stdinc.h"
+1389634570 c:\users\ben\documents\github\games\pk project\ressources\sources\texte.h
+	<iostream>
+	<SDL.h>
+	<SDL_ttf.h>
+	"utile.h"
 
-1382039852 c:\users\ben\documents\github\bg_prod\pk project\ressources\sources\sqlite3.h
-	<stdarg.h>
+1389634570 c:\users\ben\documents\github\games\pk project\ressources\sources\zone.h
+	<iostream>
+	<SDL.h>
+	<SDL_ttf.h>
+	"utile.h"
 
-1388155943 c:\users\ben\documents\github\bg_prod\pk project\ressources\sources\bdd.h
-	<stdio.h>
+1389634570 source:c:\users\ben\documents\github\games\pk project\ressources\sources\ressources.rc
 
-1382039852 source:c:\users\ben\documents\github\bg_prod\pk project\ressources\sources\sqlite3.c
+1389634570 source:c:\users\ben\documents\github\games\pk project\ressources\sources\sqlite3.c
 	<stdarg.h>
 	"config.h"
 	<stdint.h>
@@ -365,6 +370,12 @@
 	<unicode/ubrk.h>
 	<unicode/utf16.h>
 
-1388155908 source:c:\users\ben\documents\github\bg_prod\pk project\ressources\sources\bdd.cpp
-	"bdd.h"
+1389634570 source:c:\users\ben\documents\github\games\pk project\ressources\sources\texte.cpp
+	"Texte.h"
+
+1389944712 source:c:\users\ben\documents\github\games\pk project\ressources\sources\utile.cpp
+	"utile.h"
+
+1389634570 source:c:\users\ben\documents\github\games\pk project\ressources\sources\zone.cpp
+	"Zone.h"
 

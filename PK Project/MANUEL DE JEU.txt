@@ -7,30 +7,12 @@
 Comment jouer ?
 _______________
 
-Pour jouer, il suffit de prendre la pièce à déplacer avec votre souris
-puis de cliquer sur la case où vous souhaitez vous déplacer.
-Si le mouvement n'est pas autorisé, ceci sera indiqué dans la partie 
-droite du plateau, dans le bloc notes.
 
-Vous ne pouvez déplacer vos pièces que vers l'avant. Les seuls
-déplacements autorisés vers l'arrière sont ceux pour prendre un pion
-adverse.
-Si lorsque vous avez pris un pion adverse il est possible de reprendre
-un pion adverse avec le pion que vous venez de jouer, vous pouvez rejouer.
-
-Pour faire une Dame, il suffit d'atteindre la dernière ligne adverse.
-La Dame peut se déplacer en diagonale d'autant de cases que possible, 
-autant en avant qu'en arierre.
-Elle ne peut passer par dessus les pions qui sont de sa couleur, et
-si elle veut prendre une piece de la couleur opposée, elle doit
-s'arreter à la premiere cas a coté de cette piece
 
 
 But du jeu
 __________
 
-Le but du jeu de Dames est de prendre toutes les pièces de l'adversaire
-avant que celui-ci n'ait pris les votre.
 
 
 

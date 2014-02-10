@@ -1,45 +1,84 @@
+/*
+    PK Project
+    Copyright (C) 2013  BG Prod
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+    Contact me : bgprod@outlook.com
+*/
+
 #include "bdd.h"
 
-static int callback(void *NotUsed, int argc, char **argv, char **azColName)
+
+BDD::BDD(char * p_database)
 {
-    int i;
-    for(i=0; i<argc; i++)
-    {
-        printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
-    }
-    printf("\n");
-    return 0;
+	openDB(p_database);
 }
 
+BDD::~BDD()
+{
+    closeDB();
+}
 
-/// EXEMPLE OF USE
+void BDD::openDB(char * p_database)
+{
+	if(sqlite3_open(p_database, &database) != SQLITE_OK)
+	{
+	    cout << "Erreur d'ouverture de la base de données.";
+	}
+}
 
-/**
-  *  int main()
-  *  {
-  *      cout << "Hello world!" << endl;
-  *
-  *      sqlite3 * dico;
-  *      char *zErrMsg = 0;
-  *      int test;
-  *
-  *      test = sqlite3_open("ressources/database/dictionnaire.db", &dico);
-  *      if( test )
-  *      {
-  *          fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(dico));
-  *          sqlite3_close(dico);
-  *          return(1);
-  *      }
-  *      test = sqlite3_exec(dico, "SELECT np_nom FROM nom_propre", callback, 0, &zErrMsg);
-  *      if( test!=SQLITE_OK )
-  *      {
-  *          fprintf(stderr, "SQL error: %s\n", zErrMsg);
-  *          sqlite3_free(zErrMsg);
-  *      }
-  *
-  *      sqlite3_close(dico);
-  *
-  *      return 0;
-  *  }
-  **/
+vector<vector<string> > BDD::request(char * query)
+{
+	sqlite3_stmt *statement;
+	vector<vector<string> > results;
+
+	if(sqlite3_prepare_v2(database, query, -1, &statement, 0) == SQLITE_OK)
+	{
+		int cols = sqlite3_column_count(statement);
+		int result = 0;
+		while(true)
+		{
+			result = sqlite3_step(statement);
+
+			if(result == SQLITE_ROW)
+			{
+				vector<string> values;
+				for(int col = 0; col < cols; col++)
+				{
+					values.push_back((char*)sqlite3_column_text(statement, col));
+				}
+				results.push_back(values);
+			}
+			else
+			{
+				break;
+			}
+		}
+
+		sqlite3_finalize(statement);
+	}
+
+	string error = sqlite3_errmsg(database);
+	if(error != "not an error") cout << query << " " << error << endl;
+
+	return results;
+}
+
+void BDD::closeDB()
+{
+	sqlite3_close(database);
+	database = NULL;
+}
 

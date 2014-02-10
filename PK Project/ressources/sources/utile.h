@@ -22,7 +22,6 @@
 #define UTILE_H_INCLUDED
 
 
-
 #include <cstdlib>
 #include <stdlib.h>
 #include <stdio.h>
@@ -38,6 +37,8 @@
 #include <FMOD/fmod.h>
 
 
+#include "Input.h"
+
 
 #define CX_SCREEN           GetSystemMetrics(SM_CXSCREEN)            ///Largeur
 #define CY_SCREEN           GetSystemMetrics(SM_CYSCREEN)            ///Hauteur
@@ -49,10 +50,9 @@
 #define RESIZE              HAUTEUR_ECRAN/1080.0
 #define SCREEN_REFRESH      40
 #define DEBUG               std::cerr << std::endl <<
-#define NOMBRE_IMAGE        7
+#define NOMBRE_IMAGE        12
 #define NOMBRE_MUSIQUE      1
 #define NOMBRE_POLICE       1
-
 
 
 const std::string cheminRessources = "ressources/";
@@ -60,17 +60,8 @@ const std::string cheminSon = cheminRessources + "sons/";
 const std::string cheminImage = cheminRessources + "images/";
 const std::string cheminFile = cheminRessources + "fichiers/";
 const std::string cheminPolice = cheminRessources + "polices/";
+const std::string cheminData = cheminRessources + "datas/";
 
-
-
-struct Input    /// structure pour la capture des évènements
-{
-	char key[SDLK_LAST];
-	int mousex,mousey;
-	int mousexrel,mouseyrel;
-	char mousebuttons[8];
-    char quit;
-};
 
 struct Animation
 {
@@ -78,8 +69,6 @@ struct Animation
     SDL_Rect place;
 };
 
-
-void updateEvents(Input *);             /// MàJ des évènements
 
 void initialisation(FMOD_SYSTEM * p_system);        /// initialise le jeu
 void fermeture(FMOD_SYSTEM * p_system);             /// ferme le jeu
@@ -99,6 +88,9 @@ int nombreLignes (const std::string & filename);
 std::string niemeLigne(const std::string & filename, int p_count);
 
 SDL_Surface* copieSurface(SDL_Surface *surf);
+
+void fps(int * tempsPrecedent, int * tempsActuel, int screen_refresh);      /// régule le temps
+void resize_screen(Input in);       /// change la taille de l'écran
 
 
 #endif /// UTILE_H_INCLUDED

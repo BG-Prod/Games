@@ -23,59 +23,91 @@
 using namespace std;
 
 
-void game()
+Jeu::Jeu()
 {
-// initialisation données du jeu
+    m_in = new Input;
+    m_tempsPrecedent = 0, m_tempsActuel = 0, m_screen_refresh = SCREEN_REFRESH;
+}
 
+Jeu::~Jeu()
+{
+    delete m_in;
+}
 
-
-// loop of the game
-    Input in;
-    memset(&in,0,sizeof(in));
-    int tempsPrecedent = 0, tempsActuel = 0;
-
-    while(!in.key[SDLK_ESCAPE] && !in.quit)
+void Jeu::game()    /// boucle principale du jeu
+{
+    cout << "coucou";
+    while(!m_in->get_touche(SDLK_ESCAPE) && !m_in->get_exit())
     {
-    // events
-        updateEvents(&in);
+        cout << "o";
+        /// met à jour les evenements d'entree
+        m_in->update();
+        /// régule le fps
+        timer();
+        /// resize taille écran
+        resizeScreen();
 
-    // FPS
-        tempsActuel = SDL_GetTicks();
-
-        if(tempsActuel - tempsPrecedent >= SCREEN_REFRESH)
-        {
-            tempsPrecedent = tempsActuel;
-        }
-        else if (tempsActuel - tempsPrecedent < SCREEN_REFRESH)
-        {
-            SDL_Delay(tempsActuel - tempsPrecedent);
-            tempsPrecedent = tempsActuel;
-        }
-
-
-        // resize taille écran
-        if(in.key[SDLK_F1])
-        {
-            SDL_SetVideoMode(LARGEUR_ECRAN, HAUTEUR_ECRAN, 32, SDL_HWSURFACE|SDL_DOUBLEBUF|SDL_RESIZABLE|SDL_FULLSCREEN);
-        }
-        if(in.key[SDLK_F2])
-        {
-            SDL_SetVideoMode(LARGEUR_ECRAN, HAUTEUR_ECRAN, 32, SDL_HWSURFACE|SDL_DOUBLEBUF);
-        }
-
-
-    // mécanique du jeu
-        jouer_jeu();
-    // affichage du jeu
-        afficher_jeu();
+        /// mécanique du jeu
+        mecanique();
+        /// affichage du jeu
+        affichage();
     }
-
-// fermeture du jeu
-
+    cout << "bye";
 }
 
-void jouer_jeu()
+void Jeu::mecanique()
+{
+    IA();
+}
+
+void Jeu::IA()
 {
 
 }
+
+void Jeu::affichage()
+{
+    SDL_Rect place;
+    SDL_FillRect(SDL_GetVideoSurface(), 0, SDL_MapRGB(SDL_GetVideoSurface()->format, 0, 100, 0));
+    place = {0,0,0,0};
+    SDL_Flip(SDL_GetVideoSurface());
+}
+
+void Jeu::explosion(SDL_Surface ** p_images, Animation * animation)
+{
+    if(animation->temps != -1)
+    {
+        if(!animation->temps)
+        {
+            animation->place.x = (animation->place.x * p_images[5]->w) + p_images[5]->w/2 - p_images[12]->w/8;
+            animation->place.y = (p_images[5]->h * animation->place.y) + p_images[5]->h/2 - p_images[12]->h/10;
+        }
+        if(animation->temps < 20)
+        {
+            /// faire les calculs de l'image
+            SDL_Rect place;
+            place.x = (animation->temps%4) * p_images[12]->w/4;
+            place.y = (animation->temps/4) * p_images[12]->h/5;
+            place.w = p_images[12]->w / 4;
+            place.h = p_images[12]->h / 5;
+            SDL_BlitSurface(p_images[12], &place, SDL_GetVideoSurface(), &(animation->place));
+            animation->temps = animation->temps + 1;
+        }
+        else
+        {
+            animation->temps = -1;
+        }
+    }
+}
+
+void Jeu::timer()
+{
+    fps(&m_tempsPrecedent, &m_tempsActuel, m_screen_refresh);
+}
+
+void Jeu::resizeScreen()
+{
+    resize_screen(*m_in);
+}
+
 

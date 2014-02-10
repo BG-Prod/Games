@@ -46,18 +46,18 @@
 			<Add library="..\..\..\..\..\..\Program Files (x86)\CodeBlocks\SDL-1.2.15\lib\sdlgfx.lib" />
 			<Add directory="C:/Program Files (x86)/CodeBlocks/SDL-1.2.15/lib" />
 		</Linker>
+		<Unit filename="ressources/sources/BDD.cpp" />
+		<Unit filename="ressources/sources/BDD.h" />
 		<Unit filename="ressources/sources/Base.cpp" />
 		<Unit filename="ressources/sources/Base.h" />
+		<Unit filename="ressources/sources/Input.cpp" />
+		<Unit filename="ressources/sources/Input.h" />
+		<Unit filename="ressources/sources/Jeu.cpp" />
+		<Unit filename="ressources/sources/Jeu.h" />
 		<Unit filename="ressources/sources/Texte.cpp" />
 		<Unit filename="ressources/sources/Texte.h" />
 		<Unit filename="ressources/sources/Zone.cpp" />
 		<Unit filename="ressources/sources/Zone.h" />
-		<Unit filename="ressources/sources/affichage.cpp" />
-		<Unit filename="ressources/sources/affichage.h" />
-		<Unit filename="ressources/sources/bdd.cpp" />
-		<Unit filename="ressources/sources/bdd.h" />
-		<Unit filename="ressources/sources/jeu.cpp" />
-		<Unit filename="ressources/sources/jeu.h" />
 		<Unit filename="ressources/sources/main.cpp" />
 		<Unit filename="ressources/sources/ressources.rc">
 			<Option compilerVar="WINDRES" />

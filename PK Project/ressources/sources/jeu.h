@@ -34,13 +34,30 @@
 #include <FMOD/fmod.h>
 
 
+#include "Input.h"
 #include "utile.h"
-#include "affichage.h"
 
 
-void game();
-void jouer_jeu();
+class Jeu
+{
+    public:
+        Jeu();
+        virtual ~Jeu();
 
+        void game();
+        void IA();
+        void mecanique();
+        void affichage();
+        void timer();
+        void resizeScreen();
+
+        void explosion(SDL_Surface ** p_images, Animation * animation); /// permet d'afficher une explosion lorsque temps = 0
+
+    protected:
+    private:
+        Input * m_in;
+        int m_tempsPrecedent, m_tempsActuel, m_screen_refresh;
+};
 
 
 #endif // JEU_H_INCLUDED
