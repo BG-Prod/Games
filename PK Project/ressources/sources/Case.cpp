@@ -18,65 +18,58 @@
     Contact me : bgprod@outlook.com
 */
 
-#include "Zone.h"
+#include "Case.h"
 
 
 using namespace std;
 
 
-Zone::Zone()
+Case::Case()
 {
-    m_case = new Case*[8];
     m_images = NULL;
     m_in = NULL;
-    for(int i = 0 ; i < 8 ; i++)
-    {
-        m_case[i] = new Case[16];
-    }
-    m_position.x = 10*RESIZE;
-    m_position.y = 550*RESIZE;
-    m_position.w = 1440*RESIZE;
-    m_position.h = 520*RESIZE;
+    m_position.x = 0*RESIZE;
+    m_position.y = 0*RESIZE;
+    m_position.w = 90*RESIZE;
+    m_position.h = 65*RESIZE;
+    m_numImage = 11;
 }
 
-Zone::~Zone()
+Case::~Case()
 {
-    for(int i = 0 ; i < 8 ; i++)
-    {
-        delete [] m_case[i];
-    }
-    delete [] m_case;
+
 }
 
-void Zone::init(SDL_Surface ** p_images, Input * p_in)
+void Case::init(SDL_Surface ** p_images, Input * p_in)
 {
-    m_images = p_images;
     m_in = p_in;
-    for(int i = 0 ; i < 8 ; i++)
-    {
-        for(int j = 0 ; j < 16 ; j++)
-        {
-            m_case[i][j].init(p_images, p_in);
-            m_case[i][j].setPosition(j*90*RESIZE + m_position.x, i*65*RESIZE + m_position.y);
-        }
-    }
+    m_images = p_images;
 }
 
-void Zone::afficher()
+void Case::afficher()
 {
-    for(int i = 0 ; i < 8 ; i++)
-    {
-        for(int j = 0 ; j < 16 ; j++)
-        {
-            m_case[i][j].afficher();
-        }
-    }
+    event();
+    SDL_BlitSurface(m_images[m_numImage], NULL, SDL_GetVideoSurface(), &m_position);
 }
 
-void Zone::setPosition(int x, int y)
+void Case::setPosition(int x, int y)
 {
     m_position.x = x;
     m_position.y = y;
 }
 
+int Case::event()
+{
+    if(m_in->mouse(X) >= m_position.x &&
+       m_in->mouse(X) < m_position.x+m_position.w &&
+       m_in->mouse(Y) >= m_position.y &&
+       m_in->mouse(Y) < m_position.y+m_position.h)
+    {
+        m_numImage = 8;
+    }
+    else
+    {
+        m_numImage = 11;
+    }
+}
 

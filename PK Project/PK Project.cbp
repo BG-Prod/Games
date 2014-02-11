@@ -48,8 +48,8 @@
 		</Linker>
 		<Unit filename="ressources/sources/BDD.cpp" />
 		<Unit filename="ressources/sources/BDD.h" />
-		<Unit filename="ressources/sources/Base.cpp" />
-		<Unit filename="ressources/sources/Base.h" />
+		<Unit filename="ressources/sources/Case.cpp" />
+		<Unit filename="ressources/sources/Case.h" />
 		<Unit filename="ressources/sources/Input.cpp" />
 		<Unit filename="ressources/sources/Input.h" />
 		<Unit filename="ressources/sources/Jeu.cpp" />

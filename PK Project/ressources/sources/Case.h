@@ -18,8 +18,8 @@
     Contact me : bgprod@outlook.com
 */
 
-#ifndef BASE_H
-#define BASE_H
+#ifndef CASE_H
+#define CASE_H
 
 
 #include <iostream>
@@ -28,16 +28,26 @@
 
 
 #include "utile.h"
+#include "Input.h"
 
 
-class Base
+class Case
 {
     public:
-        Base();
-        virtual ~Base();
+        Case();
+        virtual ~Case();
+
+        void afficher();
+        int event();
+        void setPosition(int x, int y);
+        void init(SDL_Surface ** p_images, Input * p_in);
 
     protected:
     private:
+        SDL_Rect m_position;
+        SDL_Surface ** m_images;
+        Input * m_in;
+        int m_numImage;
 };
 
-#endif // BASE_H
+#endif // CASE_H

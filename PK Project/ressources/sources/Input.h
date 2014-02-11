@@ -37,7 +37,7 @@ class Input
         char get_touche(int i){return touche[i];}
         char get_souris_boutons(int i){return souris_boutons[i];}
         char get_exit(){return exit;}
-        int get_souris(int i){return souris[i];}
+        int mouse(int i){return souris[i];}
         /// setter
         void set_touche(int i, int valeur){touche[i] = valeur;}
         void set_souris_boutons(int i, int valeur){souris_boutons[i] = valeur;}

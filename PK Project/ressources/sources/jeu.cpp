@@ -23,23 +23,26 @@
 using namespace std;
 
 
-Jeu::Jeu()
+Jeu::Jeu(SDL_Surface ** p_images)
 {
     m_in = new Input;
+    m_images = p_images;
     m_tempsPrecedent = 0, m_tempsActuel = 0, m_screen_refresh = SCREEN_REFRESH;
+    m_zone = new Zone[2];
+    m_zone[0].init(p_images, m_in);
+    m_zone[1].init(p_images, m_in);
 }
 
 Jeu::~Jeu()
 {
     delete m_in;
+    delete [] m_zone;
 }
 
 void Jeu::game()    /// boucle principale du jeu
 {
-    cout << "coucou";
     while(!m_in->get_touche(SDLK_ESCAPE) && !m_in->get_exit())
     {
-        cout << "o";
         /// met à jour les evenements d'entree
         m_in->update();
         /// régule le fps
@@ -52,7 +55,6 @@ void Jeu::game()    /// boucle principale du jeu
         /// affichage du jeu
         affichage();
     }
-    cout << "bye";
 }
 
 void Jeu::mecanique()
@@ -70,6 +72,8 @@ void Jeu::affichage()
     SDL_Rect place;
     SDL_FillRect(SDL_GetVideoSurface(), 0, SDL_MapRGB(SDL_GetVideoSurface()->format, 0, 100, 0));
     place = {0,0,0,0};
+    SDL_BlitSurface(m_images[3], NULL, SDL_GetVideoSurface(), &place);
+    m_zone[1].afficher();
     SDL_Flip(SDL_GetVideoSurface());
 }
 

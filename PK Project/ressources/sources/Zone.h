@@ -28,6 +28,7 @@
 
 
 #include "utile.h"
+#include "Case.h"
 
 
 class Zone
@@ -36,8 +37,17 @@ class Zone
         Zone();
         virtual ~Zone();
 
+        void afficher();
+        void setPosition(int,int);
+        void init(SDL_Surface ** p_images, Input * p_in);
+
     protected:
     private:
+        Case ** m_case;
+        Input * m_in;
+        SDL_Rect m_position;
+        SDL_Surface ** m_images;
+
 };
 
 #endif // ZONE_H

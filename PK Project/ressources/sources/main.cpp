@@ -41,7 +41,7 @@
 #include "BDD.h"
 #include "Texte.h"
 #include "utile.h"
-#include "Base.h"
+#include "Case.h"
 #include "Zone.h"
 #include "Jeu.h"
 
@@ -160,7 +160,7 @@ int main ( int argc, char** argv )
         if(*menu == 1 || in->get_touche(SDLK_RETURN)) /// jouer
         {
             in->set_touche(SDLK_RETURN, 0);
-            Jeu * party = new Jeu;
+            Jeu * party = new Jeu(images);
             party->game();
             delete party;
             in->set_touche(SDLK_ESCAPE, 0);

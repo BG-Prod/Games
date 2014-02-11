@@ -36,12 +36,13 @@
 
 #include "Input.h"
 #include "utile.h"
+#include "Zone.h"
 
 
 class Jeu
 {
     public:
-        Jeu();
+        Jeu(SDL_Surface **);
         virtual ~Jeu();
 
         void game();
@@ -56,6 +57,8 @@ class Jeu
     protected:
     private:
         Input * m_in;
+        Zone * m_zone;
+        SDL_Surface ** m_images;
         int m_tempsPrecedent, m_tempsActuel, m_screen_refresh;
 };
 

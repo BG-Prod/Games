@@ -79,7 +79,9 @@ void load_musiques(FMOD_SYSTEM * p_system, FMOD_SOUND ** p_musiques)
     for(int i = 0 ; i < NOMBRE_MUSIQUE ; i++)
     {
         lien = cheminSon + "son01.mid";
-        FMOD_System_CreateSound(p_system, lien.c_str(), FMOD_CREATESAMPLE, 0, &p_musiques[i]);
+
+        FMOD_System_CreateSound(p_system, lien.c_str(), FMOD_SOFTWARE | FMOD_2D | FMOD_LOOP_NORMAL | FMOD_CREATESTREAM, 0, &p_musiques[i]);
+        FMOD_Sound_SetLoopCount(p_musiques[i], -1);
     }
 }
 
