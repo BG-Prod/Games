@@ -34,6 +34,7 @@
 #include <FMOD/fmod.h>
 
 
+#include "Texte.h"
 #include "Input.h"
 #include "utile.h"
 #include "Zone.h"

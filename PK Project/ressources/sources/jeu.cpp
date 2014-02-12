@@ -74,6 +74,13 @@ void Jeu::affichage()
     place = {0,0,0,0};
     SDL_BlitSurface(m_images[3], NULL, SDL_GetVideoSurface(), &place);
     m_zone[1].afficher();
+
+
+    Texte blabla;
+    blabla.print("Infos joueur", "arial", 60*RESIZE, {250,250,250}, 1540*RESIZE,50*RESIZE);
+
+
+
     SDL_Flip(SDL_GetVideoSurface());
 }
 

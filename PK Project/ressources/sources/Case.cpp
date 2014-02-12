@@ -49,7 +49,8 @@ void Case::init(SDL_Surface ** p_images, Input * p_in)
 void Case::afficher()
 {
     event();
-    SDL_BlitSurface(m_images[m_numImage], NULL, SDL_GetVideoSurface(), &m_position);
+    if(m_numImage >= 0)
+        SDL_BlitSurface(m_images[m_numImage], NULL, SDL_GetVideoSurface(), &m_position);
 }
 
 void Case::setPosition(int x, int y)
@@ -65,7 +66,7 @@ int Case::event()
        m_in->mouse(Y) >= m_position.y &&
        m_in->mouse(Y) < m_position.y+m_position.h)
     {
-        m_numImage = 8;
+        m_numImage = -1;
     }
     else
     {

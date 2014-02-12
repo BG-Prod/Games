@@ -203,7 +203,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1389944893 c:\users\ben\documents\github\games\pk project\ressources\sources\utile.h
+1392134037 c:\users\ben\documents\github\games\pk project\ressources\sources\utile.h
 	<cstdlib>
 	<stdlib.h>
 	<stdio.h>
@@ -229,7 +229,7 @@
 	<math.h>
 	"SDL.h"
 
-1392116961 c:\users\ben\documents\github\games\pk project\ressources\sources\input.h
+1392134036 c:\users\ben\documents\github\games\pk project\ressources\sources\input.h
 	<cstdlib>
 	<stdlib.h>
 	<stdio.h>
@@ -250,26 +250,26 @@
 1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_getenv.h
 	"SDL_stdinc.h"
 
-1391941855 source:c:\users\ben\documents\github\games\pk project\ressources\sources\bdd.cpp
+1392134037 source:c:\users\ben\documents\github\games\pk project\ressources\sources\bdd.cpp
 	"bdd.h"
 
-1391941510 c:\users\ben\documents\github\games\pk project\ressources\sources\bdd.h
+1392134037 c:\users\ben\documents\github\games\pk project\ressources\sources\bdd.h
 	<stdio.h>
 	<iostream>
 	<string>
 	<vector>
 	"sqlite3.h"
 
-1389634570 c:\users\ben\documents\github\games\pk project\ressources\sources\sqlite3.h
+1392134037 c:\users\ben\documents\github\games\pk project\ressources\sources\sqlite3.h
 	<stdarg.h>
 
-1391938846 source:c:\users\ben\documents\github\games\pk project\ressources\sources\input.cpp
+1392134036 source:c:\users\ben\documents\github\games\pk project\ressources\sources\input.cpp
 	"Input.h"
 
 1392116189 source:c:\users\ben\documents\github\games\pk project\ressources\sources\jeu.cpp
 	"jeu.h"
 
-1392112012 c:\users\ben\documents\github\games\pk project\ressources\sources\jeu.h
+1392192346 c:\users\ben\documents\github\games\pk project\ressources\sources\jeu.h
 	<cstdlib>
 	<stdlib.h>
 	<stdio.h>
@@ -279,11 +279,12 @@
 	<SDL_ttf.h>
 	<SDL_image.h>
 	<FMOD/fmod.h>
+	"Texte.h"
 	"Input.h"
 	"utile.h"
 	"Zone.h"
 
-1392113794 source:c:\users\ben\documents\github\games\pk project\ressources\sources\main.cpp
+1392134037 source:c:\users\ben\documents\github\games\pk project\ressources\sources\main.cpp
 	<cstdlib>
 	<stdlib.h>
 	<stdio.h>
@@ -309,22 +310,22 @@
 	"Zone.h"
 	"Jeu.h"
 
-1391866795 c:\users\ben\documents\github\games\pk project\ressources\sources\texte.h
+1392134036 c:\users\ben\documents\github\games\pk project\ressources\sources\texte.h
 	<iostream>
 	<SDL.h>
 	<SDL_ttf.h>
 	"utile.h"
 
-1392116165 c:\users\ben\documents\github\games\pk project\ressources\sources\zone.h
+1392134037 c:\users\ben\documents\github\games\pk project\ressources\sources\zone.h
 	<iostream>
 	<SDL.h>
 	<SDL_ttf.h>
 	"utile.h"
 	"Case.h"
 
-1389634570 source:c:\users\ben\documents\github\games\pk project\ressources\sources\ressources.rc
+1392134037 source:c:\users\ben\documents\github\games\pk project\ressources\sources\ressources.rc
 
-1389634570 source:c:\users\ben\documents\github\games\pk project\ressources\sources\sqlite3.c
+1392134037 source:c:\users\ben\documents\github\games\pk project\ressources\sources\sqlite3.c
 	<stdarg.h>
 	"config.h"
 	<stdint.h>
@@ -372,22 +373,22 @@
 	<unicode/ubrk.h>
 	<unicode/utf16.h>
 
-1391864231 source:c:\users\ben\documents\github\games\pk project\ressources\sources\texte.cpp
+1392134036 source:c:\users\ben\documents\github\games\pk project\ressources\sources\texte.cpp
 	"Texte.h"
 
-1392111592 source:c:\users\ben\documents\github\games\pk project\ressources\sources\utile.cpp
+1392134037 source:c:\users\ben\documents\github\games\pk project\ressources\sources\utile.cpp
 	"utile.h"
 
-1392116165 source:c:\users\ben\documents\github\games\pk project\ressources\sources\zone.cpp
+1392134037 source:c:\users\ben\documents\github\games\pk project\ressources\sources\zone.cpp
 	"Zone.h"
 
-1392116843 c:\users\ben\documents\github\games\pk project\ressources\sources\case.h
+1392134036 c:\users\ben\documents\github\games\pk project\ressources\sources\case.h
 	<iostream>
 	<SDL.h>
 	<SDL_ttf.h>
 	"utile.h"
 	"Input.h"
 
-1392116165 source:c:\users\ben\documents\github\games\pk project\ressources\sources\case.cpp
+1392192159 source:c:\users\ben\documents\github\games\pk project\ressources\sources\case.cpp
 	"Case.h"
 
