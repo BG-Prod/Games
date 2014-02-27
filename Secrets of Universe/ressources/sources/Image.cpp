@@ -84,7 +84,7 @@ void Image::resize(double percent)
 
 void Image::rotate(double percent)
 {
-    image = rotozoomSurface(image, 0*percent/100,1,1);
+    image = rotozoomSurface(image, percent/100,1,1);
 }
 
 

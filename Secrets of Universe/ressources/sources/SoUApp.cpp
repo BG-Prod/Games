@@ -101,6 +101,10 @@ void SoUApp::app()
         {
             asgo->resize(80);
         }
+        else if(in->get_touche(SDLK_SPACE))
+        {
+            asgo->destroy();
+        }
 
         asgo->print();
 
