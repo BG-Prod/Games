@@ -1,0 +1,365 @@
+# depslib dependency file v1.0
+1391941855 source:c:\users\ben\skydrive\programmation\programmes\julie\ressources\sources\bdd.cpp
+	"bdd.h"
+
+1391941510 c:\users\ben\skydrive\programmation\programmes\julie\ressources\sources\bdd.h
+	<stdio.h>
+	<iostream>
+	<string>
+	<vector>
+	"sqlite3.h"
+
+1389634570 c:\users\ben\skydrive\programmation\programmes\julie\ressources\sources\sqlite3.h
+	<stdarg.h>
+
+1391938846 source:c:\users\ben\skydrive\programmation\programmes\julie\ressources\sources\input.cpp
+	"Input.h"
+
+1391869982 c:\users\ben\skydrive\programmation\programmes\julie\ressources\sources\input.h
+	<cstdlib>
+	<stdlib.h>
+	<stdio.h>
+	<math.h>
+	<fstream>
+	<string>
+	<sstream>
+	<iostream>
+	<windows.h>
+	<SDL.h>
+	<SDL_ttf.h>
+	<SDL_image.h>
+	<SDL_rotozoom.h>
+	<SDL_getenv.h>
+	<FMOD/fmod.h>
+	<ctime>
+
+1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl.h
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_audio.h"
+	"SDL_cdrom.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_loadso.h"
+	"SDL_mutex.h"
+	"SDL_rwops.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_video.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<iconv.h>
+	"begin_code.h"
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	"close_code.h"
+
+1326110988 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_config.h
+	"SDL_platform.h"
+	"SDL_config_dreamcast.h"
+	"SDL_config_macos.h"
+	"SDL_config_macosx.h"
+	"SDL_config_symbian.h"
+	"SDL_config_win32.h"
+	"SDL_config_os2.h"
+	"SDL_config_minimal.h"
+
+1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_platform.h
+
+1326110994 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_config_win32.h
+	"SDL_platform.h"
+
+1326111000 c:\program files (x86)\codeblocks\sdl-1.2.15\include\begin_code.h
+
+1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\close_code.h
+
+1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_endian.h
+	"SDL_stdinc.h"
+	<endian.h>
+	"begin_code.h"
+	"close_code.h"
+
+1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	<process.h>
+	"close_code.h"
+
+1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_cdrom.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_cpuinfo.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_events.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_active.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_quit.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_active.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_keyboard.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keysym.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_keysym.h
+
+1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_mouse.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_video.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_loadso.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325793194 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_ttf.h
+	"SDL.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325785234 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_image.h
+	"SDL.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1103614986 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_rotozoom.h
+	<math.h>
+	"SDL.h"
+
+1325738640 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_getenv.h
+	"SDL_stdinc.h"
+
+1391943264 source:c:\users\ben\skydrive\programmation\programmes\julie\ressources\sources\jeu.cpp
+	"jeu.h"
+
+1391939731 c:\users\ben\skydrive\programmation\programmes\julie\ressources\sources\jeu.h
+	<cstdlib>
+	<stdlib.h>
+	<stdio.h>
+	<string>
+	<vector>
+	<windows.h>
+	<SDL.h>
+	<SDL_ttf.h>
+	<SDL_image.h>
+	<FMOD/fmod.h>
+	"Input.h"
+	"Texte.h"
+	"utile.h"
+	"BDD.h"
+
+1391878642 c:\users\ben\skydrive\programmation\programmes\julie\ressources\sources\utile.h
+	<cstdlib>
+	<stdlib.h>
+	<stdio.h>
+	<fstream>
+	<string>
+	<sstream>
+	<iostream>
+	<windows.h>
+	<SDL.h>
+	<SDL_ttf.h>
+	<SDL_image.h>
+	<SDL_rotozoom.h>
+	<FMOD/fmod.h>
+	"Input.h"
+
+1391851504 source:c:\users\ben\skydrive\programmation\programmes\julie\ressources\sources\ressources.rc
+
+1389634570 source:c:\users\ben\skydrive\programmation\programmes\julie\ressources\sources\sqlite3.c
+	<stdarg.h>
+	"config.h"
+	<stdint.h>
+	<inttypes.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<assert.h>
+	<stddef.h>
+	<TargetConditionals.h>
+	<windows.h>
+	<ctype.h>
+	<time.h>
+	<sys/sysctl.h>
+	<malloc/malloc.h>
+	<libkern/OSAtomic.h>
+	<malloc.h>
+	<pthread.h>
+	<math.h>
+	<sys/types.h>
+	<sys/stat.h>
+	<fcntl.h>
+	<unistd.h>
+	<sys/time.h>
+	<errno.h>
+	<sys/mman.h>
+	<sys/ioctl.h>
+	<semaphore.h>
+	<limits.h>
+	<sys/file.h>
+	<sys/param.h>
+	<sys/mount.h>
+	<utime.h>
+	<sys/dcmd_blk.h>
+	<sys/statvfs.h>
+	<dlfcn.h>
+	<sys/cygwin.h>
+	<errno.h>
+	<tcl.h>
+	"sqlite3rtree.h"
+	<unicode/utypes.h>
+	<unicode/uregex.h>
+	<unicode/ustring.h>
+	<unicode/ucol.h>
+	<unicode/ubrk.h>
+	<unicode/utf16.h>
+
+1392487698 source:c:\users\ben\skydrive\programmation\programmes\julie\ressources\sources\texte.cpp
+	"Texte.h"
+
+1392487380 c:\users\ben\skydrive\programmation\programmes\julie\ressources\sources\texte.h
+	<iostream>
+	<SDL.h>
+	<SDL_ttf.h>
+	<vector>
+	"utile.h"
+
+1391879689 source:c:\users\ben\skydrive\programmation\programmes\julie\ressources\sources\utile.cpp
+	"utile.h"
+
+1391892391 source:c:\users\ben\skydrive\programmation\programmes\julie\ressources\sources\main.cpp
+	<cstdlib>
+	<stdlib.h>
+	<stdio.h>
+	<math.h>
+	<fstream>
+	<string>
+	<sstream>
+	<iostream>
+	<windows.h>
+	<SDL.h>
+	<SDL_ttf.h>
+	<SDL_image.h>
+	<SDL_rotozoom.h>
+	<SDL_getenv.h>
+	<FMOD/fmod.h>
+	<ctime>
+	"sqlite3.h"
+	"Input.h"
+	"BDD.h"
+	"Texte.h"
+	"utile.h"
+	"Jeu.h"
+

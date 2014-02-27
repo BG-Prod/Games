@@ -1,0 +1,132 @@
+###### The Arvernes : The Card Game ######
+# version 2.0
+# by BG Prod
+# contact : benoit.garconbesson@gmail.com
+
+
+Comment jouer ?
+_______________
+
+A l'écran titre appuyez sur "Entrée" pour lancer une partie.
+
+Au cours de la partie appuyez sur "Entrée" pour piocher 5 nouvelles cartes.
+Placez les cartes grâce à un simple cliquer-glisser.
+Une fois que vous avez fini de déposer vos cartes sur le terrain, appuyer sur la barre "Espace".
+A alors lieu la résolution des combats.
+Puis un nouveau tour commence, appuyez sur "Entrée" pour piocher etc.
+
+Passez le curseur sur les cartes pour avoir des informations sur celles-ci.
+
+A la fin de la partie vous avez deux choix :
+ * "Entrée" : rejouer
+ * "Echap" : quitter
+
+
+But du jeu
+__________
+
+C'est un jeu de cartes comme Yu-Gi-Oh ou Magic pour simplifier.
+Chaque joueur commence avec 10 000 LP et le premier arrivé à 0 a perdu.
+Chaque joueur a un deck aléatoire de 40 cartes.
+
+
+Calcul du score
+_______________
+
+A chaque victoire vous remportez autant de points qu'il vous restait de LP.
+A chaque défaite vous perdez autant de points qu'il vous restait de LP.
+Si vous quittez la partie en cours vous perdez 3000 LP.
+A chaque match nul vous perdez 500 points.
+
+
+Les cartes
+__________
+
+#001# BENOIT 		FORCE 3000
+#002# TINO 		FORCE 2500
+#003# KEVIN 		FORCE 2500
+#004# BARON 		FORCE 3500
+#005# JO 		FORCE 2000
+#006# NICO 		FORCE 1800
+#007# BORIS 		FORCE 1500
+#008# JENIFER 		FORCE 1100
+#009# MANON 		FORCE 1000
+#010# MAIXENT 		FORCE 2000
+#011# FREEGZ 		FORCE 1600
+#012# ALEXIS 		FORCE 1500
+#013# THIBZ 		FORCE 2000
+#014# PAPIN 		FORCE 2000
+#015# BEBE 		FORCE 500
+#016# ETIENNE 		FORCE 1700
+#017# VDB 		FORCE 2000
+#018# SEBASTIEN 	FORCE 1800
+#019# LE_ROUGE 		FORCE 2100
+#020# ELEPHANT 		FORCE 2800
+#021# FRANCISQUE 	FORCE 2400
+#022# PICHEVAL 		FORCE 1600
+#023# PROSTABLANDINE 	FORCE 1800
+#024# GRAOU 		FORCE 2800
+#025# VICTOR 		FORCE 1300
+#026# MAXIME 		FORCE 1500
+#027# ETHMOIDE 		FORCE 2800
+#028# BENJ 		FORCE 2100
+#029# BOUCHE 		FORCE 500
+#030# HUMANON 		FORCE 1100
+#031# CRISSON		FORCE 1900
+#032# FOURMIX 		FORCE 1300
+#033# BARTON 		FORCE 2200
+#034# COCHON 		FORCE 600
+#035# PIOU 		FORCE 100
+#036# OURS 		FORCE 1400
+#037# BOUC 		FORCE 1000
+#038# HIPPOPOTAME	FORCE 1300
+#039# RENARD 		FORCE 1500
+#040# TIGRE 		FORCE 1600
+#041# LAPIN 		FORCE 400
+#042# SERPENT 		FORCE 400
+#043# VACHE 		FORCE 700
+#044# CHATON 		FORCE 900
+#045# SINGE 		FORCE 1100
+#046# ZEBRE 		FORCE 1200
+#047# CERF 		FORCE 1300
+#048# GRENOUILLE	FORCE 500
+#049# DROMADERE		FORCE 1100
+#050# PINGOUIN		FORCE 800
+#051# KANGOUROU		FORCE 1000
+#052# ECUREUIL		FORCE 400
+#053# MOUTON		FORCE 500
+#054# CHEVAL		FORCE 1200
+#055# CHIEN		FORCE 950
+#056# LEZARD		FORCE 300
+#057# SOURIS		FORCE 100
+#058# ELEPHANTO		FORCE 1600
+#059# LION		FORCE 1600
+#060# RHINOCEROS	FORCE 1500
+#061# PANDA		FORCE 850
+#062# GIRAFE		FORCE 1000
+
+
+__________________________________________________________
+
+# Pour plus d'informations : benoit.garconbesson@gmail.com
+__________________________________________________________
+
+
+  
+    The Arvernes - The Card Game
+    Copyright (C) 2013  Garçon Benoît
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+    
+    Contact me : benoit.garconbesson@gmail.com

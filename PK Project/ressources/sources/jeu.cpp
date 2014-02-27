@@ -26,6 +26,7 @@ using namespace std;
 Jeu::Jeu(SDL_Surface ** p_images)
 {
     m_in = new Input;
+    m_zoneInfo = new Texte;
     m_images = p_images;
     m_tempsPrecedent = 0, m_tempsActuel = 0, m_screen_refresh = SCREEN_REFRESH;
     m_zone = new Zone[2];
@@ -37,6 +38,7 @@ Jeu::~Jeu()
 {
     delete m_in;
     delete [] m_zone;
+    delete m_zoneInfo;
 }
 
 void Jeu::game()    /// boucle principale du jeu
@@ -76,9 +78,12 @@ void Jeu::affichage()
     m_zone[1].afficher();
 
 
-    Texte blabla;
-    blabla.print("Infos joueur", "arial", 60*RESIZE, {250,250,250}, 1540*RESIZE,50*RESIZE);
-
+    m_zoneInfo->print("Info joueur et le caca mangent tous les deux !!!",
+                      "arial",
+                      60*RESIZE,
+                      {250,250,250},
+                      1540*RESIZE,
+                      50*RESIZE);
 
 
     SDL_Flip(SDL_GetVideoSurface());

@@ -47,7 +47,9 @@ class Case
         SDL_Rect m_position;
         SDL_Surface ** m_images;
         Input * m_in;
-        int m_numImage;
+        int m_numImage, m_numImagePrecedente;
+        std::string m_nom;
+        int m_portion;
 };
 
 #endif // CASE_H

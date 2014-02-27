@@ -1,0 +1,5 @@
+#1# normal
+#2# garçon
+#3# fille
+#4# bébé
+#5# animal

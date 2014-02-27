@@ -25,6 +25,7 @@
 #include <iostream>
 #include <SDL.h>
 #include <SDL_ttf.h>
+#include <vector>
 
 
 #include "utile.h"
@@ -42,10 +43,10 @@ class Texte
 
     protected:
         void copy_picture(SDL_Surface * origin, SDL_Surface * destination);
-        void create_text(std::string p_string, std::string p_police, int p_taille, SDL_Color p_couleur);
+        int create_text(std::string p_string, std::string p_police, int p_taille, SDL_Color p_couleur, int p_size_max);
 
     private:
-        SDL_Surface * m_text_image;
+        std::vector<SDL_Surface *> m_text_image;
         SDL_Rect m_place;
         /// couleurs
         SDL_Color blanc,gris_clair,gris_fonce,noir,m_couleur;

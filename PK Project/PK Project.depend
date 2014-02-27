@@ -266,10 +266,10 @@
 1392134036 source:c:\users\ben\documents\github\games\pk project\ressources\sources\input.cpp
 	"Input.h"
 
-1392116189 source:c:\users\ben\documents\github\games\pk project\ressources\sources\jeu.cpp
+1392485024 source:c:\users\ben\documents\github\games\pk project\ressources\sources\jeu.cpp
 	"jeu.h"
 
-1392192346 c:\users\ben\documents\github\games\pk project\ressources\sources\jeu.h
+1392482555 c:\users\ben\documents\github\games\pk project\ressources\sources\jeu.h
 	<cstdlib>
 	<stdlib.h>
 	<stdio.h>
@@ -284,7 +284,7 @@
 	"utile.h"
 	"Zone.h"
 
-1392134037 source:c:\users\ben\documents\github\games\pk project\ressources\sources\main.cpp
+1392484059 source:c:\users\ben\documents\github\games\pk project\ressources\sources\main.cpp
 	<cstdlib>
 	<stdlib.h>
 	<stdio.h>
@@ -310,10 +310,11 @@
 	"Zone.h"
 	"Jeu.h"
 
-1392134036 c:\users\ben\documents\github\games\pk project\ressources\sources\texte.h
+1392487380 c:\users\ben\documents\github\games\pk project\ressources\sources\texte.h
 	<iostream>
 	<SDL.h>
 	<SDL_ttf.h>
+	<vector>
 	"utile.h"
 
 1392134037 c:\users\ben\documents\github\games\pk project\ressources\sources\zone.h
@@ -373,7 +374,7 @@
 	<unicode/ubrk.h>
 	<unicode/utf16.h>
 
-1392134036 source:c:\users\ben\documents\github\games\pk project\ressources\sources\texte.cpp
+1392487698 source:c:\users\ben\documents\github\games\pk project\ressources\sources\texte.cpp
 	"Texte.h"
 
 1392134037 source:c:\users\ben\documents\github\games\pk project\ressources\sources\utile.cpp
@@ -382,7 +383,7 @@
 1392134037 source:c:\users\ben\documents\github\games\pk project\ressources\sources\zone.cpp
 	"Zone.h"
 
-1392134036 c:\users\ben\documents\github\games\pk project\ressources\sources\case.h
+1392493830 c:\users\ben\documents\github\games\pk project\ressources\sources\case.h
 	<iostream>
 	<SDL.h>
 	<SDL_ttf.h>

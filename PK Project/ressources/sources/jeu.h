@@ -60,6 +60,7 @@ class Jeu
         Input * m_in;
         Zone * m_zone;
         SDL_Surface ** m_images;
+        Texte * m_zoneInfo;
         int m_tempsPrecedent, m_tempsActuel, m_screen_refresh;
 };
 

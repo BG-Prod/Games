@@ -33,6 +33,9 @@ Case::Case()
     m_position.w = 90*RESIZE;
     m_position.h = 65*RESIZE;
     m_numImage = 11;
+    m_numImagePrecedente = m_numImage;
+    m_nom = "Vide";
+    m_portion = 11;
 }
 
 Case::~Case()
@@ -70,7 +73,7 @@ int Case::event()
     }
     else
     {
-        m_numImage = 11;
+        m_numImage = m_numImagePrecedente;
     }
 }
 

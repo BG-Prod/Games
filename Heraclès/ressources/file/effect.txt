@@ -1,0 +1,12 @@
+#0# // carte a detruire , passe en #0#
+#1# // ne rien faire , passe en #1#
+#2# // +LIFE1 , passe en #1#
+#3# // +FORCE500 , passe en #1#
+#4# // sera detruit si aucun statut 4 sur le terrain
+#5# // +FORCE500 , passe en #5#
+#6# // passe en #3#
+#7# // passe en #5#
+#8# // +FORCE500 si HUMANON
+#9# // detruit tout le monde à la fin du combat
+#10# // devient un BENOIT
+#11# // passe en #10#

@@ -30,7 +30,6 @@ Texte::Texte()
     gris_clair = {200,200,200};
     gris_fonce = {50,50,50};
     noir = {0,0,0};
-    m_text_image = NULL;
     m_style = NULL;
     m_lien = "";
     m_chaine = "";
@@ -44,11 +43,15 @@ Texte::~Texte()
         m_style = NULL;
     }
 
-    if(m_text_image != NULL)
+    for (std::vector<SDL_Surface *>::iterator it = m_text_image.begin() ; it != m_text_image.end(); ++it)
     {
-        SDL_FreeSurface(m_text_image);
-        m_text_image = NULL;
+        if(*it != NULL)
+        {
+            SDL_FreeSurface(*it);
+            *it = NULL;
+        }
     }
+    m_text_image.clear();
 }
 
 void Texte::copy_picture(SDL_Surface * origin, SDL_Surface * destination)
@@ -69,26 +72,53 @@ void Texte::copy_picture(SDL_Surface * origin, SDL_Surface * destination)
     destination = SDL_DisplayFormatAlpha(origin);
 }
 
-void Texte::create_text(string p_string, string p_police, int p_taille, SDL_Color p_couleur)
+int Texte::create_text(string p_string, string p_police, int p_taille, SDL_Color p_couleur, int p_size_max)
 {
     m_lien = cheminPolice + p_police + ".ttf";
     m_style = TTF_OpenFont(m_lien.c_str(), p_taille);
-    if(m_text_image != NULL)
+    for (std::vector<SDL_Surface *>::iterator it = m_text_image.begin() ; it != m_text_image.end(); ++it)
     {
-        SDL_FreeSurface(m_text_image);
-        m_text_image = NULL;
+        if(*it != NULL)
+        {
+            SDL_FreeSurface(*it);
+            *it = NULL;
+        }
     }
-    m_text_image = TTF_RenderText_Blended(m_style, p_string.c_str(), p_couleur);
+    m_text_image.clear();
+
+    SDL_Rect position = {0,0};
+    int inc = 0, cpt = 0;
+    string phrase = p_string;
+
+    while(phrase.length() > 0)
+    {
+        inc = (phrase.length() > (p_size_max/(p_taille/2.1))) ? (p_size_max/(p_taille/2.1)) : phrase.length();
+        m_text_image.push_back(TTF_RenderText_Blended(m_style, phrase.substr(0, inc).c_str(), p_couleur));
+        position.y += p_taille;
+        phrase.erase(0, inc);
+    }
+
+    int toReturn = TTF_FontLineSkip(m_style);
+
     TTF_CloseFont(m_style);
     m_style = NULL;
+
+    return toReturn;
 }
 
 void Texte::print(string p_text, std::string p_police, int p_taille, SDL_Color p_couleur, int x, int y)
 {
     m_place.x = x;
     m_place.y = y;
-    create_text(p_text, p_police, p_taille, p_couleur);
-    SDL_BlitSurface(m_text_image,NULL,SDL_GetVideoSurface(),&m_place);
+    int skip = create_text(p_text, p_police, p_taille, p_couleur, SDL_GetVideoSurface()->w - x);
+    for (std::vector<SDL_Surface *>::iterator it = m_text_image.begin() ; it != m_text_image.end(); ++it)
+    {
+        if(*it != NULL)
+        {
+            SDL_BlitSurface(*it,NULL,SDL_GetVideoSurface(),&m_place);
+            m_place.y += skip;
+        }
+    }
 }
 
 std::string Texte::str()
