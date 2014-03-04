@@ -18,21 +18,38 @@
     Contact me : bgprod@outlook.com
 */
 
-#ifndef SOUAPP_H
-#define SOUAPP_H
+#ifndef OBJECT_H
+#define OBJECT_H
 
-#include <Application.h>
-#include <Vaisseau.h>
 
-class SoUApp : protected Application
+#include <SDL.h>
+#include <vector>
+#include <Image.h>
+
+
+enum direction{BAS,HAUT,DROITE,GAUCHE};
+
+class Object
 {
     public:
-        SoUApp();
-        virtual ~SoUApp();
-        virtual void app();
+        Object();
+        Object(std::vector<Image*> *);
+        virtual ~Object();
+
+        bool collision(Object * o);
+        direction getEtat(){return etat;}
+        SDL_Rect getPosition(){return position;}
+        std::vector<Image*> * biblio;
 
     protected:
-    private:
+        SDL_Rect position;
+        SDL_Rect oldPosition;
+        int id;
+        bool hasMoved;
+        direction etat;
+        Object * ancestor;
+
 };
 
-#endif // SOUAPP_H
+
+#endif // OBJECT_H

@@ -18,21 +18,62 @@
     Contact me : bgprod@outlook.com
 */
 
-#ifndef SOUAPP_H
-#define SOUAPP_H
+#include "Shot.h"
 
-#include <Application.h>
-#include <Vaisseau.h>
-
-class SoUApp : protected Application
+Shot::Shot(Object * o) : Object(), birth(SDL_GetTicks()), lifeTime(1000)
 {
-    public:
-        SoUApp();
-        virtual ~SoUApp();
-        virtual void app();
+    etat = o->getEtat();
+    force = 10;
+    vitesse = 20;
+    ancestor = o;
+    biblio = o->biblio;
+}
 
-    protected:
-    private:
-};
+Shot::~Shot()
+{
 
-#endif // SOUAPP_H
+}
+
+void Shot::init()
+{
+
+}
+
+void Shot::use()
+{
+
+}
+
+void Shot::update()
+{
+    oldPosition = position;
+
+    if(etat==GAUCHE)
+    {
+        position.x -= vitesse;
+    }
+    else if(etat==DROITE)
+    {
+        position.x += vitesse;
+    }
+    else if(etat==HAUT)
+    {
+        position.y -= vitesse;
+    }
+    else if(etat==BAS)
+    {
+        position.y += vitesse;
+    }
+}
+
+bool Shot::death()
+{
+    return ( SDL_GetTicks() > birth+lifeTime ) ? true : false ;
+}
+
+void Shot::print()
+{
+    biblio[0][6]->print(position.x,position.y);
+}
+
+

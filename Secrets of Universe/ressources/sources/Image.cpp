@@ -32,7 +32,7 @@ Image::Image()
 
 Image::Image(string link)
 {
-    image = SDL_DisplayFormat(IMG_Load(link.c_str()));
+    image = IMG_Load(link.c_str()); ///SDL_DisplayFormat(IMG_Load(link.c_str()));
     x = 0, y = 0, w = image->w, h = image->h, alpha = 255;
     lastX = 0, lastY = 0;
     name = link;
@@ -79,12 +79,40 @@ void Image::print(int px, int py)
 
 void Image::resize(double percent)
 {
-    image = rotozoomSurface(image, 0.0,percent/100,1);
+    image = rotozoomSurface(image, 0.0,(double)percent/100,1);
 }
 
 void Image::rotate(double percent)
 {
-    image = rotozoomSurface(image, percent/100,1,1);
+    image = rotozoomSurface(image, percent,1,1);
+}
+
+void Image::copy(Image * origin)
+{
+    if(this->image != NULL)
+    {
+        SDL_FreeSurface(image);
+        image = NULL;
+    }
+
+    image = SDL_CreateRGBSurface(SDL_HWSURFACE, origin->image->w, origin->image->h,
+                                       origin->image->format->BitsPerPixel,
+                                       origin->image->format->Rmask,
+                                       origin->image->format->Gmask,
+                                       origin->image->format->Bmask,
+                                       origin->image->format->Amask);
+
+    image = SDL_DisplayFormatAlpha(origin->image);
+}
+
+void Image::setAsIcon()
+{
+    SDL_WM_SetIcon(image, NULL);
+}
+
+void Image::setAlpha(int a)
+{
+    SDL_SetAlpha(image, SDL_SRCALPHA, a);
 }
 
 

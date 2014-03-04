@@ -44,6 +44,11 @@ class Image
         void print(int px, int py); /// affichage ++
         void resize(double percent); /// redimensionne une image
         void rotate(double percent); /// pivote une image
+        void copy(Image * origin);     /// copie une image
+        void setAsIcon();
+        void setAlpha(int a);
+        int width(){return w;}
+        int height(){return h;}
 
     protected:
         SDL_Surface * image;

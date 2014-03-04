@@ -28,12 +28,14 @@
 #include <iostream>
 #include <vector>
 
+#include <Object.h>
 #include <Image.h>
 #include <Application.h>
+#include <Weapon.h>
 
-enum direction{BAS,HAUT,DROITE,GAUCHE};
 
-class Vaisseau
+
+class Vaisseau : protected Object
 {
     public:
         Vaisseau();
@@ -53,20 +55,23 @@ class Vaisseau
         void move(direction d);
         void print();
         void destroy();
+        void bot();
         void resize(int);
-        void init(SDL_Surface**);
+        void init(std::vector<Image*> * b);
+        void shoot();
+        void update();
 
     protected:
         int energie, bouclier, coque, capteur;
         int teleporteur, hypernavigateur, moteur, nb_explosion;
-        ///Arme *batterie;
+        Weapon * batterie;
         std::vector<Image*> image;
         SDL_Surface* imageBouclier[5], *explosion;
         SDL_Rect placeBouclier, placeArme1;
         bool activiteBouclier, bool_explosion;
         bool mobile;
-        int vitesse, etat, joueur;
-        SDL_Rect position;
+        int vitesse, joueur;
+
         bool alive;
         int type, masse;
 

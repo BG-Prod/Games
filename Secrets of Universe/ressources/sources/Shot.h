@@ -18,21 +18,32 @@
     Contact me : bgprod@outlook.com
 */
 
-#ifndef SOUAPP_H
-#define SOUAPP_H
+#ifndef SHOT_H
+#define SHOT_H
 
-#include <Application.h>
-#include <Vaisseau.h>
+#include <SDL.h>
 
-class SoUApp : protected Application
+#include "Object.h"
+#include "Image.h"
+
+class Shot : protected Object
 {
     public:
-        SoUApp();
-        virtual ~SoUApp();
-        virtual void app();
+        Shot(Object * o);
+        virtual ~Shot();
+
+        void init();
+        void use();
+        void update();
+        bool death();
+        void print();
 
     protected:
-    private:
+        int vitesse;
+        int force;
+        const int birth;
+        const int lifeTime;
+        Image * image;
 };
 
-#endif // SOUAPP_H
+#endif // SHOT_H

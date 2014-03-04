@@ -24,7 +24,7 @@
 using namespace std;
 
 
-Vaisseau::Vaisseau() : energie(100), bouclier(100), coque(100), capteur(100), teleporteur(100), hypernavigateur(100), moteur(100)
+Vaisseau::Vaisseau() : Object(), energie(100), bouclier(100), coque(100), capteur(100), teleporteur(100), hypernavigateur(100), moteur(100)
 {
     etat = GAUCHE;
     placeBouclier.x = 0;
@@ -41,13 +41,12 @@ Vaisseau::Vaisseau() : energie(100), bouclier(100), coque(100), capteur(100), te
     /// position du centre du vaisseau
     position.x = 500;
     position.y = 500;
-}
-/**
-Vaisseau::Vaisseau(const Vaisseau &p_VaisseauACopier)
-{
+    oldPosition.x = 500;
+    oldPosition.y = 500;
 
+    /// armes
+    batterie = new Weapon(this);
 }
-**/
 
 Vaisseau::~Vaisseau()
 {
@@ -57,15 +56,16 @@ Vaisseau::~Vaisseau()
     }
 }
 
-void Vaisseau::init(SDL_Surface** pic)
+void Vaisseau::init(std::vector<Image*> * b)
 {
-    image.push_back(new Image(cheminImage+"image02.png"));
+    biblio = b;
+    image.push_back(biblio[0][2]);
     image[0]->resize(50);
-    image.push_back(new Image(cheminImage+"image03.png"));
+    image.push_back(biblio[0][3]);
     image[1]->resize(50);
-    image.push_back(new Image(cheminImage+"image05.png"));
+    image.push_back(biblio[0][5]);
     image[2]->resize(50);
-    image.push_back(new Image(cheminImage+"image04.png"));
+    image.push_back(biblio[0][4]);
     image[3]->resize(50);
 }
 
@@ -283,6 +283,7 @@ int Vaisseau::getParametre(int x)
 
 void Vaisseau::move(direction d)
 {
+    oldPosition = position;
     switch(d)
     {
         case BAS:
@@ -301,17 +302,27 @@ void Vaisseau::move(direction d)
     etat = d;
 }
 
+void Vaisseau::shoot()
+{
+    batterie->use();
+}
+
 void Vaisseau::print()
 {
     image[etat]->print(position.x, position.y);
 }
 
+void Vaisseau::update()
+{
+    batterie->update();
+}
+
 void Vaisseau::destroy()
 {
-    image[0]->rotate(100);
-    image[1]->rotate(100);
-    image[2]->rotate(100);
-    image[3]->rotate(100);
+    image[0]->rotate(90);
+    image[1]->rotate(90);
+    image[2]->rotate(90);
+    image[3]->rotate(90);
 }
 
 void Vaisseau::resize(int a)
@@ -321,3 +332,25 @@ void Vaisseau::resize(int a)
     image[2]->resize(a);
     image[3]->resize(a);
 }
+
+void Vaisseau::bot()
+{
+    oldPosition = position;
+    if(position.x > 0 && position.x - oldPosition.x <= 0)
+    {
+        move(GAUCHE);
+    }
+    else if(position.x < SDL_GetVideoSurface()->w)
+    {
+        move(DROITE);
+    }
+    if(position.y > 0 && position.y - oldPosition.y <= 0)
+    {
+        move(HAUT);
+    }
+    else if(position.y < SDL_GetVideoSurface()->h)
+    {
+        move(BAS);
+    }
+}
+

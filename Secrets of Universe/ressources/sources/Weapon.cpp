@@ -18,21 +18,50 @@
     Contact me : bgprod@outlook.com
 */
 
-#ifndef SOUAPP_H
-#define SOUAPP_H
+#include "Weapon.h"
 
-#include <Application.h>
-#include <Vaisseau.h>
-
-class SoUApp : protected Application
+Weapon::Weapon(Object * o) : Object()
 {
-    public:
-        SoUApp();
-        virtual ~SoUApp();
-        virtual void app();
+    type = 1;
+    etat = o->getEtat();
+    ancestor = o;
+    biblio = o->biblio;
+}
 
-    protected:
-    private:
-};
+Weapon::~Weapon()
+{
+    //dtor
+}
 
-#endif // SOUAPP_H
+void Weapon::init()
+{
+
+}
+
+void Weapon::use()
+{
+    etat = ancestor->getEtat();
+    salve.push_back(new Shot(this));
+}
+
+void Weapon::update()
+{
+    for(unsigned int i = 0 ; i < salve.size() ; ++i)
+    {
+        if(salve[i]->death())
+        {
+            delete salve[i];
+            salve.erase(salve.begin()+i);
+        }
+        else
+        {
+            salve[i]->update();
+        }
+    }
+    for(unsigned int i = 0 ; i < salve.size() ; ++i)
+    {
+        salve[i]->print();
+    }
+}
+
+

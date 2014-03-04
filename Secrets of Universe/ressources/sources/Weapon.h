@@ -18,21 +18,28 @@
     Contact me : bgprod@outlook.com
 */
 
-#ifndef SOUAPP_H
-#define SOUAPP_H
+#ifndef WEAPON_H
+#define WEAPON_H
 
-#include <Application.h>
-#include <Vaisseau.h>
+#include <vector>
 
-class SoUApp : protected Application
+#include "Object.h"
+#include "Shot.h"
+
+class Weapon : protected Object
 {
     public:
-        SoUApp();
-        virtual ~SoUApp();
-        virtual void app();
+        Weapon(Object * o);
+        virtual ~Weapon();
+
+        void init();
+        void use();
+        void update();
 
     protected:
-    private:
+        std::vector<Shot*> salve;
+        int type;
+        Object * ancestor;
 };
 
-#endif // SOUAPP_H
+#endif // WEAPON_H

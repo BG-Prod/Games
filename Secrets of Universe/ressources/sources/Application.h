@@ -28,6 +28,7 @@
 #include <string>
 #include <sstream>
 #include <iostream>
+#include <vector>
 #include <windows.h>
 #include <SDL.h>
 #include <SDL_ttf.h>
@@ -48,7 +49,7 @@
 #define RESIZE              HAUTEUR_ECRAN/1080.0
 #define SCREEN_REFRESH      40
 #define DEBUG               std::cerr << std::endl <<
-#define NOMBRE_IMAGE        6
+#define NOMBRE_IMAGE        7
 #define NOMBRE_MUSIQUE      1
 #define NOMBRE_POLICE       0
 
@@ -70,11 +71,11 @@ class Application
 
         virtual void app();
 
-        void load_images(SDL_Surface ** p_images);                          /// charge les images utiles
+        void loadImages();                          /// charge les images utiles
         void load_musiques(FMOD_SYSTEM * p_system, FMOD_SOUND ** p_sons);   /// charge les musiques utiles
         void load_polices(TTF_Font ** p_polices);                           /// charge les polices utiles
 
-        void free_images(SDL_Surface ** p_images);  /// libère les images chargées
+        void freeImages();  /// libère les images chargées
         void free_musiques(FMOD_SOUND ** p_sons);   /// libère les musiques chargées
         void free_polices(TTF_Font ** p_polices);   /// libère les polices chargées
 
@@ -83,12 +84,15 @@ class Application
         void fps();      /// régule le temps
         void resize_screen();       /// change la taille de l'écran
 
+        std::vector<Image*> images;
+
     protected:
         void initialisation();        /// initialise le jeu
         void fermeture();             /// ferme le jeu
         int size_of_game(int p_hauteur_ecran);        /// détermine la hauteur de l'écran
         int nombreLignes (const std::string & filename);
         std::string niemeLigne(const std::string & filename, int p_count);/// attention la ligne suivante renvoie la ligne 1 si on demande la 0
+
 
 
         /// time
@@ -101,7 +105,6 @@ class Application
         /// screen
         SDL_Surface* screen;
         /// ressources
-        SDL_Surface** images;
         FMOD_SYSTEM * system;
         FMOD_SOUND ** musiques;
         TTF_Font ** polices;

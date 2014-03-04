@@ -45,16 +45,14 @@ Application::Application()
     /// déclaration et chargements des ressources
     /// create a new window
     putenv("SDL_VIDEO_WINDOW_POS=center"); /// pour centrer la fenêtre
-    screen = SDL_SetVideoMode(LARGEUR_ECRAN, HAUTEUR_ECRAN, 32, SDL_HWSURFACE|SDL_DOUBLEBUF|SDL_RESIZABLE|SDL_FULLSCREEN);
+    screen = SDL_SetVideoMode(LARGEUR_ECRAN, HAUTEUR_ECRAN, 32, SDL_HWSURFACE|SDL_DOUBLEBUF|SDL_RESIZABLE|SDL_FULLSCREEN&&false);
     if ( !screen )
     {
         printf("Unable to set personalized size video: %s\n", SDL_GetError());
-        SDL_Surface* screen = SDL_SetVideoMode(640, 480, 32, SDL_HWSURFACE|SDL_DOUBLEBUF|SDL_RESIZABLE);
+        screen = SDL_SetVideoMode(640, 480, 32, SDL_HWSURFACE|SDL_DOUBLEBUF|SDL_RESIZABLE);
     }
     /// images
-    images = NULL;
-    images = (SDL_Surface **) malloc (sizeof(SDL_Surface*)*NOMBRE_IMAGE);
-    load_images(images);
+    loadImages();
     /// sons
     musiques = NULL;
     musiques = (FMOD_SOUND **) malloc (sizeof(FMOD_SOUND*)*NOMBRE_MUSIQUE);
@@ -68,7 +66,7 @@ Application::Application()
     in = new Input();
 
     /// Icone
-    SDL_WM_SetIcon(images[0], NULL);
+    images[0]->setAsIcon();
 
     /// titre
     SDL_WM_SetCaption("Application", NULL);
@@ -82,7 +80,7 @@ Application::~Application()
     /// free loaded bitmap and created surface
     SDL_FreeSurface(screen);
     delete in;
-    free_images(images);
+    freeImages();
     free_polices(polices);
     free_musiques(musiques);
     fermeture();
@@ -115,7 +113,7 @@ void Application::fermeture()
 }
 
 
-void Application::load_images(SDL_Surface ** p_images)
+void Application::loadImages()
 {
     string lien;
     char a[2];
@@ -131,9 +129,8 @@ void Application::load_images(SDL_Surface ** p_images)
             lien = cheminImage + "image" + a + ".png";
         }
 
-        p_images[i] = SDL_DisplayFormat(IMG_Load(lien.c_str()));
-
-        p_images[i] = rotozoomSurface(p_images[i], 0.0,(double)(SDL_GetVideoSurface()->h/1080.0),1);     /// on utilise la hauteur de la fenêtre et non celle de l'écran
+        images.push_back(new Image(lien));
+        ///images[i]->resize((double)(100.0*(SDL_GetVideoSurface()->h)/1080.0));
     }
 }
 
@@ -162,13 +159,12 @@ void Application::load_polices(TTF_Font ** p_polices)
 }
 
 
-void Application::free_images(SDL_Surface ** p_images)
+void Application::freeImages()
 {
-    for(int i = 0 ; i < NOMBRE_IMAGE ; i++)
+    for(unsigned int i = 0 ; i < images.size() ; i++)
     {
-        SDL_FreeSurface(p_images[i]);
+        delete images[i];
     }
-    free(p_images);
 }
 
 void Application::free_musiques(FMOD_SOUND ** p_sons)

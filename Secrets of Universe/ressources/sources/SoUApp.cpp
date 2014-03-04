@@ -20,6 +20,8 @@
 
 #include "SoUApp.h"
 
+using namespace std;
+
 SoUApp::SoUApp()
 {
     SDL_WM_SetCaption("Secrets of Universe", NULL);
@@ -32,41 +34,37 @@ SoUApp::~SoUApp()
 
 void SoUApp::app()
 {
-    SDL_Rect place = {LARGEUR_ECRAN/2 - images[0]->w/2,HAUTEUR_ECRAN/2 - images[0]->h/2,0,0};
+    SDL_Rect place = {LARGEUR_ECRAN/2 - images[0]->width()/2,HAUTEUR_ECRAN/2 - images[0]->height()/2,0,0};
 
 /// on joue la musique de fond
     FMOD_System_PlaySound(system, FMOD_CHANNEL_FREE, musiques[0], 0, NULL);
 
 /// affichage du logo
     int clign = 0;
+
     while(clign<256)
     {
         SDL_FillRect(SDL_GetVideoSurface(), 0, SDL_MapRGB(SDL_GetVideoSurface()->format, 0, 0, 0));
-        place = {LARGEUR_ECRAN/2 - images[0]->w/2,HAUTEUR_ECRAN/2 - images[0]->h/2,0,0};
-        SDL_SetAlpha(images[0], SDL_SRCALPHA, clign);
-        SDL_BlitSurface(images[0], NULL, SDL_GetVideoSurface(), &place);
-        clign++;
+        images[0]->setAlpha(255);
+        images[0]->print(SDL_GetVideoSurface()->w/2 - images[0]->width()/2,SDL_GetVideoSurface()->h/2 - images[0]->height()/2);
+        clign+=10;
         SDL_Flip(SDL_GetVideoSurface());
     }
 
-    while(clign>=0)
-    {
-        SDL_FillRect(SDL_GetVideoSurface(), 0, SDL_MapRGB(SDL_GetVideoSurface()->format, 0, 0, 0));
-        place = {LARGEUR_ECRAN/2 - images[0]->w/2,HAUTEUR_ECRAN/2 - images[0]->h/2,0,0};
-        SDL_SetAlpha(images[0], SDL_SRCALPHA, clign);
-        SDL_BlitSurface(images[0], NULL, SDL_GetVideoSurface(), &place);
-        clign--;
-        SDL_Flip(SDL_GetVideoSurface());
-    }
-
-    place = {LARGEUR_ECRAN/2 - images[1]->w/2,HAUTEUR_ECRAN/2 - images[1]->h/2,0,0};
+    place = {LARGEUR_ECRAN/2 - images[1]->width()/2,HAUTEUR_ECRAN/2 - images[1]->height()/2,0,0};
 
     Vaisseau * asgo = new Vaisseau();
-    asgo->init(images);
+    asgo->init(&images);
+
+    Vaisseau * evil = new Vaisseau();
+    evil->init(&images);
 
     while(!in->get_touche(SDLK_ESCAPE) && !in->get_exit())  /// boucle principale
     {
         SDL_FillRect(SDL_GetVideoSurface(), 0, SDL_MapRGB(SDL_GetVideoSurface()->format, 0, 0, 0));
+
+        place = {LARGEUR_ECRAN/2 - images[1]->width()/2,40*RESIZE,0,0};
+        images[1]->print(place.x,place.y);
 
         /// mise à jour des events
         in->update();
@@ -76,6 +74,8 @@ void SoUApp::app()
 
         /// resize taille écran
         resize_screen();
+
+        evil->bot();
 
         if(in->get_touche(SDLK_UP))
         {
@@ -95,21 +95,27 @@ void SoUApp::app()
         }
         else if(in->get_touche(SDLK_KP_PLUS))
         {
-            asgo->resize(120);
+            asgo->resize(105);
         }
         else if(in->get_touche(SDLK_KP_MINUS))
         {
-            asgo->resize(80);
+            asgo->resize(95);
         }
         else if(in->get_touche(SDLK_SPACE))
         {
             asgo->destroy();
+            in->set_touche(SDLK_SPACE,0);
+        }
+        else if(in->get_touche(SDLK_RETURN))
+        {
+            asgo->shoot();
+            in->set_touche(SDLK_SPACE,0);
         }
 
-        asgo->print();
+        asgo->update();
 
-        place = {LARGEUR_ECRAN/2 - images[1]->w/2,40*RESIZE,0,0};
-        SDL_BlitSurface(images[1], NULL, SDL_GetVideoSurface(), &place);
+        asgo->print();
+        evil->print();
 
         SDL_Flip(SDL_GetVideoSurface());
     }/// end main loop
