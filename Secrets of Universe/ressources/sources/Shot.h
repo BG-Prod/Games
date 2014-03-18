@@ -26,6 +26,7 @@
 #include "Object.h"
 #include "Image.h"
 
+
 class Shot : protected Object
 {
     public:

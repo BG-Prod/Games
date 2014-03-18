@@ -39,10 +39,7 @@ Vaisseau::Vaisseau() : Object(), energie(100), bouclier(100), coque(100), capteu
     nb_explosion = 0;
 
     /// position du centre du vaisseau
-    position.x = 500;
-    position.y = 500;
-    oldPosition.x = 500;
-    oldPosition.y = 500;
+    position = Coordonnees(500,500,0,0,500,500,0,0);
 
     /// armes
     batterie = new Weapon(this);
@@ -50,10 +47,7 @@ Vaisseau::Vaisseau() : Object(), energie(100), bouclier(100), coque(100), capteu
 
 Vaisseau::~Vaisseau()
 {
-    for(int i = 0; i<image.size(); ++i)
-    {
-        delete image[i];
-    }
+
 }
 
 void Vaisseau::init(std::vector<Image*> * b)
@@ -280,23 +274,21 @@ int Vaisseau::getParametre(int x)
 }
 **/
 
-
 void Vaisseau::move(direction d)
 {
-    oldPosition = position;
     switch(d)
     {
         case BAS:
-            position.y += moteur*vitesse/100;
+            position.y(position.y()+(moteur*vitesse/100));
             break;
         case HAUT:
-            position.y -= moteur*vitesse/100;
+            position.y(position.y()-(moteur*vitesse/100));
             break;
         case DROITE:
-            position.x += moteur*vitesse/100;
+            position.x(position.x()+(moteur*vitesse/100));
             break;
         case GAUCHE:
-            position.x -= moteur*vitesse/100;
+            position.x(position.x()-(moteur*vitesse/100));
             break;
     }
     etat = d;
@@ -309,7 +301,7 @@ void Vaisseau::shoot()
 
 void Vaisseau::print()
 {
-    image[etat]->print(position.x, position.y);
+    image[etat]->print(position.x(), position.y());
 }
 
 void Vaisseau::update()
@@ -335,22 +327,27 @@ void Vaisseau::resize(int a)
 
 void Vaisseau::bot()
 {
-    oldPosition = position;
-    if(position.x > 0 && position.x - oldPosition.x <= 0)
-    {
-        move(GAUCHE);
-    }
-    else if(position.x < SDL_GetVideoSurface()->w)
+    if(position.x() < 0)
     {
         move(DROITE);
     }
-    if(position.y > 0 && position.y - oldPosition.y <= 0)
+    else if(position.x() > SDL_GetVideoSurface()->w)
     {
-        move(HAUT);
+        move(GAUCHE);
     }
-    else if(position.y < SDL_GetVideoSurface()->h)
+    else if(position.y() < 0)
     {
         move(BAS);
     }
+    else if(position.y() > SDL_GetVideoSurface()->h)
+    {
+        move(HAUT);
+    }
+    else
+    {
+        move(etat);
+    }
 }
+
+
 

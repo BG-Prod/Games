@@ -34,6 +34,9 @@ Application::Application()
 	time(&maintenant);
 	Today = *localtime(&maintenant);
 
+	/// create new screen
+	screen = new Screen();
+
 	/// username
     DWORD StrLen = 256;
     TCHAR SysInfoStr[256];
@@ -43,30 +46,22 @@ Application::Application()
     nameUser = SysInfoStr;
 
     /// déclaration et chargements des ressources
-    /// create a new window
-    putenv("SDL_VIDEO_WINDOW_POS=center"); /// pour centrer la fenêtre
-    screen = SDL_SetVideoMode(LARGEUR_ECRAN, HAUTEUR_ECRAN, 32, SDL_HWSURFACE|SDL_DOUBLEBUF|SDL_RESIZABLE|SDL_FULLSCREEN&&false);
-    if ( !screen )
-    {
-        printf("Unable to set personalized size video: %s\n", SDL_GetError());
-        screen = SDL_SetVideoMode(640, 480, 32, SDL_HWSURFACE|SDL_DOUBLEBUF|SDL_RESIZABLE);
-    }
     /// images
     loadImages();
     /// sons
     musiques = NULL;
     musiques = (FMOD_SOUND **) malloc (sizeof(FMOD_SOUND*)*NOMBRE_MUSIQUE);
-    load_musiques(system, musiques);
+    loadMusics(system, musiques);
     /// polices
     polices = NULL;
     polices = (TTF_Font **) malloc(sizeof(TTF_Font*) * NOMBRE_POLICE);
-    load_polices(polices);
+    loadFonts(polices);
 
     /// Control
     in = new Input();
 
     /// Icone
-    images[0]->setAsIcon();
+    images.at(0)->setAsIcon();
 
     /// titre
     SDL_WM_SetCaption("Application", NULL);
@@ -78,11 +73,11 @@ Application::Application()
 Application::~Application()
 {
     /// free loaded bitmap and created surface
-    SDL_FreeSurface(screen);
+    delete screen;
     delete in;
     freeImages();
-    free_polices(polices);
-    free_musiques(musiques);
+    freeFonts(polices);
+    freeMusics(musiques);
     fermeture();
 }
 
@@ -134,7 +129,7 @@ void Application::loadImages()
     }
 }
 
-void Application::load_musiques(FMOD_SYSTEM * p_system, FMOD_SOUND ** p_musiques)
+void Application::loadMusics(FMOD_SYSTEM * p_system, FMOD_SOUND ** p_musiques)
 {
     string lien;
 
@@ -147,7 +142,7 @@ void Application::load_musiques(FMOD_SYSTEM * p_system, FMOD_SOUND ** p_musiques
     }
 }
 
-void Application::load_polices(TTF_Font ** p_polices)
+void Application::loadFonts(TTF_Font ** p_polices)
 {
     string lien;
 
@@ -167,7 +162,7 @@ void Application::freeImages()
     }
 }
 
-void Application::free_musiques(FMOD_SOUND ** p_sons)
+void Application::freeMusics(FMOD_SOUND ** p_sons)
 {
     for(int i = 0 ; i < NOMBRE_MUSIQUE ; i++)
     {
@@ -176,67 +171,13 @@ void Application::free_musiques(FMOD_SOUND ** p_sons)
     free(p_sons);
 }
 
-void Application::free_polices(TTF_Font ** p_polices)
+void Application::freeFonts(TTF_Font ** p_polices)
 {
     for(int i = 0 ; i < NOMBRE_POLICE ; i++)
     {
         TTF_CloseFont(p_polices[i]);
     }
     free(p_polices);
-}
-
-int Application::size_of_game(int p_hauteur_ecran)
-{
-    int taille = p_hauteur_ecran;
-    if(taille == 768){taille = 760;}
-    return taille;
-}
-
-
-int Application::nombreLignes (const string & filename)
-{
-    ifstream fichier(filename.c_str());
-    string s;
-
-    if(fichier)
-    {
-        unsigned int count = 0;
-        while(std::getline(fichier,s)) ++count;
-        return count;
-    }
-    else
-    {
-        std::cout << "Can not open " << filename << std::endl;
-    }
-    fichier.close();
-    return 0;
-}
-
-/// attention la ligne suivante renvoie la ligne 1 si on demande la 0
-string Application::niemeLigne(const std::string & filename, int p_count)
-{
-    string ligne;
-    ifstream p_fichier(filename.c_str());
-    if(p_fichier)
-    {
-        int i = 0;
-        ligne = "";
-        bool test = false;
-        while(getline(p_fichier, ligne) && !test)
-        {
-            if(i == p_count)
-            {
-                test = true;
-            }
-            i++;
-        }
-    }
-    else
-    {
-        cout << "Can not open " << filename << endl;
-    }
-    p_fichier.close();
-    return ligne;
 }
 
 /// Pour copier une SDL_Surface
@@ -264,18 +205,6 @@ void Application::fps()
     {
         SDL_Delay(tempsActuel - tempsPrecedent);
         tempsPrecedent = tempsActuel;
-    }
-}
-
-void Application::resize_screen()
-{
-    if(in->get_touche(SDLK_F1))
-    {
-        SDL_SetVideoMode(LARGEUR_ECRAN, HAUTEUR_ECRAN, 32, SDL_HWSURFACE|SDL_DOUBLEBUF|SDL_RESIZABLE|SDL_FULLSCREEN);
-    }
-    else if(in->get_touche(SDLK_F2))
-    {
-        SDL_SetVideoMode(LARGEUR_ECRAN, HAUTEUR_ECRAN, 32, SDL_HWSURFACE|SDL_DOUBLEBUF);
     }
 }
 

@@ -34,7 +34,7 @@ SoUApp::~SoUApp()
 
 void SoUApp::app()
 {
-    SDL_Rect place = {LARGEUR_ECRAN/2 - images[0]->width()/2,HAUTEUR_ECRAN/2 - images[0]->height()/2,0,0};
+    SDL_Rect place = {SDL_GetVideoSurface()->w/2 - images[0]->width()/2,SDL_GetVideoSurface()->h/2 - images[0]->height()/2,0,0};
 
 /// on joue la musique de fond
     FMOD_System_PlaySound(system, FMOD_CHANNEL_FREE, musiques[0], 0, NULL);
@@ -51,7 +51,7 @@ void SoUApp::app()
         SDL_Flip(SDL_GetVideoSurface());
     }
 
-    place = {LARGEUR_ECRAN/2 - images[1]->width()/2,HAUTEUR_ECRAN/2 - images[1]->height()/2,0,0};
+    place = {SDL_GetVideoSurface()->w/2 - images[1]->width()/2,SDL_GetVideoSurface()->h/2 - images[1]->height()/2,0,0};
 
     Vaisseau * asgo = new Vaisseau();
     asgo->init(&images);
@@ -61,9 +61,10 @@ void SoUApp::app()
 
     while(!in->get_touche(SDLK_ESCAPE) && !in->get_exit())  /// boucle principale
     {
-        SDL_FillRect(SDL_GetVideoSurface(), 0, SDL_MapRGB(SDL_GetVideoSurface()->format, 0, 0, 0));
+        SDL_FillRect(SDL_GetVideoSurface(), 0, SDL_MapRGB(SDL_GetVideoSurface()->format, 0, 0, 0)); /// ecran noir
 
-        place = {LARGEUR_ECRAN/2 - images[1]->width()/2,40*RESIZE,0,0};
+        /// collage du repère
+        place = {SDL_GetVideoSurface()->w/2 - images[1]->width()/2,40*RESIZE,0,0};
         images[1]->print(place.x,place.y);
 
         /// mise à jour des events
@@ -73,7 +74,10 @@ void SoUApp::app()
         fps();
 
         /// resize taille écran
-        resize_screen();
+        if(in->get_touche(SDLK_F1))
+        {
+            screen->resize();
+        }
 
         evil->bot();
 
@@ -114,10 +118,11 @@ void SoUApp::app()
 
         asgo->update();
 
+        /// print fond d'écran
         asgo->print();
         evil->print();
 
-        SDL_Flip(SDL_GetVideoSurface());
+        screen->display();
     }/// end main loop
 
     delete asgo;

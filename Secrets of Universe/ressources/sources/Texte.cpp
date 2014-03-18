@@ -18,7 +18,7 @@
     Contact me : bgprod@outlook.com
 */
 
-#include "Texte.h"
+#include <Texte.h>
 
 
 using namespace std;
@@ -86,8 +86,8 @@ int Texte::create_text(string p_string, string p_police, int p_taille, SDL_Color
     }
     m_text_image.clear();
 
-    SDL_Rect position = {0,0};
-    int inc = 0, cpt = 0;
+    SDL_Rect position = {0,0,0,0};
+    int inc = 0;
     string phrase = p_string;
 
     while(phrase.length() > 0)

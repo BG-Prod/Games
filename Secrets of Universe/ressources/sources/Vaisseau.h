@@ -24,7 +24,7 @@
 
 #include <SDL.h>
 #include <SDL_image.h>
-#include <FMOD/fmod.h>
+#include <fmod.h>
 #include <iostream>
 #include <vector>
 
@@ -32,6 +32,7 @@
 #include <Image.h>
 #include <Application.h>
 #include <Weapon.h>
+
 
 
 

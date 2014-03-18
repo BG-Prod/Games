@@ -32,7 +32,7 @@ Image::Image()
 
 Image::Image(string link)
 {
-    image = IMG_Load(link.c_str()); ///SDL_DisplayFormat(IMG_Load(link.c_str()));
+    image = SDL_DisplayFormatAlpha(IMG_Load(link.c_str())); ///SDL_DisplayFormat(IMG_Load(link.c_str()));
     x = 0, y = 0, w = image->w, h = image->h, alpha = 255;
     lastX = 0, lastY = 0;
     name = link;
@@ -77,6 +77,20 @@ void Image::print(int px, int py)
     print();
 }
 
+void Image::print(Coordonnees where, Coordonnees from)
+{
+    SDL_Rect ou, dou;
+    ou.x = where.x();
+    ou.y = where.y();
+    ou.w = where.w();
+    ou.h = where.h();
+    dou.x = from.x();
+    dou.y = from.y();
+    dou.w = from.w();
+    dou.h = from.h();
+    SDL_BlitSurface(image, &dou, SDL_GetVideoSurface(), &ou);
+}
+
 void Image::resize(double percent)
 {
     image = rotozoomSurface(image, 0.0,(double)percent/100,1);
@@ -105,6 +119,16 @@ void Image::copy(Image * origin)
     image = SDL_DisplayFormatAlpha(origin->image);
 }
 
+void Image::clear()
+{
+    SDL_FillRect(image, 0, SDL_MapRGB(SDL_GetVideoSurface()->format, 0, 0, 0));
+}
+
+void Image::setAsScreen()
+{
+    image = SDL_SetVideoMode(1920*4, 1080*4, 32, SDL_HWSURFACE|SDL_DOUBLEBUF|SDL_RESIZABLE);
+}
+
 void Image::setAsIcon()
 {
     SDL_WM_SetIcon(image, NULL);
@@ -114,5 +138,6 @@ void Image::setAlpha(int a)
 {
     SDL_SetAlpha(image, SDL_SRCALPHA, a);
 }
+
 
 

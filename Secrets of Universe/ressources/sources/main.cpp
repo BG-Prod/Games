@@ -32,7 +32,7 @@
 #include <SDL_image.h>
 #include <SDL_rotozoom.h>
 #include <SDL_getenv.h>
-#include <FMOD/fmod.h>
+#include <fmod.h>
 #include <ctime>
 
 
@@ -44,7 +44,7 @@
 using namespace std;
 
 
-int main ( int argc, char** argv )
+int main(int argc, char** argv)
 {
     SoUApp * sou = new SoUApp();
 

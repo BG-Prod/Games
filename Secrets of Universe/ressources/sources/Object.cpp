@@ -23,14 +23,6 @@
 Object::Object()
 {
     id = 0;
-    position.x = 0;
-    position.y = 0;
-    position.w = 0;
-    position.h = 0;
-    oldPosition.x = 0;
-    oldPosition.y = 0;
-    oldPosition.w = 0;
-    oldPosition.h = 0;
     hasMoved = false;
     ancestor = NULL;
     biblio = NULL;
@@ -54,15 +46,15 @@ bool Object::collision(Object * o)
     int topA, topB;
     int bottomA, bottomB;
     ///Calcul les cotes du rectangle A
-    leftA = this->position.x;
-    rightA = this->position.x + this->position.w;
-    topA = this->position.y;
-    bottomA = this->position.y + this->position.h;
+    leftA = this->position.x();
+    rightA = this->position.x() + this->position.w();
+    topA = this->position.y();
+    bottomA = this->position.y() + this->position.h();
     ///Calcul les cotes du rectangle B
-    leftB = o->position.x;
-    rightB = o->position.x + o->position.w;
-    topB = o->position.y;
-    bottomB = o->position.y + o->position.h;
+    leftB = o->position.x();
+    rightB = o->position.x() + o->position.w();
+    topB = o->position.y();
+    bottomB = o->position.y() + o->position.h();
 
     ///Tests de collision
     if( bottomA <= topB )

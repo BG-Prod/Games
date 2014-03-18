@@ -46,34 +46,32 @@ void Shot::use()
 
 void Shot::update()
 {
-    oldPosition = position;
-
     if(etat==GAUCHE)
     {
-        position.x -= vitesse;
+        position.x(position.x()-vitesse);
     }
     else if(etat==DROITE)
     {
-        position.x += vitesse;
+        position.x(position.x()+vitesse);
     }
     else if(etat==HAUT)
     {
-        position.y -= vitesse;
+        position.y(position.y()-vitesse);
     }
     else if(etat==BAS)
     {
-        position.y += vitesse;
+        position.y(position.y()+vitesse);
     }
 }
 
 bool Shot::death()
 {
-    return ( SDL_GetTicks() > birth+lifeTime ) ? true : false ;
+    return ( SDL_GetTicks() > (unsigned)birth+lifeTime ) ? true : false ;
 }
 
 void Shot::print()
 {
-    biblio[0][6]->print(position.x,position.y);
+    biblio[0][6]->print(position.x(),position.y());
 }
 
 

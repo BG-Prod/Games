@@ -26,10 +26,13 @@
 #include <SDL_image.h>
 #include <SDL_rotozoom.h>
 #include <SDL_getenv.h>
+#include <vector>
 #include <iostream>
 #include <fstream>
 #include <string>
 #include <sstream>
+
+#include <Coordonnees.h>
 
 class Image
 {
@@ -42,10 +45,13 @@ class Image
 
         void print();               /// affichage par défaut
         void print(int px, int py); /// affichage ++
+        void print(Coordonnees where, Coordonnees from); /// affichage partiel
         void resize(double percent); /// redimensionne une image
         void rotate(double percent); /// pivote une image
         void copy(Image * origin);     /// copie une image
+        void clear();
         void setAsIcon();
+        void setAsScreen();
         void setAlpha(int a);
         int width(){return w;}
         int height(){return h;}

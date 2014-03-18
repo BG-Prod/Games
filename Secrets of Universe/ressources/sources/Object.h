@@ -22,9 +22,10 @@
 #define OBJECT_H
 
 
-#include <SDL.h>
 #include <vector>
+
 #include <Image.h>
+#include <Coordonnees.h>
 
 
 enum direction{BAS,HAUT,DROITE,GAUCHE};
@@ -38,17 +39,15 @@ class Object
 
         bool collision(Object * o);
         direction getEtat(){return etat;}
-        SDL_Rect getPosition(){return position;}
+        Coordonnees getPosition(){return position;}
         std::vector<Image*> * biblio;
 
     protected:
-        SDL_Rect position;
-        SDL_Rect oldPosition;
+        Coordonnees position;
         int id;
         bool hasMoved;
         direction etat;
         Object * ancestor;
-
 };
 
 

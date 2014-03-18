@@ -23,6 +23,8 @@
 
 #include <Application.h>
 #include <Vaisseau.h>
+#include <Screen.h>
+
 
 class SoUApp : protected Application
 {

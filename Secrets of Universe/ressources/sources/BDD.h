@@ -44,11 +44,13 @@ class BDD
         vector<vector<string> > request(char * p_request);
         void closeDB();
         void request2(char * p_query);
-        static int callback1(void *NotUsed, int argc, char **argv, char **azColName);
-        static int callback2(void *NotUsed, int argc, char **argv, char **azColName);
 
     protected:
         sqlite3 * m_database;
+
+    private:
+        static int callback1(void *NotUsed, int argc, char **argv, char **azColName);
+        static int callback2(void *NotUsed, int argc, char **argv, char **azColName);
 };
 
 

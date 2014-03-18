@@ -26,6 +26,7 @@
 #include "Object.h"
 #include "Shot.h"
 
+
 class Weapon : protected Object
 {
     public:
