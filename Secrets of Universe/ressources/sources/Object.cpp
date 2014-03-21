@@ -25,12 +25,6 @@ Object::Object()
     id = 0;
     hasMoved = false;
     ancestor = NULL;
-    biblio = NULL;
-}
-
-Object::Object(std::vector<Image*> * b) : Object()
-{
-    biblio = b;
 }
 
 Object::~Object()

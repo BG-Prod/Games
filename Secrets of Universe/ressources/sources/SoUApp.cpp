@@ -34,36 +34,26 @@ SoUApp::~SoUApp()
 
 void SoUApp::app()
 {
-    SDL_Rect place = {SDL_GetVideoSurface()->w/2 - images[0]->width()/2,SDL_GetVideoSurface()->h/2 - images[0]->height()/2,0,0};
-
-/// on joue la musique de fond
+    /// on joue la musique de fond
     FMOD_System_PlaySound(system, FMOD_CHANNEL_FREE, musiques[0], 0, NULL);
 
-/// affichage du logo
-    int clign = 0;
+    /// affiche une intro BG Prod
+    intro();
 
-    while(clign<256)
-    {
-        SDL_FillRect(SDL_GetVideoSurface(), 0, SDL_MapRGB(SDL_GetVideoSurface()->format, 0, 0, 0));
-        images[0]->setAlpha(255);
-        images[0]->print(SDL_GetVideoSurface()->w/2 - images[0]->width()/2,SDL_GetVideoSurface()->h/2 - images[0]->height()/2);
-        clign+=10;
-        SDL_Flip(SDL_GetVideoSurface());
-    }
-
-    place = {SDL_GetVideoSurface()->w/2 - images[1]->width()/2,SDL_GetVideoSurface()->h/2 - images[1]->height()/2,0,0};
-
+    /// création des vaisseaux
     Vaisseau * asgo = new Vaisseau();
-    asgo->init(&images);
+    asgo->init();
 
     Vaisseau * evil = new Vaisseau();
-    evil->init(&images);
+    evil->init();
 
-    while(!in->get_touche(SDLK_ESCAPE) && !in->get_exit())  /// boucle principale
+    /// boucle principale
+    while(!in->get_touche(SDLK_ESCAPE) && !in->get_exit())
     {
         SDL_FillRect(SDL_GetVideoSurface(), 0, SDL_MapRGB(SDL_GetVideoSurface()->format, 0, 0, 0)); /// ecran noir
 
         /// collage du repère
+        SDL_Rect place = {SDL_GetVideoSurface()->w/2 - images[1]->width()/2,SDL_GetVideoSurface()->h/2 - images[1]->height()/2,0,0};
         place = {SDL_GetVideoSurface()->w/2 - images[1]->width()/2,40*RESIZE,0,0};
         images[1]->print(place.x,place.y);
 
@@ -97,14 +87,6 @@ void SoUApp::app()
         {
             asgo->move(DROITE);
         }
-        else if(in->get_touche(SDLK_KP_PLUS))
-        {
-            asgo->resize(105);
-        }
-        else if(in->get_touche(SDLK_KP_MINUS))
-        {
-            asgo->resize(95);
-        }
         else if(in->get_touche(SDLK_SPACE))
         {
             asgo->destroy();
@@ -123,8 +105,25 @@ void SoUApp::app()
         evil->print();
 
         screen->display();
-    }/// end main loop
+    }
+    /// end main loop
 
     delete asgo;
 }
 
+void SoUApp::intro()    /// affichage du logo
+{
+    SDL_Rect place = {SDL_GetVideoSurface()->w/2 - images[0]->width()/2,SDL_GetVideoSurface()->h/2 - images[0]->height()/2,0,0};
+
+    int clign = 0;
+
+    while(clign<256)
+    {
+        fps();
+        SDL_FillRect(SDL_GetVideoSurface(), 0, SDL_MapRGB(SDL_GetVideoSurface()->format, 0, 0, 0));
+        images[0]->setAlpha(clign);
+        images[0]->print(SDL_GetVideoSurface()->w/2 - images[0]->width()/2,SDL_GetVideoSurface()->h/2 - images[0]->height()/2);
+        clign+=10;
+        SDL_Flip(SDL_GetVideoSurface());
+    }
+}

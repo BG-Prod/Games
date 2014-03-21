@@ -27,8 +27,6 @@ Application::Application()
     /// initialisation son & image
     /// initialisation FMOD
     FMOD_System_Create(&system);
-    /// initialisation image & son
-    initialisation();
 
     /// verification de la date
 	time(&maintenant);
@@ -36,6 +34,7 @@ Application::Application()
 
 	/// create new screen
 	screen = new Screen();
+	cam = new Camera;
 
 	/// username
     DWORD StrLen = 256;
@@ -45,20 +44,11 @@ Application::Application()
     GetUserName(SysInfoStr, &StrLen);
     nameUser = SysInfoStr;
 
-    /// déclaration et chargements des ressources
-    /// images
-    loadImages();
-    /// sons
-    musiques = NULL;
-    musiques = (FMOD_SOUND **) malloc (sizeof(FMOD_SOUND*)*NOMBRE_MUSIQUE);
-    loadMusics(system, musiques);
-    /// polices
-    polices = NULL;
-    polices = (TTF_Font **) malloc(sizeof(TTF_Font*) * NOMBRE_POLICE);
-    loadFonts(polices);
-
     /// Control
     in = new Input();
+
+    /// initialisation image & son
+    initialisation();
 
     /// Icone
     images.at(0)->setAsIcon();
@@ -68,16 +58,16 @@ Application::Application()
 
     /// time
     tempsActuel = 0, tempsPrecedent = 0, screen_refresh = SCREEN_REFRESH;
+
+    /// objects
 }
 
 Application::~Application()
 {
     /// free loaded bitmap and created surface
     delete screen;
+    delete cam;
     delete in;
-    freeImages();
-    freeFonts(polices);
-    freeMusics(musiques);
     fermeture();
 }
 
@@ -98,10 +88,28 @@ void Application::initialisation()
 
     /// initialisation de FMOD
     FMOD_System_Init(system, 32, FMOD_INIT_NORMAL, NULL);
+
+    /// initialisation et chargement des ressources
+    /// images
+    loadImages();
+    /// sons
+    musiques = NULL;
+    musiques = (FMOD_SOUND **) malloc (sizeof(FMOD_SOUND*)*NOMBRE_MUSIQUE);
+    loadMusics();
+    /// polices
+    polices = NULL;
+    polices = (TTF_Font **) malloc(sizeof(TTF_Font*) * NOMBRE_POLICE);
+    loadFonts();
 }
 
 void Application::fermeture()
 {
+    /// libération des données
+    freeImages();
+    freeFonts();
+    freeMusics();
+    freeObjects();
+
     /// fermeture propre de fmodex
     FMOD_System_Close(system);
     FMOD_System_Release(system);
@@ -129,7 +137,7 @@ void Application::loadImages()
     }
 }
 
-void Application::loadMusics(FMOD_SYSTEM * p_system, FMOD_SOUND ** p_musiques)
+void Application::loadMusics()
 {
     string lien;
 
@@ -137,19 +145,19 @@ void Application::loadMusics(FMOD_SYSTEM * p_system, FMOD_SOUND ** p_musiques)
     {
         lien = cheminSon + "son01.mid";
 
-        FMOD_System_CreateSound(p_system, lien.c_str(), FMOD_SOFTWARE | FMOD_2D | FMOD_LOOP_NORMAL | FMOD_CREATESTREAM, 0, &p_musiques[i]);
-        FMOD_Sound_SetLoopCount(p_musiques[i], -1);
+        FMOD_System_CreateSound(system, lien.c_str(), FMOD_SOFTWARE | FMOD_2D | FMOD_LOOP_NORMAL | FMOD_CREATESTREAM, 0, &musiques[i]);
+        FMOD_Sound_SetLoopCount(musiques[i], -1);
     }
 }
 
-void Application::loadFonts(TTF_Font ** p_polices)
+void Application::loadFonts()
 {
     string lien;
 
     for(int i = 0 ; i < NOMBRE_POLICE ; i++)
     {
         lien = cheminPolice + "calibri.ttf";
-        p_polices[i] = TTF_OpenFont(lien.c_str(), 20);
+        polices[i] = TTF_OpenFont(lien.c_str(), 20);
     }
 }
 
@@ -162,22 +170,30 @@ void Application::freeImages()
     }
 }
 
-void Application::freeMusics(FMOD_SOUND ** p_sons)
+void Application::freeObjects()
+{
+    for(unsigned int i = 0 ; i < objects.size() ; i++)
+    {
+        delete objects[i];
+    }
+}
+
+void Application::freeMusics()
 {
     for(int i = 0 ; i < NOMBRE_MUSIQUE ; i++)
     {
-        FMOD_Sound_Release(p_sons[i]);
+        FMOD_Sound_Release(musiques[i]);
     }
-    free(p_sons);
+    free(musiques);
 }
 
-void Application::freeFonts(TTF_Font ** p_polices)
+void Application::freeFonts()
 {
     for(int i = 0 ; i < NOMBRE_POLICE ; i++)
     {
-        TTF_CloseFont(p_polices[i]);
+        TTF_CloseFont(polices[i]);
     }
-    free(p_polices);
+    free(polices);
 }
 
 /// Pour copier une SDL_Surface

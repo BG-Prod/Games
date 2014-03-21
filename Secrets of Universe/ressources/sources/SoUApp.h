@@ -31,7 +31,9 @@ class SoUApp : protected Application
     public:
         SoUApp();
         virtual ~SoUApp();
+
         virtual void app();
+        void intro();
 
     protected:
     private:

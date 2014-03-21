@@ -32,49 +32,32 @@
 #include <Image.h>
 #include <Application.h>
 #include <Weapon.h>
-
-
+#include <DisplayDatas.h>
 
 
 class Vaisseau : protected Object
 {
     public:
         Vaisseau();
-       /// Vaisseau(const Vaisseau&);
+        /// constructeur de badass
+        Vaisseau(int _energie, int _bouclier, int _coque, int _capteur, int _vitesse, int _joueur, int _type,
+                 int _masse, int _teleporteur, int _hypernavigateur, int _moteur, int _id, Coordonnees _position,
+                 direction _etat, Object * _ancestor);
         virtual ~Vaisseau();
-       /** void attaquer(SDL_Surface* p_ouColler, Input, SDL_Rect p_carton[],int p_listeDeg[]);
-        void bouclier(SDL_Surface *, Input);
-        void update(SDL_Surface*, SDL_Surface*, Input, SDL_Rect p_carton[],int p_listeDeg[]);
-        void IA(SDL_Surface*, Input, SDL_Rect p_carton[],int p_listeDeg[]);
-        int modCoque(int mod);
-        Projectile getTirs(int);
-        SDL_Rect getPos();
-        int getActiviteArme();
-        int getParametre(int x);
-        void anim_explosion(SDL_Surface * p_ou);**/
 
         void move(direction d);
-        void print();
+        DisplayDatas print();
         void destroy();
         void bot();
-        void resize(int);
-        void init(std::vector<Image*> * b);
+        void init();
         void shoot();
         void update();
 
     protected:
-        int energie, bouclier, coque, capteur;
-        int teleporteur, hypernavigateur, moteur, nb_explosion;
+        int energie, bouclier, coque, capteur, vitesse, joueur, type,
+        masse, teleporteur, hypernavigateur, moteur;
+        bool activiteBouclier, alive;
         Weapon * batterie;
-        std::vector<Image*> image;
-        SDL_Surface* imageBouclier[5], *explosion;
-        SDL_Rect placeBouclier, placeArme1;
-        bool activiteBouclier, bool_explosion;
-        bool mobile;
-        int vitesse, joueur;
-
-        bool alive;
-        int type, masse;
 
 };
 

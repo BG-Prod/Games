@@ -35,7 +35,6 @@ class Screen
     protected:
         SDL_Surface * ecran;
         Image * videoBuffer;
-        Camera * cam;
 
     private:
         static int size_of_window(int);

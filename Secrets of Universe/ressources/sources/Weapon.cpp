@@ -25,7 +25,6 @@ Weapon::Weapon(Object * o) : Object()
     type = 1;
     etat = o->getEtat();
     ancestor = o;
-    biblio = o->biblio;
 }
 
 Weapon::~Weapon()

@@ -12,14 +12,11 @@ Screen::Screen()
     }
 
     videoBuffer = new Image(1920,1080,0,255,0);
-    ///videoBuffer->setAsScreen();
-    cam = new Camera;
 }
 
 Screen::~Screen()
 {
     delete videoBuffer;
-    delete cam;
     SDL_FreeSurface(ecran);
 }
 

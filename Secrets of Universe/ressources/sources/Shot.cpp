@@ -26,7 +26,6 @@ Shot::Shot(Object * o) : Object(), birth(SDL_GetTicks()), lifeTime(1000)
     force = 10;
     vitesse = 20;
     ancestor = o;
-    biblio = o->biblio;
 }
 
 Shot::~Shot()
@@ -71,7 +70,7 @@ bool Shot::death()
 
 void Shot::print()
 {
-    biblio[0][6]->print(position.x(),position.y());
+
 }
 
 

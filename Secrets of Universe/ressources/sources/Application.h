@@ -66,12 +66,13 @@ class Application
         virtual void app();
 
         void loadImages();                          /// charge les images utiles
-        void loadMusics(FMOD_SYSTEM * p_system, FMOD_SOUND ** p_sons);   /// charge les musiques utiles
-        void loadFonts(TTF_Font ** p_polices);                           /// charge les polices utiles
+        void loadMusics();   /// charge les musiques utiles
+        void loadFonts();                           /// charge les polices utiles
 
         void freeImages();  /// libère les images chargées
-        void freeMusics(FMOD_SOUND ** p_sons);   /// libère les musiques chargées
-        void freeFonts(TTF_Font ** p_polices);   /// libère les polices chargées
+        void freeMusics();   /// libère les musiques chargées
+        void freeFonts();   /// libère les polices chargées
+        void freeObjects();   /// libère les objets chargées
 
         static SDL_Surface* copieSurface(SDL_Surface *surf);
 
@@ -90,6 +91,7 @@ class Application
         std::string nameUser;
         /// screen
         Screen * screen;
+        Camera * cam;
         /// ressources
         std::vector<Image*> images;
         FMOD_SYSTEM * system;

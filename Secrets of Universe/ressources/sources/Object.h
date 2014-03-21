@@ -26,6 +26,7 @@
 
 #include <Image.h>
 #include <Coordonnees.h>
+#include <DisplayDatas.h>
 
 
 enum direction{BAS,HAUT,DROITE,GAUCHE};
@@ -34,13 +35,11 @@ class Object
 {
     public:
         Object();
-        Object(std::vector<Image*> *);
         virtual ~Object();
 
         bool collision(Object * o);
         direction getEtat(){return etat;}
         Coordonnees getPosition(){return position;}
-        std::vector<Image*> * biblio;
 
     protected:
         Coordonnees position;
