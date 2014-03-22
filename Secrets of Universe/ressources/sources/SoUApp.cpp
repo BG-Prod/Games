@@ -41,11 +41,8 @@ void SoUApp::app()
     intro();
 
     /// création des vaisseaux
-    Vaisseau * asgo = new Vaisseau();
-    asgo->init();
-
-    Vaisseau * evil = new Vaisseau();
-    evil->init();
+    objects.push_back(new Vaisseau());
+    objects.push_back(new Vaisseau());
 
     /// boucle principale
     while(!in->get_touche(SDLK_ESCAPE) && !in->get_exit())
@@ -69,61 +66,69 @@ void SoUApp::app()
             screen->resize();
         }
 
-        evil->bot();
+        objects[1]->bot();
+        objects[0]->update(in);
 
-        if(in->get_touche(SDLK_UP))
-        {
-            asgo->move(HAUT);
-        }
-        else if(in->get_touche(SDLK_DOWN))
-        {
-            asgo->move(BAS);
-        }
-        else if(in->get_touche(SDLK_LEFT))
-        {
-            asgo->move(GAUCHE);
-        }
-        else if(in->get_touche(SDLK_RIGHT))
-        {
-            asgo->move(DROITE);
-        }
-        else if(in->get_touche(SDLK_SPACE))
-        {
-            asgo->destroy();
-            in->set_touche(SDLK_SPACE,0);
-        }
-        else if(in->get_touche(SDLK_RETURN))
-        {
-            asgo->shoot();
-            in->set_touche(SDLK_SPACE,0);
-        }
-
-        asgo->update();
-
-        /// print fond d'écran
-        asgo->print();
-        evil->print();
-
-        screen->display();
+        /// print l'image à l'écran
+        draw();
     }
     /// end main loop
-
-    delete asgo;
 }
 
 void SoUApp::intro()    /// affichage du logo
 {
-    SDL_Rect place = {SDL_GetVideoSurface()->w/2 - images[0]->width()/2,SDL_GetVideoSurface()->h/2 - images[0]->height()/2,0,0};
-
     int clign = 0;
 
     while(clign<256)
     {
-        fps();
         SDL_FillRect(SDL_GetVideoSurface(), 0, SDL_MapRGB(SDL_GetVideoSurface()->format, 0, 0, 0));
         images[0]->setAlpha(clign);
         images[0]->print(SDL_GetVideoSurface()->w/2 - images[0]->width()/2,SDL_GetVideoSurface()->h/2 - images[0]->height()/2);
         clign+=10;
+        fps();
         SDL_Flip(SDL_GetVideoSurface());
     }
 }
+
+void SoUApp::draw()
+{
+    for(unsigned int i = 0 ; i < objects.size() ; i++)
+    {
+        DisplayDatas tmp = objects[i]->print();
+
+        int numImage = whatImage(tmp.type, tmp.etat);
+
+        if(numImage >= 0)
+        {
+            images[numImage]->print(screen->buffer(), tmp.coor, cam->place());
+        }
+    }
+    screen->display();
+}
+
+int SoUApp::whatImage(int a, int b)
+{
+    int retour = -1;
+    if(a==1)
+    {
+        if(b==BAS)
+        {
+            retour = 2;
+        }
+        else if(b==HAUT)
+        {
+            retour = 3;
+        }
+        else if(b==DROITE)
+        {
+            retour = 4;
+        }
+        else if(b==GAUCHE)
+        {
+            retour = 5;
+        }
+    }
+
+    return retour;
+}
+

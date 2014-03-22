@@ -1,5 +1,7 @@
 #include "Screen.h"
 
+using namespace std;
+
 Screen::Screen()
 {
     /// create a new window
@@ -11,7 +13,7 @@ Screen::Screen()
         ecran = SDL_SetVideoMode(640, 480, 32, SDL_HWSURFACE|SDL_DOUBLEBUF|SDL_RESIZABLE);
     }
 
-    videoBuffer = new Image(1920,1080,0,255,0);
+    videoBuffer = new Image(LARGEUR_ECRAN,HAUTEUR_ECRAN,0,255,0);
 }
 
 Screen::~Screen()
@@ -49,11 +51,13 @@ int Screen::size_of_window(int p_hauteur_ecran)
 
 void Screen::display()
 {
-   // videoBuffer->print(cam->place(), cam->view());
-  //  videoBuffer->clear();
-    SDL_Rect endroit = {0,0,1920,1080};
-    SDL_Rect partie = {0,0,1920,1080};
-    SDL_BlitSurface(ecran, &partie, SDL_GetVideoSurface(), &endroit);
-    SDL_Flip(ecran);
+    videoBuffer->print();
+    SDL_Flip(SDL_GetVideoSurface());
+    videoBuffer->clear();
+}
+
+Image * Screen::buffer()
+{
+    return videoBuffer;
 }
 

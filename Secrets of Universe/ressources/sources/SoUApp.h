@@ -33,10 +33,11 @@ class SoUApp : protected Application
         virtual ~SoUApp();
 
         virtual void app();
+        virtual void draw();
         void intro();
 
     protected:
-    private:
+        int whatImage(int a, int b);
 };
 
 #endif // SOUAPP_H

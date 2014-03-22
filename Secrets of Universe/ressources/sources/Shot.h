@@ -23,11 +23,12 @@
 
 #include <SDL.h>
 
-#include "Object.h"
-#include "Image.h"
+#include <Object.h>
+#include <Image.h>
+#include <DisplayDatas.h>
 
 
-class Shot : protected Object
+class Shot : public Object
 {
     public:
         Shot(Object * o);
@@ -37,7 +38,6 @@ class Shot : protected Object
         void use();
         void update();
         bool death();
-        void print();
 
     protected:
         int vitesse;

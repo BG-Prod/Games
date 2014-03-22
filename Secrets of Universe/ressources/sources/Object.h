@@ -27,6 +27,7 @@
 #include <Image.h>
 #include <Coordonnees.h>
 #include <DisplayDatas.h>
+#include <Input.h>
 
 
 enum direction{BAS,HAUT,DROITE,GAUCHE};
@@ -34,16 +35,21 @@ enum direction{BAS,HAUT,DROITE,GAUCHE};
 class Object
 {
     public:
-        Object();
         virtual ~Object();
 
         bool collision(Object * o);
         direction getEtat(){return etat;}
         Coordonnees getPosition(){return position;}
+        DisplayDatas print();
+        virtual void bot();
+        virtual void update(Input * in);
 
     protected:
+        Object();               /// pour avoir une classe abstraite
+
         Coordonnees position;
         int id;
+        int type;
         bool hasMoved;
         direction etat;
         Object * ancestor;

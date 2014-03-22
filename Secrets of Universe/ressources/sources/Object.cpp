@@ -71,3 +71,18 @@ bool Object::collision(Object * o)
     return true;
 }
 
+void Object::bot()
+{
+
+}
+
+void Object::update(Input * in)
+{
+
+}
+
+DisplayDatas Object::print()
+{
+    return DisplayDatas(type,etat,position);
+}
+

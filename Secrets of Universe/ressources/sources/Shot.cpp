@@ -68,9 +68,6 @@ bool Shot::death()
     return ( SDL_GetTicks() > (unsigned)birth+lifeTime ) ? true : false ;
 }
 
-void Shot::print()
-{
 
-}
 
 

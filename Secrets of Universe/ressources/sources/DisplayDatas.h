@@ -8,8 +8,7 @@ class DisplayDatas
     public:
         DisplayDatas(int,int,Coordonnees);
         virtual ~DisplayDatas();
-    protected:
-    private:
+
         Coordonnees coor;
         int type;
         int etat;

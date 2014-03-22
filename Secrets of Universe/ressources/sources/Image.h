@@ -46,12 +46,12 @@ class Image
         void print();               /// affichage par défaut
         void print(int px, int py); /// affichage ++
         void print(Coordonnees where, Coordonnees from); /// affichage partiel
+        void print(Image * buffer, Coordonnees where, Coordonnees from); /// affichage complet
         void resize(double percent); /// redimensionne une image
         void rotate(double percent); /// pivote une image
         void copy(Image * origin);     /// copie une image
         void clear();
         void setAsIcon();
-        void setAsScreen();
         void setAlpha(int a);
         int width(){return w;}
         int height(){return h;}

@@ -91,6 +91,20 @@ void Image::print(Coordonnees where, Coordonnees from)
     SDL_BlitSurface(image, &dou, SDL_GetVideoSurface(), &ou);
 }
 
+void Image::print(Image * buffer, Coordonnees where, Coordonnees from)
+{
+    SDL_Rect ou, dou;
+    ou.x = where.x();
+    ou.y = where.y();
+    ou.w = where.w();
+    ou.h = where.h();
+    dou.x = from.x();
+    dou.y = from.y();
+    dou.w = from.w();
+    dou.h = from.h();
+    SDL_BlitSurface(image, &dou, buffer->image, &ou);
+}
+
 void Image::resize(double percent)
 {
     image = rotozoomSurface(image, 0.0,(double)percent/100,1);
@@ -121,12 +135,7 @@ void Image::copy(Image * origin)
 
 void Image::clear()
 {
-    SDL_FillRect(image, 0, SDL_MapRGB(SDL_GetVideoSurface()->format, 0, 0, 0));
-}
-
-void Image::setAsScreen()
-{
-    image = SDL_SetVideoMode(1920*4, 1080*4, 32, SDL_HWSURFACE|SDL_DOUBLEBUF|SDL_RESIZABLE);
+    SDL_FillRect(image, 0, SDL_MapRGB(SDL_GetVideoSurface()->format, 0, 255, 0));
 }
 
 void Image::setAsIcon()

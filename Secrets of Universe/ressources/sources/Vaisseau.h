@@ -30,12 +30,11 @@
 
 #include <Object.h>
 #include <Image.h>
-#include <Application.h>
 #include <Weapon.h>
 #include <DisplayDatas.h>
 
 
-class Vaisseau : protected Object
+class Vaisseau : public Object
 {
     public:
         Vaisseau();
@@ -46,15 +45,13 @@ class Vaisseau : protected Object
         virtual ~Vaisseau();
 
         void move(direction d);
-        DisplayDatas print();
         void destroy();
         void bot();
-        void init();
         void shoot();
-        void update();
+        void update(Input * in);
 
     protected:
-        int energie, bouclier, coque, capteur, vitesse, joueur, type,
+        int energie, bouclier, coque, capteur, vitesse, joueur,
         masse, teleporteur, hypernavigateur, moteur;
         bool activiteBouclier, alive;
         Weapon * batterie;

@@ -28,6 +28,7 @@ Vaisseau::Vaisseau() : Object(), energie(100), bouclier(100), coque(100), capteu
 {
     etat = GAUCHE;
     vitesse = 15;
+    type = 1;
     alive = true;
     activiteBouclier = false;
 
@@ -38,14 +39,16 @@ Vaisseau::Vaisseau() : Object(), energie(100), bouclier(100), coque(100), capteu
     batterie = new Weapon(this);
 }
 
-Vaisseau::~Vaisseau()
+Vaisseau::Vaisseau(int _energie, int _bouclier, int _coque, int _capteur, int _vitesse, int _joueur, int _type,
+                 int _masse, int _teleporteur, int _hypernavigateur, int _moteur, int _id, Coordonnees _position,
+                 direction _etat, Object * _ancestor)
 {
 
 }
 
-void Vaisseau::init()
+Vaisseau::~Vaisseau()
 {
-
+    delete batterie;
 }
 
 void Vaisseau::move(direction d)
@@ -73,13 +76,35 @@ void Vaisseau::shoot()
     batterie->use();
 }
 
-DisplayDatas Vaisseau::print()
+void Vaisseau::update(Input * in)
 {
-    return DisplayDatas(type,etat,position);
-}
+    if(in->get_touche(SDLK_UP))
+    {
+        move(HAUT);
+    }
+    else if(in->get_touche(SDLK_DOWN))
+    {
+        move(BAS);
+    }
+    else if(in->get_touche(SDLK_LEFT))
+    {
+        move(GAUCHE);
+    }
+    else if(in->get_touche(SDLK_RIGHT))
+    {
+        move(DROITE);
+    }
+    else if(in->get_touche(SDLK_SPACE))
+    {
+        destroy();
+        in->set_touche(SDLK_SPACE,0);
+    }
+    else if(in->get_touche(SDLK_RETURN))
+    {
+        shoot();
+        in->set_touche(SDLK_SPACE,0);
+    }
 
-void Vaisseau::update()
-{
     batterie->update();
 }
 
@@ -110,6 +135,8 @@ void Vaisseau::bot()
     {
         move(etat);
     }
+
+    batterie->update();
 }
 
 

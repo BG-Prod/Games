@@ -76,7 +76,8 @@ class Application
 
         static SDL_Surface* copieSurface(SDL_Surface *surf);
 
-        void fps();      /// régule le temps
+        void fps();             /// régule le temps
+        virtual void draw();    /// défini l'affichage
 
     protected:
         void initialisation();        /// initialise le jeu

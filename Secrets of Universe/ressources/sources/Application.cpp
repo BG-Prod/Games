@@ -229,4 +229,8 @@ void Application::app()
 
 }
 
+void Application::draw()
+{
+
+}
 
