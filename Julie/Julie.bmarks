@@ -1,50 +1,50 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <BrowseTracker_layout_file>
 	<ActiveTarget name="Debug" />
-	<File name="ressources\sources\Input.cpp" open="1" top="0" tabpos="36">
-		<Cursor position="3509" topLine="0" />
-	</File>
-	<File name="ressources\sources\Input.h" open="1" top="0" tabpos="35">
+	<File name="ressources\sources\Input.h" open="1" top="0" tabpos="40">
 		<Cursor position="1289" topLine="0" />
 		<BrowseMarks positions="1172" />
 		<Book_Marks positions="1429,1204" />
 	</File>
-	<File name="ressources\sources\Jeu.cpp" open="1" top="1" tabpos="28">
-		<Cursor position="3430" topLine="5" />
-		<BrowseMarks positions="3403,5255,5484" />
-		<Book_Marks positions="3073,2005" />
+	<File name="ressources\sources\main.cpp" open="1" top="0" tabpos="32">
+		<Cursor position="4603" topLine="85" />
 	</File>
-	<File name="ressources\sources\Texte.h" open="1" top="0" tabpos="33">
-		<Cursor position="891" topLine="0" />
-		<BrowseMarks positions="965" />
-		<Book_Marks positions="905" />
+	<File name="ressources\sources\Jeu.h" open="1" top="0" tabpos="34">
+		<Cursor position="1750" topLine="0" />
 	</File>
-	<File name="ressources\sources\BDD.cpp" open="1" top="0" tabpos="37">
-		<Cursor position="1406" topLine="0" />
-		<BrowseMarks positions="1245" />
-	</File>
-	<File name="ressources\sources\main.cpp" open="1" top="0" tabpos="27">
-		<Cursor position="5242" topLine="126" />
-	</File>
-	<File name="ressources\sources\Texte.cpp" open="1" top="0" tabpos="34">
+	<File name="ressources\sources\Texte.cpp" open="1" top="0" tabpos="39">
 		<Cursor position="1054" topLine="0" />
 		<BrowseMarks positions="1387,2159,2684" />
 	</File>
-	<File name="ressources\sources\utile.cpp" open="1" top="0" tabpos="32">
-		<Cursor position="4965" topLine="22" />
+	<File name="ressources\sources\BDD.h" open="1" top="0" tabpos="43">
+		<Cursor position="915" topLine="0" />
 	</File>
-	<File name="ressources\sources\utile.h" open="1" top="0" tabpos="30">
+	<File name="ressources\sources\utile.h" open="1" top="0" tabpos="35">
 		<Cursor position="2257" topLine="39" />
 		<BrowseMarks positions="1729" />
 		<Book_Marks positions="1757" />
 	</File>
-	<File name="ressources\sources\Jeu.h" open="1" top="0" tabpos="29">
-		<Cursor position="1750" topLine="0" />
+	<File name="ressources\sources\Input.cpp" open="1" top="0" tabpos="41">
+		<Cursor position="3509" topLine="0" />
 	</File>
-	<File name="ressources\sources\ressources.rc" open="1" top="0" tabpos="31">
+	<File name="ressources\sources\Jeu.cpp" open="1" top="1" tabpos="33">
+		<Cursor position="3430" topLine="5" />
+		<BrowseMarks positions="3403,5255,5484" />
+		<Book_Marks positions="3073,2005" />
+	</File>
+	<File name="ressources\sources\BDD.cpp" open="1" top="0" tabpos="42">
+		<Cursor position="1406" topLine="0" />
+		<BrowseMarks positions="1245" />
+	</File>
+	<File name="ressources\sources\Texte.h" open="1" top="0" tabpos="38">
+		<Cursor position="891" topLine="0" />
+		<BrowseMarks positions="965" />
+		<Book_Marks positions="905" />
+	</File>
+	<File name="ressources\sources\utile.cpp" open="1" top="0" tabpos="37">
+		<Cursor position="4965" topLine="22" />
+	</File>
+	<File name="ressources\sources\ressources.rc" open="1" top="0" tabpos="36">
 		<Cursor position="34" topLine="0" />
-	</File>
-	<File name="ressources\sources\BDD.h" open="1" top="0" tabpos="38">
-		<Cursor position="915" topLine="0" />
 	</File>
 </BrowseTracker_layout_file>

@@ -1,150 +1,174 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
-	<File name="ressources\sources\Input.cpp" open="1" top="0" tabpos="36" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3509" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="ressources\sources\Input.h" open="1" top="0" tabpos="35" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="ressources\sources\Input.h" open="1" top="0" tabpos="40" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="1289" topLine="0" />
 		</Cursor>
+		<Folding>
+			<Collapse line="29" />
+		</Folding>
 	</File>
-	<File name="ressources\sources\Jeu.cpp" open="1" top="1" tabpos="28" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="ressources\sources\main.cpp" open="1" top="0" tabpos="32" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="3430" topLine="5" />
+			<Cursor1 position="4603" topLine="85" />
 		</Cursor>
 		<Folding>
 			<Collapse line="0" />
-			<Collapse line="26" />
-			<Collapse line="35" />
-			<Collapse line="39" />
-			<Collapse line="45" />
-			<Collapse line="52" />
-			<Collapse line="57" />
-			<Collapse line="62" />
-			<Collapse line="79" />
-			<Collapse line="86" />
-			<Collapse line="108" />
-			<Collapse line="143" />
-			<Collapse line="145" />
-			<Collapse line="147" />
-			<Collapse line="149" />
-			<Collapse line="153" />
-			<Collapse line="155" />
-			<Collapse line="159" />
-			<Collapse line="164" />
-			<Collapse line="167" />
-			<Collapse line="173" />
-			<Collapse line="175" />
-			<Collapse line="183" />
-			<Collapse line="189" />
-			<Collapse line="254" />
+			<Collapse line="80" />
+			<Collapse line="122" />
+			<Collapse line="132" />
+			<Collapse line="177" />
 		</Folding>
 	</File>
-	<File name="ressources\sources\Texte.h" open="1" top="0" tabpos="33" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="ressources\sources\Jeu.h" open="1" top="0" tabpos="34" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="891" topLine="0" />
-		</Cursor>
-		<Folding>
-			<Collapse line="34" />
-		</Folding>
-	</File>
-	<File name="ressources\sources\BDD.cpp" open="1" top="0" tabpos="37" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1406" topLine="0" />
+			<Cursor1 position="1750" topLine="0" />
 		</Cursor>
 		<Folding>
 			<Collapse line="0" />
+			<Collapse line="44" />
 		</Folding>
 	</File>
-	<File name="ressources\sources\main.cpp" open="1" top="0" tabpos="27" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="5242" topLine="126" />
-		</Cursor>
-		<Folding>
-			<Collapse line="157" />
-			<Collapse line="167" />
-			<Collapse line="182" />
-			<Collapse line="186" />
-		</Folding>
-	</File>
-	<File name="ressources\sources\Texte.cpp" open="1" top="0" tabpos="34" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="ressources\sources\Texte.cpp" open="1" top="0" tabpos="39" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="1054" topLine="0" />
 		</Cursor>
 		<Folding>
-			<Collapse line="0" />
-			<Collapse line="38" />
-			<Collapse line="40" />
-			<Collapse line="46" />
-			<Collapse line="48" />
-			<Collapse line="57" />
-			<Collapse line="59" />
-			<Collapse line="75" />
-			<Collapse line="79" />
-			<Collapse line="81" />
-			<Collapse line="93" />
-			<Collapse line="109" />
-			<Collapse line="114" />
-			<Collapse line="116" />
-			<Collapse line="124" />
+			<Collapse line="27" />
 		</Folding>
 	</File>
-	<File name="ressources\sources\utile.cpp" open="1" top="0" tabpos="32" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="ressources\sources\BDD.h" open="1" top="0" tabpos="43" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="915" topLine="0" />
+		</Cursor>
+		<Folding>
+			<Collapse line="0" />
+			<Collapse line="35" />
+		</Folding>
+	</File>
+	<File name="ressources\sources\utile.h" open="1" top="0" tabpos="35" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2257" topLine="39" />
+		</Cursor>
+		<Folding>
+			<Collapse line="0" />
+			<Collapse line="66" />
+		</Folding>
+	</File>
+	<File name="ressources\sources\Input.cpp" open="1" top="0" tabpos="41" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3509" topLine="0" />
+		</Cursor>
+		<Folding>
+			<Collapse line="4" />
+			<Collapse line="6" />
+			<Collapse line="10" />
+			<Collapse line="15" />
+			<Collapse line="23" />
+			<Collapse line="28" />
+			<Collapse line="33" />
+			<Collapse line="35" />
+			<Collapse line="38" />
+			<Collapse line="40" />
+			<Collapse line="42" />
+			<Collapse line="47" />
+			<Collapse line="51" />
+			<Collapse line="55" />
+			<Collapse line="59" />
+			<Collapse line="63" />
+			<Collapse line="67" />
+			<Collapse line="71" />
+			<Collapse line="75" />
+			<Collapse line="79" />
+			<Collapse line="83" />
+			<Collapse line="87" />
+			<Collapse line="91" />
+			<Collapse line="95" />
+			<Collapse line="99" />
+			<Collapse line="103" />
+			<Collapse line="107" />
+			<Collapse line="111" />
+			<Collapse line="115" />
+			<Collapse line="119" />
+			<Collapse line="123" />
+			<Collapse line="130" />
+			<Collapse line="134" />
+			<Collapse line="141" />
+			<Collapse line="145" />
+			<Collapse line="147" />
+			<Collapse line="152" />
+			<Collapse line="159" />
+			<Collapse line="165" />
+			<Collapse line="170" />
+			<Collapse line="175" />
+		</Folding>
+	</File>
+	<File name="ressources\sources\Jeu.cpp" open="1" top="1" tabpos="33" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3430" topLine="5" />
+		</Cursor>
+		<Folding>
+			<Collapse line="124" />
+			<Collapse line="126" />
+			<Collapse line="128" />
+			<Collapse line="130" />
+			<Collapse line="137" />
+			<Collapse line="204" />
+			<Collapse line="222" />
+			<Collapse line="224" />
+			<Collapse line="226" />
+			<Collapse line="231" />
+			<Collapse line="242" />
+			<Collapse line="249" />
+		</Folding>
+	</File>
+	<File name="ressources\sources\BDD.cpp" open="1" top="0" tabpos="42" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1406" topLine="0" />
+		</Cursor>
+		<Folding>
+			<Collapse line="24" />
+			<Collapse line="29" />
+			<Collapse line="34" />
+			<Collapse line="36" />
+			<Collapse line="42" />
+			<Collapse line="47" />
+			<Collapse line="51" />
+			<Collapse line="55" />
+			<Collapse line="58" />
+			<Collapse line="64" />
+			<Collapse line="79" />
+		</Folding>
+	</File>
+	<File name="ressources\sources\Texte.h" open="1" top="0" tabpos="38" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="891" topLine="0" />
+		</Cursor>
+		<Folding>
+			<Collapse line="0" />
+		</Folding>
+	</File>
+	<File name="ressources\sources\utile.cpp" open="1" top="0" tabpos="37" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="4965" topLine="22" />
 		</Cursor>
 		<Folding>
-			<Collapse line="0" />
-			<Collapse line="26" />
-			<Collapse line="29" />
-			<Collapse line="45" />
-			<Collapse line="99" />
-			<Collapse line="101" />
-			<Collapse line="108" />
-			<Collapse line="110" />
-			<Collapse line="117" />
-			<Collapse line="119" />
-			<Collapse line="126" />
-			<Collapse line="134" />
-			<Collapse line="139" />
-			<Collapse line="145" />
-			<Collapse line="154" />
-			<Collapse line="158" />
-			<Collapse line="163" />
-			<Collapse line="165" />
-			<Collapse line="172" />
-			<Collapse line="181" />
-			<Collapse line="183" />
-			<Collapse line="187" />
-			<Collapse line="193" />
-			<Collapse line="197" />
-			<Collapse line="201" />
-			<Collapse line="208" />
-			<Collapse line="210" />
-			<Collapse line="214" />
+			<Collapse line="53" />
+			<Collapse line="57" />
+			<Collapse line="60" />
+			<Collapse line="64" />
+			<Collapse line="75" />
+			<Collapse line="79" />
+			<Collapse line="87" />
+			<Collapse line="91" />
+			<Collapse line="220" />
+			<Collapse line="229" />
 		</Folding>
 	</File>
-	<File name="ressources\sources\utile.h" open="1" top="0" tabpos="30" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2257" topLine="39" />
-		</Cursor>
-	</File>
-	<File name="ressources\sources\Jeu.h" open="1" top="0" tabpos="29" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1750" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="ressources\sources\ressources.rc" open="1" top="0" tabpos="31" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="ressources\sources\ressources.rc" open="1" top="0" tabpos="36" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="34" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="ressources\sources\BDD.h" open="1" top="0" tabpos="38" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="915" topLine="0" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

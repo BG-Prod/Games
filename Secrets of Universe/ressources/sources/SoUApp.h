@@ -24,6 +24,7 @@
 #include <Application.h>
 #include <Vaisseau.h>
 #include <Screen.h>
+#include <Map.h>
 
 
 class SoUApp : protected Application

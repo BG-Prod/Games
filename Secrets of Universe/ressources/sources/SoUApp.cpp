@@ -22,7 +22,7 @@
 
 using namespace std;
 
-SoUApp::SoUApp()
+SoUApp::SoUApp() : Application()
 {
     SDL_WM_SetCaption("Secrets of Universe", NULL);
 }
@@ -41,6 +41,7 @@ void SoUApp::app()
     intro();
 
     /// création des vaisseaux
+    objects.push_back(new Map());
     objects.push_back(new Vaisseau());
     objects.push_back(new Vaisseau());
 
@@ -109,6 +110,10 @@ void SoUApp::draw()
 int SoUApp::whatImage(int a, int b)
 {
     int retour = -1;
+    if(a==0)
+    {
+        retour = 7;
+    }
     if(a==1)
     {
         if(b==BAS)

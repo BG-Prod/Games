@@ -23,8 +23,12 @@
 Object::Object()
 {
     id = 0;
+    type = 0;
     hasMoved = false;
     ancestor = NULL;
+    position.w(3840);
+    position.h(3072);
+    etat = HAUT;
 }
 
 Object::~Object()
