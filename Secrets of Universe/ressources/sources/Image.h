@@ -56,6 +56,9 @@ class Image
         int width(){return w;}
         int height(){return h;}
 
+        Uint32 getpixel(int x, int y);
+        void setPixel(int x, int y, Uint32 coul);
+
     protected:
         SDL_Surface * image;
         int x,y,w,h,alpha;

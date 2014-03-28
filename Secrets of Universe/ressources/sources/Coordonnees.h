@@ -2,6 +2,11 @@
 #define COORDONNEES_H
 
 #include <iostream>
+#include <cstdlib>
+#include <stdlib.h>
+#include <stdio.h>
+
+long random(int borneInf, int borneSup);  /// borne sup inclus
 
 class Coordonnees
 {

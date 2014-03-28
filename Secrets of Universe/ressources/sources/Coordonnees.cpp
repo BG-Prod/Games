@@ -79,8 +79,6 @@ Coordonnees &Coordonnees::operator=(const int tab[])
     return *this;
 }
 
-
-
 void Coordonnees::modify(int a, int b, int c, int d)
 {
     data[4] = data[0];
@@ -92,5 +90,10 @@ void Coordonnees::modify(int a, int b, int c, int d)
     data[1] = b != -1 ? b : data[1];
     data[2] = c != -1 ? c : data[2];
     data[3] = d != -1 ? d : data[3];
+}
+
+long random(int borneInf, int borneSup)  /// borne sup inclus
+{
+    return ((rand() % (borneSup - borneInf)) + borneInf);
 }
 
