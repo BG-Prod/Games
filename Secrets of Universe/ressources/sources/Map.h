@@ -10,6 +10,9 @@ class Map : public Object
         Map();
         virtual ~Map();
 
+        void bot();
+        void update(Input * in);
+
     protected:
     private:
 };

@@ -135,7 +135,7 @@ void Image::copy(Image * origin)
 
 void Image::clear()
 {
-    SDL_FillRect(image, 0, SDL_MapRGB(SDL_GetVideoSurface()->format, 0, 255, 0));
+    SDL_FillRect(image, 0, SDL_MapRGB(SDL_GetVideoSurface()->format, 0, 0, 0));
 }
 
 void Image::setAsIcon()

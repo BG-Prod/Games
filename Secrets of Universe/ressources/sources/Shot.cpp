@@ -20,7 +20,7 @@
 
 #include "Shot.h"
 
-Shot::Shot(Object * o) : Object(), birth(SDL_GetTicks()), lifeTime(1000)
+Shot::Shot(Object * o) : Object(), lifeTime(1000)
 {
     etat = o->getEtat();
     force = 10;
@@ -65,7 +65,8 @@ void Shot::update()
 
 bool Shot::death()
 {
-    return ( SDL_GetTicks() > (unsigned)birth+lifeTime ) ? true : false ;
+    return false;
+    ///return ( SDL_GetTicks() > (unsigned)birth+lifeTime ) ? true : false ;
 }
 
 

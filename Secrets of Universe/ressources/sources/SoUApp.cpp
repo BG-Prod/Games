@@ -38,12 +38,17 @@ void SoUApp::app()
     FMOD_System_PlaySound(system, FMOD_CHANNEL_FREE, musiques[0], 0, NULL);
 
     /// affiche une intro BG Prod
-    intro();
+    //intro();
 
     /// création des vaisseaux
     objects.push_back(new Map());
+    objects.push_back(new Vaisseau(10,10));
     objects.push_back(new Vaisseau());
-    objects.push_back(new Vaisseau());
+    objects.push_back(new Vaisseau(20,1000));
+    objects.push_back(new Vaisseau(12,32));
+    objects.push_back(new Vaisseau(500,600));
+    objects.push_back(new Vaisseau(75,1500));
+    objects.push_back(new Vaisseau(1200,500));
 
     /// boucle principale
     while(!in->get_touche(SDLK_ESCAPE) && !in->get_exit())
@@ -66,9 +71,27 @@ void SoUApp::app()
         {
             screen->resize();
         }
+        if(in->get_touche(SDLK_UP))
+        {
+            cam->cameraUp();
+        }
+        else if(in->get_touche(SDLK_DOWN))
+        {
+            cam->cameraDown();
+        }
+        else if(in->get_touche(SDLK_LEFT))
+        {
+            cam->cameraLeft();
+        }
+        else if(in->get_touche(SDLK_RIGHT))
+        {
+            cam->cameraRight();
+        }
 
-        objects[1]->bot();
-        objects[0]->update(in);
+        for(int i = 0 ; i < objects.size() ; i++)
+        {
+            objects[i]->bot();
+        }
 
         /// print l'image à l'écran
         draw();
@@ -101,7 +124,10 @@ void SoUApp::draw()
 
         if(numImage >= 0)
         {
-            images[numImage]->print(screen->buffer(), tmp.coor, cam->place());
+            Coordonnees relativePlace(tmp.coor);
+            relativePlace.x(relativePlace.x()-cam->view().x());
+            relativePlace.y(relativePlace.y()-cam->view().y());
+            images[numImage]->print(screen->buffer(), (i==0)?cam->place():relativePlace, (i==0)?cam->view():cam->place());
         }
     }
     screen->display();

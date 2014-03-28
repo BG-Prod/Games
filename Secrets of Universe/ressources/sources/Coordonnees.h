@@ -8,8 +8,10 @@ class Coordonnees
     public:
         Coordonnees();
         Coordonnees(int a, int b, int c, int d, int e, int f, int g, int h);
+        Coordonnees(int a, int b, int c, int d);
         virtual ~Coordonnees();
         Coordonnees &operator=(const Coordonnees &);
+        Coordonnees &operator+=(const Coordonnees &);
         Coordonnees &operator=(const int[]);
 
         void modify(int,int,int,int);

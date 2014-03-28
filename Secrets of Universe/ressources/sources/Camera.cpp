@@ -2,10 +2,10 @@
 
 Camera::Camera()
 {
-    velocity = 5;
+    velocity = 20;
     positionOnScreen.modify(0,0,SDL_GetVideoSurface()->w,SDL_GetVideoSurface()->h);
     positionOnMap.modify(0,0,SDL_GetVideoSurface()->w,SDL_GetVideoSurface()->h);
-    }
+}
 
 Camera::~Camera()
 {
@@ -14,21 +14,21 @@ Camera::~Camera()
 
 void Camera::cameraLeft()
 {
-    positionOnMap.modify(positionOnMap.x()-velocity, -1,-1,-1);
+    positionOnMap += Coordonnees(-velocity, 0, 0, 0);
 }
 
 void Camera::cameraRight()
 {
-    positionOnMap.modify(positionOnMap.x()+velocity, -1,-1,-1);
+    positionOnMap += Coordonnees(velocity, 0, 0, 0);
 }
 
 void Camera::cameraUp()
 {
-    positionOnMap.modify(-1, positionOnMap.y()-velocity,-1,-1);
+    positionOnMap += Coordonnees(0, -velocity, 0, 0);
 }
 
 void Camera::cameraDown()
 {
-    positionOnMap.modify(-1, positionOnMap.y()+velocity,-1,-1);
+    positionOnMap += Coordonnees(0, velocity, 0, 0);
 }
 

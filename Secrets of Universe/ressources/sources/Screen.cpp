@@ -13,7 +13,7 @@ Screen::Screen()
         ecran = SDL_SetVideoMode(640, 480, 32, SDL_HWSURFACE|SDL_DOUBLEBUF|SDL_RESIZABLE);
     }
 
-    videoBuffer = new Image(LARGEUR_ECRAN,HAUTEUR_ECRAN,0,255,0);
+    videoBuffer = new Image(LARGEUR_ECRAN,HAUTEUR_ECRAN,0,0,0);
 }
 
 Screen::~Screen()

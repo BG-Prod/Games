@@ -33,7 +33,9 @@ class Screen
 
 
         void display();     /// pour afficher à l'écran
-        Image* buffer();    /// ce qui sera afficher
+        Image * buffer();    /// ce qui sera afficher
+        void setBuffer(Image * img);
+        Image * getBuffer(){return videoBuffer;}
 
     protected:
         SDL_Surface * ecran;

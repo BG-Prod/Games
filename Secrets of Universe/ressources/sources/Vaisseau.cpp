@@ -39,6 +39,21 @@ Vaisseau::Vaisseau() : Object(), energie(100), bouclier(100), coque(100), capteu
     batterie = new Weapon(this);
 }
 
+Vaisseau::Vaisseau(int x, int y) : Object(), energie(100), bouclier(100), coque(100), capteur(100), teleporteur(100), hypernavigateur(100), moteur(100)
+{
+    etat = GAUCHE;
+    vitesse = 15;
+    type = 1;
+    alive = true;
+    activiteBouclier = false;
+
+    /// position du centre du vaisseau
+    position = Coordonnees(x,y,0,0,x,y,0,0);
+
+    /// armes
+    batterie = new Weapon(this);
+}
+
 Vaisseau::Vaisseau(int _energie, int _bouclier, int _coque, int _capteur, int _vitesse, int _joueur, int _type,
                  int _masse, int _teleporteur, int _hypernavigateur, int _moteur, int _id, Coordonnees _position,
                  direction _etat, Object * _ancestor)

@@ -44,7 +44,7 @@
 
 #define SCREEN_REFRESH      40
 #define DEBUG               std::cerr << std::endl <<
-#define NOMBRE_IMAGE        7
+#define NOMBRE_IMAGE        8
 #define NOMBRE_MUSIQUE      1
 #define NOMBRE_POLICE       0
 
@@ -75,6 +75,7 @@ class Application
         void freeObjects();   /// libère les objets chargées
 
         static SDL_Surface* copieSurface(SDL_Surface *surf);
+        static long getTime();
 
         void fps();             /// régule le temps
         virtual void draw();    /// défini l'affichage

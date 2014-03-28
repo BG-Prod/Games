@@ -42,7 +42,6 @@ class Shot : public Object
     protected:
         int vitesse;
         int force;
-        const int birth;
         const int lifeTime;
         Image * image;
 };

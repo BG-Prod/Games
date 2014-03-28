@@ -38,6 +38,7 @@ class Vaisseau : public Object
 {
     public:
         Vaisseau();
+        Vaisseau(int,int); /// pour placer où on veut
         /// constructeur de badass
         Vaisseau(int _energie, int _bouclier, int _coque, int _capteur, int _vitesse, int _joueur, int _type,
                  int _masse, int _teleporteur, int _hypernavigateur, int _moteur, int _id, Coordonnees _position,

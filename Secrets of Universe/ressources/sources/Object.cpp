@@ -20,14 +20,14 @@
 
 #include "Object.h"
 
-Object::Object()
+Object::Object() : birth(getTime())
 {
     id = 0;
     type = 0;
     hasMoved = false;
     ancestor = NULL;
-    position.w(3840);
-    position.h(3072);
+    position.w(0);
+    position.h(0);
     etat = HAUT;
 }
 
@@ -88,5 +88,10 @@ void Object::update(Input * in)
 DisplayDatas Object::print()
 {
     return DisplayDatas(type,etat,position);
+}
+
+long Object::getTime()
+{
+    return SDL_GetTicks();
 }
 

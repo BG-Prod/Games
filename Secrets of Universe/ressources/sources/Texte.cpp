@@ -26,10 +26,10 @@ using namespace std;
 
 Texte::Texte()
 {
-    blanc = {255,255,255};
-    gris_clair = {200,200,200};
-    gris_fonce = {50,50,50};
-    noir = {0,0,0};
+    blanc.r = 255; blanc.g = 255; blanc.b = 255;
+    gris_clair.r = 200; gris_clair.g = 200; gris_clair.b = 200;
+    gris_fonce.r = 50; gris_fonce.g = 50; gris_fonce.b = 50;
+    noir.r = 0; noir.g = 0; noir.b = 0;
     m_style = NULL;
     m_lien = "";
     m_chaine = "";

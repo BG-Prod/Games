@@ -43,10 +43,11 @@ class Object
         DisplayDatas print();
         virtual void bot();
         virtual void update(Input * in);
+        static long getTime();
 
     protected:
         Object();               /// pour avoir une classe abstraite
-
+        const int birth;
         Coordonnees position;
         int id;
         int type;
