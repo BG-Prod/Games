@@ -1,35 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <BrowseTracker_layout_file>
 	<ActiveTarget name="Debug" />
-	<File name="ressources\sources\affichage.cpp" open="1" top="1" tabpos="39">
-		<Cursor position="0" topLine="0" />
-		<BrowseMarks positions="" />
-		<Book_Marks positions="" />
-	</File>
-	<File name="ressources\sources\intell.h" open="1" top="0" tabpos="34">
+	<File name="ressources\sources\intell.cpp" open="1" top="0" tabpos="9">
 		<Cursor position="0" topLine="0" />
 	</File>
-	<File name="ressources\sources\intell.cpp" open="1" top="0" tabpos="38">
+	<File name="ressources\sources\intell.h" open="1" top="0" tabpos="5">
 		<Cursor position="0" topLine="0" />
-		<BrowseMarks positions="" />
-		<Book_Marks positions="" />
 	</File>
-	<File name="ressources\sources\jeu.cpp" open="1" top="0" tabpos="37">
-		<Cursor position="5693" topLine="0" />
-		<BrowseMarks positions="" />
-		<Book_Marks positions="" />
+	<File name="ressources\sources\main.cpp" open="1" top="0" tabpos="4">
+		<Cursor position="3043" topLine="181" />
+		<BrowseMarks positions="831,831,831" />
 	</File>
-	<File name="ressources\sources\utile.h" open="1" top="0" tabpos="35">
+	<File name="ressources\sources\affichage.h" open="1" top="1" tabpos="12">
+		<Cursor position="1004" topLine="9" />
+	</File>
+	<File name="ressources\sources\utile.h" open="1" top="0" tabpos="6">
 		<Cursor position="830" topLine="0" />
 	</File>
-	<File name="ressources\sources\utile.cpp" open="1" top="0" tabpos="36">
-		<Cursor position="3676" topLine="14" />
-		<BrowseMarks positions="" />
-		<Book_Marks positions="" />
+	<File name="ressources\sources\jeu.cpp" open="1" top="0" tabpos="8">
+		<Cursor position="5693" topLine="0" />
 	</File>
-	<File name="ressources\sources\main.cpp" open="1" top="0" tabpos="33">
-		<Cursor position="2209" topLine="23" />
-		<BrowseMarks positions="3423,3567,3832" />
-		<Book_Marks positions="" />
+	<File name="ressources\sources\affichage.cpp" open="1" top="0" tabpos="10">
+		<Cursor position="0" topLine="70" />
+	</File>
+	<File name="ressources\sources\utile.cpp" open="1" top="0" tabpos="7">
+		<Cursor position="1011" topLine="86" />
 	</File>
 </BrowseTracker_layout_file>

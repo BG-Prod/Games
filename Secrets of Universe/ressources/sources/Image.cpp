@@ -68,6 +68,7 @@ void Image::print()
 {
     SDL_Rect where = {lastX, lastY, w, h};
     SDL_BlitSurface(image, NULL, SDL_GetVideoSurface(), &where);
+    SDL_Flip(SDL_GetVideoSurface());
 }
 
 void Image::print(int px, int py)
@@ -148,7 +149,7 @@ void Image::setAlpha(int a)
     SDL_SetAlpha(image, SDL_SRCALPHA, a);
 }
 
-Uint32 Image::getpixel(int x, int y)
+Uint32 Image::getPixel(int x, int y)
 {
     int bpp = this->image->format->BytesPerPixel;
     /* Here p is the address to the pixel we want to retrieve */
@@ -174,6 +175,20 @@ Uint32 Image::getpixel(int x, int y)
         default:
             return 0;       /* shouldn't happen, but avoids warnings */
     }
+}
+
+const int * Image::getPixelRGBA(int x, int y)
+{
+    int bpp = this->image->format->BytesPerPixel;
+    Uint8 *p = (Uint8 *)this->image->pixels + y * this->image->pitch + x * bpp;
+    Uint32 pixel = *(Uint32 *)p;
+    int tab[4];
+    tab[0] = pixel / 0xFFFFFF;
+    tab[1] = (pixel & 0xFF0000) / 0xFFFF;
+    tab[2] = (pixel & 0xFF00) / 0xFF;
+    tab[3] = pixel & 0xFF;
+
+    return tab;
 }
 
 void Image::setPixel(int x, int y, Uint32 coul)

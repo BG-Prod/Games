@@ -309,3 +309,32 @@
 1388054302 source:c:\users\ben\documents\github\bg_prod\draughts\ressources\sources\verifier_deplacement.cpp
 	"verifier_deplacement.h"
 
+1392134032 source:c:\users\ben\documents\github\games\draughts\ressources\sources\ressources.rc
+
+1392134032 source:c:\users\ben\documents\github\games\draughts\ressources\sources\utile.cpp
+	"utile.h"
+
+1392134032 c:\users\ben\documents\github\games\draughts\ressources\sources\utile.h
+	<cstdlib>
+	<stdlib.h>
+	<stdio.h>
+	<fstream>
+	<string>
+	<sstream>
+	<iostream>
+	<windows.h>
+	<SDL.h>
+	<SDL_ttf.h>
+	<SDL_image.h>
+	<SDL_rotozoom.h>
+	<FMOD/fmod.h>
+
+1392134032 source:c:\users\ben\documents\github\games\draughts\ressources\sources\verifier_deplacement.cpp
+	"verifier_deplacement.h"
+
+1392134032 c:\users\ben\documents\github\games\draughts\ressources\sources\verifier_deplacement.h
+	<stdlib.h>
+	<stdio.h>
+	<math.h>
+	"utile.h"
+

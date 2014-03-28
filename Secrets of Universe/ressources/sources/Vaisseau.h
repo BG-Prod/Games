@@ -22,8 +22,6 @@
 #define VAISSEAU_H_INCLUDED
 
 
-#include <SDL.h>
-#include <SDL_image.h>
 #include <fmod.h>
 #include <iostream>
 #include <vector>

@@ -21,7 +21,6 @@
 #ifndef OBJECT_H
 #define OBJECT_H
 
-
 #include <vector>
 
 #include <Image.h>

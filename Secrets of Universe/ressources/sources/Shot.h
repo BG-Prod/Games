@@ -21,8 +21,6 @@
 #ifndef SHOT_H
 #define SHOT_H
 
-#include <SDL.h>
-
 #include <Object.h>
 #include <Image.h>
 #include <DisplayDatas.h>

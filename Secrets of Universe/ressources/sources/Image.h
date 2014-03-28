@@ -34,6 +34,11 @@
 
 #include <Coordonnees.h>
 
+#define ALPHA   0
+#define RED     1
+#define GREEN   2
+#define BLUE    3
+
 class Image
 {
     public:
@@ -56,8 +61,9 @@ class Image
         int width(){return w;}
         int height(){return h;}
 
-        Uint32 getpixel(int x, int y);
-        void setPixel(int x, int y, Uint32 coul);
+        Uint32 getPixel(int x, int y);  /// renvoie le pixel sous forme hexadecimal sur 32 bits
+        const int * getPixelRGBA(int x, int y); /// renvoie le pixel sous forma d'un tableau A,R,G,B
+        void setPixel(int x, int y, Uint32 coul); /// permet de paramétrer un pixel
 
     protected:
         SDL_Surface * image;

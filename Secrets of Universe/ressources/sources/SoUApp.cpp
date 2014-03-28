@@ -38,7 +38,7 @@ void SoUApp::app()
     FMOD_System_PlaySound(system, FMOD_CHANNEL_FREE, musiques[0], 0, NULL);
 
     /// affiche une intro BG Prod
-    //intro();
+    intro();
 
     /// création des vaisseaux
     objects.push_back(new Map());
@@ -53,13 +53,6 @@ void SoUApp::app()
     /// boucle principale
     while(!in->get_touche(SDLK_ESCAPE) && !in->get_exit())
     {
-        SDL_FillRect(SDL_GetVideoSurface(), 0, SDL_MapRGB(SDL_GetVideoSurface()->format, 0, 0, 0)); /// ecran noir
-
-        /// collage du repère
-        SDL_Rect place = {SDL_GetVideoSurface()->w/2 - images[1]->width()/2,SDL_GetVideoSurface()->h/2 - images[1]->height()/2,0,0};
-        place = {SDL_GetVideoSurface()->w/2 - images[1]->width()/2,40*RESIZE,0,0};
-        images[1]->print(place.x,place.y);
-
         /// mise à jour des events
         in->update();
 
@@ -88,7 +81,7 @@ void SoUApp::app()
             cam->cameraRight();
         }
 
-        for(int i = 0 ; i < objects.size() ; i++)
+        for(unsigned int i = 0 ; i < objects.size() ; i++)
         {
             objects[i]->bot();
         }
@@ -105,7 +98,7 @@ void SoUApp::intro()    /// affichage du logo
 
     while(clign<256)
     {
-        SDL_FillRect(SDL_GetVideoSurface(), 0, SDL_MapRGB(SDL_GetVideoSurface()->format, 0, 0, 0));
+        SDL_FillRect(SDL_GetVideoSurface(), 0, SDL_MapRGBA(SDL_GetVideoSurface()->format, 0, 0, 0, 0));
         images[0]->setAlpha(clign);
         images[0]->print(SDL_GetVideoSurface()->w/2 - images[0]->width()/2,SDL_GetVideoSurface()->h/2 - images[0]->height()/2);
         clign+=10;
