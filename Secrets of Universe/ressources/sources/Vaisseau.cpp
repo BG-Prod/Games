@@ -35,7 +35,7 @@ Vaisseau::Vaisseau() : Object(), energie(100), bouclier(100), coque(100), capteu
     touched = false;
 
     /// position du centre du vaisseau
-    position = Coordonnees(500,500,350,350,500,500,350,350);
+    position = Coordonnees(500,500,128,128,500,500,128,128);
 
     /// armes
     batterie = new Weapon(this);
@@ -52,7 +52,7 @@ Vaisseau::Vaisseau(int x, int y) : Object(), energie(100), bouclier(100), coque(
     touched = false;
 
     /// position du centre du vaisseau
-    position = Coordonnees(x,y,350,350,x,y,350,350);
+    position = Coordonnees(x,y,128,128,x,y,128,128);
 
     /// armes
     batterie = new Weapon(this);

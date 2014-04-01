@@ -80,18 +80,20 @@ void SoUApp::app()
         {
             cam->cameraUp();
         }
-        else if(in->get_touche(SDLK_DOWN))
+        if(in->get_touche(SDLK_DOWN))
         {
             cam->cameraDown();
         }
-        else if(in->get_touche(SDLK_LEFT))
+        if(in->get_touche(SDLK_LEFT))
         {
             cam->cameraLeft();
         }
-        else if(in->get_touche(SDLK_RIGHT))
+        if(in->get_touche(SDLK_RIGHT))
         {
             cam->cameraRight();
         }
+        cam->keepIn(objects[0]);
+
         /// sont-ils morts ?
         for(unsigned int i = 0 ; i < objects.size() ; i++)
         {

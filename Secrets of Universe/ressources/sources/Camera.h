@@ -24,6 +24,7 @@
 #include <SDL.h>
 
 #include <Coordonnees.h>
+#include <Object.h>
 
 class Camera
 {
@@ -35,6 +36,7 @@ class Camera
         void cameraRight();
         void cameraUp();
         void cameraDown();
+        void keepIn(Object * o);
         Coordonnees view(){return positionOnMap;}
         Coordonnees place(){return positionOnScreen;}
 

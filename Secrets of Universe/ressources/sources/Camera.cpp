@@ -52,3 +52,24 @@ void Camera::cameraDown()
     positionOnMap += Coordonnees(0, velocity, 0, 0);
 }
 
+void Camera::keepIn(Object * o)
+{
+    if(positionOnMap.x()<o->getPosition().x())
+    {
+        positionOnMap.x(o->getPosition().x());
+    }
+    if(positionOnMap.y()<o->getPosition().y())
+    {
+        positionOnMap.y(o->getPosition().y());
+    }
+    if(positionOnMap.x()+positionOnScreen.w()>o->getPosition().x()+o->getPosition().w())
+    {
+        positionOnMap.x(o->getPosition().x()+o->getPosition().w()-positionOnScreen.w());
+    }
+    if(positionOnMap.y()+positionOnScreen.h()>o->getPosition().y()+o->getPosition().h())
+    {
+        positionOnMap.y(o->getPosition().y()+o->getPosition().h()-positionOnScreen.h());
+    }
+}
+
+
