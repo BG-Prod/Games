@@ -91,7 +91,7 @@ Coordonnees &Coordonnees::operator=(const int tab[])
         }
     }
 
-    for(int i = 0 ; i < sizeof(tab)/4 ; i++)
+    for(unsigned int i = 0 ; i < sizeof(tab)/4 ; i++)
     {
         data[i] = tab[i];
     }
@@ -114,6 +114,6 @@ void Coordonnees::modify(int a, int b, int c, int d)
 
 long random(int borneInf, int borneSup)  /// borne sup inclus
 {
-    return ((rand() % (borneSup - borneInf)) + borneInf);
+    return ((rand() % (borneSup + 1 - borneInf)) + borneInf);
 }
 

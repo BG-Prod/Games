@@ -37,12 +37,17 @@ class Object
         virtual ~Object();
 
         bool collision(Object * o);
+        virtual int collisionPoints();
+        virtual void collided(int);
         direction getEtat(){return etat;}
         Coordonnees getPosition(){return position;}
+        int isOut(Object * o);
+        void setOutOf(int dir);    /// 0 : l'objet ne sort pas ; 1,2,3,4 : l'objet sort en bas en haut à droite ou à gauche;
         DisplayDatas print();
         virtual void bot();
         virtual void update(Input * in);
         static long getTime();
+        bool isAlive();
 
     protected:
         Object();               /// pour avoir une classe abstraite
@@ -53,6 +58,8 @@ class Object
         bool hasMoved;
         direction etat;
         Object * ancestor;
+        int outOf;
+        bool alive;
 };
 
 

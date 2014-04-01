@@ -40,15 +40,26 @@ void SoUApp::app()
     /// affiche une intro BG Prod
     intro();
 
+    for(int i = 0 ; i < images[7]->width() ; i++)
+    {
+        for(int j = 0 ; j < images[7]->height() ; j++)
+        {
+            images[7]->setPixel(i,j,((images[7]->getPixel(i,j)) & 0xFF1100BB));
+        }
+    }
+
+    /// génération des étoiles
+    for(int i = 0 ; i < 500 ; i++)
+    {
+        images[7]->setPixel(random(0,images[7]->width()), random(0,images[7]->height()), color(random(200,255),random(200,255),random(180,200)));
+    }
+
     /// création des vaisseaux
     objects.push_back(new Map());
-    objects.push_back(new Vaisseau(10,10));
-    objects.push_back(new Vaisseau());
-    objects.push_back(new Vaisseau(20,1000));
-    objects.push_back(new Vaisseau(12,32));
-    objects.push_back(new Vaisseau(500,600));
-    objects.push_back(new Vaisseau(75,1500));
-    objects.push_back(new Vaisseau(1200,500));
+    for(int i = 0 ; i < 11 ; i++)
+    {
+        objects.push_back(new Vaisseau( random(0,(int)(objects[0]->getPosition()).w()) , random(0,(int)(objects[0]->getPosition()).h())) );
+    }
 
     /// boucle principale
     while(!in->get_touche(SDLK_ESCAPE) && !in->get_exit())
@@ -64,6 +75,7 @@ void SoUApp::app()
         {
             screen->resize();
         }
+        /// bouger la caméra
         if(in->get_touche(SDLK_UP))
         {
             cam->cameraUp();
@@ -80,7 +92,37 @@ void SoUApp::app()
         {
             cam->cameraRight();
         }
-
+        /// sont-ils morts ?
+        for(unsigned int i = 0 ; i < objects.size() ; i++)
+        {
+            if(!objects[i]->isAlive())
+            {
+                delete objects[i];
+                objects.erase(objects.begin()+i);
+            }
+        }
+        /// objets sur les bords ?
+        /// collision objets ?
+        for(unsigned int i = 0 ; i < objects.size() ; i++)
+        {
+            int changeOfDir = -1;
+            if(i!=0){changeOfDir = objects[i]->isOut(objects[0]);}
+            if(i!=0 && (-1 < changeOfDir))
+            {
+                objects[i]->setOutOf(changeOfDir);
+            }
+            for(unsigned int j = 1 ; j < objects.size() ; j++)
+            {
+                if(i!=j)
+                {
+                    if(objects[i]->collision(objects[j]))
+                    {
+                        objects[i]->collided(objects[j]->collisionPoints());
+                    }
+                }
+            }
+        }
+        /// màj des objets
         for(unsigned int i = 0 ; i < objects.size() ; i++)
         {
             objects[i]->bot();

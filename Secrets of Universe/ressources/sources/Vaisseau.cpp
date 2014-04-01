@@ -31,9 +31,11 @@ Vaisseau::Vaisseau() : Object(), energie(100), bouclier(100), coque(100), capteu
     type = 1;
     alive = true;
     activiteBouclier = false;
+    outOf = -1;
+    touched = false;
 
     /// position du centre du vaisseau
-    position = Coordonnees(500,500,0,0,500,500,0,0);
+    position = Coordonnees(500,500,350,350,500,500,350,350);
 
     /// armes
     batterie = new Weapon(this);
@@ -46,9 +48,11 @@ Vaisseau::Vaisseau(int x, int y) : Object(), energie(100), bouclier(100), coque(
     type = 1;
     alive = true;
     activiteBouclier = false;
+    outOf = -1;
+    touched = false;
 
     /// position du centre du vaisseau
-    position = Coordonnees(x,y,0,0,x,y,0,0);
+    position = Coordonnees(x,y,350,350,x,y,350,350);
 
     /// armes
     batterie = new Weapon(this);
@@ -58,7 +62,23 @@ Vaisseau::Vaisseau(int _energie, int _bouclier, int _coque, int _capteur, int _v
                  int _masse, int _teleporteur, int _hypernavigateur, int _moteur, int _id, Coordonnees _position,
                  direction _etat, Object * _ancestor)
 {
-
+    energie = _energie;
+    bouclier =  _bouclier;
+    coque =  _coque;
+    capteur =  _capteur;
+    vitesse =  _vitesse;
+    joueur =  _joueur;
+    type =  _type,
+    masse = _masse;
+    teleporteur =  _teleporteur;
+    hypernavigateur =  _hypernavigateur;
+    moteur =  _moteur;
+    id =  _id;
+    position = _position;
+    etat = _etat;
+    ancestor = _ancestor;
+    outOf = -1;
+    touched = false;
 }
 
 Vaisseau::~Vaisseau()
@@ -93,32 +113,6 @@ void Vaisseau::shoot()
 
 void Vaisseau::update(Input * in)
 {
-    if(in->get_touche(SDLK_UP))
-    {
-        move(HAUT);
-    }
-    else if(in->get_touche(SDLK_DOWN))
-    {
-        move(BAS);
-    }
-    else if(in->get_touche(SDLK_LEFT))
-    {
-        move(GAUCHE);
-    }
-    else if(in->get_touche(SDLK_RIGHT))
-    {
-        move(DROITE);
-    }
-    else if(in->get_touche(SDLK_SPACE))
-    {
-        destroy();
-        in->set_touche(SDLK_SPACE,0);
-    }
-    else if(in->get_touche(SDLK_RETURN))
-    {
-        shoot();
-        in->set_touche(SDLK_SPACE,0);
-    }
 
     batterie->update();
 }
@@ -130,29 +124,54 @@ void Vaisseau::destroy()
 
 void Vaisseau::bot()
 {
-    if(position.x() < 0)
+    if(-1==outOf)
     {
-        move(DROITE);
-    }
-    else if(position.x() > SDL_GetVideoSurface()->w)
-    {
-        move(GAUCHE);
-    }
-    else if(position.y() < 0)
-    {
-        move(BAS);
-    }
-    else if(position.y() > SDL_GetVideoSurface()->h)
-    {
-        move(HAUT);
+        int change = random(0,100);
+        if(change==1){move((direction)random(0,3));}
+        else{move(etat);}
     }
     else
     {
-        move(etat);
+        if(outOf==BAS)
+            move(HAUT);
+        else if(outOf==HAUT)
+            move(BAS);
+        else if(outOf==GAUCHE)
+            move(DROITE);
+        else if(outOf==DROITE)
+            move(GAUCHE);
+        outOf = -1;
+    }
+    if(touched)
+    {
+        if(etat==BAS)
+            move(HAUT);
+        else if(etat==HAUT)
+            move(BAS);
+        else if(etat==GAUCHE)
+            move(DROITE);
+        else if(etat==DROITE)
+            move(GAUCHE);
+
+        touched = false;
+    }
+    if(coque<=0)
+    {
+        alive = false;
     }
 
     batterie->update();
 }
 
+void Vaisseau::collided(int perte)
+{
+    coque -= perte;
+    touched = true;
+}
+
+int Vaisseau::collisionPoints()
+{
+    return 20;
+}
 
 

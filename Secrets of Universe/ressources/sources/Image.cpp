@@ -196,3 +196,15 @@ void Image::setPixel(int x, int y, Uint32 coul)
   *((Uint32*)(this->image->pixels) + x + y * this->image->w) = coul;
 }
 
+Uint32 color(int r, int g, int b, int alpha)
+{
+    Uint32 retour = 0;
+    retour += alpha*0x01000000 + r*0x00010000 + g*0x00000100 + b;
+    return retour;
+}
+
+Uint32 color(int r, int g, int b)
+{
+    return color(r,g,b,255);
+}
+

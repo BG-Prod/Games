@@ -31,6 +31,8 @@ Application::Application()
     /// verification de la date
 	time(&maintenant);
 	Today = *localtime(&maintenant);
+    /// initialisation de l'aléatoire
+    srand (time(NULL));
 
 	/// create new screen
 	screen = new Screen();

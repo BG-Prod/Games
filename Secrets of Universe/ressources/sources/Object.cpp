@@ -20,15 +20,19 @@
 
 #include "Object.h"
 
+using namespace std;
+
 Object::Object() : birth(getTime())
 {
     id = 0;
     type = 0;
     hasMoved = false;
+    outOf = -1;
     ancestor = NULL;
     position.w(0);
     position.h(0);
     etat = HAUT;
+    alive = true;
 }
 
 Object::~Object()
@@ -85,6 +89,11 @@ void Object::update(Input * in)
 
 }
 
+bool Object::isAlive()
+{
+    return alive;
+}
+
 DisplayDatas Object::print()
 {
     return DisplayDatas(type,etat,position);
@@ -94,4 +103,44 @@ long Object::getTime()
 {
     return SDL_GetTicks();
 }
+
+int Object::isOut(Object * o)
+{
+    if(this->position.x()<o->position.x())
+    {
+        return (int)GAUCHE;
+    }
+    else if(this->position.y()<o->position.y())
+    {
+        return (int)HAUT;
+    }
+    else if(this->position.x()+this->position.w()>o->position.x()+o->position.w())
+    {
+        return (int)DROITE;
+    }
+    else if((this->position.y()+this->position.h()) > (o->position.y()+o->position.h()))
+    {
+        return (int)BAS;
+    }
+    else
+    {
+        return -1;
+    }
+}
+
+void Object::setOutOf(int dir)
+{
+    outOf = dir;
+}
+
+void Object::collided(int perte)
+{
+
+}
+
+int Object::collisionPoints()
+{
+    return 5;
+}
+
 

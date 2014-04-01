@@ -39,6 +39,9 @@
 #define GREEN   2
 #define BLUE    3
 
+Uint32 color(int r, int g, int b, int alpha);
+Uint32 color(int r, int g, int b);
+
 class Image
 {
     public:

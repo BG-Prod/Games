@@ -48,11 +48,13 @@ class Vaisseau : public Object
         void bot();
         void shoot();
         void update(Input * in);
+        void collided(int);
+        int collisionPoints();
 
     protected:
         int energie, bouclier, coque, capteur, vitesse, joueur,
         masse, teleporteur, hypernavigateur, moteur;
-        bool activiteBouclier, alive;
+        bool activiteBouclier, touched;
         Weapon * batterie;
 
 };

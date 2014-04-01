@@ -26,7 +26,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-long random(int borneInf, int borneSup);  /// borne sup inclus
+extern long random(int borneInf, int borneSup);  /// borne sup inclus
 
 class Coordonnees
 {
