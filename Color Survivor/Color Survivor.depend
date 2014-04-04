@@ -1,0 +1,353 @@
+# depslib dependency file v1.0
+1396460211 source:c:\users\ben\documents\github\games\color survivor\ressources\sources\application.cpp
+	"Application.h"
+
+1396459702 c:\users\ben\documents\github\games\color survivor\ressources\sources\application.h
+	<cstdlib>
+	<stdlib.h>
+	<stdio.h>
+	<fstream>
+	<string>
+	<sstream>
+	<iostream>
+	<vector>
+	<SDL.h>
+	<SDL_ttf.h>
+	<SDL_image.h>
+	<SDL_rotozoom.h>
+	<fmod.h>
+	<Input.h>
+	<Image.h>
+	<Screen.h>
+	<Object.h>
+
+1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl.h
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_audio.h"
+	"SDL_cdrom.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_loadso.h"
+	"SDL_mutex.h"
+	"SDL_rwops.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_video.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<iconv.h>
+	"begin_code.h"
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	"close_code.h"
+
+1326114588 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_config.h
+	"SDL_platform.h"
+	"SDL_config_dreamcast.h"
+	"SDL_config_macos.h"
+	"SDL_config_macosx.h"
+	"SDL_config_symbian.h"
+	"SDL_config_win32.h"
+	"SDL_config_os2.h"
+	"SDL_config_minimal.h"
+
+1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_platform.h
+
+1326114594 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_config_win32.h
+	"SDL_platform.h"
+
+1326114600 c:\program files (x86)\codeblocks\sdl-1.2.15\include\begin_code.h
+
+1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\close_code.h
+
+1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_endian.h
+	"SDL_stdinc.h"
+	<endian.h>
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	<process.h>
+	"close_code.h"
+
+1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_cdrom.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_cpuinfo.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_events.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_active.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_quit.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_active.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_keyboard.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keysym.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_keysym.h
+
+1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_mouse.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_video.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_loadso.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325796794 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_ttf.h
+	"SDL.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325788834 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_image.h
+	"SDL.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1103618586 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_rotozoom.h
+	<math.h>
+	"SDL.h"
+
+1367481960 c:\program files (x86)\fmod soundsystem\fmod programmers api windows\api\inc\fmod.h
+	"fmod_codec.h"
+	"fmod_dsp.h"
+	"fmod_memoryinfo.h"
+
+1367481960 c:\program files (x86)\fmod soundsystem\fmod programmers api windows\api\inc\fmod_codec.h
+
+1367481960 c:\program files (x86)\fmod soundsystem\fmod programmers api windows\api\inc\fmod_dsp.h
+
+1367481960 c:\program files (x86)\fmod soundsystem\fmod programmers api windows\api\inc\fmod_memoryinfo.h
+
+1396032857 c:\users\ben\documents\github\games\color survivor\ressources\sources\input.h
+	<cstdlib>
+	<stdlib.h>
+	<stdio.h>
+	<math.h>
+	<fstream>
+	<string>
+	<sstream>
+	<iostream>
+	<windows.h>
+	<SDL.h>
+	<ctime>
+
+1396641625 c:\users\ben\documents\github\games\color survivor\ressources\sources\image.h
+	<SDL.h>
+	<SDL_ttf.h>
+	<SDL_image.h>
+	<SDL_rotozoom.h>
+	<SDL_getenv.h>
+	<vector>
+	<iostream>
+	<fstream>
+	<string>
+	<sstream>
+	<Coordonnees.h>
+
+1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_getenv.h
+	"SDL_stdinc.h"
+
+1396357224 c:\users\ben\documents\github\games\color survivor\ressources\sources\coordonnees.h
+	<iostream>
+	<cstdlib>
+	<stdlib.h>
+	<stdio.h>
+
+1396459044 c:\users\ben\documents\github\games\color survivor\ressources\sources\screen.h
+	<SDL.h>
+	<windows.h>
+	<vector>
+	<Coordonnees.h>
+	<Image.h>
+	<Camera.h>
+	<Object.h>
+
+1396376554 c:\users\ben\documents\github\games\color survivor\ressources\sources\camera.h
+	<SDL.h>
+	<Coordonnees.h>
+	<Object.h>
+
+1396460670 c:\users\ben\documents\github\games\color survivor\ressources\sources\object.h
+	<vector>
+	<Image.h>
+	<Coordonnees.h>
+	<DisplayDatas.h>
+	<Input.h>
+
+1396032639 c:\users\ben\documents\github\games\color survivor\ressources\sources\displaydatas.h
+	<Coordonnees.h>
+
+1396376705 source:c:\users\ben\documents\github\games\color survivor\ressources\sources\camera.cpp
+	"Camera.h"
+
+1396357287 source:c:\users\ben\documents\github\games\color survivor\ressources\sources\coordonnees.cpp
+	"Coordonnees.h"
+
+1396032639 source:c:\users\ben\documents\github\games\color survivor\ressources\sources\displaydatas.cpp
+	"DisplayDatas.h"
+
+1396640563 source:c:\users\ben\documents\github\games\color survivor\ressources\sources\image.cpp
+	"Image.h"
+
+1393503380 source:c:\users\ben\documents\github\games\color survivor\ressources\sources\input.cpp
+	"Input.h"
+
+1396300707 source:c:\users\ben\documents\github\games\color survivor\ressources\sources\object.cpp
+	"Object.h"
+
+1393781431 source:c:\users\ben\documents\github\games\color survivor\ressources\sources\ressources.rc
+
+1396460872 source:c:\users\ben\documents\github\games\color survivor\ressources\sources\screen.cpp
+	"Screen.h"
+
+1395829106 source:c:\users\ben\documents\github\games\color survivor\ressources\sources\texte.cpp
+	<Texte.h>
+
+1393503380 c:\users\ben\documents\github\games\color survivor\ressources\sources\texte.h
+	<iostream>
+	<SDL.h>
+	<SDL_ttf.h>
+	<vector>
+	"Application.h"
+
+1396460581 source:c:\users\ben\documents\github\games\color survivor\ressources\sources\main.cpp
+	<cstdlib>
+	<stdlib.h>
+	<stdio.h>
+	<math.h>
+	<fstream>
+	<string>
+	<sstream>
+	<iostream>
+	<windows.h>
+	<fmod.h>
+	<ctime>
+	<Texte.h>
+	<ColorSurvivor.h>
+	<Image.h>
+
+1396641645 source:c:\users\ben\documents\github\games\color survivor\ressources\sources\colorsurvivor.cpp
+	"ColorSurvivor.h"
+
+1396460430 c:\users\ben\documents\github\games\color survivor\ressources\sources\colorsurvivor.h
+	<Application.h>
+

@@ -56,7 +56,8 @@ void SoUApp::app()
 
     /// création des vaisseaux
     objects.push_back(new Map());
-    for(int i = 0 ; i < 11 ; i++)
+    objects.push_back(new Vaisseau(0,0));
+    for(int i = 0 ; i < 10 ; i++)
     {
         objects.push_back(new Vaisseau( random(0,(int)(objects[0]->getPosition()).w()) , random(0,(int)(objects[0]->getPosition()).h())) );
     }
@@ -125,11 +126,11 @@ void SoUApp::app()
             }
         }
         /// màj des objets
-        for(unsigned int i = 0 ; i < objects.size() ; i++)
+        for(unsigned int i = 2 ; i < objects.size() ; i++)
         {
             objects[i]->bot();
         }
-
+        objects[1]->update(in);
         /// print l'image à l'écran
         draw();
     }

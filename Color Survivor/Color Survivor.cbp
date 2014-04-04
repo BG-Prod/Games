@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Color Survivor" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/Color Survivor" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-Wextra" />
+					<Add option="-Wall" />
+					<Add option="-g" />
+					<Add directory="ressources/sources" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/Color Survivor" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add directory="ressources/sources" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add directory="C:/Program Files (x86)/CodeBlocks/SDL-1.2.15/include" />
+			<Add directory="C:/Program Files (x86)/FMOD SoundSystem/FMOD Programmers API Windows/api/inc" />
+		</Compiler>
+		<Linker>
+			<Add library="mingw32" />
+			<Add library="SDLmain" />
+			<Add library="SDL.dll" />
+			<Add library="user32" />
+			<Add library="gdi32" />
+			<Add library="winmm" />
+			<Add library="dxguid" />
+			<Add library="C:\Program Files (x86)\CodeBlocks\MinGW\lib\libfmodex.a" />
+			<Add library="C:\Program Files (x86)\CodeBlocks\MinGW\lib\libfmodexL.a" />
+			<Add library="..\..\..\..\..\..\Program Files (x86)\CodeBlocks\SDL-1.2.15\lib\SDL_image.lib" />
+			<Add library="..\..\..\..\..\..\Program Files (x86)\CodeBlocks\SDL-1.2.15\lib\SDL_ttf.lib" />
+			<Add library="..\..\..\..\..\..\Program Files (x86)\CodeBlocks\SDL-1.2.15\lib\sdlgfx.lib" />
+			<Add library="..\..\..\..\..\..\Program Files (x86)\CodeBlocks\FMOD\lib\libfmodex.a" />
+			<Add directory="C:/Program Files (x86)/CodeBlocks/SDL-1.2.15/lib" />
+			<Add directory="C:/Program Files (x86)/FMOD SoundSystem/FMOD Programmers API Windows/api/lib" />
+		</Linker>
+		<Unit filename="ressources/sources/Application.cpp" />
+		<Unit filename="ressources/sources/Application.h" />
+		<Unit filename="ressources/sources/Camera.cpp" />
+		<Unit filename="ressources/sources/Camera.h" />
+		<Unit filename="ressources/sources/ColorSurvivor.cpp" />
+		<Unit filename="ressources/sources/ColorSurvivor.h" />
+		<Unit filename="ressources/sources/Coordonnees.cpp" />
+		<Unit filename="ressources/sources/Coordonnees.h" />
+		<Unit filename="ressources/sources/DisplayDatas.cpp" />
+		<Unit filename="ressources/sources/DisplayDatas.h" />
+		<Unit filename="ressources/sources/Image.cpp" />
+		<Unit filename="ressources/sources/Image.h" />
+		<Unit filename="ressources/sources/Input.cpp" />
+		<Unit filename="ressources/sources/Input.h" />
+		<Unit filename="ressources/sources/Object.cpp" />
+		<Unit filename="ressources/sources/Object.h" />
+		<Unit filename="ressources/sources/Screen.cpp" />
+		<Unit filename="ressources/sources/Screen.h" />
+		<Unit filename="ressources/sources/Texte.cpp" />
+		<Unit filename="ressources/sources/Texte.h" />
+		<Unit filename="ressources/sources/main.cpp" />
+		<Unit filename="ressources/sources/ressources.rc">
+			<Option compilerVar="WINDRES" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<DoxyBlocks>
+				<comment_style block="2" line="2" />
+				<doxyfile_project project_number="1" output_directory="doxygen" output_language="French" />
+				<doxyfile_build extract_all="1" />
+				<doxyfile_warnings />
+				<doxyfile_output />
+				<doxyfile_dot />
+				<general />
+			</DoxyBlocks>
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

@@ -113,7 +113,22 @@ void Vaisseau::shoot()
 
 void Vaisseau::update(Input * in)
 {
-
+    if(in->get_touche(SDLK_a))
+    {
+        move(GAUCHE);
+    }
+    if(in->get_touche(SDLK_s))
+    {
+        move(BAS);
+    }
+    if(in->get_touche(SDLK_d))
+    {
+        move(DROITE);
+    }
+    if(in->get_touche(SDLK_w))
+    {
+        move(HAUT);
+    }
     batterie->update();
 }
 
