@@ -69,6 +69,9 @@ class Image
         void setPixel(int x, int y, Uint32 coul); /// permet de paramétrer un pixel
         void line(int x1, int y1, int x2, int y2, Uint32 color);
         void circle(int x, int y, int r, int color);
+        void toBlackAndWhite();
+        void toGreyLevels();
+        void turn90();
 
     protected:
         SDL_Surface * image;

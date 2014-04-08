@@ -250,7 +250,7 @@
 	<SDL.h>
 	<ctime>
 
-1396641625 c:\users\ben\documents\github\games\color survivor\ressources\sources\image.h
+1396866814 c:\users\ben\documents\github\games\color survivor\ressources\sources\image.h
 	<SDL.h>
 	<SDL_ttf.h>
 	<SDL_image.h>
@@ -305,7 +305,7 @@
 1396032639 source:c:\users\ben\documents\github\games\color survivor\ressources\sources\displaydatas.cpp
 	"DisplayDatas.h"
 
-1396640563 source:c:\users\ben\documents\github\games\color survivor\ressources\sources\image.cpp
+1396866840 source:c:\users\ben\documents\github\games\color survivor\ressources\sources\image.cpp
 	"Image.h"
 
 1393503380 source:c:\users\ben\documents\github\games\color survivor\ressources\sources\input.cpp
@@ -329,7 +329,7 @@
 	<vector>
 	"Application.h"
 
-1396460581 source:c:\users\ben\documents\github\games\color survivor\ressources\sources\main.cpp
+1396893092 source:c:\users\ben\documents\github\games\color survivor\ressources\sources\main.cpp
 	<cstdlib>
 	<stdlib.h>
 	<stdio.h>
@@ -345,9 +345,51 @@
 	<ColorSurvivor.h>
 	<Image.h>
 
-1396641645 source:c:\users\ben\documents\github\games\color survivor\ressources\sources\colorsurvivor.cpp
+1396884094 source:c:\users\ben\documents\github\games\color survivor\ressources\sources\colorsurvivor.cpp
 	"ColorSurvivor.h"
 
 1396460430 c:\users\ben\documents\github\games\color survivor\ressources\sources\colorsurvivor.h
 	<Application.h>
+
+1396893985 source:c:\users\ben\documents\github\games\color survivor\ressources\sources\webcam\main.cpp
+	"main.h"
+
+1396893133 c:\users\ben\documents\github\games\color survivor\ressources\sources\webcam\main.h
+	<stdio.h>
+	<windows.h>
+	<vfw.h>
+	<SDL.h>
+	<SDL_syswm.h>
+	<SDL_thread.h>
+	"SDL_pixel.h"
+	"WebCam.h"
+
+1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_syswm.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_version.h"
+	"begin_code.h"
+	<X11/Xlib.h>
+	<X11/Xatom.h>
+	<microwin/nano-X.h>
+	<windows.h>
+	<sys/neutrino.h>
+	<Ph.h>
+	"close_code.h"
+
+1396893138 c:\users\ben\documents\github\games\color survivor\ressources\sources\webcam\sdl_pixel.h
+	<SDL.h>
+
+1396894194 c:\users\ben\documents\github\games\color survivor\ressources\sources\webcam\webcam.h
+	<stdio.h>
+	<windows.h>
+	<vfw.h>
+	<SDL.h>
+	"main.h"
+
+1375345958 source:c:\users\ben\documents\github\games\color survivor\ressources\sources\webcam\sdl_pixel.cpp
+	"SDL_Pixel.h"
+
+1396900019 source:c:\users\ben\documents\github\games\color survivor\ressources\sources\webcam\webcam.cpp
+	"WebCam.h"
 

@@ -109,11 +109,15 @@ void Image::print(Image * buffer, Coordonnees where, Coordonnees from)
 void Image::resize(double percent)
 {
     image = rotozoomSurface(image, 0.0,(double)percent/100,1);
+    w = image->w;
+    h = image->h;
 }
 
 void Image::rotate(double percent)
 {
     image = rotozoomSurface(image, percent,1,1);
+    w = image->w;
+    h = image->h;
 }
 
 void Image::copy(Image * origin)
@@ -132,6 +136,8 @@ void Image::copy(Image * origin)
                                        origin->image->format->Amask);
 
     image = SDL_DisplayFormatAlpha(origin->image);
+    w = image->w;
+    h = image->h;
 }
 
 void Image::clear()
@@ -222,9 +228,16 @@ void Image::setPixel(int a, int b, Uint32 coul)
 
 Uint32 color(int r, int g, int b, int alpha)
 {
-    Uint32 retour = 0;
-    retour += alpha*0x01000000 + r*0x00010000 + g*0x00000100 + b;
-    return retour;
+    long int retour = 0;
+    retour |= alpha;
+    retour = retour << 8;
+    retour |= r;
+    retour = retour << 8;
+    retour |= g;
+    retour = retour << 8;
+    retour |= b;
+
+    return (Uint32)retour;
 }
 
 Uint32 color(int r, int g, int b)
@@ -340,8 +353,50 @@ void Image::circle(int cx, int cy, int rayon, int coul)
             d = d + 4 * (x - y) + 10;
             y--;
         }
-
         x++;
     }
+}
+
+void Image::toBlackAndWhite()
+{
+    toGreyLevels();
+    for(int i = 0 ; i < this->width() ; i++)
+    {
+        for(int j = 0 ; j < this->height() ; j++)
+        {
+            setPixel(i,j,((getPixelRGBA(i,j)[RED]>128)?0xFFFFFFFF:0x0));
+        }
+    }
+}
+
+void Image::toGreyLevels()
+{
+    for(int i = 0 ; i < this->width() ; i++)
+    {
+        for(int j = 0 ; j < this->height() ; j++)
+        {
+            int couleur[4];
+            couleur[0] = getPixelRGBA(i,j)[0];
+            couleur[1] = getPixelRGBA(i,j)[1];
+            couleur[2] = getPixelRGBA(i,j)[2];
+            couleur[3] = getPixelRGBA(i,j)[3];
+            int tmp = (couleur[1]+couleur[2]+couleur[3])/3;
+            this->setPixel(i,j,color(tmp,tmp,tmp,255));
+        }
+    }
+}
+
+void Image::turn90()
+{
+    Image * tmp = new Image(this->height(), this->width(), 0, 0, 0);
+    for(int i = 0 ; i < this->width() ; i++)
+    {
+        for(int j = 0 ; j < this->height() ; j++)
+        {
+            tmp->setPixel(j,i,getPixel(i,j));
+        }
+    }
+    this->copy(tmp);
+    delete tmp;
 }
 
