@@ -1,109 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
-	<File name="ressources\sources\Screen.h" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1590" topLine="0" />
-		</Cursor>
-		<Folding>
-			<Collapse line="42" />
-		</Folding>
-	</File>
-	<File name="ressources\sources\Application.cpp" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="5646" topLine="25" />
-		</Cursor>
-	</File>
-	<File name="ressources\sources\Webcam\WebCam.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="263" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="ressources\sources\Input.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="0" topLine="0" />
-		</Cursor>
-		<Folding>
-			<Collapse line="44" />
-		</Folding>
-	</File>
-	<File name="ressources\sources\Object.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1079" topLine="0" />
-		</Cursor>
-		<Folding>
-			<Collapse line="34" />
-		</Folding>
-	</File>
-	<File name="ressources\sources\Coordonnees.cpp" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="0" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="ressources\sources\Webcam\SDL_Pixel.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="216" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="ressources\sources\Screen.cpp" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2018" topLine="0" />
-		</Cursor>
-		<Folding>
-			<Collapse line="25" />
-			<Collapse line="30" />
-			<Collapse line="39" />
-		</Folding>
-	</File>
-	<File name="ressources\sources\Webcam\WebCam.cpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2343" topLine="15" />
-		</Cursor>
-	</File>
-	<File name="ressources\sources\Application.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3038" topLine="7" />
-		</Cursor>
-		<Folding>
-			<Collapse line="60" />
-		</Folding>
-	</File>
-	<File name="ressources\sources\ColorSurvivor.cpp" open="0" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1660" topLine="0" />
-		</Cursor>
-		<Folding>
-			<Collapse line="13" />
-			<Collapse line="18" />
-			<Collapse line="27" />
-			<Collapse line="30" />
-			<Collapse line="32" />
-			<Collapse line="46" />
-			<Collapse line="48" />
-			<Collapse line="55" />
-			<Collapse line="64" />
-		</Folding>
-	</File>
-	<File name="ressources\sources\ColorSurvivor.h" open="0" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="372" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="ressources\sources\main.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1268" topLine="14" />
-		</Cursor>
-	</File>
-	<File name="ressources\sources\Webcam\main.cpp" open="1" top="1" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1991" topLine="8" />
-		</Cursor>
-		<Folding>
-			<Collapse line="35" />
-			<Collapse line="41" />
-			<Collapse line="48" />
-		</Folding>
-	</File>
 	<File name="ressources\sources\Image.cpp" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="9309" topLine="46" />
@@ -137,27 +34,131 @@
 			<Collapse line="319" />
 		</Folding>
 	</File>
-	<File name="ressources\sources\Webcam\main.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="ressources\sources\ColorSurvivor.h" open="0" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="184" topLine="0" />
+			<Cursor1 position="372" topLine="0" />
 		</Cursor>
+	</File>
+	<File name="ressources\sources\Input.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+		<Folding>
+			<Collapse line="44" />
+		</Folding>
+	</File>
+	<File name="ressources\sources\Object.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1079" topLine="0" />
+		</Cursor>
+		<Folding>
+			<Collapse line="34" />
+		</Folding>
 	</File>
 	<File name="ressources\sources\Image.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="2673" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="ressources\sources\Webcam\SDL_Pixel.cpp" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="ressources\sources\Screen.cpp" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="823" topLine="0" />
+			<Cursor1 position="2018" topLine="0" />
 		</Cursor>
 		<Folding>
-			<Collapse line="3" />
-			<Collapse line="8" />
-			<Collapse line="18" />
-			<Collapse line="35" />
+			<Collapse line="25" />
+			<Collapse line="30" />
+			<Collapse line="39" />
+		</Folding>
+	</File>
+	<File name="ressources\sources\main.cpp" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3411" topLine="72" />
+		</Cursor>
+		<Folding>
+			<Collapse line="0" />
+			<Collapse line="41" />
+			<Collapse line="131" />
+			<Collapse line="140" />
+			<Collapse line="147" />
+			<Collapse line="163" />
+			<Collapse line="165" />
+			<Collapse line="168" />
+			<Collapse line="178" />
+			<Collapse line="185" />
+			<Collapse line="195" />
+			<Collapse line="197" />
+			<Collapse line="219" />
+			<Collapse line="232" />
+			<Collapse line="246" />
+			<Collapse line="252" />
+			<Collapse line="258" />
+			<Collapse line="271" />
+			<Collapse line="276" />
+			<Collapse line="283" />
+			<Collapse line="288" />
+			<Collapse line="297" />
+			<Collapse line="303" />
+			<Collapse line="325" />
+			<Collapse line="339" />
+		</Folding>
+	</File>
+	<File name="ressources\sources\Application.cpp" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5646" topLine="25" />
+		</Cursor>
+	</File>
+	<File name="ressources\sources\Screen.h" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1590" topLine="0" />
+		</Cursor>
+		<Folding>
 			<Collapse line="42" />
-			<Collapse line="47" />
+		</Folding>
+	</File>
+	<File name="ressources\sources\Application.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3038" topLine="7" />
+		</Cursor>
+		<Folding>
+			<Collapse line="60" />
+		</Folding>
+	</File>
+	<File name="ressources\sources\Webcam.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="122" topLine="0" />
+		</Cursor>
+		<Folding>
+			<Collapse line="5" />
+			<Collapse line="10" />
+		</Folding>
+	</File>
+	<File name="ressources\sources\Coordonnees.cpp" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="ressources\sources\Texte.cpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="795" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="ressources\sources\ColorSurvivor.cpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="385" topLine="0" />
+		</Cursor>
+		<Folding>
+			<Collapse line="13" />
+			<Collapse line="18" />
+			<Collapse line="27" />
+			<Collapse line="32" />
+		</Folding>
+	</File>
+	<File name="ressources\sources\Webcam.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="547" topLine="0" />
+		</Cursor>
+		<Folding>
+			<Collapse line="18" />
 		</Folding>
 	</File>
 </CodeBlocks_layout_file>

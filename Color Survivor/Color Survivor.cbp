@@ -52,6 +52,7 @@
 			<Add library="..\..\..\..\..\..\Program Files (x86)\CodeBlocks\SDL-1.2.15\lib\sdlgfx.lib" />
 			<Add library="..\..\..\..\..\..\Program Files (x86)\CodeBlocks\FMOD\lib\libfmodex.a" />
 			<Add library="..\..\..\..\..\..\Program Files (x86)\CodeBlocks\MinGW\lib\libavicap32.a" />
+			<Add library="vfw32" />
 			<Add directory="C:/Program Files (x86)/CodeBlocks/SDL-1.2.15/lib" />
 			<Add directory="C:/Program Files (x86)/FMOD SoundSystem/FMOD Programmers API Windows/api/lib" />
 		</Linker>
@@ -75,12 +76,8 @@
 		<Unit filename="ressources/sources/Screen.h" />
 		<Unit filename="ressources/sources/Texte.cpp" />
 		<Unit filename="ressources/sources/Texte.h" />
-		<Unit filename="ressources/sources/Webcam/SDL_Pixel.cpp" />
-		<Unit filename="ressources/sources/Webcam/SDL_Pixel.h" />
-		<Unit filename="ressources/sources/Webcam/WebCam.cpp" />
-		<Unit filename="ressources/sources/Webcam/WebCam.h" />
-		<Unit filename="ressources/sources/Webcam/main.cpp" />
-		<Unit filename="ressources/sources/Webcam/main.h" />
+		<Unit filename="ressources/sources/Webcam.cpp" />
+		<Unit filename="ressources/sources/Webcam.h" />
 		<Unit filename="ressources/sources/main.cpp" />
 		<Unit filename="ressources/sources/ressources.rc">
 			<Option compilerVar="WINDRES" />

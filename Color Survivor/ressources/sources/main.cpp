@@ -38,7 +38,7 @@
 
 using namespace std;
 
-/*
+
 int main(int argc, char** argv)
 {
     Application * colorSurvivor = new ColorSurvivor();
@@ -49,4 +49,5 @@ int main(int argc, char** argv)
 
     return 0;
 }
-*/
+
+

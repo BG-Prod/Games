@@ -393,3 +393,143 @@
 1396900019 source:c:\users\ben\documents\github\games\color survivor\ressources\sources\webcam\webcam.cpp
 	"WebCam.h"
 
+1396460211 source:c:\users\ben\skydrive\github\games\color survivor\ressources\sources\application.cpp
+	"Application.h"
+
+1396459702 c:\users\ben\skydrive\github\games\color survivor\ressources\sources\application.h
+	<cstdlib>
+	<stdlib.h>
+	<stdio.h>
+	<fstream>
+	<string>
+	<sstream>
+	<iostream>
+	<vector>
+	<SDL.h>
+	<SDL_ttf.h>
+	<SDL_image.h>
+	<SDL_rotozoom.h>
+	<fmod.h>
+	<Input.h>
+	<Image.h>
+	<Screen.h>
+	<Object.h>
+
+1396032857 c:\users\ben\skydrive\github\games\color survivor\ressources\sources\input.h
+	<cstdlib>
+	<stdlib.h>
+	<stdio.h>
+	<math.h>
+	<fstream>
+	<string>
+	<sstream>
+	<iostream>
+	<windows.h>
+	<SDL.h>
+	<ctime>
+
+1396866814 c:\users\ben\skydrive\github\games\color survivor\ressources\sources\image.h
+	<SDL.h>
+	<SDL_ttf.h>
+	<SDL_image.h>
+	<SDL_rotozoom.h>
+	<SDL_getenv.h>
+	<vector>
+	<iostream>
+	<fstream>
+	<string>
+	<sstream>
+	<Coordonnees.h>
+
+1396357224 c:\users\ben\skydrive\github\games\color survivor\ressources\sources\coordonnees.h
+	<iostream>
+	<cstdlib>
+	<stdlib.h>
+	<stdio.h>
+
+1396459044 c:\users\ben\skydrive\github\games\color survivor\ressources\sources\screen.h
+	<SDL.h>
+	<windows.h>
+	<vector>
+	<Coordonnees.h>
+	<Image.h>
+	<Camera.h>
+	<Object.h>
+
+1396376554 c:\users\ben\skydrive\github\games\color survivor\ressources\sources\camera.h
+	<SDL.h>
+	<Coordonnees.h>
+	<Object.h>
+
+1396460670 c:\users\ben\skydrive\github\games\color survivor\ressources\sources\object.h
+	<vector>
+	<Image.h>
+	<Coordonnees.h>
+	<DisplayDatas.h>
+	<Input.h>
+
+1396032639 c:\users\ben\skydrive\github\games\color survivor\ressources\sources\displaydatas.h
+	<Coordonnees.h>
+
+1396376705 source:c:\users\ben\skydrive\github\games\color survivor\ressources\sources\camera.cpp
+	"Camera.h"
+
+1396992570 source:c:\users\ben\skydrive\github\games\color survivor\ressources\sources\colorsurvivor.cpp
+	"ColorSurvivor.h"
+
+1396460430 c:\users\ben\skydrive\github\games\color survivor\ressources\sources\colorsurvivor.h
+	<Application.h>
+
+1396357287 source:c:\users\ben\skydrive\github\games\color survivor\ressources\sources\coordonnees.cpp
+	"Coordonnees.h"
+
+1396032639 source:c:\users\ben\skydrive\github\games\color survivor\ressources\sources\displaydatas.cpp
+	"DisplayDatas.h"
+
+1396866840 source:c:\users\ben\skydrive\github\games\color survivor\ressources\sources\image.cpp
+	"Image.h"
+
+1393503380 source:c:\users\ben\skydrive\github\games\color survivor\ressources\sources\input.cpp
+	"Input.h"
+
+1397067691 source:c:\users\ben\skydrive\github\games\color survivor\ressources\sources\main.cpp
+	<cstdlib>
+	<stdlib.h>
+	<stdio.h>
+	<math.h>
+	<fstream>
+	<string>
+	<sstream>
+	<iostream>
+	<windows.h>
+	<fmod.h>
+	<ctime>
+	<Texte.h>
+	<ColorSurvivor.h>
+	<Image.h>
+
+1393503380 c:\users\ben\skydrive\github\games\color survivor\ressources\sources\texte.h
+	<iostream>
+	<SDL.h>
+	<SDL_ttf.h>
+	<vector>
+	"Application.h"
+
+1396300707 source:c:\users\ben\skydrive\github\games\color survivor\ressources\sources\object.cpp
+	"Object.h"
+
+1393781431 source:c:\users\ben\skydrive\github\games\color survivor\ressources\sources\ressources.rc
+
+1396460872 source:c:\users\ben\skydrive\github\games\color survivor\ressources\sources\screen.cpp
+	"Screen.h"
+
+1395829106 source:c:\users\ben\skydrive\github\games\color survivor\ressources\sources\texte.cpp
+	<Texte.h>
+
+1397067691 source:c:\users\ben\skydrive\github\games\color survivor\ressources\sources\webcam.cpp
+	"Webcam.h"
+
+1397067636 c:\users\ben\skydrive\github\games\color survivor\ressources\sources\webcam.h
+	<windows.h>
+	<vfw.h>
+

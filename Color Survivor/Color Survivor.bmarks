@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <BrowseTracker_layout_file>
 	<ActiveTarget name="Debug" />
-	<File name="ressources\sources\Screen.h" open="0" top="0" tabpos="6">
-		<Cursor position="1590" topLine="0" />
+	<File name="ressources\sources\Image.cpp" open="0" top="0" tabpos="9">
+		<Cursor position="9309" topLine="46" />
+		<BrowseMarks positions="1092,5985,8833,9028,9076,9523" />
+		<Book_Marks positions="4093,8800,8852" />
 	</File>
-	<File name="ressources\sources\Application.cpp" open="0" top="0" tabpos="8">
-		<Cursor position="5646" topLine="25" />
-		<BrowseMarks positions="5974" />
-	</File>
-	<File name="ressources\sources\Webcam\WebCam.h" open="1" top="0" tabpos="0">
-		<Cursor position="0" topLine="0" />
-		<BrowseMarks positions="" />
-		<Book_Marks positions="" />
+	<File name="ressources\sources\ColorSurvivor.h" open="0" top="0" tabpos="11">
+		<Cursor position="372" topLine="0" />
+		<Book_Marks positions="337" />
 	</File>
 	<File name="ressources\sources\Input.h" open="0" top="0" tabpos="3">
 		<Cursor position="0" topLine="0" />
@@ -19,63 +16,44 @@
 	<File name="ressources\sources\Object.h" open="0" top="0" tabpos="4">
 		<Cursor position="1079" topLine="0" />
 	</File>
-	<File name="ressources\sources\Coordonnees.cpp" open="0" top="0" tabpos="10">
-		<Cursor position="0" topLine="0" />
-	</File>
-	<File name="ressources\sources\Webcam\SDL_Pixel.h" open="1" top="0" tabpos="0">
-		<Cursor position="0" topLine="0" />
-		<BrowseMarks positions="" />
-		<Book_Marks positions="" />
-	</File>
-	<File name="ressources\sources\Screen.cpp" open="0" top="0" tabpos="7">
-		<Cursor position="2018" topLine="0" />
-	</File>
-	<File name="ressources\sources\Webcam\WebCam.cpp" open="1" top="0" tabpos="0">
-		<Cursor position="0" topLine="0" />
-		<BrowseMarks positions="128,1044" />
-		<Book_Marks positions="" />
-	</File>
-	<File name="ressources\sources\Application.h" open="0" top="0" tabpos="5">
-		<Cursor position="3038" topLine="7" />
-	</File>
-	<File name="ressources\sources\ColorSurvivor.cpp" open="0" top="0" tabpos="12">
-		<Cursor position="1660" topLine="0" />
-		<BrowseMarks positions="317,549,1551" />
-		<Book_Marks positions="" />
-	</File>
-	<File name="ressources\sources\ColorSurvivor.h" open="0" top="0" tabpos="11">
-		<Cursor position="372" topLine="0" />
-		<BrowseMarks positions="" />
-		<Book_Marks positions="337" />
-	</File>
-	<File name="ressources\sources\main.cpp" open="1" top="0" tabpos="1">
-		<Cursor position="1213" topLine="0" />
-		<BrowseMarks positions="1215" />
-		<Book_Marks positions="" />
-	</File>
-	<File name="ressources\sources\Webcam\main.cpp" open="1" top="1" tabpos="0">
-		<Cursor position="0" topLine="0" />
-		<BrowseMarks positions="2814" />
-		<Book_Marks positions="" />
-	</File>
-	<File name="ressources\sources\Image.cpp" open="0" top="0" tabpos="9">
-		<Cursor position="9309" topLine="46" />
-		<BrowseMarks positions="1092,5985,8833,9028,9076,9523" />
-		<Book_Marks positions="4093,8800,8852" />
-	</File>
-	<File name="ressources\sources\Webcam\main.h" open="1" top="0" tabpos="0">
-		<Cursor position="0" topLine="0" />
-		<BrowseMarks positions="" />
-		<Book_Marks positions="" />
-	</File>
 	<File name="ressources\sources\Image.h" open="0" top="0" tabpos="2">
 		<Cursor position="2673" topLine="0" />
 		<BrowseMarks positions="2534,2666,2769" />
 		<Book_Marks positions="2749,2203" />
 	</File>
-	<File name="ressources\sources\Webcam\SDL_Pixel.cpp" open="1" top="0" tabpos="0">
-		<Cursor position="0" topLine="0" />
-		<BrowseMarks positions="" />
+	<File name="ressources\sources\Screen.cpp" open="0" top="0" tabpos="7">
+		<Cursor position="2018" topLine="0" />
+	</File>
+	<File name="ressources\sources\main.cpp" open="1" top="1" tabpos="1">
+		<Cursor position="11702" topLine="41" />
+		<BrowseMarks positions="1194" />
 		<Book_Marks positions="" />
+	</File>
+	<File name="ressources\sources\Application.cpp" open="0" top="0" tabpos="8">
+		<Cursor position="5646" topLine="25" />
+		<BrowseMarks positions="5974" />
+	</File>
+	<File name="ressources\sources\Screen.h" open="0" top="0" tabpos="6">
+		<Cursor position="1590" topLine="0" />
+	</File>
+	<File name="ressources\sources\Application.h" open="0" top="0" tabpos="5">
+		<Cursor position="3038" topLine="7" />
+	</File>
+	<File name="ressources\sources\Webcam.cpp" open="1" top="0" tabpos="3">
+		<Cursor position="122" topLine="0" />
+	</File>
+	<File name="ressources\sources\Coordonnees.cpp" open="0" top="0" tabpos="10">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="ressources\sources\Texte.cpp" open="1" top="0" tabpos="4">
+		<Cursor position="795" topLine="0" />
+	</File>
+	<File name="ressources\sources\ColorSurvivor.cpp" open="1" top="0" tabpos="5">
+		<Cursor position="385" topLine="0" />
+		<BrowseMarks positions="317,549,552" />
+		<Book_Marks positions="" />
+	</File>
+	<File name="ressources\sources\Webcam.h" open="1" top="0" tabpos="2">
+		<Cursor position="547" topLine="0" />
 	</File>
 </BrowseTracker_layout_file>
