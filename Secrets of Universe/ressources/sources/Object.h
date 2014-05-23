@@ -23,7 +23,6 @@
 
 #include <vector>
 
-#include <Image.h>
 #include <Coordonnees.h>
 #include <DisplayDatas.h>
 #include <Input.h>
@@ -39,11 +38,12 @@ class Object
         bool collision(Object * o);
         virtual int collisionPoints();
         virtual void collided(int);
-        direction getEtat(){return etat;}
+        direction getEtat(){return etat[0];}
         Coordonnees getPosition(){return position;}
         int isOut(Object * o);
         void setOutOf(int dir);    /// 0 : l'objet ne sort pas ; 1,2,3,4 : l'objet sort en bas en haut à droite ou à gauche;
         DisplayDatas print();
+        DisplayDatas print(int num);
         virtual void bot();
         virtual void update(Input * in);
         static long getTime();
@@ -54,9 +54,9 @@ class Object
         const int birth;
         Coordonnees position;
         int id;
-        int type;
+        std::vector<int> type;
         bool hasMoved;
-        direction etat;
+        std::vector<direction> etat;
         Object * ancestor;
         int outOf;
         bool alive;

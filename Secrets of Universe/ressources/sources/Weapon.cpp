@@ -23,7 +23,7 @@
 Weapon::Weapon(Object * o) : Object()
 {
     type = 1;
-    etat = o->getEtat();
+    etat[0] = o->getEtat();
     ancestor = o;
 }
 
@@ -39,7 +39,7 @@ void Weapon::init()
 
 void Weapon::use()
 {
-    etat = ancestor->getEtat();
+    etat[0] = ancestor->getEtat();
     salve.push_back(new Shot(this));
 }
 

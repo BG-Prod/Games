@@ -29,11 +29,11 @@
 #include <windows.h>
 #include <fmod.h>
 #include <ctime>
+#include <SDL_net.h>
 
 
 #include <Texte.h>
 #include <ColorSurvivor.h>
-#include <Image.h>
 
 
 using namespace std;
@@ -49,5 +49,4 @@ int main(int argc, char** argv)
 
     return 0;
 }
-
 

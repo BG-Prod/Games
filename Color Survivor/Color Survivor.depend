@@ -393,10 +393,10 @@
 1396900019 source:c:\users\ben\documents\github\games\color survivor\ressources\sources\webcam\webcam.cpp
 	"WebCam.h"
 
-1396460211 source:c:\users\ben\skydrive\github\games\color survivor\ressources\sources\application.cpp
+1398073090 source:c:\users\ben\skydrive\github\games\color survivor\ressources\sources\application.cpp
 	"Application.h"
 
-1396459702 c:\users\ben\skydrive\github\games\color survivor\ressources\sources\application.h
+1400876607 c:\users\ben\skydrive\github\games\color survivor\ressources\sources\application.h
 	<cstdlib>
 	<stdlib.h>
 	<stdio.h>
@@ -415,7 +415,7 @@
 	<Screen.h>
 	<Object.h>
 
-1396032857 c:\users\ben\skydrive\github\games\color survivor\ressources\sources\input.h
+1398454838 c:\users\ben\skydrive\github\games\color survivor\ressources\sources\input.h
 	<cstdlib>
 	<stdlib.h>
 	<stdio.h>
@@ -447,8 +447,10 @@
 	<stdlib.h>
 	<stdio.h>
 
-1396459044 c:\users\ben\skydrive\github\games\color survivor\ressources\sources\screen.h
+1400875924 c:\users\ben\skydrive\github\games\color survivor\ressources\sources\screen.h
 	<SDL.h>
+	<GL/gl.h>
+	<GL/glu.h>
 	<windows.h>
 	<vector>
 	<Coordonnees.h>
@@ -461,7 +463,7 @@
 	<Coordonnees.h>
 	<Object.h>
 
-1396460670 c:\users\ben\skydrive\github\games\color survivor\ressources\sources\object.h
+1398871271 c:\users\ben\skydrive\github\games\color survivor\ressources\sources\object.h
 	<vector>
 	<Image.h>
 	<Coordonnees.h>
@@ -474,25 +476,26 @@
 1396376705 source:c:\users\ben\skydrive\github\games\color survivor\ressources\sources\camera.cpp
 	"Camera.h"
 
-1396992570 source:c:\users\ben\skydrive\github\games\color survivor\ressources\sources\colorsurvivor.cpp
+1400877596 source:c:\users\ben\skydrive\github\games\color survivor\ressources\sources\colorsurvivor.cpp
 	"ColorSurvivor.h"
 
-1396460430 c:\users\ben\skydrive\github\games\color survivor\ressources\sources\colorsurvivor.h
+1398363442 c:\users\ben\skydrive\github\games\color survivor\ressources\sources\colorsurvivor.h
 	<Application.h>
+	<Webcam.h>
 
 1396357287 source:c:\users\ben\skydrive\github\games\color survivor\ressources\sources\coordonnees.cpp
 	"Coordonnees.h"
 
-1396032639 source:c:\users\ben\skydrive\github\games\color survivor\ressources\sources\displaydatas.cpp
+1398073622 source:c:\users\ben\skydrive\github\games\color survivor\ressources\sources\displaydatas.cpp
 	"DisplayDatas.h"
 
-1396866840 source:c:\users\ben\skydrive\github\games\color survivor\ressources\sources\image.cpp
+1400877961 source:c:\users\ben\skydrive\github\games\color survivor\ressources\sources\image.cpp
 	"Image.h"
 
-1393503380 source:c:\users\ben\skydrive\github\games\color survivor\ressources\sources\input.cpp
+1398454838 source:c:\users\ben\skydrive\github\games\color survivor\ressources\sources\input.cpp
 	"Input.h"
 
-1397067691 source:c:\users\ben\skydrive\github\games\color survivor\ressources\sources\main.cpp
+1399395477 source:c:\users\ben\skydrive\github\games\color survivor\ressources\sources\main.cpp
 	<cstdlib>
 	<stdlib.h>
 	<stdio.h>
@@ -504,9 +507,9 @@
 	<windows.h>
 	<fmod.h>
 	<ctime>
+	<SDL_net.h>
 	<Texte.h>
 	<ColorSurvivor.h>
-	<Image.h>
 
 1393503380 c:\users\ben\skydrive\github\games\color survivor\ressources\sources\texte.h
 	<iostream>
@@ -515,21 +518,109 @@
 	<vector>
 	"Application.h"
 
-1396300707 source:c:\users\ben\skydrive\github\games\color survivor\ressources\sources\object.cpp
+1400879166 source:c:\users\ben\skydrive\github\games\color survivor\ressources\sources\object.cpp
 	"Object.h"
 
 1393781431 source:c:\users\ben\skydrive\github\games\color survivor\ressources\sources\ressources.rc
 
-1396460872 source:c:\users\ben\skydrive\github\games\color survivor\ressources\sources\screen.cpp
+1400877167 source:c:\users\ben\skydrive\github\games\color survivor\ressources\sources\screen.cpp
 	"Screen.h"
 
 1395829106 source:c:\users\ben\skydrive\github\games\color survivor\ressources\sources\texte.cpp
 	<Texte.h>
 
-1397067691 source:c:\users\ben\skydrive\github\games\color survivor\ressources\sources\webcam.cpp
+1400875924 source:c:\users\ben\skydrive\github\games\color survivor\ressources\sources\webcam.cpp
 	"Webcam.h"
 
-1397067636 c:\users\ben\skydrive\github\games\color survivor\ressources\sources\webcam.h
+1398870514 c:\users\ben\skydrive\github\games\color survivor\ressources\sources\webcam.h
+	<opencv2/core/core.hpp>
+	<opencv2/imgproc/imgproc.hpp>
+	<opencv2/highgui/highgui.hpp>
+	<Image.h>
+
+1376160112 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_net.h
+	<stdint.h>
+	"SDL.h"
+	"SDL_endian.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1397596066 source:c:\users\ben\skydrive\github\games\color survivor\ressources\sources\network.cpp
+	"Network.h"
+
+1397595831 c:\users\ben\skydrive\github\games\color survivor\ressources\sources\network.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<iostream>
+	<string>
+	<cstring>
+	"SDL_net.h"
+
+1391489825 c:\opencv\opencv\build\include\opencv2\core\core.hpp
+	"opencv2/core/types_c.h"
+	"opencv2/core/version.hpp"
+	<limits.h>
+	<algorithm>
+	<cmath>
+	<cstddef>
+	<complex>
+	<map>
+	<new>
+	<string>
+	<vector>
+	<sstream>
+	"opencv2/core/operations.hpp"
+	"opencv2/core/mat.hpp"
+
+1392700821 c:\opencv\opencv\build\include\opencv2\core\types_c.h
+	<assert.h>
+	<stdlib.h>
+	<string.h>
+	<float.h>
+	<stdint.h>
+	<intrin.h>
+	<emmintrin.h>
+	<fastmath.h>
+	<math.h>
+	<ipl.h>
+	<ipl/ipl.h>
+	"tegra_round.hpp"
+	"emmintrin.h"
+
+1396411557 c:\opencv\opencv\build\include\opencv2\core\version.hpp
+
+1387536597 c:\opencv\opencv\build\include\opencv2\core\operations.hpp
+	<string.h>
+	<limits.h>
+	<ext/atomicity.h>
+	<bits/atomicity.h>
+	<limits>
+
+1389326456 c:\opencv\opencv\build\include\opencv2\core\mat.hpp
+	<limits.h>
+	<string.h>
+
+1387536598 c:\opencv\opencv\build\include\opencv2\imgproc\imgproc.hpp
+	"opencv2/core/core.hpp"
+	"opencv2/imgproc/types_c.h"
+
+1387536598 c:\opencv\opencv\build\include\opencv2\imgproc\types_c.h
+	"opencv2/core/core_c.h"
+
+1393999333 c:\opencv\opencv\build\include\opencv2\core\core_c.h
+	"opencv2/core/types_c.h"
+
+1387536597 c:\opencv\opencv\build\include\opencv2\highgui\highgui.hpp
+	"opencv2/core/core.hpp"
+	"opencv2/highgui/highgui_c.h"
+
+1395720031 c:\opencv\opencv\build\include\opencv2\highgui\highgui_c.h
+	"opencv2/core/core_c.h"
+
+902922872 c:\program files (x86)\codeblocks\glut-3.7\include\gl\glut.h
 	<windows.h>
-	<vfw.h>
+	<GL/gl.h>
+	<GL/glu.h>
 

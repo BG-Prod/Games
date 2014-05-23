@@ -44,7 +44,7 @@
 
 #define SCREEN_REFRESH      40
 #define DEBUG               std::cerr << std::endl <<
-#define NOMBRE_IMAGE        8
+#define NOMBRE_IMAGE        9
 #define NOMBRE_MUSIQUE      1
 #define NOMBRE_POLICE       0
 
@@ -63,7 +63,9 @@ class Application
         Application();
         virtual ~Application();
 
+        virtual void init();
         virtual void app();
+        void run();
 
         void loadImages();                          /// charge les images utiles
         void loadMusics();   /// charge les musiques utiles
@@ -78,7 +80,8 @@ class Application
         static long getTime();
 
         void fps();             /// régule le temps
-        virtual void draw();    /// défini l'affichage
+        void draw();    /// défini l'affichage
+        virtual int whatImage(int a, int b);
 
     protected:
         void initialisation();        /// initialise le jeu
@@ -103,6 +106,8 @@ class Application
         Input * in;
         /// object
         std::vector<Object*> objects;
+        /// interface
+        std::vector<Object*> interfaces;
 };
 
 #endif /// APPLICATION_H

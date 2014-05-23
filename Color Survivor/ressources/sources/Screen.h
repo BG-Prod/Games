@@ -21,7 +21,9 @@
 #ifndef SCREEN_H
 #define SCREEN_H
 
-#include <SDL.h>
+#include <SDL.h>/*
+#include <GL/gl.h>
+#include <GL/glu.h>*/
 #include <windows.h>
 #include <vector>
 

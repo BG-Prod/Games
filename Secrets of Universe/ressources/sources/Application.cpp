@@ -32,10 +32,10 @@ Application::Application()
 	time(&maintenant);
 	Today = *localtime(&maintenant);
     /// initialisation de l'aléatoire
-    srand (time(NULL));
+    srand(time(NULL));
 
 	/// create new screen
-	screen = new Screen();
+	screen = new Screen;
 	cam = new Camera;
 
 	/// username
@@ -60,8 +60,6 @@ Application::Application()
 
     /// time
     tempsActuel = 0, tempsPrecedent = 0, screen_refresh = SCREEN_REFRESH;
-
-    /// objects
 }
 
 Application::~Application()
@@ -135,7 +133,7 @@ void Application::loadImages()
         }
 
         images.push_back(new Image(lien));
-        ///images[i]->resize((double)(100.0*(SDL_GetVideoSurface()->h)/1080.0));
+        images[i]->resize((double)(100.0*(SDL_GetVideoSurface()->h)/1080.0));
     }
 }
 
@@ -177,6 +175,10 @@ void Application::freeObjects()
     for(unsigned int i = 0 ; i < objects.size() ; i++)
     {
         delete objects[i];
+    }
+    for(unsigned int i = 0 ; i < interfaces.size() ; i++)
+    {
+        delete interfaces[i];
     }
 }
 
@@ -226,12 +228,62 @@ void Application::fps()
     }
 }
 
+void Application::init()
+{
+
+}
+
+void Application::run()
+{
+    this->init();
+    while(!in->get_touche(SDLK_ESCAPE) && !in->get_exit())
+    {
+        this->fps();
+        in->update();
+        this->app();
+        this->draw();
+    }
+}
+
 void Application::app()
 {
 
 }
 
 void Application::draw()
+{
+    for(unsigned int i = 0 ; i < objects.size() ; i++)
+    {
+        DisplayDatas tmp = objects[i]->print();
+
+        int numImage = whatImage(tmp.type, tmp.etat);
+
+        if(numImage >= 0)
+        {
+            Coordonnees relativePlace(tmp.coor);
+            relativePlace.x(relativePlace.x()-cam->view().x());
+            relativePlace.y(relativePlace.y()-cam->view().y());
+            images[numImage]->print(screen->buffer(), (i==0)?cam->place():relativePlace, (i==0)?cam->view():cam->place());
+        }
+    }
+
+    for(unsigned int i = 0 ; i < interfaces.size() ; i++)
+    {
+        DisplayDatas tmp = interfaces[i]->print();
+
+        int numImage = whatImage(tmp.type, tmp.etat);
+
+        if(numImage >= 0)
+        {
+            Coordonnees relativePlace(tmp.coor);
+            images[numImage]->print(screen->buffer(), relativePlace);
+        }
+    }
+
+    screen->display();
+}
+
+int Application::whatImage(int a, int b)
 {
 
 }

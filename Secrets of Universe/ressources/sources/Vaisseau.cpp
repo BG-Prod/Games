@@ -26,9 +26,9 @@ using namespace std;
 
 Vaisseau::Vaisseau() : Object(), energie(100), bouclier(100), coque(100), capteur(100), teleporteur(100), hypernavigateur(100), moteur(100)
 {
-    etat = GAUCHE;
+    etat[0] = GAUCHE;
     vitesse = 15;
-    type = 1;
+    type[0] = 1;
     alive = true;
     activiteBouclier = false;
     outOf = -1;
@@ -43,9 +43,9 @@ Vaisseau::Vaisseau() : Object(), energie(100), bouclier(100), coque(100), capteu
 
 Vaisseau::Vaisseau(int x, int y) : Object(), energie(100), bouclier(100), coque(100), capteur(100), teleporteur(100), hypernavigateur(100), moteur(100)
 {
-    etat = GAUCHE;
+    etat[0] = GAUCHE;
     vitesse = 15;
-    type = 1;
+    type[0] = 1;
     alive = true;
     activiteBouclier = false;
     outOf = -1;
@@ -68,14 +68,14 @@ Vaisseau::Vaisseau(int _energie, int _bouclier, int _coque, int _capteur, int _v
     capteur =  _capteur;
     vitesse =  _vitesse;
     joueur =  _joueur;
-    type =  _type,
+    type[0] = _type;
     masse = _masse;
     teleporteur =  _teleporteur;
     hypernavigateur =  _hypernavigateur;
     moteur =  _moteur;
     id =  _id;
     position = _position;
-    etat = _etat;
+    etat[0] = _etat;
     ancestor = _ancestor;
     outOf = -1;
     touched = false;
@@ -103,7 +103,7 @@ void Vaisseau::move(direction d)
             position.x(position.x()-(moteur*vitesse/100));
             break;
     }
-    etat = d;
+    etat[0] = d;
 }
 
 void Vaisseau::shoot()
@@ -143,7 +143,7 @@ void Vaisseau::bot()
     {
         int change = random(0,100);
         if(change==1){move((direction)random(0,3));}
-        else{move(etat);}
+        else{move(etat[0]);}
     }
     else
     {
@@ -159,13 +159,13 @@ void Vaisseau::bot()
     }
     if(touched)
     {
-        if(etat==BAS)
+        if(etat[0]==BAS)
             move(HAUT);
-        else if(etat==HAUT)
+        else if(etat[0]==HAUT)
             move(BAS);
-        else if(etat==GAUCHE)
+        else if(etat[0]==GAUCHE)
             move(DROITE);
-        else if(etat==DROITE)
+        else if(etat[0]==DROITE)
             move(GAUCHE);
 
         touched = false;

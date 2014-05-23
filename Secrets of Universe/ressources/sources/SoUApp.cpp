@@ -32,7 +32,7 @@ SoUApp::~SoUApp()
     //dtor
 }
 
-void SoUApp::app()
+void SoUApp::init()
 {
     /// on joue la musique de fond
     FMOD_System_PlaySound(system, FMOD_CHANNEL_FREE, musiques[0], 0, NULL);
@@ -62,79 +62,72 @@ void SoUApp::app()
         objects.push_back(new Vaisseau( random(0,(int)(objects[0]->getPosition()).w()) , random(0,(int)(objects[0]->getPosition()).h())) );
     }
 
-    /// boucle principale
-    while(!in->get_touche(SDLK_ESCAPE) && !in->get_exit())
+    /// mise en place de l'interface utilisateur
+    interfaces.push_back(new Interface(2));
+}
+
+void SoUApp::app()
+{
+    /// resize taille écran
+    if(in->get_touche(SDLK_F1))
     {
-        /// mise à jour des events
-        in->update();
+        screen->resize();
+    }
+    /// bouger la caméra
+    if(in->get_touche(SDLK_UP))
+    {
+        cam->cameraUp();
+    }
+    if(in->get_touche(SDLK_DOWN))
+    {
+        cam->cameraDown();
+    }
+    if(in->get_touche(SDLK_LEFT))
+    {
+        cam->cameraLeft();
+    }
+    if(in->get_touche(SDLK_RIGHT))
+    {
+        cam->cameraRight();
+    }
+    cam->keepIn(objects[0]);
 
-        /// gestion du frame
-        fps();
-
-        /// resize taille écran
-        if(in->get_touche(SDLK_F1))
+    /// sont-ils morts ?
+    for(unsigned int i = 0 ; i < objects.size() ; i++)
+    {
+        if(!objects[i]->isAlive())
         {
-            screen->resize();
+            delete objects[i];
+            objects.erase(objects.begin()+i);
         }
-        /// bouger la caméra
-        if(in->get_touche(SDLK_UP))
+    }
+    /// objets sur les bords ?
+    /// collision objets ?
+    for(unsigned int i = 0 ; i < objects.size() ; i++)
+    {
+        int changeOfDir = -1;
+        if(i!=0){changeOfDir = objects[i]->isOut(objects[0]);}
+        if(i!=0 && (-1 < changeOfDir))
         {
-            cam->cameraUp();
+            objects[i]->setOutOf(changeOfDir);
         }
-        if(in->get_touche(SDLK_DOWN))
+        for(unsigned int j = 1 ; j < objects.size() ; j++)
         {
-            cam->cameraDown();
-        }
-        if(in->get_touche(SDLK_LEFT))
-        {
-            cam->cameraLeft();
-        }
-        if(in->get_touche(SDLK_RIGHT))
-        {
-            cam->cameraRight();
-        }
-        cam->keepIn(objects[0]);
-
-        /// sont-ils morts ?
-        for(unsigned int i = 0 ; i < objects.size() ; i++)
-        {
-            if(!objects[i]->isAlive())
+            if(i!=j)
             {
-                delete objects[i];
-                objects.erase(objects.begin()+i);
-            }
-        }
-        /// objets sur les bords ?
-        /// collision objets ?
-        for(unsigned int i = 0 ; i < objects.size() ; i++)
-        {
-            int changeOfDir = -1;
-            if(i!=0){changeOfDir = objects[i]->isOut(objects[0]);}
-            if(i!=0 && (-1 < changeOfDir))
-            {
-                objects[i]->setOutOf(changeOfDir);
-            }
-            for(unsigned int j = 1 ; j < objects.size() ; j++)
-            {
-                if(i!=j)
+                if(objects[i]->collision(objects[j]))
                 {
-                    if(objects[i]->collision(objects[j]))
-                    {
-                        objects[i]->collided(objects[j]->collisionPoints());
-                    }
+                    objects[i]->collided(objects[j]->collisionPoints());
                 }
             }
         }
-        /// màj des objets
-        for(unsigned int i = 2 ; i < objects.size() ; i++)
-        {
-            objects[i]->bot();
-        }
-        objects[1]->update(in);
-        /// print l'image à l'écran
-        draw();
     }
-    /// end main loop
+    /// màj des objets
+    for(unsigned int i = 2 ; i < objects.size() ; i++)
+    {
+        objects[i]->bot();
+    }
+    objects[1]->update(in);
 }
 
 void SoUApp::intro()    /// affichage du logo
@@ -150,25 +143,6 @@ void SoUApp::intro()    /// affichage du logo
         fps();
         SDL_Flip(SDL_GetVideoSurface());
     }
-}
-
-void SoUApp::draw()
-{
-    for(unsigned int i = 0 ; i < objects.size() ; i++)
-    {
-        DisplayDatas tmp = objects[i]->print();
-
-        int numImage = whatImage(tmp.type, tmp.etat);
-
-        if(numImage >= 0)
-        {
-            Coordonnees relativePlace(tmp.coor);
-            relativePlace.x(relativePlace.x()-cam->view().x());
-            relativePlace.y(relativePlace.y()-cam->view().y());
-            images[numImage]->print(screen->buffer(), (i==0)?cam->place():relativePlace, (i==0)?cam->view():cam->place());
-        }
-    }
-    screen->display();
 }
 
 int SoUApp::whatImage(int a, int b)
@@ -196,6 +170,10 @@ int SoUApp::whatImage(int a, int b)
         {
             retour = 5;
         }
+    }
+    if(a==2)
+    {
+        retour = 8;
     }
 
     return retour;

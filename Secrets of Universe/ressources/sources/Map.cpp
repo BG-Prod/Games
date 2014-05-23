@@ -25,14 +25,11 @@ using namespace std;
 Map::Map()
 {
     id = 0;
-    type = 0;
+    type.push_back(0);
     hasMoved = false;
     ancestor = NULL;
-    position.x(0);
-    position.y(0);
-    position.w(3840);
-    position.h(3072);
-    etat = HAUT;
+    position = Coordonnees(0,0,3840,3072);
+    etat.push_back(HAUT);
 }
 
 Map::~Map()

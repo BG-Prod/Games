@@ -36,6 +36,16 @@ Screen::Screen()
     videoBuffer = new Image(LARGEUR_ECRAN,HAUTEUR_ECRAN,0,0,0);
 }
 
+Screen::Screen(int w, int h)
+{
+    /// create a new window
+    putenv("SDL_VIDEO_WINDOW_POS=center"); /// pour centrer la fenêtre
+    ecran = SDL_SetVideoMode(w, h, 32, SDL_HWSURFACE|SDL_DOUBLEBUF|SDL_RESIZABLE);
+
+
+    videoBuffer = new Image(w,h,0,0,0);
+}
+
 Screen::~Screen()
 {
     delete videoBuffer;

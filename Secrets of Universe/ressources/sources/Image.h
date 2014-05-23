@@ -51,10 +51,11 @@ class Image
         Image(int width, int height, Uint8 r, Uint8 g, Uint8 b, Uint8 a);
         virtual ~Image();           /// destructeur
 
-        void print();               /// affichage par défaut
-        void print(int px, int py); /// affichage ++
-        void print(Coordonnees where, Coordonnees from); /// affichage partiel
-        void print(Image * buffer, Coordonnees where, Coordonnees from); /// affichage complet
+        void print();               /// affichage par défaut direct
+        void print(int px, int py); /// affichage ++ direct
+        void print(Coordonnees where, Coordonnees from); /// affichage partiel direct
+        void print(Image * buffer, Coordonnees where); /// affichage buffer
+        void print(Image * buffer, Coordonnees where, Coordonnees from); /// affichage complet buffer
         void resize(double percent); /// redimensionne une image
         void rotate(double percent); /// pivote une image
         void copy(Image * origin);     /// copie une image
@@ -67,12 +68,20 @@ class Image
         Uint32 getPixel(int x, int y);  /// renvoie le pixel sous forme hexadecimal sur 32 bits
         const int * getPixelRGBA(int x, int y); /// renvoie le pixel sous forma d'un tableau A,R,G,B
         void setPixel(int x, int y, Uint32 coul); /// permet de paramétrer un pixel
+        void line(int x1, int y1, int x2, int y2, Uint32 color);
+        void circle(int x, int y, int r, int color);
+        void toBlackAndWhite();
+        void toGreyLevels();
+        void turn90();
 
     protected:
         SDL_Surface * image;
         int x,y,w,h,alpha;
         int lastX, lastY;
         std::string name;
+
+    private:
+        void echangerEntiers(int* x, int* y);
 };
 
 #endif // IMAGE_H

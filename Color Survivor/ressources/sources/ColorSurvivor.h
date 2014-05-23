@@ -2,7 +2,7 @@
 #define COLORSURVIVOR_H
 
 #include <Application.h>
-
+#include <Webcam.h>
 
 class ColorSurvivor : public Application
 {
@@ -14,8 +14,10 @@ class ColorSurvivor : public Application
         virtual void app();
         virtual int whatImage(int a,int b);
 
+        void coloration(int x, int y, Uint32 color);
+
     protected:
-    private:
+        Webcam * myCam;
 };
 
 #endif // COLORSURVIVOR_H

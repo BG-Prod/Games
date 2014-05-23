@@ -35,6 +35,21 @@ Object::Object() : birth(getTime())
     alive = true;
 }
 
+Object::Object(int x, int y) : birth(getTime())
+{
+    id = 0;
+    type = 1;
+    hasMoved = false;
+    outOf = -1;
+    ancestor = NULL;
+    position.x(x);
+    position.y(y);
+    position.w(0);
+    position.h(0);
+    etat = HAUT;
+    alive = true;
+}
+
 Object::~Object()
 {
     //dtor

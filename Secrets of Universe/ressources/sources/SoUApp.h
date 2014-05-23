@@ -25,17 +25,18 @@
 #include <Vaisseau.h>
 #include <Screen.h>
 #include <Map.h>
+#include <Interface.h>
 
 
-class SoUApp : protected Application
+class SoUApp : public Application
 {
     public:
         SoUApp();
         virtual ~SoUApp();
 
         virtual void app();
-        virtual void draw();
         void intro();
+        void init();
 
     protected:
         int whatImage(int a, int b);

@@ -22,7 +22,7 @@
 
 Shot::Shot(Object * o) : Object(), lifeTime(1000)
 {
-    etat = o->getEtat();
+    etat[0] = o->getEtat();
     force = 10;
     vitesse = 20;
     ancestor = o;
@@ -45,19 +45,19 @@ void Shot::use()
 
 void Shot::update()
 {
-    if(etat==GAUCHE)
+    if(etat[0]==GAUCHE)
     {
         position.x(position.x()-vitesse);
     }
-    else if(etat==DROITE)
+    else if(etat[0]==DROITE)
     {
         position.x(position.x()+vitesse);
     }
-    else if(etat==HAUT)
+    else if(etat[0]==HAUT)
     {
         position.y(position.y()-vitesse);
     }
-    else if(etat==BAS)
+    else if(etat[0]==BAS)
     {
         position.y(position.y()+vitesse);
     }

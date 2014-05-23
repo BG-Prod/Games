@@ -25,13 +25,12 @@ using namespace std;
 Object::Object() : birth(getTime())
 {
     id = 0;
-    type = 0;
+    type.push_back(0);
     hasMoved = false;
     outOf = -1;
     ancestor = NULL;
-    position.w(0);
-    position.h(0);
-    etat = HAUT;
+    position = Coordonnees(0,0,0,0);
+    etat.push_back(HAUT);
     alive = true;
 }
 
@@ -96,7 +95,12 @@ bool Object::isAlive()
 
 DisplayDatas Object::print()
 {
-    return DisplayDatas(type,etat,position);
+    return DisplayDatas(type[0],etat[0],position);
+}
+
+DisplayDatas Object::print(int num)
+{
+    return DisplayDatas(type[num],etat[num],position);
 }
 
 long Object::getTime()

@@ -173,8 +173,8 @@ void Input::update()
 		}
 		if(event.type == SDL_MOUSEMOTION)
 		{
-			souris[X] = event.motion.x;
-			souris[Y] = event.motion.y;
+			souris[X_WIN] = event.motion.x;
+			souris[Y_WIN] = event.motion.y;
 			souris[X_REEL] = event.motion.xrel;
 			souris[Y_REEL] = event.motion.yrel;
 		}

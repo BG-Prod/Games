@@ -1,0 +1,7 @@
+OpenCV Error: Bad argument (unrecognized or unsupported array type) in cvReleaseData, file C:\OpenCV\opencv\sources\modules\core\src\array.cpp, line 996
+terminate called after throwing an instance of 'cv::Exception'
+  what():  C:\OpenCV\opencv\sources\modules\core\src\array.cpp:996: error: (-5) unrecognized or unsupported array type in function cvReleaseData
+
+
+This application has requested the Runtime to terminate it in an unusual way.
+Please contact the application's support team for more information.

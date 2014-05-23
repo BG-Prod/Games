@@ -29,11 +29,12 @@
 #include <windows.h>
 #include <fmod.h>
 #include <ctime>
+#include <SDL_net.h>
 
 
-#include "BDD.h"
-#include "Texte.h"
-#include "SoUApp.h"
+#include <BDD.h>
+#include <Texte.h>
+#include <SoUApp.h>
 
 
 using namespace std;
@@ -41,13 +42,13 @@ using namespace std;
 
 int main(int argc, char** argv)
 {
-    SoUApp * sou = new SoUApp();
+    Application * sou = new SoUApp();
 
-    sou->app();
+    sou->run();
 
     delete sou;
 
-    cout << "Exited cleanly\n";
     return 0;
 }
+
 

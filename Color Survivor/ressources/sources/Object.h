@@ -35,6 +35,7 @@ class Object
 {
     public:
         Object();
+        Object(int,int); /// constructeur avec coordonnées
         virtual ~Object();
 
         bool collision(Object * o);

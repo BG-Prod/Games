@@ -32,7 +32,7 @@ Application::Application()
 	time(&maintenant);
 	Today = *localtime(&maintenant);
     /// initialisation de l'aléatoire
-    srand (time(NULL));
+    srand(time(NULL));
 
 	/// create new screen
 	screen = new Screen();
@@ -236,10 +236,10 @@ void Application::run()
     this->init();
     while(!in->get_touche(SDLK_ESCAPE) && !in->get_exit())
     {
-        fps();
+        this->fps();
         in->update();
         this->app();
-        draw();
+        this->draw();
     }
 }
 

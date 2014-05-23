@@ -21,6 +21,7 @@
 #ifndef INPUT_H
 #define INPUT_H
 
+using namespace std;
 
 #include <cstdlib>
 #include <stdlib.h>
@@ -35,8 +36,8 @@
 #include <ctime>
 
 
-#define X                   0
-#define Y                   1
+#define X_WIN               0
+#define Y_WIN               1
 #define X_REEL              2
 #define Y_REEL              3
 
