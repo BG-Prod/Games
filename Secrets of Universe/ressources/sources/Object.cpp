@@ -93,14 +93,22 @@ bool Object::isAlive()
     return alive;
 }
 
-DisplayDatas Object::print()
+vector<DisplayDatas> Object::print()
 {
-    return DisplayDatas(type[0],etat[0],position);
-}
+    vector<DisplayDatas> dt;
 
-DisplayDatas Object::print(int num)
-{
-    return DisplayDatas(type[num],etat[num],position);
+    dt.push_back(DisplayDatas(type[0],etat[0],position));
+    for(int i = 0 ; i < sons.size() ; i++)
+    {
+        vector<DisplayDatas> dt_sons = sons[i]->print();
+        for(int j = 0 ; j < dt_sons.size() ; j++)
+        {
+            dt.push_back(dt_sons[j]);
+        }
+        //dt.insert(dt.end(), dt_sons.begin(),dt_sons.end());
+    }
+
+    return dt;
 }
 
 long Object::getTime()

@@ -26,6 +26,7 @@
 #include <Screen.h>
 #include <Map.h>
 #include <Interface.h>
+#include <Button.h>
 
 
 class SoUApp : public Application

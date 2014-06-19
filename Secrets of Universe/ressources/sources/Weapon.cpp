@@ -22,8 +22,10 @@
 
 Weapon::Weapon(Object * o) : Object()
 {
-    type = 1;
+    type = STARSHIP1;
     etat[0] = o->getEtat();
+    position = o->getPosition();
+    position += Coordonnees(64,64,1,1);
     ancestor = o;
 }
 
@@ -40,11 +42,16 @@ void Weapon::init()
 void Weapon::use()
 {
     etat[0] = ancestor->getEtat();
+    position = ancestor->getPosition();
+    position += Coordonnees(64,64,1,1);
     salve.push_back(new Shot(this));
 }
 
 void Weapon::update()
 {
+    position = ancestor->getPosition();
+    position += Coordonnees(64,64,1,1);
+
     for(unsigned int i = 0 ; i < salve.size() ; ++i)
     {
         if(salve[i]->death())
@@ -57,10 +64,9 @@ void Weapon::update()
             salve[i]->update();
         }
     }
-    for(unsigned int i = 0 ; i < salve.size() ; ++i)
-    {
-        salve[i]->print();
-    }
+
+    sons.clear();
+    sons.insert(sons.end(),salve.begin(),salve.end());
 }
 
 

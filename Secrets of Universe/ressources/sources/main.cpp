@@ -34,7 +34,7 @@
 
 #include <BDD.h>
 #include <Texte.h>
-#include <SoUApp.h>
+#include <Trace.h>
 
 
 using namespace std;
@@ -42,11 +42,11 @@ using namespace std;
 
 int main(int argc, char** argv)
 {
-    Application * sou = new SoUApp();
+    Application * t = new Trace();
 
-    sou->run();
+    t->run();
 
-    delete sou;
+    delete t;
 
     return 0;
 }

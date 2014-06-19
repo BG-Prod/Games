@@ -28,7 +28,7 @@ Vaisseau::Vaisseau() : Object(), energie(100), bouclier(100), coque(100), capteu
 {
     etat[0] = GAUCHE;
     vitesse = 15;
-    type[0] = 1;
+    type[0] = STARSHIP1;
     alive = true;
     activiteBouclier = false;
     outOf = -1;
@@ -39,13 +39,14 @@ Vaisseau::Vaisseau() : Object(), energie(100), bouclier(100), coque(100), capteu
 
     /// armes
     batterie = new Weapon(this);
+    sons.push_back(batterie);
 }
 
 Vaisseau::Vaisseau(int x, int y) : Object(), energie(100), bouclier(100), coque(100), capteur(100), teleporteur(100), hypernavigateur(100), moteur(100)
 {
     etat[0] = GAUCHE;
     vitesse = 15;
-    type[0] = 1;
+    type[0] = STARSHIP1;
     alive = true;
     activiteBouclier = false;
     outOf = -1;
@@ -56,11 +57,12 @@ Vaisseau::Vaisseau(int x, int y) : Object(), energie(100), bouclier(100), coque(
 
     /// armes
     batterie = new Weapon(this);
+    sons.push_back(batterie);
 }
 
 Vaisseau::Vaisseau(int _energie, int _bouclier, int _coque, int _capteur, int _vitesse, int _joueur, int _type,
                  int _masse, int _teleporteur, int _hypernavigateur, int _moteur, int _id, Coordonnees _position,
-                 direction _etat, Object * _ancestor)
+                 states _etat, Object * _ancestor)
 {
     energie = _energie;
     bouclier =  _bouclier;
@@ -79,6 +81,7 @@ Vaisseau::Vaisseau(int _energie, int _bouclier, int _coque, int _capteur, int _v
     ancestor = _ancestor;
     outOf = -1;
     touched = false;
+    sons.push_back(batterie);
 }
 
 Vaisseau::~Vaisseau()
@@ -86,7 +89,7 @@ Vaisseau::~Vaisseau()
     delete batterie;
 }
 
-void Vaisseau::move(direction d)
+void Vaisseau::move(states d)
 {
     switch(d)
     {
@@ -129,6 +132,10 @@ void Vaisseau::update(Input * in)
     {
         move(HAUT);
     }
+    if(in->get_touche(SDLK_SPACE))
+    {
+        shoot();
+    }
     batterie->update();
 }
 
@@ -142,8 +149,8 @@ void Vaisseau::bot()
     if(-1==outOf)
     {
         int change = random(0,100);
-        if(change==1){move((direction)random(0,3));}
-        else{move(etat[0]);}
+        if(change==1){move((states)random(0,3));}
+        else{move((states) etat[0]);}
     }
     else
     {

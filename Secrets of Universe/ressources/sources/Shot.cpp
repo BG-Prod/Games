@@ -20,9 +20,11 @@
 
 #include "Shot.h"
 
-Shot::Shot(Object * o) : Object(), lifeTime(1000)
+Shot::Shot(Object * o) : Object(), lifeTime(2500)
 {
     etat[0] = o->getEtat();
+    position = o->getPosition();
+    type[0] = SHOT1;
     force = 10;
     vitesse = 20;
     ancestor = o;
@@ -65,8 +67,7 @@ void Shot::update()
 
 bool Shot::death()
 {
-    return false;
-    ///return ( SDL_GetTicks() > (unsigned)birth+lifeTime ) ? true : false ;
+    return ( SDL_GetTicks() > (unsigned)birth+lifeTime ) ? true : false ;
 }
 
 

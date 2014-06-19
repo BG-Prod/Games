@@ -63,7 +63,9 @@ void SoUApp::init()
     }
 
     /// mise en place de l'interface utilisateur
-    interfaces.push_back(new Interface(2));
+    interfaces.push_back(new Interface(BOARD1));
+    interfaces.push_back(new Button(BUTTON1, Coordonnees(50,950,256,128), "FIRE"));
+
 }
 
 void SoUApp::app()
@@ -127,6 +129,11 @@ void SoUApp::app()
     {
         objects[i]->bot();
     }
+    /// màj des interfaces
+    for(unsigned int i = 0 ; i < interfaces.size() ; i++)
+    {
+        interfaces[i]->update(in);
+    }
     objects[1]->update(in);
 }
 
@@ -148,11 +155,11 @@ void SoUApp::intro()    /// affichage du logo
 int SoUApp::whatImage(int a, int b)
 {
     int retour = -1;
-    if(a==0)
+    if(a==SPACE_MAP_1)
     {
         retour = 7;
     }
-    if(a==1)
+    if(a==STARSHIP1)
     {
         if(b==BAS)
         {
@@ -171,9 +178,24 @@ int SoUApp::whatImage(int a, int b)
             retour = 5;
         }
     }
-    if(a==2)
+    if(a==BOARD1)
     {
         retour = 8;
+    }
+    if(a==SHOT1)
+    {
+        retour = 6;
+    }
+    if(a==BUTTON1)
+    {
+        if(b==ON)
+        {
+            retour = 9;
+        }
+        else if(b==OFF)
+        {
+            retour = 10;
+        }
     }
 
     return retour;

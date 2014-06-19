@@ -28,7 +28,8 @@
 #include <Input.h>
 
 
-enum direction{BAS,HAUT,DROITE,GAUCHE};
+enum states{BAS,HAUT,DROITE,GAUCHE,ON,OFF};
+enum types{BUTTON1,BUTTON2,STARSHIP1,STARSHIP2,SHOT1,SHOT2,BOARD1,SPACE_MAP_1};
 
 class Object
 {
@@ -38,15 +39,15 @@ class Object
         bool collision(Object * o);
         virtual int collisionPoints();
         virtual void collided(int);
-        direction getEtat(){return etat[0];}
+        int getEtat(){return etat[0];}
         Coordonnees getPosition(){return position;}
         int isOut(Object * o);
         void setOutOf(int dir);    /// 0 : l'objet ne sort pas ; 1,2,3,4 : l'objet sort en bas en haut à droite ou à gauche;
-        DisplayDatas print();
-        DisplayDatas print(int num);
+        std::vector<DisplayDatas> print();
+        int numberToPrint(){return etat.size();}
         virtual void bot();
         virtual void update(Input * in);
-        static long getTime();
+        long getTime();
         bool isAlive();
 
     protected:
@@ -55,8 +56,9 @@ class Object
         Coordonnees position;
         int id;
         std::vector<int> type;
+        std::vector<Object*> sons;
         bool hasMoved;
-        std::vector<direction> etat;
+        std::vector<int> etat;
         Object * ancestor;
         int outOf;
         bool alive;

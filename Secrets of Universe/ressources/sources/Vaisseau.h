@@ -40,10 +40,10 @@ class Vaisseau : public Object
         /// constructeur de badass
         Vaisseau(int _energie, int _bouclier, int _coque, int _capteur, int _vitesse, int _joueur, int _type,
                  int _masse, int _teleporteur, int _hypernavigateur, int _moteur, int _id, Coordonnees _position,
-                 direction _etat, Object * _ancestor);
+                 states _etat, Object * _ancestor);
         virtual ~Vaisseau();
 
-        void move(direction d);
+        void move(states d);
         void destroy();
         void bot();
         void shoot();

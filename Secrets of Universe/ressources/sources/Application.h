@@ -44,17 +44,17 @@
 
 #define SCREEN_REFRESH      40
 #define DEBUG               std::cerr << std::endl <<
-#define NOMBRE_IMAGE        9
+#define NOMBRE_IMAGE        11
 #define NOMBRE_MUSIQUE      1
 #define NOMBRE_POLICE       0
 
 
 const std::string cheminRessources = "ressources/";
-const std::string cheminSon = cheminRessources + "sons/";
+const std::string cheminSon = cheminRessources + "sounds/";
 const std::string cheminImage = cheminRessources + "images/";
-const std::string cheminFile = cheminRessources + "fichiers/";
+const std::string cheminFile = cheminRessources + "files/";
 const std::string cheminPolice = cheminRessources + "polices/";
-const std::string cheminData = cheminRessources + "datas/";
+const std::string cheminData = cheminRessources + "data/";
 
 
 class Application

@@ -254,29 +254,37 @@ void Application::draw()
 {
     for(unsigned int i = 0 ; i < objects.size() ; i++)
     {
-        DisplayDatas tmp = objects[i]->print();
-
-        int numImage = whatImage(tmp.type, tmp.etat);
-
-        if(numImage >= 0)
+        vector<DisplayDatas> tmps = objects[i]->print();
+        for(int j = 0 ; j < tmps.size() ; j++)
         {
-            Coordonnees relativePlace(tmp.coor);
-            relativePlace.x(relativePlace.x()-cam->view().x());
-            relativePlace.y(relativePlace.y()-cam->view().y());
-            images[numImage]->print(screen->buffer(), (i==0)?cam->place():relativePlace, (i==0)?cam->view():cam->place());
+            DisplayDatas tmp = tmps[j];
+
+            int numImage = whatImage(tmp.type, tmp.etat);
+
+            if(numImage >= 0)
+            {
+                Coordonnees relativePlace(tmp.coor);
+                relativePlace.x(relativePlace.x()-cam->view().x());
+                relativePlace.y(relativePlace.y()-cam->view().y());
+                images[numImage]->print(screen->buffer(), (i==0)?cam->place():relativePlace, (i==0)?cam->view():cam->place());
+            }
         }
     }
 
     for(unsigned int i = 0 ; i < interfaces.size() ; i++)
     {
-        DisplayDatas tmp = interfaces[i]->print();
-
-        int numImage = whatImage(tmp.type, tmp.etat);
-
-        if(numImage >= 0)
+        vector<DisplayDatas> tmps = interfaces[i]->print();
+        for(int j = 0 ; j < tmps.size() ; j++)
         {
-            Coordonnees relativePlace(tmp.coor);
-            images[numImage]->print(screen->buffer(), relativePlace);
+            DisplayDatas tmp = tmps[j];
+
+            int numImage = whatImage(tmp.type, tmp.etat);
+
+            if(numImage >= 0)
+            {
+                Coordonnees relativePlace(tmp.coor);
+                images[numImage]->print(screen->buffer(), relativePlace);
+            }
         }
     }
 

@@ -22,14 +22,14 @@
 
 using namespace std;
 
-Map::Map()
+Map::Map() : Object()
 {
     id = 0;
-    type.push_back(0);
+    type[0] = (SPACE_MAP_1);
     hasMoved = false;
     ancestor = NULL;
     position = Coordonnees(0,0,3840,3072);
-    etat.push_back(HAUT);
+    etat[0] = HAUT;
 }
 
 Map::~Map()

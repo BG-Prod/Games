@@ -1,0 +1,451 @@
+# depslib dependency file v1.0
+1403096262 source:c:\users\ben\skydrive\github\games\trace\ressources\sources\application.cpp
+	"Application.h"
+
+1403108625 c:\users\ben\skydrive\github\games\trace\ressources\sources\application.h
+	<cstdlib>
+	<stdlib.h>
+	<stdio.h>
+	<fstream>
+	<string>
+	<sstream>
+	<iostream>
+	<vector>
+	<SDL.h>
+	<SDL_ttf.h>
+	<SDL_image.h>
+	<SDL_rotozoom.h>
+	<fmod.h>
+	<Input.h>
+	<Image.h>
+	<Screen.h>
+	<Object.h>
+
+1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl.h
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_audio.h"
+	"SDL_cdrom.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_loadso.h"
+	"SDL_mutex.h"
+	"SDL_rwops.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_video.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<iconv.h>
+	"begin_code.h"
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	"close_code.h"
+
+1326114588 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_config.h
+	"SDL_platform.h"
+	"SDL_config_dreamcast.h"
+	"SDL_config_macos.h"
+	"SDL_config_macosx.h"
+	"SDL_config_symbian.h"
+	"SDL_config_win32.h"
+	"SDL_config_os2.h"
+	"SDL_config_minimal.h"
+
+1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_platform.h
+
+1326114594 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_config_win32.h
+	"SDL_platform.h"
+
+1326114600 c:\program files (x86)\codeblocks\sdl-1.2.15\include\begin_code.h
+
+1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\close_code.h
+
+1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_endian.h
+	"SDL_stdinc.h"
+	<endian.h>
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	<process.h>
+	"close_code.h"
+
+1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_cdrom.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_cpuinfo.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_events.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_active.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_quit.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_active.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_keyboard.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keysym.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_keysym.h
+
+1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_mouse.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_video.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_loadso.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325796794 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_ttf.h
+	"SDL.h"
+	"begin_code.h"
+	"close_code.h"
+
+1325788834 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_image.h
+	"SDL.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1103618586 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_rotozoom.h
+	<math.h>
+	"SDL.h"
+
+1367481960 c:\program files (x86)\fmod soundsystem\fmod programmers api windows\api\inc\fmod.h
+	"fmod_codec.h"
+	"fmod_dsp.h"
+	"fmod_memoryinfo.h"
+
+1367481960 c:\program files (x86)\fmod soundsystem\fmod programmers api windows\api\inc\fmod_codec.h
+
+1367481960 c:\program files (x86)\fmod soundsystem\fmod programmers api windows\api\inc\fmod_dsp.h
+
+1367481960 c:\program files (x86)\fmod soundsystem\fmod programmers api windows\api\inc\fmod_memoryinfo.h
+
+1403091218 c:\users\ben\skydrive\github\games\trace\ressources\sources\input.h
+	<cstdlib>
+	<stdlib.h>
+	<stdio.h>
+	<math.h>
+	<fstream>
+	<string>
+	<sstream>
+	<iostream>
+	<windows.h>
+	<SDL.h>
+	<ctime>
+
+1403091218 c:\users\ben\skydrive\github\games\trace\ressources\sources\image.h
+	<SDL.h>
+	<SDL_ttf.h>
+	<SDL_image.h>
+	<SDL_rotozoom.h>
+	<SDL_getenv.h>
+	<vector>
+	<iostream>
+	<fstream>
+	<string>
+	<sstream>
+	<Coordonnees.h>
+
+1325742240 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_getenv.h
+	"SDL_stdinc.h"
+
+1403091218 c:\users\ben\skydrive\github\games\trace\ressources\sources\coordonnees.h
+	<iostream>
+	<cstdlib>
+	<stdlib.h>
+	<stdio.h>
+
+1403102134 c:\users\ben\skydrive\github\games\trace\ressources\sources\screen.h
+	<SDL.h>
+	<windows.h>
+	<vector>
+	<Coordonnees.h>
+	<Image.h>
+	<Camera.h>
+	<Object.h>
+
+1403091218 c:\users\ben\skydrive\github\games\trace\ressources\sources\camera.h
+	<SDL.h>
+	<Coordonnees.h>
+	<Object.h>
+
+1403091218 c:\users\ben\skydrive\github\games\trace\ressources\sources\object.h
+	<vector>
+	<Coordonnees.h>
+	<DisplayDatas.h>
+	<Input.h>
+
+1403091218 c:\users\ben\skydrive\github\games\trace\ressources\sources\displaydatas.h
+	<Coordonnees.h>
+
+1403091218 source:c:\users\ben\skydrive\github\games\trace\ressources\sources\bdd.cpp
+	"bdd.h"
+
+1403091218 c:\users\ben\skydrive\github\games\trace\ressources\sources\bdd.h
+	<stdio.h>
+	<iostream>
+	<string>
+	<vector>
+	<fstream>
+	<iomanip>
+	"sqlite3.h"
+
+1393503381 c:\users\ben\skydrive\github\games\trace\ressources\sources\sqlite3.h
+	<stdarg.h>
+
+1403092152 source:c:\users\ben\skydrive\github\games\trace\ressources\sources\button.cpp
+	"Button.h"
+
+1403092152 c:\users\ben\skydrive\github\games\trace\ressources\sources\button.h
+	<Object.h>
+
+1403091218 source:c:\users\ben\skydrive\github\games\trace\ressources\sources\camera.cpp
+	"Camera.h"
+
+1403091218 source:c:\users\ben\skydrive\github\games\trace\ressources\sources\coordonnees.cpp
+	"Coordonnees.h"
+
+1403091218 source:c:\users\ben\skydrive\github\games\trace\ressources\sources\displaydatas.cpp
+	"DisplayDatas.h"
+
+1403091218 source:c:\users\ben\skydrive\github\games\trace\ressources\sources\image.cpp
+	"Image.h"
+
+1403091218 source:c:\users\ben\skydrive\github\games\trace\ressources\sources\input.cpp
+	"Input.h"
+
+1403092152 source:c:\users\ben\skydrive\github\games\trace\ressources\sources\interface.cpp
+	"Interface.h"
+
+1403092152 c:\users\ben\skydrive\github\games\trace\ressources\sources\interface.h
+	<Object.h>
+
+1403091540 source:c:\users\ben\skydrive\github\games\trace\ressources\sources\main.cpp
+	<cstdlib>
+	<stdlib.h>
+	<stdio.h>
+	<math.h>
+	<fstream>
+	<string>
+	<sstream>
+	<iostream>
+	<windows.h>
+	<fmod.h>
+	<ctime>
+	<SDL_net.h>
+	<BDD.h>
+	<Texte.h>
+	<Trace.h>
+
+1376160112 c:\program files (x86)\codeblocks\sdl-1.2.15\include\sdl_net.h
+	<stdint.h>
+	"SDL.h"
+	"SDL_endian.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1403091218 c:\users\ben\skydrive\github\games\trace\ressources\sources\texte.h
+	<iostream>
+	<SDL.h>
+	<SDL_ttf.h>
+	<vector>
+	"Application.h"
+
+1403108043 source:c:\users\ben\skydrive\github\games\trace\ressources\sources\map.cpp
+	"Map.h"
+
+1403105784 c:\users\ben\skydrive\github\games\trace\ressources\sources\map.h
+	<Object.h>
+
+1403091218 source:c:\users\ben\skydrive\github\games\trace\ressources\sources\object.cpp
+	"Object.h"
+
+1403096048 source:c:\users\ben\skydrive\github\games\trace\ressources\sources\ressources.rc
+
+1403102134 source:c:\users\ben\skydrive\github\games\trace\ressources\sources\screen.cpp
+	"Screen.h"
+
+1393503380 source:c:\users\ben\skydrive\github\games\trace\ressources\sources\sqlite3.c
+	<stdarg.h>
+	"config.h"
+	<stdint.h>
+	<inttypes.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<assert.h>
+	<stddef.h>
+	<TargetConditionals.h>
+	<windows.h>
+	<ctype.h>
+	<time.h>
+	<sys/sysctl.h>
+	<malloc/malloc.h>
+	<libkern/OSAtomic.h>
+	<malloc.h>
+	<pthread.h>
+	<math.h>
+	<sys/types.h>
+	<sys/stat.h>
+	<fcntl.h>
+	<unistd.h>
+	<sys/time.h>
+	<errno.h>
+	<sys/mman.h>
+	<sys/ioctl.h>
+	<semaphore.h>
+	<limits.h>
+	<sys/file.h>
+	<sys/param.h>
+	<sys/mount.h>
+	<utime.h>
+	<sys/dcmd_blk.h>
+	<sys/statvfs.h>
+	<dlfcn.h>
+	<sys/cygwin.h>
+	<errno.h>
+	<tcl.h>
+	"sqlite3rtree.h"
+	<unicode/utypes.h>
+	<unicode/uregex.h>
+	<unicode/ustring.h>
+	<unicode/ucol.h>
+	<unicode/ubrk.h>
+	<unicode/utf16.h>
+
+1403091218 source:c:\users\ben\skydrive\github\games\trace\ressources\sources\texte.cpp
+	<Texte.h>
+
+1403172151 source:c:\users\ben\skydrive\github\games\trace\ressources\sources\trace.cpp
+	"Trace.h"
+
+1403105784 c:\users\ben\skydrive\github\games\trace\ressources\sources\trace.h
+	<Application.h>
+	<Player.h>
+	<Map.h>
+
+1403108043 source:c:\users\ben\skydrive\github\games\trace\ressources\sources\player.cpp
+	"Player.h"
+
+1403107835 c:\users\ben\skydrive\github\games\trace\ressources\sources\player.h
+	<Object.h>
+	<Map.h>
+
