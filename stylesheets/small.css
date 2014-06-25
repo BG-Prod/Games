@@ -1,0 +1,140 @@
+html
+{
+	min-width: 320px;
+}
+
+.gauche
+{
+	display: none;
+}
+
+.principal
+{
+	margin-top: -50px;
+	width:auto;
+	margin-left:0px;
+}
+
+.mainPage
+{
+	/* old -> background-color: rgba(175,200,205,0.5);*/
+	/*new*/background-image: url(../ressources/newbgmini.png);
+	background-repeat: no-repeat;
+	min-height: 10%;
+}
+
+body
+{
+	margin:auto;
+	width: auto;
+	margin-bottom:2em;
+}
+
+nav
+{
+	height:auto;
+}
+
+nav li {
+	float:none;
+}
+
+nav ul li a {
+	width: 100%;
+	max-width:630px;
+	/*float:none;*/
+	/*display: block;*/
+ 
+	/*Effet 3d*/
+	border:2px solid;
+	border-color:#DCDCDC #696969 #696969 #DCDCDC;
+}
+
+aside 
+{
+	margin: 0px;
+	margin-left: -150px;
+	padding: 0px;
+}
+
+aside section
+{
+	display: none;
+}
+
+#location
+{
+	position: absolute;
+	top: 80px;
+	left: 170px;
+	width: 100%;
+	min-width: 320px;
+	min-width: 100%;
+	
+	font-style: oblique;
+	
+	color: white;
+	/*line-height: 40px;*/
+	text-align: left;	
+}
+
+footer
+{
+	margin-left: 0px;
+	width: 100%;
+	max-width: 640px;
+}
+
+div.principal
+{
+	margin-top: 8em;
+}
+
+.arround
+{
+	text-align:center;
+	margin-left:auto;
+	margin-right:auto;
+	float:none;
+	
+	display: none;
+}
+
+table
+{
+	border-collapse:collapse;
+}
+
+table, th, td
+{
+	text-align:center;
+	border: 1px solid black;
+}
+
+table th
+{
+	padding:2px;
+	padding-left:1px;
+	padding-right:1px;
+}
+
+table td
+{
+	padding:1px;
+}
+
+h1
+{
+	margin-bottom:1em;
+}
+
+#titre
+{
+	margin-left: 0px;
+	border-radius:0px;
+}
+
+.hide
+{
+	display:none;
+}

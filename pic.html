@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+	<head>
+		<meta charset=utf-8>
+		<meta name="Author" content="Benjamin, Beno&icirc;t">
+		<meta name="viewport" content="width=device-width"/> <!-- Adaptation sur mobile -->
+		<title> BG PROD > Pic </title>
+		<link rel="shortcut icon" type="icon/fluid-icon" href="./ressources/icon.png" />
+		
+		<link rel="stylesheet" type="text/css" href="./stylesheet/reset.css" />
+		<link rel="stylesheet" type="text/css" title="D&eacute;faut" id="chosenStyle" href="./stylesheet/stylesheet.css" />
+		<link rel="alternate stylesheet" type="text/css" title="Mode nuit" href="./stylesheet/stylesheet_nuit.css" />
+		<link rel="alternate stylesheet" type="text/css" title="Mode Frenchy" href="./stylesheet/stylesheet_frenchy.css" />
+		<link rel="stylesheet" type="text/css" media="screen and (max-width: 1280px)" href="./stylesheet/medium.css" />
+		<link rel="stylesheet" type="text/css" media="screen and (max-width: 640px)" href="./stylesheet/small.css" />
+	</head>
+
+	<body>
+		<div class="mainPage">
+			<aside class="">
+				<h2  id="location"> Vous &ecirc;tes dans la partie <strong> Pic </strong> </h2>
+				<div id="login">
+					<form name="Login" class="login">
+											
+						<p>
+							<label for="userName">
+								Nom d'utilisateur : 
+								</label>
+							<input type="text" id="userName" name="userName" size="32" maxlength="32" placeholder="Username">
+						</p>
+						
+						<p>
+							<label for="userPwd">
+								Mot de passe : 
+							</label>
+							<input type="password" id="userPwd" name="userPwd" size="32" maxlength="32" placeholder="Password">
+						</p>
+			
+						<p><INPUT id="envoyer" TYPE="submit" VALUE="Connexion"></p>
+					</form>
+				</div>
+				<div id="style">
+					<h2> Style </h2>
+					<button id="styleNormal"> Normal </button>
+					<button id="styleNuit"> Nuit </button>
+					<button id="styleOrigin"> Frenchy </button>
+					<button id="styleReset"> Aucun </button>
+				</div>
+				<figure>
+					<img class="logo" src="ressources/logo.png" title="Logo de BGPROD" alt="L'image est morte, je rigole !"/>
+				</figure>
+			</aside>
+  
+			<header>
+			<h1 id='titre'> BG PROD </h1>
+				<nav class="principal">
+					<ul>
+						<li>  <a href="./index.html"> Accueil </a> </li>
+						<li>  <a href="./jeux.html"> Jeux </a> </li>
+						<li>  <a href="./pic.html"> Pic </a> </li>
+						<li>  <a href="./inscription.html"> Inscription </a> </li>
+					</ul>
+				</nav>
+			</header>
+ 
+			<div class="principal">
+				<main>
+					<article>
+					<h2> Cr&eacute;ation d'un d&eacute;compte sur une matrice de LED </h2>
+						<figure class="arround">
+							<img src="ressources/pic001.jpg" title="Chiffre 3 sur matrice de LED" alt="L'image est morte, je rigole !"/>
+							<figcaption>
+								Affichage du chiffre 3 sur la matrice de LED
+							</figcaption>
+						</figure>
+			
+						<figure class="arround">
+							<img src="ressources/pic000.jpg" title="Logo de l'ISIMA" alt="L'image est morte, je rigole !"/>
+							<figcaption>
+								Le logo de l'ISIMA sur le GLCD
+							</figcaption>
+						</figure>
+		
+						<p>	Nous nous sommes mis &agrave; travailler sur le projet le Mardi 21 Janvier mais jusqu’au Jeudi 23 nous ne sommes pas parvenus &agrave; faire fonctionner l'exemple LedBlinking. Nous avons install&eacute; le driver ainsi que les programmes associ&eacute;s : mikroProg Suite For PIC qui est une interface avec la carte et mikroC PRO for PIC qui est notre IDE. Ensuite nous avons ouvert le projet LedBlinking, puis chang&eacute; la montre (20Mhz) et chang&eacute; le mod&egrave;le (P18F452). Au branchement de la carte les voyants POWER et USB se sont allum&eacute;s et une faible lueur a jaillit d'une des LED de la matrice. Lorsque nous avons charg&eacute; le programme sur le MCU cette LED "d&eacute;fectueuse" clignote une fois tr&egrave;s faiblement sans qu'il ne se passe quoi que ce soit. </p>
+						<p>	Pour essayer de trouver la source du probl&egrave;me nous avons essay&eacute; de changer le type de MCU mais le logiciel nous dit bien que le bon est le P18F452, nous avons chang&eacute; de PC (OS plutôt) pensant que c'&eacute;tait dû &agrave; un probl&egrave;me de driver, nous avons essay&eacute; avec tout un tas d'autres programme, etc.
+						Lorsque l'on s’est document&eacute; sur internet, nous avons bien vu qu'une simple « compilation &eacute;criture » ou pression sur Ctrl+F11 devait suffire &agrave; faire tout le travail mais chez nous la partie logicielle ne renvoie aucune erreur et la partie mat&eacute;rielle ne r&eacute;pond pas (hormis un sursaut faible de la LED faiblement allum&eacute;e).
+						Nous nous sommes donc rendu dans le local d’ISIBOT et les conclusions ont &eacute;t&eacute; rapides : le EasyPIC 4 &eacute;tait d&eacute;fectueux, nous en avons donc reçu une nouvelle ainsi qu’un nouveau quartz de 8Mhz par la m&ecirc;me occasion. Nous nous sommes ainsi lanc&eacute;s dans la programmation le jeudi 23 janvier. </p>
+						<p> Nous nous sommes ainsi lanc&eacute;s dans l’&eacute;laboration de notre alphabet num&eacute;rique et avons ainsi pu d&eacute;couvrir le fonctionnement pratique de la matrice de diodes.  Apr&egrave;s avoir d&eacute;termin&eacute; un style adapt&eacute; &agrave; la matrice 4*8 pour chaque chiffre nous les avons cod&eacute;s et test&eacute;s. Tout fonctionnait parfaitement except&eacute; les LED RA4, RA6 et RA7. Effectivement RA6 et RA7 sont utilis&eacute;es pour l’oscillateur et non pour les entr&eacute;es/sorties. On nous a donc conseill&eacute; de consid&eacute;rer ces LED comme des « pixel mort » et de faire comme s’ils fonctionnaient mais nous avons continu&eacute; &agrave; chercher un moyen d’utiliser ces LED. Ainsi nous avons pu mettre en place un programme de compte et de d&eacute;compte de 0 &agrave; 9 secondes.
+						Nous nous sommes ensuite int&eacute;ress&eacute;s au reste du mat&eacute;riel et avons aussi r&eacute;ussi &agrave; faire afficher le logo de l’ISIMA sur l’&eacute;cran GLCD.</p>
+					</article>
+
+					<article>
+					<h2> Utilisation des LED simples et RGB </h2>		
+						<figure class="arround">
+							<img src="ressources/pic002.jpg" title="Circuit" alt="L'image est morte, je rigole !"/>
+							<figcaption>
+								Branchement de la LED RGB
+							</figcaption>
+						</figure>
+						<p> Nous disposons &agrave; pr&eacute;sent d’une LED RGB &agrave; quatre pattes, de six r&eacute;sistances identiques et de deux LED dites classiques. Apr&egrave;s avoir reçu la LED RGB nous l'avons branch&eacute;e en s&eacute;rie avec les r&eacute;sistances associ&eacute;es nous avons r&eacute;ussi &agrave; faire clignoter chaque couleur allant de l'intensit&eacute; la plus faible &agrave; l'intensit&eacute; la plus forte. Les deux ports PWM correspondent au port RC1 et RC2. N'ayant que deux port PWM nous ne pouvons donc utiliser que deux couleur &agrave; la fois nous avons choisi dans un premier temps d'utiliser la LED rouge et la LED verte. </p>
+						<p> Afin d'utiliser le maximum de possibilit&eacute;s de la LED RGB nous avons d&eacute;cid&eacute; de faire une fondue de la couleur verte &agrave; la couleur rouge puis inversement en passant par toutes les gammes d'intensit&eacute; disponibles. La prise en main de la librairie dite PWM a &eacute;t&eacute; assez rapide. En effet une fonction tr&egrave;s simple permet de r&eacute;gler le « duty » : param&eacute;trable de 0 &agrave; 255 cela r&egrave;gle la largeur d’impulsion de RC1 et RC2 respectivement de 0 &agrave; 100%. Il a alors &eacute;t&eacute; assez ais&eacute; d’&eacute;tablir des m&eacute;langes de couleur. </p>
+					</article>
+				</main>
+			</div> <!-- class=principal -->
+		</div> <!-- class=mainPage -->
+      
+		<footer>
+			<p id="info"> Informations </p>
+			<p>	Site web cr&eacute;&eacute; par Benjamin et Beno&icirc;t pour le TP de web de la L2 Informatique afin de pr&eacute;senter leurs projets communs. </p>
+		</footer>
+	
+		<!-- SCRIPTS -->
+		<script rel="javascript" src="./script/login.js"></script>
+		<script rel="javascript" src="./script/jquery.js"></script>
+		<script rel="javascript" src="./script/css.js"></script>
+		<script rel="javascript" src="./script/scroll.js"></script>
+	</body>
+</html>

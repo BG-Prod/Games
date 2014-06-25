@@ -1,479 +1,437 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
+/****************************
+*							*
+*	Definition des styles	*
+*							*
+*****************************/
+
+html
+{
+	min-height: 100%;
+	
+	background-image: linear-gradient(#3fbdbd, white);
+	
+	background-repeat: no-repeat;
+	background-size: cover;
+	/*background-attachment: fixed;*/
+	background-position: center;
 }
 
-/* LAYOUT STYLES */
-body {
-  font-size: 15px;
-  line-height: 1.5; 
-  background: #fafafa url(../images/body-bg.jpg) 0 0 repeat;
-  font-family: 'Arial', Optimus, Arial, Optimus;
-  font-weight: 400;
-  color: #666;
+.principal
+{
+	width: 859px;
+	height: auto;
+	margin-left: 342px;
+	margin-right: auto;
+	
+	background-color: rgba(255, 255, 255, 0.5);
+	background-size: 100% 100%;
 }
 
-a {
-  color: #2879d0;
-}
-a:hover {
-  color: #2268b2;
-}
-
-header {
-  padding-top: 40px;
-  padding-bottom: 40px;
-  font-family: 'Optimus', 'Helvetica Neue', Helvetica, Arial, serif; 
-  background: #2e7bcf url(../images/header-bg.jpg) 0 0 repeat-x;
-  border-bottom: solid 1px #275da1;
+body
+{	
+	margin: auto;
+	margin-bottom: 0px;
+	
+	width: 1280px;
+	min-height: 100%;
+	height: 100%;
 }
 
-header h1 {
-  letter-spacing: -1px;
-  font-size: 72px;
-  color: #fff;
-  line-height: 1;
-  margin-bottom: 0.2em;
-  width: 540px;
+.mainPage
+{
+	background-image: url(../ressources/newbg.png);
+	background-repeat: no-repeat;
+	height: 982px;
+	min-height: 100%;
 }
 
-header h2 {
-  font-size: 26px;
-  color: #9ddcff;
-  font-weight: normal;
-  line-height: 1.3;
-  width: 540px;
-  letter-spacing: 0;
+nav
+{	
+	height: 2em;
 }
 
-.inner {
-  position: relative;
-  width: 940px;
-  margin: 0 auto;
+nav ul 
+{
+	padding: 0px;
+	margin: 0px;
+	list-style-type: none;
 }
 
-#content-wrapper {
-  border-top: solid 1px #fff;
-  padding-top: 30px;
+nav li 
+{
+	margin-right: 0px;
+	float: left;
 }
 
-#main-content {
-  width: 690px;
-  float: left;
+nav ul li a 
+{
+	display: inline;
+	float: left;
+	width: 200px;
+	padding: 5px;
+	background-image: linear-gradient(#222222,#3fbdbd);
+
+	line-height: 2em;
+
+	color: #222222;
+	font-weight: bold;
+	font-size: 105%;
+	text-decoration: none;
+	text-align: center;
+
+	/*Effet 3d*/
+	border: 2px solid;
+	border-color: #DCDCDC #696969 #696969 #DCDCDC;
 }
 
-#main-content img {
-  max-width: 100%;
+nav ul li a:hover 
+{
+	background-image: linear-gradient(white, #A2D1FF);
+
+	/* Modification de l'effet de bordures */
+	border-color: #696969 #DCDCDC #DCDCDC #696969;
 }
 
-aside#sidebar {
-  width: 200px;
-  padding-left: 20px;
-  min-height: 504px;
-  float: right;
-  background: transparent url(../images/sidebar-bg.jpg) 0 0 no-repeat;
-  font-size: 12px;
-  line-height: 1.3;
+header
+{
+	height: 234px;
 }
 
-aside#sidebar p.repo-owner,
-aside#sidebar p.repo-owner a {
-  font-weight: bold;
+footer
+{
+	margin-left: 53px;
+	text-align: center;
+	
+	position: fixed;
+	bottom: 0px;
+	height: 2em;
+	width: 100%;
+	max-width: 1179px;
+	
+	background-color: rgba(255, 255, 255, 0.7);
+	transition-duration: 2s;
 }
 
-#downloads {
-  margin-bottom: 40px;
+footer:hover
+{
+	height: 6em;
+	background-color: rgba(255, 255, 255, 1);
+	background-image: linear-gradient(white, lightblue);
+	
+	transition-duration: 1s, 2s;
 }
 
-a.button {
-  width: 134px;
-  height: 58px;
-  line-height: 1.0;
-  font-size: 20px;
-  color: #fff;
-  padding-left: 68px;
-  padding-top: 22px;
-  font-family: 'Arial', 'Helvetica Neue', Helvetica, Arial, serif; 
-}
-a.button small {
-  display: block;
-  font-size: 11px;
-}
-header a.button {
-  position: absolute;
-  right: 0;
-  top: 0;
-  background: transparent url(../images/github-button.png) 0 0 no-repeat;
-}
-aside a.button {
-  width: 138px;
-  padding-left: 64px;
-  display: block;
-  background: transparent url(../images/download-button.png) 0 0 no-repeat;
-  margin-bottom: 20px;
-  font-size: 21px;
+aside
+{
+	width: 226px;
+	height: 420px;
+	position: absolute;
+	top: 240px;
+	margin-left: 88px;
+	/*margin-top: 240px;*/
+
+	border: 5px solid black;
+	border-color: #DCDCDC #696969 #696969 #DCDCDC;
+	border-radius: 30px;
+
+	background-color: #3fbdbd;
+	color: white;
+
+	padding: 5px;
+	padding-top: 0px;
+	text-align: center;
 }
 
-code, pre {
-  font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
-  color: #222;
-  margin-bottom: 30px;
-  font-size: 13px;
+aside div
+{
+	display: inline;
+	margin-top: 1em;
+	margin-bottom: 0px;
 }
 
-code {
-  background-color: #f2f8fc;
-  border: solid 1px #dbe7f3;
-  padding: 0 3px;
+aside h1
+{
+	margin-top: 1em;
+	color: white;
 }
 
-pre {
-  padding: 20px;
-  background: #fff;
-  text-shadow: none;
-  overflow: auto;
-  border: solid 1px #f2f2f2;
-}
-pre code {
-  color: #2879d0;
-  background-color: #fff;
-  border: none;
-  padding: 0;
+aside h2
+{
+	margin-top: 1em;
+	color: white;
 }
 
-ul, ol, dl {
-  margin-bottom: 20px;
+aside p
+{
+	text-align: center;
 }
 
-
-/* COMMON STYLES */
-
-hr {
-  height: 1px;
-  line-height: 1px;
-  margin-top: 1em;
-  padding-bottom: 1em;
-  border: none;
-  background: transparent url('../images/hr.png') 0 0 no-repeat;
+aside button
+{
+	width: 120px;
 }
 
-table {
-  width: 100%;
-  border: 1px solid #ebebeb;
+aside input
+{
+	width: 200px;
 }
 
-th {
-  font-weight: 500;
+.float
+{
+	position: fixed;
+	top: 5px;
 }
 
-td {
-  border: 1px solid #ebebeb;
-  text-align: center; 
-  font-weight: 300;
+main
+{
+	/* Pour ne pas cacher ce qui serait tout en bas de la page
+	 * a cause du footer
+	 */
+	margin-bottom: 2em;
+}
+	
+.logo
+{
+	text-align: center;
+
+	width: 100px;
+	height: auto;
+	
+	opacity: 1;
+	
+	transition-duration: 1s;
 }
 
-form {
-  background: #f2f2f2;
-  padding: 20px;
-  
+.logo:hover
+{
+	opacity: 0.2;
+	transition-duration: 1s;
 }
 
-
-/* GENERAL ELEMENT TYPE STYLES */
-
-#main-content h1 {
-  font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif; 
-  font-size: 2.8em;
-  letter-spacing: -1px;
-  color: #474747;
-} 
-
-#main-content h1:before {
-  content: "/";
-  color: #9ddcff;
-  padding-right: 0.3em;
-  margin-left: -0.9em;
+.illustration
+{
+	float: left;
+	height: 100px;
+	width: 100px;
 }
 
-#main-content h2 {
-  font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif; 
-  font-size: 22px;
-  font-weight: bold;
-  margin-bottom: 8px;
-  color: #474747;
-} 
-#main-content h2:before {
-  content: "//";
-  color: #9ddcff;
-  padding-right: 0.3em;
-  margin-left: -1.5em;
+main ul
+{
+	margin-left: 40px;
 }
 
-#main-content h3 {
-  font-family: 'Optimus', 'Helvetica Neue', Helvetica, Arial, serif; 
-  font-size: 18px;
-  font-weight: bold;
-  margin-top: 24px;
-  margin-bottom: 8px;
-  color: #474747;
-} 
- 
-#main-content h3:before {
-  content: "///";
-  color: #9ddcff;
-  padding-right: 0.3em;
-  margin-left: -2em;
+main ul li
+{
+	list-style-type: circle;
 }
 
-#main-content h4 {
-  font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif; 
-  font-size: 15px;
-  font-weight: bold;
-  color: #474747;
-} 
-
-h4:before {
-  content: "////";
-  color: #9ddcff;
-  padding-right: 0.3em;
-  margin-left: -2.8em;
+p
+{
+	margin-top: 10px;
+	padding-left: 5px;	padding-right: 5px;
+	
+	text-align: justify;
 }
 
-#main-content h5 {
-  font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif; 
-  font-size: 14px;
-  color: #474747;
-} 
-h5:before {
-  content: "/////";
-  color: #9ddcff;
-  padding-right: 0.3em;
-  margin-left: -3.2em;
+em
+{
+	font-style: italic;
+	color: #0065AD;
 }
 
-#main-content h6 {
-  font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif; 
-  font-size: .8em;
-  color: #474747;
-} 
-h6:before {
-  content: "//////";
-  color: #9ddcff;
-  padding-right: 0.3em;
-  margin-left: -3.7em;
+strong
+{
+	font-weight: bold;
+	color: #0065AD;
 }
 
-p {
-  margin-bottom: 20px;
-}
- 
-a {
-  text-decoration: none;
+figure
+{
+	margin-right: 10px;
 }
 
-p a {
-  font-weight: 400;
+img
+{
+	width: 200px;
+	height: auto;
 }
 
-blockquote {
-  font-size: 1.6em;
-  border-left: 10px solid #e9e9e9;
-  margin-bottom: 20px;
-  padding: 0 0 0 30px;
+article h2
+{
+	height: 40px;
+	width: auto;
+	
+	margin: 10px;
+	padding-left: 32px;
+	
+	color: white;
+	text-shadow: 0px 0px 8px #3fbdbd;
+	font-size: 120%;
+	line-height: 40px;
+	
+	background-image: linear-gradient(to right, #000000,#3fbdbd 50%,rgba(255,255,255,0.5));
+	border-radius: 10px 30px;
+	box-shadow: 8px 8px 5px #444444;
+	vertical-align: middle;
 }
 
-ul li {
-  list-style: disc inside;
-  padding-left: 20px;
+article h2 strong
+{
+	text-shadow: none;
 }
 
-ol li {
-  list-style: decimal inside;
-  padding-left: 3px;
+article
+{
+	padding-top: 20px;
 }
 
-dl dd {
-  font-style: italic;
-  font-weight: 100;
+article p
+{
+	text-indent: 2em;
+	margin: 5px;
+	margin-top: 20px;
 }
 
-footer {
-  background: transparent url('../images/hr.png') 0 0 no-repeat;
-  margin-top: 40px;
-  padding-top: 20px;
-  padding-bottom: 30px;
-  font-size: 13px;
-  color: #aaa;
+.arround
+{
+	float: right;
+	top: 0px;
+	margin-left: 10px;
+	margin-top: 15px;
+	width : 200px;
 }
 
-footer a {
-  color: #666;
-}
-footer a:hover {
-  color: #444;
-}
-
-/* MISC */
-.clearfix:after {
-  clear: both;
-  content: '.';
-  display: block;
-  visibility: hidden;
-  height: 0;
+figcaption
+{
+	position: relative;
+	top : 0px;
+	
+	text-align: center;
+	font-style: oblique;
+	font-size: 90%;
+	color: #47A3FF;	
 }
 
-.clearfix {display: inline-block;}
-* html .clearfix {height: 1%;}
-.clearfix {display: block;}
-
-/* #Media Queries
-================================================== */
-
-/* Smaller than standard 960 (devices and browsers) */
-@media only screen and (max-width: 959px) {}
-
-/* Tablet Portrait size to standard 960 (devices and browsers) */
-@media only screen and (min-width: 768px) and (max-width: 959px) {
-  .inner {
-    width: 740px;
-  }
-  header h1, header h2 {
-    width: 340px;
-  }
-  header h1 {
-    font-size: 60px;
-  }
-  header h2 {
-    font-size: 30px;
-  }
-  #main-content {
-    width: 490px;
-  }
-  #main-content h1:before,
-  #main-content h2:before,
-  #main-content h3:before,
-  #main-content h4:before,
-  #main-content h5:before,
-  #main-content h6:before {
-    content: none;
-    padding-right: 0;
-    margin-left: 0;
-  }
+.ancre
+{
+	text-decoration: none;
+	color: #0065AD;
 }
 
-/* All Mobile Sizes (devices and browser) */
-@media only screen and (max-width: 767px) {
-  .inner {
-    width: 93%;
-  }
-  header {
-    padding: 20px 0;
-  }
-  header .inner {
-    position: relative;
-  }
-  header h1, header h2 {
-    width: 100%;
-  }
-  header h1 {
-    font-size: 48px;
-  }
-  header h2 {
-    font-size: 24px;
-  }
-  header a.button {
-    background-image: none;
-    width: auto;
-    height: auto;
-    display: inline-block;
-    margin-top: 15px;
-    padding: 5px 10px;
-    position: relative;
-    text-align: center;
-    font-size: 13px;
-    line-height: 1;
-    background-color: #9ddcff;
-    color: #2879d0;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;                     
-    border-radius: 5px;    
-  }
-  header a.button small {
-    font-size: 13px;
-    display: inline;
-  }
-  #main-content,
-  aside#sidebar {
-    float: none;
-    width: 100% ! important;
-  }
-  aside#sidebar {
-    background-image: none;
-    margin-top: 20px;
-    border-top: solid 1px #ddd;
-    padding: 20px 0;
-    min-height: 0;
-  }
-  aside#sidebar a.button {
-    display: none;
-  }
-  #main-content h1:before,
-  #main-content h2:before,
-  #main-content h3:before,
-  #main-content h4:before,
-  #main-content h5:before,
-  #main-content h6:before {
-    content: none;
-    padding-right: 0;
-    margin-left: 0;
-  }
+table
+{
+	border-collapse:collapse;
+	width: auto;
+	margin-top: 15px;	margin-bottom: 15px;
+	margin-left: auto;	margin-right: auto;
+	
+	color: gray;
 }
 
-/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
-@media only screen and (min-width: 480px) and (max-width: 767px) {}
+table, th, td
+{
+	text-align:center;
+	border: 1px solid black;
+}
 
-/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
-@media only screen and (max-width: 479px) {}
+table th
+{
+	padding:5px;
+	padding-left:15px;
+	padding-right:15px;
+}
+
+table td
+{
+	padding:1px;
+}
+
+tr:nth-child(odd)
+{
+	background: #1F1F1F;
+}
+
+tr:nth-child(even)
+{
+	background: #0F0F0F;
+}
+
+#titre
+{
+	height: 185px;
+	width: auto;
+	
+	margin-left: 125px;
+	
+	color: white;
+	font-size: 100px;
+	line-height: 185px;
+	text-align: center;
+	
+	vertical-align: central;
+	text-shadow: 5px 5px 8px gray;
+	/*background-color: #47A3FF;*/
+	border: 0px solid black;
+	/*border-bottom-left-radius:12px;	border-bottom-right-radius: 12px;*/
+}
+
+#info
+{
+	text-align: center;
+	font-weight: bold;
+}
+
+.formulaire
+{
+	height: 1em;
+	width: auto;
+}
+
+#chat
+{
+	height: 320px;
+	width: 500px;
+	
+	margin-left: auto;
+	margin-right: auto;
+	
+	border: 1px solid black
+}
+
+#chat input
+{
+	margin: 0px;
+}
+
+#chat #msg
+{
+	border: none;
+
+	height:20px;
+	width: 425px;
+}
+
+#chat #post
+{
+	width: 70px;
+	float: right;
+}
+
+#chat #viewmessage
+{
+	border-bottom: 1px solid black;
+	
+	background-color: white;
+	overflow: auto;
+	height: 295px;
+	width: 498px;
+}
+
+#chat #viewmessage p
+{
+	font-size: 1em;
+	margin : 0px;
+	padding-left: 2px;
+	line-height: 1.4em;
+	text-align: center;
+}

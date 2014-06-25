@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+	<head>
+		<meta charset=utf-8>
+		<meta name="Author" content="Benjamin, Beno&icirc;t">
+		<meta name="viewport" content="width=device-width"/> <!-- Adaptation sur mobile -->
+		<title> BG PROD > Jeux </title>
+		<link rel="shortcut icon" type="icon/fluid-icon" href="./ressources/icon.png" />
+		
+		<link rel="stylesheet" type="text/css" href="./stylesheet/reset.css" />
+		<link rel="stylesheet" type="text/css" title="D&eacute;faut" id="chosenStyle" href="./stylesheet/stylesheet.css" />
+		<link rel="alternate stylesheet" type="text/css" title="Mode nuit" href="./stylesheet/stylesheet_nuit.css" />
+		<link rel="alternate stylesheet" type="text/css" title="Mode Frenchy" href="./stylesheet/stylesheet_frenchy.css" />
+		<link rel="stylesheet" type="text/css" media="screen and (max-width: 1280px)" href="./stylesheet/medium.css" />
+		<link rel="stylesheet" type="text/css" media="screen and (max-width: 640px)" href="./stylesheet/small.css" />
+	</head>
+
+	<body>
+		<div class="mainPage">
+			<aside class="">
+				<h2  id="location"> Vous &ecirc;tes dans la partie <strong> Jeux </strong> </h2>
+				<div id="login">
+					<form name="Login" class="login">
+											
+						<p>
+							<label for="userName">
+								Nom d'utilisateur : 
+								</label>
+							<input type="text" id="userName" name="userName" size="32" maxlength="32" placeholder="Username">
+						</p>
+						
+						<p>
+							<label for="userPwd">
+								Mot de passe : 
+							</label>
+							<input type="password" id="userPwd" name="userPwd" size="32" maxlength="32" placeholder="Password">
+						</p>
+			
+						<p><INPUT id="envoyer" TYPE="submit" VALUE="Connexion"></p>
+					</form>
+				</div>
+				<div id="style">
+					<h2> Style </h2>
+					<button id="styleNormal"> Normal </button>
+					<button id="styleNuit"> Nuit </button>
+					<button id="styleOrigin"> Frenchy </button>
+					<button id="styleReset"> Aucun </button>
+				</div>
+				<figure>
+					<img class="logo" src="ressources/logo.png" title="Logo de BGPROD" alt="L'image est morte, je rigole !"/>
+				</figure>
+			</aside>
+
+			<header>
+			<h1 id='titre'> BG PROD </h1>
+				<nav class="principal">
+					<ul>
+						<li>  <a href="./index.html"> Accueil </a> </li>
+						<li>  <a href="./jeux.html"> Jeux </a> </li>
+						<li>  <a href="./pic.html"> Pic </a> </li>
+						<li>  <a href="./inscription.html"> Inscription </a> </li>
+					</ul>
+				</nav>
+			</header>
+	
+			<div class="principal">
+				<main>
+					<article>
+					<h2> <strong>Draughts</strong> : Jeu de Dame </h2>
+						<figure class="arround">
+							<img src="ressources/screenshot_draughts.png" title="Plateau de jeu" alt="Appercu du plateau de jeu"/>
+							<figcaption>
+								Plateau du jeu
+							</figcaption>
+						</figure>
+						<p>Le but du jeu de Dames est de prendre toutes les pi&egrave;ces de l'adversaire avant que celui-ci n'ait pris les votre. Le jeu n&eacute;cessite deux joueurs humains. Ce jeu est fond&eacute; sur les r&egrave;gles officielles du jeu de dames français : jou&eacute; sur un damier de 100 cases, chaque joueur poss&egrave;de 20 pions. Une intelligence artificielle est en cours de cr&eacute;ation et permettra au joueurs de jouer seuls contre leur machine. Celle ci sera &eacute;volutive et sera au d&eacute;but tr&egrave;s primitive (al&eacute;atoire).</p>
+						<p> Le code source du jeu est disponible <a href="https://github.com/BG-Prod/Games/tree/master/Draughts"> ici</a>.
+					</article>
+
+					<article id="arvernes"> <!-- Cet id est utilise pour faire l'ancre -->
+					<h2> <strong>The Arvernes</strong> : Jeu de cartes </h2>
+						<p> The Arvernes est un jeu de cartes comme Yu-Gi-Oh ou Magic plus simplifi&eacute;. Chaque joueur commence avec 10 000 LP et le premier arriv&eacute; &agrave; 0 a perdu. Chaque joueur poss&egrave;de un deck al&eacute;atoire de 40 cartes. Les joueurs d&eacute;pose leurs cartes sur le terrain puis une phase de r&eacute;solution des combat commence au terme de laquelle les LP sont d&eacute;duits chez chaque joueur. Le jeu comporte un &eacute;diteur de deck ainsi qu'un classement des records de points.</p>
+						<p> Le jeu dispose d'un editeur de deck, ce qui vous permet ainsi de cr&eacute;er votre propre jeu de carte et ainsi d&eacute;finir vos propres strat&eacute;gies de jeu.Voici un tableau regroupant les cartes disponibles : </p>
+						<table>
+							<thead> <tr> <th>Num&eacute;ro</th> <th>Nom</th> 		<th>Force</th> <th class="hide">Endurance</th> <th class="hide">Statut</th> <th class="hide">Effet</th> </tr>  </thead>
+							<tbody>
+							<tr> <td>000</td> <td>VIDE				</td> <td>0000</td> <td class="hide">0</td> <td class="hide">0</td> <td class="hide">0</td> </tr>
+							<tr> <td>001</td> <td>BENOIT			</td> <td>3000</td> <td class="hide">1</td> <td class="hide">2</td> <td class="hide">1</td> </tr>
+							<tr> <td>002</td> <td>TINO 				</td> <td>2500</td> <td class="hide">1</td> <td class="hide">2</td> <td class="hide">1</td> </tr>
+							<tr> <td>003</td> <td>KEVIN				</td> <td>2500</td> <td class="hide">1</td> <td class="hide">2</td> <td class="hide">1</td> </tr>
+							<tr> <td>004</td> <td>BARON 			</td> <td>3500</td> <td class="hide">1</td> <td class="hide">2</td> <td class="hide">4</td> </tr>
+							<tr> <td>005</td> <td>JO 				</td> <td>2000</td> <td class="hide">1</td> <td class="hide">2</td> <td class="hide">1</td> </tr>
+							<tr> <td>006</td> <td>NICO 				</td> <td>1800</td> <td class="hide">1</td> <td class="hide">2</td> <td class="hide">1</td> </tr>
+							<tr> <td>007</td> <td>BORIS 			</td> <td>1500</td> <td class="hide">1</td> <td class="hide">2</td> <td class="hide">1</td> </tr>
+							<tr> <td>008</td> <td>JENIFER 			</td> <td>1100</td> <td class="hide">1</td> <td class="hide">3</td> <td class="hide">6</td> </tr>
+							<tr> <td>009</td> <td>MANON 			</td> <td>1000</td> <td class="hide">1</td> <td class="hide">3</td> <td class="hide">6</td> </tr>
+							<tr> <td>010</td> <td>MAIXENT 			</td> <td>2000</td> <td class="hide">1</td> <td class="hide">2</td> <td class="hide">8</td> </tr>
+							<tr> <td>011</td> <td>FREEGZ 			</td> <td>1600</td> <td class="hide">1</td> <td class="hide">2</td> <td class="hide">1</td> </tr>
+							<tr> <td>012</td> <td>ALEXIS 			</td> <td>1500</td> <td class="hide">1</td> <td class="hide">2</td> <td class="hide">1</td> </tr>
+							<tr> <td>013</td> <td>THIBZ 			</td> <td>2000</td> <td class="hide">1</td> <td class="hide">2</td> <td class="hide">1</td> </tr>
+							<tr> <td>014</td> <td>PAPIN 			</td> <td>2000</td> <td class="hide">1</td> <td class="hide">2</td> <td class="hide">1</td> </tr>
+							<tr> <td>015</td> <td>BEBE 				</td> <td>0500</td> <td class="hide">2</td> <td class="hide">4</td> <td class="hide">11</td> </tr>
+							<tr> <td>016</td> <td>ETIENNE 			</td> <td>1700</td> <td class="hide">1</td> <td class="hide">2</td> <td class="hide">1</td> </tr>
+							<tr> <td>017</td> <td>VDB 				</td> <td>2000</td> <td class="hide">1</td> <td class="hide">2</td> <td class="hide">1</td> </tr>
+							<tr> <td>018</td> <td>SEBASTIEN 		</td> <td>1800</td> <td class="hide">1</td> <td class="hide">2</td> <td class="hide">1</td> </tr>
+							<tr> <td>019</td> <td>LE_ROUGE 			</td> <td>2100</td> <td class="hide">1</td> <td class="hide">2</td> <td class="hide">1</td> </tr>
+							<tr> <td>020</td> <td>ELEPHANT 			</td> <td>2800</td> <td class="hide">1</td> <td class="hide">2</td> <td class="hide">1</td> </tr>
+							<tr> <td>021</td> <td>FRANCISQUE 		</td> <td>2400</td> <td class="hide">1</td> <td class="hide">2</td> <td class="hide">1</td> </tr>
+							<tr> <td>022</td> <td>PICHEVAL 			</td> <td>1600</td> <td class="hide">1</td> <td class="hide">2</td> <td class="hide">1</td> </tr>
+							<tr> <td>023</td> <td>PROSTABLANDINE 	</td> <td>1800</td> <td class="hide">1</td> <td class="hide">3</td> <td class="hide">1</td> </tr>
+							<tr> <td>024</td> <td>GRAOU 			</td> <td>2800</td> <td class="hide">1</td> <td class="hide">3</td> <td class="hide">7</td> </tr>
+							<tr> <td>025</td> <td>VICTOR 			</td> <td>1300</td> <td class="hide">1</td> <td class="hide">2</td> <td class="hide">1</td> </tr>
+							<tr> <td>026</td> <td>MAXIME 			</td> <td>1500</td> <td class="hide">1</td> <td class="hide">2</td> <td class="hide">1</td> </tr>
+							<tr> <td>027</td> <td>ETHMOIDE 			</td> <td>2800</td> <td class="hide">1</td> <td class="hide">3</td> <td class="hide">9</td> </tr>
+							<tr> <td>028</td> <td>BENJ 				</td> <td>2100</td> <td class="hide">1</td> <td class="hide">2</td> <td class="hide">1</td> </tr>
+							<tr> <td>029</td> <td>BOUCHE 			</td> <td>0500</td> <td class="hide">1</td> <td class="hide">2</td> <td class="hide">7</td> </tr>
+							<tr> <td>030</td> <td>HUMANON 			</td> <td>1100</td> <td class="hide">1</td> <td class="hide">3</td> <td class="hide">6</td> </tr>
+							<tr> <td>031</td> <td>CRISSON			</td> <td>1900</td> <td class="hide">1</td> <td class="hide">5</td> <td class="hide">7</td> </tr>
+							<tr> <td>032</td> <td>FOURMIX 			</td> <td>1300</td> <td class="hide">1</td> <td class="hide">5</td> <td class="hide">1</td> </tr>
+							<tr> <td>033</td> <td>BARTON 			</td> <td>2200</td> <td class="hide">1</td> <td class="hide">2</td> <td class="hide">1</td> </tr>
+							<tr> <td>034</td> <td>COCHON 			</td> <td>0600</td> <td class="hide">1</td> <td class="hide">5</td> <td class="hide">1</td> </tr>
+							<tr> <td>035</td> <td>PIOU 				</td> <td>0100</td> <td class="hide">1</td> <td class="hide">5</td> <td class="hide">1</td> </tr>
+							<tr> <td>036</td> <td>OURS 				</td> <td>1400</td> <td class="hide">1</td> <td class="hide">5</td> <td class="hide">1</td> </tr>
+							<tr> <td>037</td> <td>BOUC 				</td> <td>1000</td> <td class="hide">1</td> <td class="hide">5</td> <td class="hide">1</td> </tr>
+							<tr> <td>038</td> <td>HIPPOPOTAME		</td> <td>1300</td> <td class="hide">1</td> <td class="hide">5</td> <td class="hide">1</td> </tr>
+							<tr> <td>039</td> <td>RENARD 			</td> <td>1500</td> <td class="hide">1</td> <td class="hide">5</td> <td class="hide">1</td> </tr>
+							<tr> <td>040</td> <td>TIGRE 			</td> <td>1600</td> <td class="hide">1</td> <td class="hide">5</td> <td class="hide">1</td> </tr>
+							<tr> <td>041</td> <td>LAPIN 			</td> <td>0400</td> <td class="hide">1</td> <td class="hide">5</td> <td class="hide">1</td> </tr>
+							<tr> <td>042</td> <td>SERPENT 			</td> <td>0400</td> <td class="hide">1</td> <td class="hide">5</td> <td class="hide">1</td> </tr>
+							<tr> <td>043</td> <td>VACHE 			</td> <td>0700</td> <td class="hide">1</td> <td class="hide">5</td> <td class="hide">1</td> </tr>
+							<tr> <td>044</td> <td>CHATON 			</td> <td>0900</td> <td class="hide">9</td> <td class="hide">5</td> <td class="hide">1</td> </tr>
+							<tr> <td>045</td> <td>SINGE 			</td> <td>1100</td> <td class="hide">1</td> <td class="hide">5</td> <td class="hide">1</td> </tr>
+							<tr> <td>046</td> <td>ZEBRE 			</td> <td>1200</td> <td class="hide">1</td> <td class="hide">5</td> <td class="hide">1</td> </tr>
+							<tr> <td>047</td> <td>CERF 				</td> <td>1300</td> <td class="hide">1</td> <td class="hide">5</td> <td class="hide">1</td> </tr>
+							<tr> <td>048</td> <td>GRENOUILLE		</td> <td>0500</td> <td class="hide">1</td> <td class="hide">5</td> <td class="hide">1</td> </tr>
+							<tr> <td>049</td> <td>DROMADAIRE		</td> <td>1100</td> <td class="hide">1</td> <td class="hide">5</td> <td class="hide">1</td> </tr>
+							<tr> <td>050</td> <td>PINGOUIN			</td> <td>0800</td> <td class="hide">1</td> <td class="hide">5</td> <td class="hide">1</td> </tr>
+							<tr> <td>051</td> <td>KANGOUROU			</td> <td>1000</td> <td class="hide">1</td> <td class="hide">5</td> <td class="hide">1</td> </tr>
+							<tr> <td>052</td> <td>ECUREUIL			</td> <td>0400</td> <td class="hide">1</td> <td class="hide">5</td> <td class="hide">1</td> </tr>
+							<tr> <td>053</td> <td>MOUTON			</td> <td>0500</td> <td class="hide">1</td> <td class="hide">5</td> <td class="hide">1</td> </tr>
+							<tr> <td>054</td> <td>CHEVAL			</td> <td>1200</td> <td class="hide">1</td> <td class="hide">5</td> <td class="hide">1</td> </tr>
+							<tr> <td>055</td> <td>CHIEN				</td> <td>0950</td> <td class="hide">1</td> <td class="hide">5</td> <td class="hide">1</td> </tr>
+							<tr> <td>056</td> <td>LEZARD			</td> <td>0300</td> <td class="hide">1</td> <td class="hide">5</td> <td class="hide">1</td> </tr>
+							<tr> <td>057</td> <td>SOURIS			</td> <td>0100</td> <td class="hide">1</td> <td class="hide">5</td> <td class="hide">1</td> </tr>
+							<tr> <td>058</td> <td>ELEPHANTO			</td> <td>1600</td> <td class="hide">1</td> <td class="hide">5</td> <td class="hide">1</td> </tr>
+							<tr> <td>059</td> <td>LION				</td> <td>1600</td> <td class="hide">1</td> <td class="hide">5</td> <td class="hide">1</td> </tr>
+							<tr> <td>060</td> <td>RHINOCEROS		</td> <td>1500</td> <td class="hide">1</td> <td class="hide">5</td> <td class="hide">1</td> </tr>
+							<tr> <td>061</td> <td>PANDA				</td> <td>0850</td> <td class="hide">1</td> <td class="hide">5</td> <td class="hide">1</td> </tr>
+							<tr> <td>062</td> <td>GIRAFE			</td> <td>1000</td> <td class="hide">1</td> <td class="hide">5</td> <td class="hide">1</td> </tr>
+							</tbody>
+							<tfoot></tfoot>
+						</table>
+						<p> <a class="ancre" href="#arvernes"> &uarr; Retour au d&eacute;but de l'Article</a> </p>
+					</article>
+				</main>
+			</div> <!-- class=principal -->
+		</div> <!-- class=mainPage -->
+
+		<footer>
+			<p id="info"> Informations </p>
+			<p>	Site web cr&eacute;&eacute; par Benjamin et Beno&icirc;t pour le TP de web de la L2 Informatique afin de pr&eacute;senter leurs projets communs. </p>
+		</footer>
+	
+		<!-- SCRIPTS -->
+		<script rel="javascript" src="./script/login.js"></script>
+		<script rel="javascript" src="./script/jquery.js"></script>
+		<script rel="javascript" src="./script/css.js"></script>
+		<script rel="javascript" src="./script/scroll.js"></script>
+	</body>
+</html>

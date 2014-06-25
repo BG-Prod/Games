@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+	<head>
+		<meta charset=utf-8>
+		<meta name="Author" content="Benjamin, Beno&icirc;t">
+		<meta name="viewport" content="width=device-width"/> <!-- Adaptation sur mobile -->
+		<title> BG PROD > Inscription </title>
+		<link rel="shortcut icon" type="icon/fluid-icon" href="./ressources/icon.png" />
+		
+		<link rel="stylesheet" type="text/css" href="./stylesheet/reset.css" />
+		<link rel="stylesheet" type="text/css" title="D&eacute;faut" id="chosenStyle" href="./stylesheet/stylesheet.css" />
+		<link rel="alternate stylesheet" type="text/css" title="Mode nuit" href="./stylesheet/stylesheet_nuit.css" />
+		<link rel="alternate stylesheet" type="text/css" title="Mode Frenchy" href="./stylesheet/stylesheet_frenchy.css" />
+		<link rel="stylesheet" type="text/css" media="screen and (max-width: 1280px)" href="./stylesheet/medium.css" />
+		<link rel="stylesheet" type="text/css" media="screen and (max-width: 640px)" href="./stylesheet/small.css" />
+	</head>
+
+	<body>
+		<div class="mainPage">
+			<aside class="">
+				<h2  id="location"> Vous &ecirc;tes dans la partie <strong> Inscription </strong> </h2>
+				<div id="login">
+					<form name="Login" class="login">
+											
+						<p>
+							<label for="userName">
+								Nom d'utilisateur : 
+								</label>
+							<input type="text" id="userName" name="userName" size="32" maxlength="32" placeholder="Username">
+						</p>
+						
+						<p>
+							<label for="userPwd">
+								Mot de passe : 
+							</label>
+							<input type="password" id="userPwd" name="userPwd" size="32" maxlength="32" placeholder="Password">
+						</p>
+			
+						<p><INPUT id="envoyer" TYPE="submit" VALUE="Connexion"></p>
+					</form>
+				</div>
+				<div id="style">
+					<h2> Style </h2>
+					<button id="styleNormal"> Normal </button>
+					<button id="styleNuit"> Nuit </button>
+					<button id="styleOrigin"> Frenchy </button>
+					<button id="styleReset"> Aucun </button>
+				</div>
+				<figure>
+					<img class="logo" src="ressources/logo.png" title="Logo de BGPROD" alt="L'image est morte, je rigole !"/>
+				</figure>
+			</aside>
+
+			<header>
+			<h1 id='titre'> BG PROD </h1>
+				<nav class="principal">
+					<ul>
+						<li>  <a href="./index.html"> Accueil </a> </li>
+						<li>  <a href="./jeux.html"> Jeux </a> </li>
+						<li>  <a href="./pic.html"> Pic </a> </li>
+						<li>  <a href="./inscription.html"> Inscription </a> </li>
+					</ul>
+				</nav>
+			</header>
+	
+			<div class="principal">
+				<main>
+					<article>
+					<h2> S'inscrire sur le site </h2>
+						<p> Les informations demand&eacute;es &agrave; l'utilisateur lors de leur inscription sont pour certaines n&eacute;cessaires au bon traitement de notre mission de fichage ill&eacute;gal du monde, et pour d'autres, utiles pour mieux conna&icirc;tre nos futurs clients et ainsi augmenter consid&eacute;rablement notre capital gr&acirc;ce aux services viraux propos&eacute;s sur ce site. 
+						</p>
+						<p> Les fichiers "clients" et les traitements dont ils font l'objet se fait dans l'irrespect de la loi relative &agrave; l’Informatique, aux fichiers et aux libert&eacute;s du 6 janvier 1978. 
+						</p>
+						<p> Toute personne inscrite sur ce site dispose ainsi d’un droit de se taire et de regretter nous avoir offert les donn&eacute;es personnelles la concernant. Il suffit pour cel&agrave; de nous contacter (on vous souhaite du courage).
+						</p>
+						<form name="Inscription" method="POST" action="./htbin/register.py">
+							<p>
+								<input type="text" id="lastname" name="lastname" size="32" maxlength="32" placeholder="Name">
+								
+								<img class="formulaire" src="ressources/temp.png" alt="L'image est morte, je rigole !" />
+							</p>
+							
+							<p>
+								<input type="text" id="firstname" name="firstname" size="32" maxlength="32" placeholder="First Name">
+								
+								<img class="formulaire" src="ressources/temp.png" alt="L'image est morte, je rigole !" />
+							</p>
+							
+							<p>
+								<input type="text" id="birthdate" name="birthdate" size="32" maxlength="32" placeholder="11/03/1993">
+								
+								<img class="formulaire" src="ressources/temp.png" alt="L'image est morte, je rigole !" />
+							</p>
+							
+							<p>
+								<input type="text" id="useremail" name="useremail" size="32" maxlength="32" placeholder="example@mail.com">
+								
+								<img class="formulaire" src="ressources/temp.png" alt="L'image est morte, je rigole !" />
+							</p> 
+							
+							<p>
+								<input type="text" id="username" name="username" size="32" maxlength="32" placeholder="Username">
+								
+								<img class="formulaire" src="ressources/temp.png" alt="L'image est morte, je rigole !" />
+							</p>
+							
+							<p>
+								<input type="password" id="userpwd" name="userpwd" size="32" maxlength="32" placeholder="Password">
+							
+								<img class="formulaire" src="ressources/temp.png" alt="L'image est morte, je rigole !" />
+							</p>
+							
+							<p>
+								<input type="password" id="userpwdconf" name="userpwdconf" size="32" maxlength="32" placeholder="Password confirmation">
+								
+								<img class="formulaire" src="ressources/temp.png" alt="L'image est morte, je rigole !" />
+							</p> 
+				
+							<p><INPUT id="envoyerIns" TYPE="submit" VALUE="Envoyer">
+							<INPUT id="effacer" TYPE="reset" VALUE="Effacer"></p>
+						</form>
+					</article>
+				</main>
+			</div> <!-- class=principal -->
+		</div> <!-- class=mainPage -->
+      
+		<footer>
+			<p id="info"> Informations </p>
+			<p>	Site web cr&eacute;&eacute; par Benjamin et Beno&icirc;t pour le TP de web de la L2 Informatique afin de pr&eacute;senter leurs projets communs. </p>
+		</footer>
+	
+		<!-- SCRIPTS -->
+		<script rel="javascript" src="./script/jquery.js"></script>
+		<script rel="javascript" src="./script/login.js"></script>
+		<script rel="javascript" src="./script/css.js"></script>
+		<script rel="javascript" src="./script/scroll.js"></script>
+		<script rel="javascript" src="./script/inscription.js"></script>
+	</body>
+</html>
