@@ -21,17 +21,23 @@
 #ifndef DISPLAYDATAS_H
 #define DISPLAYDATAS_H
 
+#include <string>
+
 #include <Coordonnees.h>
+
+using namespace std;
 
 class DisplayDatas
 {
     public:
         DisplayDatas(int,int,Coordonnees);
+        DisplayDatas(int,int,Coordonnees,string);
         virtual ~DisplayDatas();
 
         Coordonnees coor;
         int type;
         int etat;
+        string detail;
 };
 
 #endif // DISPLAYDATAS_H

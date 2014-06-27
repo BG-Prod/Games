@@ -285,6 +285,16 @@ void Application::draw()
                 Coordonnees relativePlace(tmp.coor);
                 images[numImage]->print(screen->buffer(), relativePlace);
             }
+            else if(numImage == -26)
+            {
+                Texte txt = Texte();
+                SDL_Color couleur = {255,255,255};
+                vector<Image*> textToPrint = txt.print(tmp.detail,"arial",20,couleur,tmp.coor.x(),tmp.coor.y());
+                for(int k = 0 ; k < textToPrint.size() ; k++)
+                {
+                    textToPrint[k]->print(screen->buffer(), tmp.coor);
+                }
+            }
         }
     }
 

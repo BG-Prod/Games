@@ -42,11 +42,16 @@ Vaisseau::Vaisseau() : Object(), energie(100), bouclier(100), coque(100), capteu
     sons.push_back(batterie);
 }
 
-Vaisseau::Vaisseau(int x, int y) : Object(), energie(100), bouclier(100), coque(100), capteur(100), teleporteur(100), hypernavigateur(100), moteur(100)
+Vaisseau::Vaisseau(int x, int y) : Vaisseau(STARSHIP1,x,y)
+{
+
+}
+
+Vaisseau::Vaisseau(int _type, int x, int y) : Object(), energie(100), bouclier(100), coque(100), capteur(100), teleporteur(100), hypernavigateur(100), moteur(100)
 {
     etat[0] = GAUCHE;
     vitesse = 15;
-    type[0] = STARSHIP1;
+    type[0] = _type;
     alive = true;
     activiteBouclier = false;
     outOf = -1;

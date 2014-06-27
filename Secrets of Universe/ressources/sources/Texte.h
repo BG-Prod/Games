@@ -29,6 +29,7 @@
 
 
 #include "Application.h"
+#include "Image.h"
 
 
 class Texte
@@ -37,7 +38,7 @@ class Texte
         Texte();
         virtual ~Texte();
 
-        void print(std::string p_text, std::string p_police, int p_taille, SDL_Color p_couleur, int x, int y);
+        std::vector<Image *> print(std::string p_text, std::string p_police, int p_taille, SDL_Color p_couleur, int x, int y);
         std::string str();
 
 

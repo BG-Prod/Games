@@ -59,13 +59,13 @@ void SoUApp::init()
     objects.push_back(new Vaisseau(0,0));
     for(int i = 0 ; i < 10 ; i++)
     {
-        objects.push_back(new Vaisseau( random(0,(int)(objects[0]->getPosition()).w()) , random(0,(int)(objects[0]->getPosition()).h())) );
+        objects.push_back(new Vaisseau(STARSHIP2, random(0,(int)(objects[0]->getPosition()).w()) , random(0,(int)(objects[0]->getPosition()).h())) );
     }
 
     /// mise en place de l'interface utilisateur
     interfaces.push_back(new Interface(BOARD1));
-    interfaces.push_back(new Button(BUTTON1, Coordonnees(50,950,256,128), "FIRE"));
-
+    /*interfaces.push_back(new Button(BUTTON1, Coordonnees(50,950,256,128), "FIRE"));
+*/
 }
 
 void SoUApp::app()
@@ -117,10 +117,7 @@ void SoUApp::app()
         {
             if(i!=j)
             {
-                if(objects[i]->collision(objects[j]))
-                {
-                    objects[i]->collided(objects[j]->collisionPoints());
-                }
+                objects[i]->collision(objects[j]);
             }
         }
     }
@@ -146,6 +143,16 @@ void SoUApp::intro()    /// affichage du logo
         SDL_FillRect(SDL_GetVideoSurface(), 0, SDL_MapRGBA(SDL_GetVideoSurface()->format, 0, 0, 0, 0));
         images[0]->setAlpha(clign);
         images[0]->print(SDL_GetVideoSurface()->w/2 - images[0]->width()/2,SDL_GetVideoSurface()->h/2 - images[0]->height()/2);
+        clign+=10;
+        fps();
+        SDL_Flip(SDL_GetVideoSurface());
+    }
+
+    while(clign<512)
+    {
+        SDL_FillRect(SDL_GetVideoSurface(), 0, SDL_MapRGBA(SDL_GetVideoSurface()->format, 0, 0, 0, 0));
+        images[1]->setAlpha(clign);
+        images[1]->print(SDL_GetVideoSurface()->w/2 - images[1]->width()/2,SDL_GetVideoSurface()->h/2 - images[1]->height()/2);
         clign+=10;
         fps();
         SDL_Flip(SDL_GetVideoSurface());
@@ -178,6 +185,25 @@ int SoUApp::whatImage(int a, int b)
             retour = 5;
         }
     }
+    if(a==STARSHIP2)
+    {
+        if(b==BAS)
+        {
+            retour = 11;
+        }
+        else if(b==HAUT)
+        {
+            retour = 12;
+        }
+        else if(b==DROITE)
+        {
+            retour = 13;
+        }
+        else if(b==GAUCHE)
+        {
+            retour = 14;
+        }
+    }
     if(a==BOARD1)
     {
         retour = 8;
@@ -190,11 +216,11 @@ int SoUApp::whatImage(int a, int b)
     {
         if(b==ON)
         {
-            retour = 9;
+            retour = 10;
         }
         else if(b==OFF)
         {
-            retour = 10;
+            retour = 9;
         }
     }
 

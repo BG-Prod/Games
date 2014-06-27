@@ -36,7 +36,7 @@ class Object
     public:
         virtual ~Object();
 
-        bool collision(Object * o);
+        void collision(Object * o);
         virtual int collisionPoints();
         virtual void collided(int);
         int getEtat(){return etat[0];}

@@ -32,7 +32,7 @@ bool Button::pressed(Input * in)
 {
     bool retour = false;
 
-    if(hover(in) && in->get_souris_boutons(0))
+    if(hover(in) && in->get_souris_boutons(1))
     {
         retour = true;
     }

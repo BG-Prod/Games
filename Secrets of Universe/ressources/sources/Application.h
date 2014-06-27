@@ -39,12 +39,13 @@
 #include <Image.h>
 #include <Screen.h>
 #include <Object.h>
+#include <Texte.h>
 
 
 
 #define SCREEN_REFRESH      40
 #define DEBUG               std::cerr << std::endl <<
-#define NOMBRE_IMAGE        11
+#define NOMBRE_IMAGE        15
 #define NOMBRE_MUSIQUE      1
 #define NOMBRE_POLICE       0
 

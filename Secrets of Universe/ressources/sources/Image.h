@@ -47,6 +47,7 @@ class Image
     public:
         Image();    /// image NULL par défaut
         Image(std::string link);    /// image à partir d'un lien
+        Image(SDL_Surface * pt);    /// image à partir d'une sdl surface
         Image(int width, int height, Uint8 r, Uint8 g, Uint8 b);
         Image(int width, int height, Uint8 r, Uint8 g, Uint8 b, Uint8 a);
         virtual ~Image();           /// destructeur

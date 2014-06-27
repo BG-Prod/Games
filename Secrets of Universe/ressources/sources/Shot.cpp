@@ -67,9 +67,17 @@ void Shot::update()
 
 bool Shot::death()
 {
-    return ( SDL_GetTicks() > (unsigned)birth+lifeTime ) ? true : false ;
+    return ( SDL_GetTicks() > (unsigned)birth+lifeTime && alive) ? true : false ;
 }
 
+int Shot::collisionPoints()
+{
+    return 50;
+}
 
+void Shot::collided(int perte)
+{
+    alive = false;
+}
 
 

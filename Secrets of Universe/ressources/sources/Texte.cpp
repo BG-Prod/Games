@@ -106,19 +106,21 @@ int Texte::create_text(string p_string, string p_police, int p_taille, SDL_Color
     return toReturn;
 }
 
-void Texte::print(string p_text, std::string p_police, int p_taille, SDL_Color p_couleur, int x, int y)
+vector<Image *> Texte::print(string p_text, std::string p_police, int p_taille, SDL_Color p_couleur, int x, int y)
 {
     m_place.x = x;
     m_place.y = y;
+    vector<Image *> result;
     int skip = create_text(p_text, p_police, p_taille, p_couleur, SDL_GetVideoSurface()->w - x);
     for (std::vector<SDL_Surface *>::iterator it = m_text_image.begin() ; it != m_text_image.end(); ++it)
     {
         if(*it != NULL)
         {
-            SDL_BlitSurface(*it,NULL,SDL_GetVideoSurface(),&m_place);
+            result.push_back(new Image (* it));
             m_place.y += skip;
         }
     }
+    return result;
 }
 
 std::string Texte::str()

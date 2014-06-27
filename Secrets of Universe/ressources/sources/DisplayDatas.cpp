@@ -20,11 +20,17 @@
 
 #include "DisplayDatas.h"
 
-DisplayDatas::DisplayDatas(int t, int e, Coordonnees c)
+DisplayDatas::DisplayDatas(int t, int e, Coordonnees c, string d)
 {
     coor = c;
     type = t;
     etat = e;
+    detail = d;
+}
+
+DisplayDatas::DisplayDatas(int t, int e, Coordonnees c) : DisplayDatas(t,e,c,"")
+{
+
 }
 
 DisplayDatas::~DisplayDatas()

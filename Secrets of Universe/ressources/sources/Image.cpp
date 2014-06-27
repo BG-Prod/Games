@@ -38,6 +38,14 @@ Image::Image(string link)
     name = link;
 }
 
+Image::Image(SDL_Surface * pt)
+{
+    image = pt; ///SDL_DisplayFormat(IMG_Load(link.c_str()));
+    x = 0, y = 0, w = image->w, h = image->h, alpha = 255;
+    lastX = 0, lastY = 0;
+    name = "copy from existing sdl surface";
+}
+
 Image::Image(int width, int height, Uint8 r, Uint8 g, Uint8 b)
 {
     image = SDL_CreateRGBSurface(SDL_HWSURFACE, width, height, 32, 0, 0, 0, 0);

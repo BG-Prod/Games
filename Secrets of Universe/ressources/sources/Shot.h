@@ -36,6 +36,8 @@ class Shot : public Object
         void use();
         void update();
         bool death();
+        int collisionPoints();
+        void collided(int);
 
     protected:
         int vitesse;
