@@ -64,8 +64,8 @@ void SoUApp::init()
 
     /// mise en place de l'interface utilisateur
     interfaces.push_back(new Interface(BOARD1));
-    /*interfaces.push_back(new Button(BUTTON1, Coordonnees(50,950,256,128), "FIRE"));
-*/
+    interfaces.push_back(new Button(BUTTON1, Coordonnees(50,950,128,64), "FIRE"));
+
 }
 
 void SoUApp::app()
