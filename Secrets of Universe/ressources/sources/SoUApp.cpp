@@ -57,14 +57,24 @@ void SoUApp::init()
     /// création des vaisseaux
     objects.push_back(new Map());
     objects.push_back(new Vaisseau(0,0));
-    for(int i = 0 ; i < 10 ; i++)
+    for(int i = 0 ; i < 15 ; i++)
     {
         objects.push_back(new Vaisseau(STARSHIP2, random(0,(int)(objects[0]->getPosition()).w()) , random(0,(int)(objects[0]->getPosition()).h())) );
     }
 
+    /// détermination de la cible du joueur
+    if(objects.size()>2) {
+        objects[1]->setCible(objects[random(2,objects.size()-1)]  );
+    }
+    else {
+        objects[1]->setCible(NULL);
+    }
+
     /// mise en place de l'interface utilisateur
     interfaces.push_back(new Interface(BOARD1));
-    interfaces.push_back(new Button(BUTTON1, Coordonnees(50,950,128,64), "FIRE"));
+    addButton(new Button(BUTTON1, Coordonnees(450+1050,10,128,64), "INFO"));
+    addButton(new Button(BUTTON1, Coordonnees(450+1180,10,128,64), "MENU"));
+    addButton(new Button(BUTTON1, Coordonnees(450+1310,10,128,64), "EXIT"));
 
 }
 
@@ -94,6 +104,14 @@ void SoUApp::app()
     }
     cam->keepIn(objects[0]);
 
+    /// détermination de la cible du joueur
+    /*if(objects.size()>2) {
+        objects[1]->setCible(objects[random(2,objects.size()-1)]);
+    }
+    else {
+        objects[1]->setCible(NULL);
+    }*/
+
     /// sont-ils morts ?
     for(unsigned int i = 0 ; i < objects.size() ; i++)
     {
@@ -105,7 +123,7 @@ void SoUApp::app()
     }
     /// objets sur les bords ?
     /// collision objets ?
-    for(unsigned int i = 0 ; i < objects.size() ; i++)
+    for(unsigned int i = 1 ; i < objects.size() ; i++)
     {
         int changeOfDir = -1;
         if(i!=0){changeOfDir = objects[i]->isOut(objects[0]);}
@@ -113,12 +131,9 @@ void SoUApp::app()
         {
             objects[i]->setOutOf(changeOfDir);
         }
-        for(unsigned int j = 1 ; j < objects.size() ; j++)
+        for(unsigned int j = i+1 ; j < objects.size() ; j++)
         {
-            if(i!=j)
-            {
-                objects[i]->collision(objects[j]);
-            }
+            objects[i]->collision(objects[j]);
         }
     }
     /// màj des objets
@@ -130,6 +145,10 @@ void SoUApp::app()
     for(unsigned int i = 0 ; i < interfaces.size() ; i++)
     {
         interfaces[i]->update(in);
+    }
+    if(buttons[2]->pressed(in))
+    {
+        in->set_exit(true);
     }
     objects[1]->update(in);
 }
@@ -222,6 +241,10 @@ int SoUApp::whatImage(int a, int b)
         {
             retour = 9;
         }
+    }
+    if(a==TEXT1)
+    {
+        retour = -26;
     }
 
     return retour;

@@ -121,6 +121,9 @@ void Vaisseau::shoot()
 
 void Vaisseau::update(Input * in)
 {
+    if(cible == NULL){
+        cible = NULL;
+    }
     if(in->get_touche(SDLK_a))
     {
         move(GAUCHE);

@@ -235,13 +235,20 @@ void Application::init()
 
 void Application::run()
 {
-    this->init();
     while(!in->get_touche(SDLK_ESCAPE) && !in->get_exit())
     {
+        this->init();
         this->fps();
         in->update();
         this->app();
         this->draw();
+        while(!in->get_touche(SDLK_ESCAPE) && !in->get_exit())
+        {
+            this->fps();
+            in->update();
+            this->app();
+            this->draw();
+        }
     }
 }
 
@@ -289,16 +296,23 @@ void Application::draw()
             {
                 Texte txt = Texte();
                 SDL_Color couleur = {255,255,255};
-                vector<Image*> textToPrint = txt.print(tmp.detail,"arial",20,couleur,tmp.coor.x(),tmp.coor.y());
+                vector<Image*> textToPrint = txt.print(tmp.detail,"calibri",20,couleur,tmp.coor.x(),tmp.coor.y());
                 for(int k = 0 ; k < textToPrint.size() ; k++)
                 {
-                    textToPrint[k]->print(screen->buffer(), tmp.coor);
+                    Coordonnees placeToBlitt(tmp.coor.x()+tmp.coor.w()/2-textToPrint[k]->width()/2,tmp.coor.y()+tmp.coor.h()/2-textToPrint[k]->height()/2, textToPrint[k]->width(), textToPrint[k]->height());
+                    textToPrint[k]->print(screen->buffer(), placeToBlitt);
                 }
             }
         }
     }
 
     screen->display();
+}
+
+void Application::addButton(Button * b)
+{
+    interfaces.push_back(b);
+    buttons.push_back(b);
 }
 
 int Application::whatImage(int a, int b)

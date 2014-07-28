@@ -24,10 +24,14 @@ Shot::Shot(Object * o) : Object(), lifeTime(2500)
 {
     etat[0] = o->getEtat();
     position = o->getPosition();
+    position.w(12);
+    position.h(12);
     type[0] = SHOT1;
     force = 10;
     vitesse = 20;
     ancestor = o;
+    cible = o->getCible();
+    alive = true;
 }
 
 Shot::~Shot()
@@ -44,7 +48,8 @@ void Shot::use()
 {
 
 }
-
+/*******************************************
+!!!!!!!!!!! VERSION 1.0 !!!!!!!!!!!!!!!!!!!!
 void Shot::update()
 {
     if(etat[0]==GAUCHE)
@@ -64,15 +69,47 @@ void Shot::update()
         position.y(position.y()+vitesse);
     }
 }
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+*******************************************/
 
-bool Shot::death()
+void Shot::update()
 {
-    return ( SDL_GetTicks() > (unsigned)birth+lifeTime && alive) ? true : false ;
+    if(cible != NULL && cible != this) {
+        int vecX = ((cible->getPosition()).x())-(position.x());
+        int vecY = ((cible->getPosition()).y())-(position.y());
+        int base = abs(vecX)+abs(vecY);
+        if(base != 0) {
+            int movX = vitesse*vecX/base;
+            int movY = vitesse*vecY/base;
+            position.x(position.x()+movX);
+            position.y(position.y()+movY);
+        }
+    }
+    else {
+        if(etat[0]==GAUCHE)
+        {
+            position.x(position.x()-vitesse);
+        }
+        else if(etat[0]==DROITE)
+        {
+            position.x(position.x()+vitesse);
+        }
+        else if(etat[0]==HAUT)
+        {
+            position.y(position.y()-vitesse);
+        }
+        else if(etat[0]==BAS)
+        {
+            position.y(position.y()+vitesse);
+        }
+    }
+
+    alive &= (SDL_GetTicks() < (unsigned)birth+lifeTime);
 }
 
 int Shot::collisionPoints()
 {
-    return 50;
+    return force;
 }
 
 void Shot::collided(int perte)

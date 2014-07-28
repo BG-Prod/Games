@@ -29,7 +29,7 @@
 
 
 enum states{BAS,HAUT,DROITE,GAUCHE,ON,OFF};
-enum types{BUTTON1,BUTTON2,STARSHIP1,STARSHIP2,SHOT1,SHOT2,BOARD1,SPACE_MAP_1};
+enum types{BUTTON1,BUTTON2,TEXT1,TEXT2,STARSHIP1,STARSHIP2,SHOT1,SHOT2,BOARD1,SPACE_MAP_1};
 
 class Object
 {
@@ -43,12 +43,14 @@ class Object
         Coordonnees getPosition(){return position;}
         int isOut(Object * o);
         void setOutOf(int dir);    /// 0 : l'objet ne sort pas ; 1,2,3,4 : l'objet sort en bas en haut à droite ou à gauche;
-        std::vector<DisplayDatas> print();
+        virtual std::vector<DisplayDatas> print();
         int numberToPrint(){return etat.size();}
         virtual void bot();
         virtual void update(Input * in);
         long getTime();
         bool isAlive();
+        void setCible(Object* o);
+        Object * getCible(){return cible;}
 
     protected:
         Object();               /// pour avoir une classe abstraite
@@ -62,6 +64,7 @@ class Object
         Object * ancestor;
         int outOf;
         bool alive;
+        Object * cible;
 };
 
 

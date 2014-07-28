@@ -27,6 +27,7 @@ Weapon::Weapon(Object * o) : Object()
     position = o->getPosition();
     position += Coordonnees(64,64,1,1);
     ancestor = o;
+    cible = o->getCible();
 }
 
 Weapon::~Weapon()
@@ -54,7 +55,7 @@ void Weapon::update()
 
     for(unsigned int i = 0 ; i < salve.size() ; ++i)
     {
-        if(salve[i]->death())
+        if(!salve[i]->isAlive())
         {
             delete salve[i];
             salve.erase(salve.begin()+i);

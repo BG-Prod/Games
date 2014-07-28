@@ -26,7 +26,7 @@ Screen::Screen()
 {
     /// create a new window
     putenv("SDL_VIDEO_WINDOW_POS=center"); /// pour centrer la fenêtre
-    ecran = SDL_SetVideoMode(LARGEUR_ECRAN, HAUTEUR_ECRAN, 32, SDL_HWSURFACE|SDL_DOUBLEBUF|SDL_RESIZABLE|SDL_FULLSCREEN);
+    ecran = SDL_SetVideoMode(LARGEUR_ECRAN, HAUTEUR_ECRAN, 32, SDL_HWSURFACE|SDL_DOUBLEBUF|SDL_RESIZABLE/*|SDL_FULLSCREEN*/);
     if ( !ecran )
     {
         printf("Unable to set personalized size video: %s\n", SDL_GetError());

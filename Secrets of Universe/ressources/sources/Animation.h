@@ -9,8 +9,15 @@ class Animation
         Animation();
         virtual ~Animation();
 
-    protected:
+        Image * getAnim();
+        void addAnim(Image * i);
+        void playAnim(bool b);
 
+    protected:
+        std::vector<Image*> anim;
+        int index;
+        bool play;
+        int echelle, cran;
 };
 
 #endif // ANIMATION_H

@@ -1,6 +1,6 @@
 #include "Button.h"
 
-Button::Button(int _type, Coordonnees _coor, std::string _name) : Object()
+Button::Button(int _type, Coordonnees _coor, std::string _name) : Interface()
 {
     type[0] = _type;
     etat[0] = OFF;
@@ -43,5 +43,15 @@ bool Button::pressed(Input * in)
 void Button::update(Input * in)
 {
     etat[0] = (pressed(in)) ? ON : OFF;
+}
+
+vector<DisplayDatas> Button::print()
+{
+    vector<DisplayDatas> dt;
+
+    dt.push_back(DisplayDatas(type[0],etat[0],position));
+    dt.push_back(DisplayDatas(TEXT1,etat[0],position,name));
+
+    return dt;
 }
 

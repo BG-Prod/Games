@@ -57,7 +57,6 @@ class Vaisseau : public Object
         masse, teleporteur, hypernavigateur, moteur;
         bool activiteBouclier, touched;
         Weapon * batterie;
-
 };
 
 #endif // VAISSEAU_H_INCLUDED

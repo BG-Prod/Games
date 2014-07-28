@@ -32,7 +32,7 @@ Image::Image()
 
 Image::Image(string link)
 {
-    image = SDL_DisplayFormatAlpha(IMG_Load(link.c_str())); ///SDL_DisplayFormat(IMG_Load(link.c_str()));
+    image = SDL_DisplayFormatAlpha(IMG_Load(link.c_str()));
     x = 0, y = 0, w = image->w, h = image->h, alpha = 255;
     lastX = 0, lastY = 0;
     name = link;

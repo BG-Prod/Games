@@ -32,6 +32,7 @@ Object::Object() : birth(getTime())
     position = Coordonnees(0,0,0,0);
     etat.push_back(HAUT);
     alive = true;
+    cible = NULL;
 }
 
 Object::~Object()
@@ -85,10 +86,8 @@ bool Object::collision(Object * o)
 void Object::collision(Object * o)
 {
     ///Les cotes des rectangles
-    int leftA, leftB;
-    int rightA, rightB;
-    int topA, topB;
-    int bottomA, bottomB;
+    int leftA, leftB, rightA, rightB,
+        topA, topB, bottomA, bottomB;
     ///Calcul les cotes du rectangle A
     leftA = this->position.x();
     rightA = this->position.x() + this->position.w();
@@ -104,6 +103,12 @@ void Object::collision(Object * o)
     if( (bottomA <= topB || topA >= bottomB || rightA <= leftB || leftA >= rightB) == false )
     {
         this->collided(o->collisionPoints());
+        o->collided(this->collisionPoints());
+    }
+
+    for(int i = 0 ; i < o->sons.size() ; i++)
+    {
+        this->collision(o->sons[i]);
     }
 
     for(int i = 0 ; i < sons.size() ; i++)
@@ -139,7 +144,6 @@ vector<DisplayDatas> Object::print()
         {
             dt.push_back(dt_sons[j]);
         }
-        //dt.insert(dt.end(), dt_sons.begin(),dt_sons.end());
     }
 
     return dt;
@@ -189,4 +193,11 @@ int Object::collisionPoints()
     return 5;
 }
 
+void Object::setCible(Object* o)
+{
+    cible = o;
+    for (int i = 0 ; i < sons.size() ; i ++){
+        sons[i]->setCible(cible);
+    }
+}
 

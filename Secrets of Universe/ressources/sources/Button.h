@@ -1,9 +1,9 @@
 #ifndef BUTTON_H
 #define BUTTON_H
 
-#include <Object.h>
+#include <Interface.h>
 
-class Button : public Object
+class Button : public Interface
 {
     public:
         Button(int _type, Coordonnees _coor, std::string _name);
@@ -12,6 +12,7 @@ class Button : public Object
         bool hover(Input*);
         bool pressed(Input*);
         void update(Input * in);
+        vector<DisplayDatas> print();
 
     protected:
         std::string name;

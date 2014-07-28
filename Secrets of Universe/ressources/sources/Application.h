@@ -40,6 +40,7 @@
 #include <Screen.h>
 #include <Object.h>
 #include <Texte.h>
+#include <Button.h>
 
 
 
@@ -84,6 +85,8 @@ class Application
         void draw();    /// défini l'affichage
         virtual int whatImage(int a, int b);
 
+        void addButton(Button * b);
+
     protected:
         void initialisation();        /// initialise le jeu
         void fermeture();             /// ferme le jeu
@@ -109,6 +112,7 @@ class Application
         std::vector<Object*> objects;
         /// interface
         std::vector<Object*> interfaces;
+        std::vector<Button*> buttons;
 };
 
 #endif /// APPLICATION_H

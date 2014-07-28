@@ -7,7 +7,9 @@
 class Interface : public Object
 {
     public:
+        Interface();
         Interface(int _type);
+
         virtual ~Interface();
 
     protected:
