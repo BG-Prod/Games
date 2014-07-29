@@ -414,3 +414,9 @@ void Image::turn90()
     delete tmp;
 }
 
+void Image::saveAs(string url)
+{
+    SDL_SaveBMP(image, url.c_str());
+}
+
+

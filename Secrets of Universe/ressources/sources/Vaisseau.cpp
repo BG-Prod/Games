@@ -124,17 +124,6 @@ void Vaisseau::shoot()
 
 void Vaisseau::update(Input * in)
 {
-    /// pour tirer
-    if(in->get_touche(SDLK_SPACE))
-    {
-        shoot();
-    }
-    /// sur clic on désigne une nouvelle cible
-    if(in->get_souris_boutons(SDL_BUTTON_RIGHT))
-    {
-        setCible(Coordonnees(in->mouse(X), in->mouse(Y), 5, 5));
-        in->set_souris_boutons(SDL_BUTTON_RIGHT,0);
-    }
     /// màj des éléments
     move();
     batterie->update();

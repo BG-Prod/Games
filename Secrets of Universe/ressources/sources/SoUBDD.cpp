@@ -29,3 +29,15 @@ SoUBDD::~SoUBDD()
 {
     //dtor
 }
+
+void SoUBDD::save()
+{
+
+}
+
+void SoUBDD::load()
+{
+
+}
+
+

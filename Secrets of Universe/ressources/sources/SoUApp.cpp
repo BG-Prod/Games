@@ -32,6 +32,11 @@ SoUApp::~SoUApp()
     //dtor
 }
 
+void SoUApp::menu()
+{
+    state = MAIN;
+}
+
 void SoUApp::init()
 {
     /// on joue la musique de fond
@@ -81,37 +86,11 @@ void SoUApp::init()
 
 void SoUApp::app()
 {
-    /// resize taille écran
-    if(in->get_touche(SDLK_F1))
-    {
-        screen->resize();
-    }
-    /// bouger la caméra
-    if(in->get_touche(SDLK_UP))
-    {
-        cam->cameraUp();
-    }
-    if(in->get_touche(SDLK_DOWN))
-    {
-        cam->cameraDown();
-    }
-    if(in->get_touche(SDLK_LEFT))
-    {
-        cam->cameraLeft();
-    }
-    if(in->get_touche(SDLK_RIGHT))
-    {
-        cam->cameraRight();
-    }
-    cam->keepIn(objects[0]);
+    /// gestion des events
+    eventsManager();
 
-    /// détermination de la cible du joueur
-    /*if(objects.size()>2) {
-        objects[1]->setCible(objects[random(2,objects.size()-1)]);
-    }
-    else {
-        objects[1]->setCible(NULL);
-    }*/
+    /// recentrage de la caméra
+    cam->keepIn(objects[0]);
 
     /// sont-ils morts ?
     for(unsigned int i = 0 ; i < objects.size() ; i++)
@@ -123,35 +102,33 @@ void SoUApp::app()
         }
     }
     /// objets sur les bords ?
+        /// se détermine par le fait qu'ils se déplacent dans l'intervalle [0 ; 4095]
+
     /// collision objets ?
     for(unsigned int i = 1 ; i < objects.size() ; i++)
     {
-        int changeOfDir = -1;
-        if(i!=0){changeOfDir = objects[i]->isOut(objects[0]);}
-        if(i!=0 && (-1 < changeOfDir))
-        {
-            objects[i]->setOutOf(changeOfDir);
-        }
         for(unsigned int j = i+1 ; j < objects.size() ; j++)
         {
             objects[i]->collision(objects[j]);
         }
     }
+
     /// màj des objets
     for(unsigned int i = 2 ; i < objects.size() ; i++)
     {
         objects[i]->bot();
     }
+
     /// màj des interfaces
     for(unsigned int i = 0 ; i < interfaces.size() ; i++)
     {
         interfaces[i]->update(in);
     }
-    if(buttons[2]->pressed(in))
-    {
-        in->set_exit(true);
-    }
+
+    /// màj du joueur
     objects[1]->update(in);
+
+    /// màj visuel cagnotte joueur
     ostringstream coinzz;
     coinzz << ((Vaisseau*)objects[1])->getCoins();
     buttons[5]->setName(coinzz.str());
@@ -182,7 +159,50 @@ void SoUApp::intro()    /// affichage du logo
     }
 }
 
-int SoUApp::whatImage(int a, int b)
+void SoUApp::eventsManager()    /// gère les évènements
+{
+    /// resize taille écran
+    if(in->get_touche(SDLK_F1))
+    {
+        screen->resize();
+    }
+    /// bouger la caméra
+    if(in->get_touche(SDLK_UP))
+    {
+        cam->cameraUp();
+    }
+    if(in->get_touche(SDLK_DOWN))
+    {
+        cam->cameraDown();
+    }
+    if(in->get_touche(SDLK_LEFT))
+    {
+        cam->cameraLeft();
+    }
+    if(in->get_touche(SDLK_RIGHT))
+    {
+        cam->cameraRight();
+    }
+    /// bouton exit
+    if(buttons[2]->pressed(in))
+    {
+        in->set_exit(true);
+    }
+
+    /// pour tirer
+    if(in->get_touche(SDLK_SPACE))
+    {
+        ((Vaisseau*)objects[1])->shoot();
+    }
+    /// sur clic on désigne une nouvelle cible
+    if(in->get_souris_boutons(SDL_BUTTON_RIGHT))
+    {
+        objects[1]->setCible(Coordonnees(in->mouse(X)+cam->view().x(), in->mouse(Y)+cam->view().y(), 5, 5));
+        in->set_souris_boutons(SDL_BUTTON_RIGHT,0);
+    }
+}
+
+int SoUApp::whatImage(int a, int b) /// couple les données pour obtenir un rendu
 {
     int retour = -1;
     if(a==SPACE_MAP_1)

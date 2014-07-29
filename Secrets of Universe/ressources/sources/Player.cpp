@@ -18,31 +18,14 @@
     Contact me : bgprod@outlook.com
 */
 
-#ifndef SOUAPP_H
-#define SOUAPP_H
+#include "Player.h"
 
-#include <Application.h>
-#include <Vaisseau.h>
-#include <Screen.h>
-#include <Map.h>
-#include <Interface.h>
-#include <Button.h>
-
-
-class SoUApp : public Application
+Player::Player()
 {
-    public:
-        SoUApp();
-        virtual ~SoUApp();
+    //ctor
+}
 
-        virtual void app();
-        void intro();
-        void init();
-        void menu();
-        void eventsManager();
-
-    protected:
-        int whatImage(int a, int b);
-};
-
-#endif // SOUAPP_H
+Player::~Player()
+{
+    //dtor
+}

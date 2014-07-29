@@ -18,31 +18,23 @@
     Contact me : bgprod@outlook.com
 */
 
-#ifndef SOUAPP_H
-#define SOUAPP_H
+#ifndef CREW_H
+#define CREW_H
 
-#include <Application.h>
-#include <Vaisseau.h>
-#include <Screen.h>
-#include <Map.h>
-#include <Interface.h>
-#include <Button.h>
+#include <vector>
 
+#include <Person.h>
 
-class SoUApp : public Application
+using namespace std;
+
+class Crew
 {
     public:
-        SoUApp();
-        virtual ~SoUApp();
-
-        virtual void app();
-        void intro();
-        void init();
-        void menu();
-        void eventsManager();
+        Crew();
+        virtual ~Crew();
 
     protected:
-        int whatImage(int a, int b);
+        vector<Person *> membre;
 };
 
-#endif // SOUAPP_H
+#endif // CREW_H

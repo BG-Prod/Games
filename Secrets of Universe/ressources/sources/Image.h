@@ -65,6 +65,7 @@ class Image
         void setAlpha(int a);
         int width(){return w;}
         int height(){return h;}
+        void saveAs(std::string url);
 
         Uint32 getPixel(int x, int y);  /// renvoie le pixel sous forme hexadecimal sur 32 bits
         const int * getPixelRGBA(int x, int y); /// renvoie le pixel sous forma d'un tableau A,R,G,B

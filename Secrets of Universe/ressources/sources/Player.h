@@ -18,31 +18,29 @@
     Contact me : bgprod@outlook.com
 */
 
-#ifndef SOUAPP_H
-#define SOUAPP_H
+#ifndef PLAYER_H
+#define PLAYER_H
 
-#include <Application.h>
+#include <string>
+
+#include <Crew.h>
 #include <Vaisseau.h>
-#include <Screen.h>
-#include <Map.h>
-#include <Interface.h>
-#include <Button.h>
 
+using namespace std;
 
-class SoUApp : public Application
+class Player
 {
     public:
-        SoUApp();
-        virtual ~SoUApp();
-
-        virtual void app();
-        void intro();
-        void init();
-        void menu();
-        void eventsManager();
+        Player();
+        Player(int,int,int,int,bool,string,Crew*,Vaisseau*);
+        virtual ~Player();
 
     protected:
-        int whatImage(int a, int b);
+        int id, xp, level, team;
+        bool human;
+        Crew * crew;
+        string name;
+        Vaisseau * starship;
 };
 
-#endif // SOUAPP_H
+#endif // PLAYER_H

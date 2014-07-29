@@ -18,31 +18,24 @@
     Contact me : bgprod@outlook.com
 */
 
-#ifndef SOUAPP_H
-#define SOUAPP_H
+#ifndef PERSON_H
+#define PERSON_H
 
-#include <Application.h>
-#include <Vaisseau.h>
-#include <Screen.h>
-#include <Map.h>
-#include <Interface.h>
-#include <Button.h>
+#include <string>
 
+using namespace std;
 
-class SoUApp : public Application
+class Person
 {
     public:
-        SoUApp();
-        virtual ~SoUApp();
-
-        virtual void app();
-        void intro();
-        void init();
-        void menu();
-        void eventsManager();
+        Person();
+        virtual ~Person();
 
     protected:
-        int whatImage(int a, int b);
+    private:
+        string firstName, lastName;
+        int age, satisfaction, value, id;
+        string craft, sex, species;
 };
 
-#endif // SOUAPP_H
+#endif // PERSON_H
