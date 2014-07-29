@@ -46,7 +46,7 @@
 
 #define SCREEN_REFRESH      40
 #define DEBUG               std::cerr << std::endl <<
-#define NOMBRE_IMAGE        15
+#define NOMBRE_IMAGE        18
 #define NOMBRE_MUSIQUE      1
 #define NOMBRE_POLICE       0
 
@@ -58,6 +58,7 @@ const std::string cheminFile = cheminRessources + "files/";
 const std::string cheminPolice = cheminRessources + "polices/";
 const std::string cheminData = cheminRessources + "data/";
 
+enum appStates{MENU,MAIN,OPTIONS,EXIT};
 
 class Application
 {
@@ -66,6 +67,8 @@ class Application
         virtual ~Application();
 
         virtual void init();
+        virtual void intro();
+        virtual void menu();
         virtual void app();
         void run();
 
@@ -93,6 +96,8 @@ class Application
 
         /// time
         int tempsPrecedent, tempsActuel, screen_refresh;
+        /// application
+        appStates state;
         /// system information
         struct tm Today;
         time_t maintenant;

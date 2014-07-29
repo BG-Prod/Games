@@ -24,9 +24,9 @@
 using namespace std;
 
 
-Vaisseau::Vaisseau() : Object(), energie(100), bouclier(100), coque(100), capteur(100), teleporteur(100), hypernavigateur(100), moteur(100)
+Vaisseau::Vaisseau() : Object(), energie(100), bouclier(100), coque(1000), capteur(100), teleporteur(100), hypernavigateur(100), moteur(100), coins(1000), pib(5)
 {
-    etat[0] = GAUCHE;
+    etat[0] = LEFT;
     vitesse = 15;
     type[0] = STARSHIP1;
     alive = true;
@@ -47,9 +47,9 @@ Vaisseau::Vaisseau(int x, int y) : Vaisseau(STARSHIP1,x,y)
 
 }
 
-Vaisseau::Vaisseau(int _type, int x, int y) : Object(), energie(100), bouclier(100), coque(100), capteur(100), teleporteur(100), hypernavigateur(100), moteur(100)
+Vaisseau::Vaisseau(int _type, int x, int y) : Object(), energie(100), bouclier(100), coque(100), capteur(100), teleporteur(100), hypernavigateur(100), moteur(100), coins(1000), pib(5)
 {
-    etat[0] = GAUCHE;
+    etat[0] = LEFT;
     vitesse = 15;
     type[0] = _type;
     alive = true;
@@ -94,24 +94,27 @@ Vaisseau::~Vaisseau()
     delete batterie;
 }
 
-void Vaisseau::move(states d)
+void Vaisseau::move()
 {
-    switch(d)
-    {
-        case BAS:
-            position.y(position.y()+(moteur*vitesse/100));
-            break;
-        case HAUT:
-            position.y(position.y()-(moteur*vitesse/100));
-            break;
-        case DROITE:
-            position.x(position.x()+(moteur*vitesse/100));
-            break;
-        case GAUCHE:
-            position.x(position.x()-(moteur*vitesse/100));
-            break;
+    /**
+    *** On déplace proportionnellement à la distance à parcourir le vaisseau sur les deux axes.
+    *** Ensuite on signale si on a bougé
+    **/
+    int vecX = cible.x()-position.x();
+    int vecY = cible.y()-position.y();
+    int base = abs(vecX)+abs(vecY);
+    if(base > vitesse) {
+        int movX = vitesse*vecX/base;
+        int movY = vitesse*vecY/base;
+        position.x(position.x()+movX);
+        position.y(position.y()+movY);
+        etat[0] = (abs(movX)>abs(movY)) ? (movX>0 ? RIGHT : LEFT) : (movY>0 ? BOTTOM : TOP);
+        hasMoved = true;
     }
-    etat[0] = d;
+    else
+    {
+        hasMoved = false;
+    }
 }
 
 void Vaisseau::shoot()
@@ -121,30 +124,21 @@ void Vaisseau::shoot()
 
 void Vaisseau::update(Input * in)
 {
-    if(cible == NULL){
-        cible = NULL;
-    }
-    if(in->get_touche(SDLK_a))
-    {
-        move(GAUCHE);
-    }
-    if(in->get_touche(SDLK_s))
-    {
-        move(BAS);
-    }
-    if(in->get_touche(SDLK_d))
-    {
-        move(DROITE);
-    }
-    if(in->get_touche(SDLK_w))
-    {
-        move(HAUT);
-    }
+    /// pour tirer
     if(in->get_touche(SDLK_SPACE))
     {
         shoot();
     }
+    /// sur clic on désigne une nouvelle cible
+    if(in->get_souris_boutons(SDL_BUTTON_RIGHT))
+    {
+        setCible(Coordonnees(in->mouse(X), in->mouse(Y), 5, 5));
+        in->set_souris_boutons(SDL_BUTTON_RIGHT,0);
+    }
+    /// màj des éléments
+    move();
     batterie->update();
+    addCoins(pib);
 }
 
 void Vaisseau::destroy()
@@ -154,42 +148,19 @@ void Vaisseau::destroy()
 
 void Vaisseau::bot()
 {
-    if(-1==outOf)
-    {
-        int change = random(0,100);
-        if(change==1){move((states)random(0,3));}
-        else{move((states) etat[0]);}
-    }
-    else
-    {
-        if(outOf==BAS)
-            move(HAUT);
-        else if(outOf==HAUT)
-            move(BAS);
-        else if(outOf==GAUCHE)
-            move(DROITE);
-        else if(outOf==DROITE)
-            move(GAUCHE);
-        outOf = -1;
-    }
-    if(touched)
-    {
-        if(etat[0]==BAS)
-            move(HAUT);
-        else if(etat[0]==HAUT)
-            move(BAS);
-        else if(etat[0]==GAUCHE)
-            move(DROITE);
-        else if(etat[0]==DROITE)
-            move(GAUCHE);
-
-        touched = false;
-    }
+    /// vérification de la viabilité du vaisseau
     if(coque<=0)
     {
         alive = false;
     }
-
+    /// choix aléatoire de la cible
+    if(!hasMoved)
+    {
+        /// attention utilisation absolue de la taille de la map
+        cible = Coordonnees(random(0,4095),random(0,4095),0,0);
+    }
+    /// màj des éléments
+    move();
     batterie->update();
 }
 
@@ -204,4 +175,18 @@ int Vaisseau::collisionPoints()
     return 20;
 }
 
+void Vaisseau::setCoins(int v)
+{
+    coins = v;
+}
+
+void Vaisseau::addCoins(int v)
+{
+    coins += v;
+}
+
+int Vaisseau::getCoins()
+{
+    return coins;
+}
 

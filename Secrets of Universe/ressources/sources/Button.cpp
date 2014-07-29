@@ -40,6 +40,11 @@ bool Button::pressed(Input * in)
     return retour;
 }
 
+void Button::setName(string n)
+{
+    name = n;
+}
+
 void Button::update(Input * in)
 {
     etat[0] = (pressed(in)) ? ON : OFF;

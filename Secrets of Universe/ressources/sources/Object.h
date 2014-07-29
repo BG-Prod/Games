@@ -28,8 +28,8 @@
 #include <Input.h>
 
 
-enum states{BAS,HAUT,DROITE,GAUCHE,ON,OFF};
-enum types{BUTTON1,BUTTON2,TEXT1,TEXT2,STARSHIP1,STARSHIP2,SHOT1,SHOT2,BOARD1,SPACE_MAP_1};
+enum states{BOTTOM,TOP,RIGHT,LEFT,ON,OFF,DISABLED};
+enum types{BUTTON0,BUTTON1,BUTTON2,BUTTON3,BUTTON4,BUTTON5,TEXT1,TEXT2,STARSHIP1,STARSHIP2,SHOT1,SHOT2,BOARD1,SPACE_MAP_1};
 
 class Object
 {
@@ -49,8 +49,8 @@ class Object
         virtual void update(Input * in);
         long getTime();
         bool isAlive();
-        void setCible(Object* o);
-        Object * getCible(){return cible;}
+        void setCible(Coordonnees o);
+        Coordonnees getCible(){return cible;}
 
     protected:
         Object();               /// pour avoir une classe abstraite
@@ -64,7 +64,7 @@ class Object
         Object * ancestor;
         int outOf;
         bool alive;
-        Object * cible;
+        Coordonnees cible;
 };
 
 

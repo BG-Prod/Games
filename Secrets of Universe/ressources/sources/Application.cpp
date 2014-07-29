@@ -60,6 +60,9 @@ Application::Application()
 
     /// time
     tempsActuel = 0, tempsPrecedent = 0, screen_refresh = SCREEN_REFRESH;
+
+    /// application states
+    state = MENU;
 }
 
 Application::~Application()
@@ -235,24 +238,44 @@ void Application::init()
 
 void Application::run()
 {
-    while(!in->get_touche(SDLK_ESCAPE) && !in->get_exit())
+    this->intro();
+    while(!in->get_touche(SDLK_ESCAPE) && !in->get_exit() && state != EXIT)
     {
+        state = MENU;
+        while(!in->get_touche(SDLK_ESCAPE) && !in->get_exit() && state == MENU)
+        {
+            this->fps();
+            in->update();
+            this->menu();
+            this->draw();
+        }
         this->init();
-        this->fps();
-        in->update();
-        this->app();
-        this->draw();
-        while(!in->get_touche(SDLK_ESCAPE) && !in->get_exit())
+        /** TEST TIMING **/// int compteurDeTour = 0;
+        /** TEST TIMING **/// int timeMemory = SDL_GetTicks();
+        while(!in->get_touche(SDLK_ESCAPE) && !in->get_exit() && state == MAIN)
         {
             this->fps();
             in->update();
             this->app();
             this->draw();
+
+        /** TEST TIMING **///     if(SDL_GetTicks()-timeMemory>=1000){cout << "Nombre d'exécution en 1 seconde : " << compteurDeTour+1 << endl; compteurDeTour=0; timeMemory = SDL_GetTicks();}
+        /** TEST TIMING **///     else{compteurDeTour++;}
         }
     }
 }
 
 void Application::app()
+{
+
+}
+
+void Application::menu()
+{
+    state = MAIN;
+}
+
+void Application::intro()
 {
 
 }
@@ -294,13 +317,18 @@ void Application::draw()
             }
             else if(numImage == -26)
             {
-                Texte txt = Texte();
+                Texte * txt = new Texte();
                 SDL_Color couleur = {255,255,255};
-                vector<Image*> textToPrint = txt.print(tmp.detail,"calibri",20,couleur,tmp.coor.x(),tmp.coor.y());
+                vector<Image*> textToPrint = txt->print(tmp.detail,"calibri",20,couleur,tmp.coor.x(),tmp.coor.y());
                 for(int k = 0 ; k < textToPrint.size() ; k++)
                 {
                     Coordonnees placeToBlitt(tmp.coor.x()+tmp.coor.w()/2-textToPrint[k]->width()/2,tmp.coor.y()+tmp.coor.h()/2-textToPrint[k]->height()/2, textToPrint[k]->width(), textToPrint[k]->height());
                     textToPrint[k]->print(screen->buffer(), placeToBlitt);
+                }
+                delete txt;
+                for(int incr = 0 ; incr < textToPrint.size() ; incr++)
+                {
+                    delete textToPrint[incr];
                 }
             }
         }

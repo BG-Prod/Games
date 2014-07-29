@@ -37,9 +37,6 @@ void SoUApp::init()
     /// on joue la musique de fond
     FMOD_System_PlaySound(system, FMOD_CHANNEL_FREE, musiques[0], 0, NULL);
 
-    /// affiche une intro BG Prod
-    intro();
-
     for(int i = 0 ; i < images[7]->width() ; i++)
     {
         for(int j = 0 ; j < images[7]->height() ; j++)
@@ -63,19 +60,23 @@ void SoUApp::init()
     }
 
     /// détermination de la cible du joueur
+    objects[1]->setCible(Coordonnees(0,0,1,1));
+    /** Ancienne version avec cible == object
     if(objects.size()>2) {
-        objects[1]->setCible(objects[random(2,objects.size()-1)]  );
+        objects[1]->setCible(objects[random(2,objects.size()-1)]);
     }
     else {
         objects[1]->setCible(NULL);
-    }
+    }**/
 
     /// mise en place de l'interface utilisateur
     interfaces.push_back(new Interface(BOARD1));
-    addButton(new Button(BUTTON1, Coordonnees(450+1050,10,128,64), "INFO"));
-    addButton(new Button(BUTTON1, Coordonnees(450+1180,10,128,64), "MENU"));
-    addButton(new Button(BUTTON1, Coordonnees(450+1310,10,128,64), "EXIT"));
-
+    addButton(new Button(BUTTON1, Coordonnees(1500,10,128,64), "INFO"));
+    addButton(new Button(BUTTON1, Coordonnees(1630,10,128,64), "MENU"));
+    addButton(new Button(BUTTON1, Coordonnees(1760,10,128,64), "EXIT"));
+    addButton(new Button(BUTTON3, Coordonnees(1016,10,128+96,64), "PLAYER"));
+    addButton(new Button(BUTTON4, Coordonnees(1176,10,128+96,64), "Level 10"));
+    addButton(new Button(BUTTON5, Coordonnees(1336,10,128+96,64), "1,000,000"));
 }
 
 void SoUApp::app()
@@ -151,6 +152,9 @@ void SoUApp::app()
         in->set_exit(true);
     }
     objects[1]->update(in);
+    ostringstream coinzz;
+    coinzz << ((Vaisseau*)objects[1])->getCoins();
+    buttons[5]->setName(coinzz.str());
 }
 
 void SoUApp::intro()    /// affichage du logo
@@ -187,38 +191,38 @@ int SoUApp::whatImage(int a, int b)
     }
     if(a==STARSHIP1)
     {
-        if(b==BAS)
+        if(b==BOTTOM)
         {
             retour = 2;
         }
-        else if(b==HAUT)
+        else if(b==TOP)
         {
             retour = 3;
         }
-        else if(b==DROITE)
+        else if(b==RIGHT)
         {
             retour = 4;
         }
-        else if(b==GAUCHE)
+        else if(b==LEFT)
         {
             retour = 5;
         }
     }
     if(a==STARSHIP2)
     {
-        if(b==BAS)
+        if(b==BOTTOM)
         {
             retour = 11;
         }
-        else if(b==HAUT)
+        else if(b==TOP)
         {
             retour = 12;
         }
-        else if(b==DROITE)
+        else if(b==RIGHT)
         {
             retour = 13;
         }
-        else if(b==GAUCHE)
+        else if(b==LEFT)
         {
             retour = 14;
         }
@@ -241,6 +245,18 @@ int SoUApp::whatImage(int a, int b)
         {
             retour = 9;
         }
+    }
+    if(a==BUTTON3)
+    {
+        retour = 17;
+    }
+    if(a==BUTTON4)
+    {
+        retour = 15;
+    }
+    if(a==BUTTON5)
+    {
+        retour = 16;
     }
     if(a==TEXT1)
     {

@@ -14,6 +14,8 @@ class Button : public Interface
         void update(Input * in);
         vector<DisplayDatas> print();
 
+        void setName(string n);
+
     protected:
         std::string name;
 };

@@ -1,4 +1,4 @@
-/*
+/**
     Secrets of Universe
     Copyright (C) 2014  BG Prod
 
@@ -16,7 +16,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
     Contact me : bgprod@outlook.com
-*/
+**/
 
 #ifndef INPUT_H
 #define INPUT_H
@@ -67,11 +67,10 @@ class Input
         bool modeSaisie();
 
     protected:
-    private:
         char touche[SDLK_LAST], souris_boutons[8], exit;
         int souris[4];
         std::string m_str;
         bool saisieActive;
 };
 
-#endif // INPUT_H
+#endif /// INPUT_H

@@ -47,7 +47,6 @@ Texte::~Texte()
     {
         if(*it != NULL)
         {
-            SDL_FreeSurface(*it);
             *it = NULL;
         }
     }

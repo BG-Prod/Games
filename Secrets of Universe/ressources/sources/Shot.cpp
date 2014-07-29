@@ -74,7 +74,8 @@ void Shot::update()
 
 void Shot::update()
 {
-    if(cible != NULL && cible != this) {
+    /// En commentaires la partie où la cible était un objet
+/**    if(cible != NULL && cible != this) {
         int vecX = ((cible->getPosition()).x())-(position.x());
         int vecY = ((cible->getPosition()).y())-(position.y());
         int base = abs(vecX)+abs(vecY);
@@ -85,24 +86,24 @@ void Shot::update()
             position.y(position.y()+movY);
         }
     }
-    else {
-        if(etat[0]==GAUCHE)
+    else {**/
+        if(etat[0]==LEFT)
         {
             position.x(position.x()-vitesse);
         }
-        else if(etat[0]==DROITE)
+        else if(etat[0]==RIGHT)
         {
             position.x(position.x()+vitesse);
         }
-        else if(etat[0]==HAUT)
+        else if(etat[0]==TOP)
         {
             position.y(position.y()-vitesse);
         }
-        else if(etat[0]==BAS)
+        else if(etat[0]==BOTTOM)
         {
             position.y(position.y()+vitesse);
         }
-    }
+///    }
 
     alive &= (SDL_GetTicks() < (unsigned)birth+lifeTime);
 }

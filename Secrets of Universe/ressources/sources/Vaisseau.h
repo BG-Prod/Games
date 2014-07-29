@@ -44,7 +44,7 @@ class Vaisseau : public Object
                  states _etat, Object * _ancestor);
         virtual ~Vaisseau();
 
-        void move(states d);
+        void move();
         void destroy();
         void bot();
         void shoot();
@@ -52,9 +52,13 @@ class Vaisseau : public Object
         void collided(int);
         int collisionPoints();
 
+        void setCoins(int v);
+        void addCoins(int v);
+        int getCoins();
+
     protected:
         int energie, bouclier, coque, capteur, vitesse, joueur,
-        masse, teleporteur, hypernavigateur, moteur;
+        masse, teleporteur, hypernavigateur, moteur, coins, pib;
         bool activiteBouclier, touched;
         Weapon * batterie;
 };

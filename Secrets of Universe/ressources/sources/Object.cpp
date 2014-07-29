@@ -30,9 +30,9 @@ Object::Object() : birth(getTime())
     outOf = -1;
     ancestor = NULL;
     position = Coordonnees(0,0,0,0);
-    etat.push_back(HAUT);
+    etat.push_back(TOP);
     alive = true;
-    cible = NULL;
+    cible = Coordonnees(0,0,1,1);
 }
 
 Object::~Object()
@@ -158,19 +158,19 @@ int Object::isOut(Object * o)
 {
     if(this->position.x()<o->position.x())
     {
-        return (int)GAUCHE;
+        return (int)LEFT;
     }
     else if(this->position.y()<o->position.y())
     {
-        return (int)HAUT;
+        return (int)TOP;
     }
     else if(this->position.x()+this->position.w()>o->position.x()+o->position.w())
     {
-        return (int)DROITE;
+        return (int)RIGHT;
     }
     else if((this->position.y()+this->position.h()) > (o->position.y()+o->position.h()))
     {
-        return (int)BAS;
+        return (int)BOTTOM;
     }
     else
     {
@@ -193,7 +193,7 @@ int Object::collisionPoints()
     return 5;
 }
 
-void Object::setCible(Object* o)
+void Object::setCible(Coordonnees o)
 {
     cible = o;
     for (int i = 0 ; i < sons.size() ; i ++){

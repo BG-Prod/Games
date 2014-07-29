@@ -28,8 +28,8 @@ Map::Map() : Object()
     type[0] = (SPACE_MAP_1);
     hasMoved = false;
     ancestor = NULL;
-    position = Coordonnees(0,0,3840,3072);
-    etat[0] = HAUT;
+    position = Coordonnees(0,0,4096,4096);
+    etat[0] = TOP;
 }
 
 Map::~Map()
