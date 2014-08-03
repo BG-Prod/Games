@@ -8,6 +8,14 @@ Button::Button(int _type, Coordonnees _coor, std::string _name) : Interface()
     position = _coor;
 }
 
+Button::Button(int _type, Coordonnees _coor, std::string _name, states _st) : Interface()
+{
+    type[0] = _type;
+    etat[0] = _st;
+    name = _name;
+    position = _coor;
+}
+
 Button::~Button()
 {
     //dtor
@@ -32,7 +40,7 @@ bool Button::pressed(Input * in)
 {
     bool retour = false;
 
-    if(hover(in) && in->get_souris_boutons(1))
+    if(hover(in) && in->get_souris_boutons(1) && etat[0] != DISABLED)
     {
         retour = true;
     }

@@ -51,16 +51,13 @@ class Vaisseau : public Object
         void update(Input * in);
         void collided(int);
         int collisionPoints();
-
-        void setCoins(int v);
-        void addCoins(int v);
-        int getCoins();
+        DisplayDatas transitoryEvents();
 
     protected:
         int energie, bouclier, coque, capteur, vitesse, joueur,
-        masse, teleporteur, hypernavigateur, moteur, coins, pib;
+        masse, teleporteur, hypernavigateur, moteur, pib;
         bool activiteBouclier, touched;
         Weapon * batterie;
 };
 
-#endif // VAISSEAU_H_INCLUDED
+#endif /// VAISSEAU_H_INCLUDED

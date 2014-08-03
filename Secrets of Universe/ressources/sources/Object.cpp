@@ -24,10 +24,10 @@ using namespace std;
 
 Object::Object() : birth(getTime())
 {
+    displayDetails = "";
     id = 0;
     type.push_back(0);
     hasMoved = false;
-    outOf = -1;
     ancestor = NULL;
     position = Coordonnees(0,0,0,0);
     etat.push_back(TOP);
@@ -136,7 +136,8 @@ vector<DisplayDatas> Object::print()
 {
     vector<DisplayDatas> dt;
 
-    dt.push_back(DisplayDatas(type[0],etat[0],position));
+    dt.push_back(DisplayDatas(type[0],etat[0],position, displayDetails));
+    dt.push_back(transitoryEvents());
     for(int i = 0 ; i < sons.size() ; i++)
     {
         vector<DisplayDatas> dt_sons = sons[i]->print();
@@ -152,35 +153,6 @@ vector<DisplayDatas> Object::print()
 long Object::getTime()
 {
     return SDL_GetTicks();
-}
-
-int Object::isOut(Object * o)
-{
-    if(this->position.x()<o->position.x())
-    {
-        return (int)LEFT;
-    }
-    else if(this->position.y()<o->position.y())
-    {
-        return (int)TOP;
-    }
-    else if(this->position.x()+this->position.w()>o->position.x()+o->position.w())
-    {
-        return (int)RIGHT;
-    }
-    else if((this->position.y()+this->position.h()) > (o->position.y()+o->position.h()))
-    {
-        return (int)BOTTOM;
-    }
-    else
-    {
-        return -1;
-    }
-}
-
-void Object::setOutOf(int dir)
-{
-    outOf = dir;
 }
 
 void Object::collided(int perte)
@@ -199,5 +171,10 @@ void Object::setCible(Coordonnees o)
     for (int i = 0 ; i < sons.size() ; i ++){
         sons[i]->setCible(cible);
     }
+}
+
+DisplayDatas Object::transitoryEvents()
+{
+    return DisplayDatas(-1,-1,Coordonnees(0,0,0,0));
 }
 

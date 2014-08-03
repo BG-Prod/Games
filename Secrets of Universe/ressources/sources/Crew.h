@@ -35,6 +35,10 @@ class Crew
 
     protected:
         vector<Person *> membre;
+        int productivity;
+        int pib;
+        int needs;
+        int population;
 };
 
 #endif // CREW_H

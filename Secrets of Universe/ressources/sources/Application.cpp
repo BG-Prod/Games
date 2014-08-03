@@ -52,6 +52,9 @@ Application::Application()
     /// initialisation image & son
     initialisation();
 
+    /// gestionnaire d'animations
+    animationManager = new AnimationManager(screen->buffer());
+
     /// Icone
     images.at(0)->setAsIcon();
 
@@ -136,6 +139,21 @@ void Application::loadImages()
         }
 
         images.push_back(new Image(lien));
+        images[i]->resize((double)(100.0*(SDL_GetVideoSurface()->h)/1080.0));
+    }
+    for(int i = 0 ; i < NOMBRE_ANIM ; i++)
+    {
+        itoa(i,a,10);
+        if(i < 10)
+        {
+            lien = cheminImage + "anim0" + a + ".png";
+        }
+        else
+        {
+            lien = cheminImage + "anim" + a + ".png";
+        }
+
+        images.push_back(new Animation(lien));
         images[i]->resize((double)(100.0*(SDL_GetVideoSurface()->h)/1080.0));
     }
 }
@@ -229,6 +247,8 @@ void Application::fps()
         SDL_Delay(tempsActuel - tempsPrecedent);
         tempsPrecedent = tempsActuel;
     }
+	time(&maintenant);
+	Today = *localtime(&maintenant);
 }
 
 void Application::init()
@@ -241,8 +261,8 @@ void Application::run()
     this->intro();
     while(!in->get_touche(SDLK_ESCAPE) && !in->get_exit() && state != EXIT)
     {
-        state = MENU;
-        while(!in->get_touche(SDLK_ESCAPE) && !in->get_exit() && state == MENU)
+        state = GOMENU;
+        while(!in->get_touche(SDLK_ESCAPE) && !in->get_exit() && (state == MENU || state == GOMENU))
         {
             this->fps();
             in->update();
@@ -250,6 +270,13 @@ void Application::run()
             this->draw();
         }
         this->init();
+
+        /// permet de rentrer dans le bloc principal
+        if(state!=EXIT)
+        {
+            state = MAIN;
+        }
+
         /** TEST TIMING **/// int compteurDeTour = 0;
         /** TEST TIMING **/// int timeMemory = SDL_GetTicks();
         while(!in->get_touche(SDLK_ESCAPE) && !in->get_exit() && state == MAIN)
@@ -282,10 +309,14 @@ void Application::intro()
 
 void Application::draw()
 {
+    /// on met a jour les animations
+    animationManager->update();
+
+    /// on traite les images et enregistre les nouvelles animations
     for(unsigned int i = 0 ; i < objects.size() ; i++)
     {
         vector<DisplayDatas> tmps = objects[i]->print();
-        for(int j = 0 ; j < tmps.size() ; j++)
+        for(unsigned int j = 0 ; j < tmps.size() ; j++)
         {
             DisplayDatas tmp = tmps[j];
 
@@ -293,18 +324,33 @@ void Application::draw()
 
             if(numImage >= 0)
             {
-                Coordonnees relativePlace(tmp.coor);
-                relativePlace.x(relativePlace.x()-cam->view().x());
-                relativePlace.y(relativePlace.y()-cam->view().y());
-                images[numImage]->print(screen->buffer(), (i==0)?cam->place():relativePlace, (i==0)?cam->view():cam->place());
+                if(tmp.detail == "animation")
+                {
+                    Coordonnees relativePlace(tmp.coor);
+                    relativePlace.x(relativePlace.x()-cam->view().x());
+                    relativePlace.y(relativePlace.y()-cam->view().y());
+                    tmp.coor = relativePlace;
+                    animationManager->pushAnim(tmp,(Animation*)images[numImage]);
+                }
+                else
+                {
+                    Coordonnees relativePlace(tmp.coor);
+                    relativePlace.x(relativePlace.x()-cam->view().x());
+                    relativePlace.y(relativePlace.y()-cam->view().y());
+                    images[numImage]->print(screen->buffer(), (i==0)?cam->place():relativePlace, (i==0)?cam->view():cam->place());
+                }
             }
         }
     }
 
+    /// on joue les animations
+    animationManager->displayAnimations();
+
+    /// de même pour les interfaces
     for(unsigned int i = 0 ; i < interfaces.size() ; i++)
     {
         vector<DisplayDatas> tmps = interfaces[i]->print();
-        for(int j = 0 ; j < tmps.size() ; j++)
+        for(unsigned int j = 0 ; j < tmps.size() ; j++)
         {
             DisplayDatas tmp = tmps[j];
 
@@ -320,13 +366,13 @@ void Application::draw()
                 Texte * txt = new Texte();
                 SDL_Color couleur = {255,255,255};
                 vector<Image*> textToPrint = txt->print(tmp.detail,"calibri",20,couleur,tmp.coor.x(),tmp.coor.y());
-                for(int k = 0 ; k < textToPrint.size() ; k++)
+                for(unsigned int k = 0 ; k < textToPrint.size() ; k++)
                 {
                     Coordonnees placeToBlitt(tmp.coor.x()+tmp.coor.w()/2-textToPrint[k]->width()/2,tmp.coor.y()+tmp.coor.h()/2-textToPrint[k]->height()/2, textToPrint[k]->width(), textToPrint[k]->height());
                     textToPrint[k]->print(screen->buffer(), placeToBlitt);
                 }
                 delete txt;
-                for(int incr = 0 ; incr < textToPrint.size() ; incr++)
+                for(unsigned int incr = 0 ; incr < textToPrint.size() ; incr++)
                 {
                     delete textToPrint[incr];
                 }
@@ -343,8 +389,33 @@ void Application::addButton(Button * b)
     buttons.push_back(b);
 }
 
+void Application::pullButton(int index)
+{
+    for(unsigned int i = 0 ; i < interfaces.size() ; i++)
+    {
+        if(interfaces[i]==buttons[index])
+        {
+            interfaces.erase(interfaces.begin()+i);
+        }
+    }
+    delete buttons[index];
+    buttons.erase(buttons.begin()+index);
+}
+
 int Application::whatImage(int a, int b)
 {
 
+}
+
+string Application::itos(long number)
+{
+    ostringstream retour;
+    retour << number;
+    return string(retour.str());
+}
+
+long Application::getTime()
+{
+    return SDL_GetTicks();
 }
 

@@ -7,6 +7,7 @@ class Button : public Interface
 {
     public:
         Button(int _type, Coordonnees _coor, std::string _name);
+        Button(int _type, Coordonnees _coor, std::string _name, states _st);
         virtual ~Button();
 
         bool hover(Input*);
@@ -17,7 +18,6 @@ class Button : public Interface
         void setName(string n);
 
     protected:
-        std::string name;
 };
 
 #endif // BUTTON_H

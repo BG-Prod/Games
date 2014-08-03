@@ -29,6 +29,7 @@ class Person
 {
     public:
         Person();
+        Person(string _firstName, string _lastName, int _age, int _satisfaction, int _value, int _id, string _craft, string _sex, string _species);
         virtual ~Person();
 
     protected:

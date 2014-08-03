@@ -66,6 +66,7 @@ class Image
         int width(){return w;}
         int height(){return h;}
         void saveAs(std::string url);
+        SDL_Surface * getSurface(){return image;}
 
         Uint32 getPixel(int x, int y);  /// renvoie le pixel sous forme hexadecimal sur 32 bits
         const int * getPixelRGBA(int x, int y); /// renvoie le pixel sous forma d'un tableau A,R,G,B
@@ -86,4 +87,4 @@ class Image
         void echangerEntiers(int* x, int* y);
 };
 
-#endif // IMAGE_H
+#endif /// IMAGE_H

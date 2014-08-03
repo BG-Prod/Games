@@ -36,6 +36,10 @@ Image::Image(string link)
     x = 0, y = 0, w = image->w, h = image->h, alpha = 255;
     lastX = 0, lastY = 0;
     name = link;
+    if(!image)
+    {   /// check errors
+        cout << "IMG_Load: %s\n" << IMG_GetError() << endl;
+    }
 }
 
 Image::Image(SDL_Surface * pt)
@@ -166,6 +170,7 @@ void Image::setAsIcon()
 
 void Image::setAlpha(int a)
 {
+    SDL_DisplayFormat(image);
     SDL_SetAlpha(image, SDL_SRCALPHA, a);
 }
 

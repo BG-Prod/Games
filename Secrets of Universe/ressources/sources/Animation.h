@@ -3,21 +3,23 @@
 
 #include <Image.h>
 
-class Animation
+using namespace std;
+
+class Animation : public Image
 {
+    friend Image;
     public:
-        Animation();
+        Animation(string link);
         virtual ~Animation();
 
-        Image * getAnim();
-        void addAnim(Image * i);
-        void playAnim(bool b);
+        void print(Image * buffer, Coordonnees where, int which);
+        int getNbFrame();
+        bool isInfinite();
 
     protected:
-        std::vector<Image*> anim;
-        int index;
-        bool play;
-        int echelle, cran;
+        int nbFrame;
+        bool infinite;
+        int nbPerLine, nbPerColumn;
 };
 
-#endif // ANIMATION_H
+#endif /// ANIMATION_H

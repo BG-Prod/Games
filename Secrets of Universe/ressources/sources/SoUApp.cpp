@@ -29,12 +29,51 @@ SoUApp::SoUApp() : Application()
 
 SoUApp::~SoUApp()
 {
-    //dtor
+    for(unsigned int i = 0 ; i < players.size() ; i++)
+    {
+        delete players[i];
+    }
+    players.clear();
 }
 
 void SoUApp::menu()
 {
-    state = MAIN;
+    if(state == GOMENU)
+    {
+        interfaces.push_back(new Interface(WALLPAPER0));
+        addButton(new Button(BUTTON1, Coordonnees(screen->getWidth()/2-64,80,128,64), "CONTINUE"));
+        addButton(new Button(BUTTON1, Coordonnees(screen->getWidth()/2-64,160,128,64), "NEW GAME"));
+        addButton(new Button(BUTTON1, Coordonnees(screen->getWidth()/2-64,240,128,64), "OPTION"));
+        addButton(new Button(BUTTON1, Coordonnees(screen->getWidth()/2-64,320,128,64), "EXIT"));
+        buttons[0]->setState(DISABLED);
+        buttons[2]->setState(DISABLED);
+        state = MENU;
+    }
+    if(buttons[0]->pressed(in))
+    {
+        state = LOADGAME;
+    }
+    if(buttons[1]->pressed(in))
+    {
+        state = NEWGAME;
+    }
+    if(buttons[2]->pressed(in))
+    {
+        state = OPTIONS;
+    }
+    if(buttons[3]->pressed(in))
+    {
+        state = EXIT;
+    }
+    if(state != MENU)
+    {
+        while( buttons.size() > 0 )
+        {
+            pullButton(0);
+        }
+        delete interfaces[0];
+        interfaces.erase(interfaces.begin());
+    }
 }
 
 void SoUApp::init()
@@ -42,6 +81,7 @@ void SoUApp::init()
     /// on joue la musique de fond
     FMOD_System_PlaySound(system, FMOD_CHANNEL_FREE, musiques[0], 0, NULL);
 
+    /// génération du terrain
     for(int i = 0 ; i < images[7]->width() ; i++)
     {
         for(int j = 0 ; j < images[7]->height() ; j++)
@@ -49,39 +89,42 @@ void SoUApp::init()
             images[7]->setPixel(i,j,((images[7]->getPixel(i,j)) & 0xFF1100BB));
         }
     }
-
     /// génération des étoiles
     for(int i = 0 ; i < 500 ; i++)
     {
         images[7]->setPixel(random(0,images[7]->width()), random(0,images[7]->height()), color(random(200,255),random(200,255),random(180,200)));
     }
 
-    /// création des vaisseaux
+    /// création de la carte
     objects.push_back(new Map());
-    objects.push_back(new Vaisseau(0,0));
+
+    /// création des joueurs
+    addHuman(new Player(1103, 0 , 0, 1, 1000, true, "Ben", new Crew(), new Vaisseau(0,0)));
     for(int i = 0 ; i < 15 ; i++)
     {
-        objects.push_back(new Vaisseau(STARSHIP2, random(0,(int)(objects[0]->getPosition()).w()) , random(0,(int)(objects[0]->getPosition()).h())) );
+        addBot(new Player(random(0,999999), 0, 0, random(1,16), random(1000, 10000), false, "Computer " + i, new Crew(), new Vaisseau(STARSHIP2, random(0,(int)(objects[0]->getPosition()).w()) , random(0,(int)(objects[0]->getPosition()).h()))));
+    }
+
+    /// ajout des vaisseaux
+    for(unsigned int i = 0 ; i < players.size() ; i++)
+    {
+        objects.push_back( players[i]->getStarship() );
     }
 
     /// détermination de la cible du joueur
     objects[1]->setCible(Coordonnees(0,0,1,1));
-    /** Ancienne version avec cible == object
-    if(objects.size()>2) {
-        objects[1]->setCible(objects[random(2,objects.size()-1)]);
-    }
-    else {
-        objects[1]->setCible(NULL);
-    }**/
 
     /// mise en place de l'interface utilisateur
     interfaces.push_back(new Interface(BOARD1));
     addButton(new Button(BUTTON1, Coordonnees(1500,10,128,64), "INFO"));
     addButton(new Button(BUTTON1, Coordonnees(1630,10,128,64), "MENU"));
     addButton(new Button(BUTTON1, Coordonnees(1760,10,128,64), "EXIT"));
-    addButton(new Button(BUTTON3, Coordonnees(1016,10,128+96,64), "PLAYER"));
-    addButton(new Button(BUTTON4, Coordonnees(1176,10,128+96,64), "Level 10"));
-    addButton(new Button(BUTTON5, Coordonnees(1336,10,128+96,64), "1,000,000"));
+    addButton(new Button(BUTTON3, Coordonnees(1016,10,128+96,64), you->getName()));
+    addButton(new Button(BUTTON4, Coordonnees(1176,10,128+96,64), "Level X"));
+    addButton(new Button(BUTTON5, Coordonnees(1336,10,128+96,64), "000,000,000"));
+    addButton(new Button(BUTTON2, Coordonnees(0,0,128+96,64), ((Today.tm_hour<10)?"0"+itos(Today.tm_hour):itos(Today.tm_hour))+":"
+                         +((Today.tm_min<10)?"0"+itos(Today.tm_min):itos(Today.tm_min))+":"
+                         +((Today.tm_sec<10)?"0"+itos(Today.tm_sec):itos(Today.tm_sec))));
 }
 
 void SoUApp::app()
@@ -114,7 +157,7 @@ void SoUApp::app()
     }
 
     /// màj des objets
-    for(unsigned int i = 2 ; i < objects.size() ; i++)
+    for(unsigned int i = 1 ; i < objects.size() ; i++)
     {
         objects[i]->bot();
     }
@@ -126,12 +169,17 @@ void SoUApp::app()
     }
 
     /// màj du joueur
-    objects[1]->update(in);
+    if()
+    {
+        you->getStarship()->update(in);
+    }
 
     /// màj visuel cagnotte joueur
-    ostringstream coinzz;
-    coinzz << ((Vaisseau*)objects[1])->getCoins();
-    buttons[5]->setName(coinzz.str());
+    buttons[5]->setName(itos(you->getCoins()));
+    buttons[4]->setName(itos(you->getLevel()));
+    buttons[6]->setName(((Today.tm_hour<10)?"0"+itos(Today.tm_hour):itos(Today.tm_hour))+":"
+                         +((Today.tm_min<10)?"0"+itos(Today.tm_min):itos(Today.tm_min))+":"
+                         +((Today.tm_sec<10)?"0"+itos(Today.tm_sec):itos(Today.tm_sec)));
 }
 
 void SoUApp::intro()    /// affichage du logo
@@ -143,7 +191,7 @@ void SoUApp::intro()    /// affichage du logo
         SDL_FillRect(SDL_GetVideoSurface(), 0, SDL_MapRGBA(SDL_GetVideoSurface()->format, 0, 0, 0, 0));
         images[0]->setAlpha(clign);
         images[0]->print(SDL_GetVideoSurface()->w/2 - images[0]->width()/2,SDL_GetVideoSurface()->h/2 - images[0]->height()/2);
-        clign+=10;
+        clign+=5;
         fps();
         SDL_Flip(SDL_GetVideoSurface());
     }
@@ -192,12 +240,16 @@ void SoUApp::eventsManager()    /// gère les évènements
     /// pour tirer
     if(in->get_touche(SDLK_SPACE))
     {
-        ((Vaisseau*)objects[1])->shoot();
+        (you->getStarship())->shoot();
+    }
+    if(in->get_touche(SDLK_RETURN))
+    {
+        (you->getStarship())->destroy();
     }
     /// sur clic on désigne une nouvelle cible
     if(in->get_souris_boutons(SDL_BUTTON_RIGHT))
     {
-        objects[1]->setCible(Coordonnees(in->mouse(X)+cam->view().x(), in->mouse(Y)+cam->view().y(), 5, 5));
+        you->getStarship()->setCible(Coordonnees(in->mouse(X)+cam->view().x(), in->mouse(Y)+cam->view().y(), 5, 5));
         in->set_souris_boutons(SDL_BUTTON_RIGHT,0);
     }
 }
@@ -251,7 +303,15 @@ int SoUApp::whatImage(int a, int b) /// couple les données pour obtenir un rendu
     {
         retour = 8;
     }
+    if(a==WALLPAPER0)
+    {
+        retour = 1;
+    }
     if(a==SHOT1)
+    {
+        retour = 21;
+    }
+    if(a==SHOT2)
     {
         retour = 6;
     }
@@ -264,6 +324,10 @@ int SoUApp::whatImage(int a, int b) /// couple les données pour obtenir un rendu
         else if(b==OFF)
         {
             retour = 9;
+        }
+        else if(b==DISABLED)
+        {
+            retour = 18;
         }
     }
     if(a==BUTTON3)
@@ -282,7 +346,44 @@ int SoUApp::whatImage(int a, int b) /// couple les données pour obtenir un rendu
     {
         retour = -26;
     }
+    if(a==POPUP)
+    {
+        retour = 20;
+    }
+    if(a==EXPLOSION0)
+    {
+        retour = 22;
+    }
 
     return retour;
 }
+
+void SoUApp::addHuman(Player * p)
+{
+    players.push_back(p);
+    you = p;
+}
+
+void SoUApp::addBot(Player * p)
+{
+    players.push_back(p);
+}
+
+void SoUApp::pullPlayer(int pid)
+{
+    for(unsigned int i = 0 ; i < players.size() ; i++)
+    {
+        if(players[i]->getId() == pid)
+        {
+            delete players[i];
+            players.erase(players.begin()+i);
+        }
+    }
+    if(you->getId()==pid)
+    {
+        you = NULL;
+    }
+}
+
+
 

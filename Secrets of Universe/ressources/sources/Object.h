@@ -29,7 +29,8 @@
 
 
 enum states{BOTTOM,TOP,RIGHT,LEFT,ON,OFF,DISABLED};
-enum types{BUTTON0,BUTTON1,BUTTON2,BUTTON3,BUTTON4,BUTTON5,TEXT1,TEXT2,STARSHIP1,STARSHIP2,SHOT1,SHOT2,BOARD1,SPACE_MAP_1};
+enum types{BUTTON0,BUTTON1,BUTTON2,BUTTON3,BUTTON4,BUTTON5,TEXT1,TEXT2,WALLPAPER0,WALLPAPER1,STARSHIP1,STARSHIP2,SHOT1,SHOT2,
+EXPLOSION0,EXPLOSION1,BOARD1,SPACE_MAP_1,POPUP};
 
 class Object
 {
@@ -41,8 +42,6 @@ class Object
         virtual void collided(int);
         int getEtat(){return etat[0];}
         Coordonnees getPosition(){return position;}
-        int isOut(Object * o);
-        void setOutOf(int dir);    /// 0 : l'objet ne sort pas ; 1,2,3,4 : l'objet sort en bas en haut à droite ou à gauche;
         virtual std::vector<DisplayDatas> print();
         int numberToPrint(){return etat.size();}
         virtual void bot();
@@ -51,6 +50,7 @@ class Object
         bool isAlive();
         void setCible(Coordonnees o);
         Coordonnees getCible(){return cible;}
+        virtual DisplayDatas transitoryEvents();
 
     protected:
         Object();               /// pour avoir une classe abstraite
@@ -62,9 +62,9 @@ class Object
         bool hasMoved;
         std::vector<int> etat;
         Object * ancestor;
-        int outOf;
         bool alive;
         Coordonnees cible;
+        std::string name, displayDetails;
 };
 
 

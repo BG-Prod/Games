@@ -1,11 +1,10 @@
 #include "Animation.h"
 
-Animation::Animation()
+Animation::Animation(string link) : Image(link)
 {
-    index = 0;
-    play = false;
-    echelle = 1;
-    cran = 0;
+    nbFrame = 12;
+    infinite = false;
+    nbPerLine = 3, nbPerColumn = 4;
 }
 
 Animation::~Animation()
@@ -13,30 +12,28 @@ Animation::~Animation()
     //dtor
 }
 
-void Animation::playAnim(bool b)
+void Animation::print(Image * buffer, Coordonnees where, int which)
 {
-    play = b;
+    int frameToPrint = which % nbFrame;
+    SDL_Rect ou, dou;
+    ou.x = where.x();
+    ou.y = where.y();
+    ou.w = where.w();
+    ou.h = where.h();
+    dou.x = (frameToPrint%nbPerLine)*width()/nbPerLine;
+    dou.y = (frameToPrint/nbPerLine)*height()/nbPerColumn;
+    dou.w = width()/nbPerLine;
+    dou.h = height()/nbPerColumn;
+    SDL_BlitSurface(image, &dou, buffer->getSurface(), &ou);
 }
 
-void Animation::addAnim(Image * i)
+int Animation::getNbFrame()
 {
-    anim.push_back(i);
+    return nbFrame;
 }
 
-Image * Animation::getAnim()
+bool Animation::isInfinite()
 {
-    if(play)
-    {
-        if(echelle == cran)
-        {
-            index++;
-            index = index<anim.size() ? index : 0 ;
-            cran = 0;
-        }
-        else
-        {
-            cran++;
-        }
-    }
-    return anim[index];
+    return infinite;
 }
+

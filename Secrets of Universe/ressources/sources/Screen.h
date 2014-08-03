@@ -57,6 +57,8 @@ class Screen
         Image * buffer();    /// ce qui sera afficher
         void setBuffer(Image * img);
         Image * getBuffer(){return videoBuffer;}
+        int getWidth(){return ecran->w;}
+        int getHeigth(){return ecran->h;}
 
     protected:
         SDL_Surface * ecran;

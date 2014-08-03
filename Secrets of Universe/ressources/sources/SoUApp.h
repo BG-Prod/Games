@@ -21,7 +21,10 @@
 #ifndef SOUAPP_H
 #define SOUAPP_H
 
+#include <vector>
+
 #include <Application.h>
+#include <Player.h>
 #include <Vaisseau.h>
 #include <Screen.h>
 #include <Map.h>
@@ -36,13 +39,21 @@ class SoUApp : public Application
         virtual ~SoUApp();
 
         virtual void app();
+
+        void addHuman(Player * p);
+        void addBot(Player * p);
+
+        void pullPlayer(int id);
+
+    protected:
+        vector<Player*> players;
+        Player * you;
+
+        int whatImage(int a, int b);
         void intro();
         void init();
         void menu();
         void eventsManager();
-
-    protected:
-        int whatImage(int a, int b);
 };
 
 #endif // SOUAPP_H

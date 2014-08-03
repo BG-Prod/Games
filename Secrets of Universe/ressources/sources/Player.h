@@ -32,11 +32,20 @@ class Player
 {
     public:
         Player();
-        Player(int,int,int,int,bool,string,Crew*,Vaisseau*);
+        Player(int _id, int _xp, int _level, int _team, int _coins, bool _human, string _name, Crew* _crew, Vaisseau* _starship);
         virtual ~Player();
 
+        int getId();
+        string getName();
+        Vaisseau * getStarship();
+
+        void setCoins(int v);
+        void addCoins(int v);
+        int getCoins();
+        int getLevel();
+
     protected:
-        int id, xp, level, team;
+        int id, xp, level, team, coins;
         bool human;
         Crew * crew;
         string name;

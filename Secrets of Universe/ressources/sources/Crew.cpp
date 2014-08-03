@@ -22,10 +22,19 @@
 
 Crew::Crew()
 {
-    //ctor
+    productivity = 20;
+    pib = 2;
+    needs = 10;
+    population = 0;
 }
 
 Crew::~Crew()
 {
-    //dtor
+    for(unsigned int i = 0 ; i < membre.size() ; i++)
+    {
+        delete membre[i];
+    }
+    membre.clear();
 }
+
+

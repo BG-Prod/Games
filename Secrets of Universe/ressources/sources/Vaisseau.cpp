@@ -24,14 +24,13 @@
 using namespace std;
 
 
-Vaisseau::Vaisseau() : Object(), energie(100), bouclier(100), coque(1000), capteur(100), teleporteur(100), hypernavigateur(100), moteur(100), coins(1000), pib(5)
+Vaisseau::Vaisseau() : Object(), energie(100), bouclier(100), coque(1000), capteur(100), teleporteur(100), hypernavigateur(100), moteur(100), pib(5)
 {
     etat[0] = LEFT;
     vitesse = 15;
     type[0] = STARSHIP1;
     alive = true;
     activiteBouclier = false;
-    outOf = -1;
     touched = false;
 
     /// position du centre du vaisseau
@@ -44,18 +43,19 @@ Vaisseau::Vaisseau() : Object(), energie(100), bouclier(100), coque(1000), capte
 
 Vaisseau::Vaisseau(int x, int y) : Vaisseau(STARSHIP1,x,y)
 {
-
+    displayDetails = "";
+    joueur = 1;
 }
 
-Vaisseau::Vaisseau(int _type, int x, int y) : Object(), energie(100), bouclier(100), coque(100), capteur(100), teleporteur(100), hypernavigateur(100), moteur(100), coins(1000), pib(5)
+Vaisseau::Vaisseau(int _type, int x, int y) : Object(), energie(100), bouclier(100), coque(100), capteur(100), teleporteur(100), hypernavigateur(100), moteur(100), pib(5)
 {
     etat[0] = LEFT;
     vitesse = 15;
     type[0] = _type;
     alive = true;
     activiteBouclier = false;
-    outOf = -1;
     touched = false;
+    joueur = random(2,16);
 
     /// position du centre du vaisseau
     position = Coordonnees(x,y,128,128,x,y,128,128);
@@ -84,7 +84,6 @@ Vaisseau::Vaisseau(int _energie, int _bouclier, int _coque, int _capteur, int _v
     position = _position;
     etat[0] = _etat;
     ancestor = _ancestor;
-    outOf = -1;
     touched = false;
     sons.push_back(batterie);
 }
@@ -100,8 +99,9 @@ void Vaisseau::move()
     *** On déplace proportionnellement à la distance à parcourir le vaisseau sur les deux axes.
     *** Ensuite on signale si on a bougé
     **/
-    int vecX = cible.x()-position.x();
-    int vecY = cible.y()-position.y();
+    Coordonnees pos = Coordonnees(position.x()+position.w()/2, position.y()+position.h()/2, position.w(), position.h());
+    int vecX = cible.x()-pos.x();
+    int vecY = cible.y()-pos.y();
     int base = abs(vecX)+abs(vecY);
     if(base > vitesse) {
         int movX = vitesse*vecX/base;
@@ -127,30 +127,43 @@ void Vaisseau::update(Input * in)
     /// màj des éléments
     move();
     batterie->update();
-    addCoins(pib);
 }
 
 void Vaisseau::destroy()
 {
+    alive = false;
+}
 
+DisplayDatas Vaisseau::transitoryEvents()
+{
+    DisplayDatas dt = DisplayDatas(-1,-1,Coordonnees(0,0,0,0));
+    if(!alive)
+    {
+        dt = DisplayDatas(EXPLOSION0,1,position,"animation");
+    }
+
+    return dt;
 }
 
 void Vaisseau::bot()
 {
-    /// vérification de la viabilité du vaisseau
-    if(coque<=0)
+    if(joueur != 1)
     {
-        alive = false;
+        /// vérification de la viabilité du vaisseau
+        if(coque<=0)
+        {
+            alive = false;
+        }
+        /// choix aléatoire de la cible
+        if(!hasMoved)
+        {
+            /// attention utilisation absolue de la taille de la map
+            cible = Coordonnees(random(0,4095),random(0,4095),0,0);
+        }
+        /// màj des éléments
+        move();
+        batterie->update();
     }
-    /// choix aléatoire de la cible
-    if(!hasMoved)
-    {
-        /// attention utilisation absolue de la taille de la map
-        cible = Coordonnees(random(0,4095),random(0,4095),0,0);
-    }
-    /// màj des éléments
-    move();
-    batterie->update();
 }
 
 void Vaisseau::collided(int perte)
@@ -162,20 +175,5 @@ void Vaisseau::collided(int perte)
 int Vaisseau::collisionPoints()
 {
     return 20;
-}
-
-void Vaisseau::setCoins(int v)
-{
-    coins = v;
-}
-
-void Vaisseau::addCoins(int v)
-{
-    coins += v;
-}
-
-int Vaisseau::getCoins()
-{
-    return coins;
 }
 

@@ -36,7 +36,9 @@
 #include <fmod.h>
 
 #include <Input.h>
+#include <AnimationManager.h>
 #include <Image.h>
+#include <Animation.h>
 #include <Screen.h>
 #include <Object.h>
 #include <Texte.h>
@@ -46,7 +48,8 @@
 
 #define SCREEN_REFRESH      40
 #define DEBUG               std::cerr << std::endl <<
-#define NOMBRE_IMAGE        18
+#define NOMBRE_IMAGE        22
+#define NOMBRE_ANIM         1
 #define NOMBRE_MUSIQUE      1
 #define NOMBRE_POLICE       0
 
@@ -58,7 +61,7 @@ const std::string cheminFile = cheminRessources + "files/";
 const std::string cheminPolice = cheminRessources + "polices/";
 const std::string cheminData = cheminRessources + "data/";
 
-enum appStates{MENU,MAIN,OPTIONS,EXIT};
+enum appStates{GOMENU,MENU,LOADGAME,NEWGAME,MAIN,OPTIONS,EXIT};
 
 class Application
 {
@@ -83,12 +86,14 @@ class Application
 
         static SDL_Surface* copieSurface(SDL_Surface *surf);
         static long getTime();
+        static string itos(long number);
 
         void fps();             /// régule le temps
         void draw();    /// défini l'affichage
         virtual int whatImage(int a, int b);
 
         void addButton(Button * b);
+        void pullButton(int index);
 
     protected:
         void initialisation();        /// initialise le jeu
@@ -118,6 +123,7 @@ class Application
         /// interface
         std::vector<Object*> interfaces;
         std::vector<Button*> buttons;
+        AnimationManager * animationManager;
 };
 
 #endif /// APPLICATION_H

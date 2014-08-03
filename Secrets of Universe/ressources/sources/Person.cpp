@@ -25,6 +25,19 @@ Person::Person()
     //ctor
 }
 
+Person::Person(string _firstName, string _lastName, int _age, int _satisfaction, int _value, int _id, string _craft, string _sex, string _species)
+{
+    firstName = _firstName;
+    lastName = _lastName;
+    age = _age;
+    satisfaction = _satisfaction;
+    value = _value;
+    id = _id;
+    craft = _craft;
+    sex = _sex;
+    species = _species;
+}
+
 Person::~Person()
 {
     //dtor
