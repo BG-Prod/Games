@@ -48,6 +48,13 @@ void Shot::use()
 {
 
 }
+
+void Shot::update()
+{
+
+    alive &= (SDL_GetTicks() < (unsigned)birth+lifeTime);
+}
+
 /*******************************************
 !!!!!!!!!!! VERSION 1.0 !!!!!!!!!!!!!!!!!!!!
 void Shot::update()
@@ -71,7 +78,7 @@ void Shot::update()
 }
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 *******************************************/
-
+/**
 void Shot::update()
 {
     /// En commentaires la partie où la cible était un objet
@@ -86,7 +93,7 @@ void Shot::update()
             position.y(position.y()+movY);
         }
     }
-    else {**/
+    else {**//**
         if(etat[0]==LEFT)
         {
             position.x(position.x()-vitesse);
@@ -103,10 +110,11 @@ void Shot::update()
         {
             position.y(position.y()+vitesse);
         }
-///    }
+///    }/**
 
     alive &= (SDL_GetTicks() < (unsigned)birth+lifeTime);
 }
+**/
 
 int Shot::collisionPoints()
 {

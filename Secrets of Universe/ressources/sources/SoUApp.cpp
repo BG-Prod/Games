@@ -41,12 +41,14 @@ void SoUApp::menu()
     if(state == GOMENU)
     {
         interfaces.push_back(new Interface(WALLPAPER0));
-        addButton(new Button(BUTTON1, Coordonnees(screen->getWidth()/2-64,80,128,64), "CONTINUE"));
-        addButton(new Button(BUTTON1, Coordonnees(screen->getWidth()/2-64,160,128,64), "NEW GAME"));
-        addButton(new Button(BUTTON1, Coordonnees(screen->getWidth()/2-64,240,128,64), "OPTION"));
-        addButton(new Button(BUTTON1, Coordonnees(screen->getWidth()/2-64,320,128,64), "EXIT"));
+        addButton(new Button(BUTTON1, Coordonnees(2*screen->getWidth()/4,3*screen->getHeigth()/4,128,64), "CONTINUE"));
+        addButton(new Button(BUTTON1, Coordonnees(2*screen->getWidth()/4+140,3*screen->getHeigth()/4,128,64), "NEW GAME"));
+        addButton(new Button(BUTTON1, Coordonnees(2*screen->getWidth()/4+280,3*screen->getHeigth()/4,128,64), "KINECT MODE"));
+        addButton(new Button(BUTTON1, Coordonnees(2*screen->getWidth()/4+420,3*screen->getHeigth()/4,128,64), "OPTIONS"));
+        addButton(new Button(BUTTON1, Coordonnees(2*screen->getWidth()/4+560,3*screen->getHeigth()/4,128,64), "EXIT"));
         buttons[0]->setState(DISABLED);
         buttons[2]->setState(DISABLED);
+        buttons[3]->setState(DISABLED);
         state = MENU;
     }
     if(buttons[0]->pressed(in))
@@ -59,9 +61,13 @@ void SoUApp::menu()
     }
     if(buttons[2]->pressed(in))
     {
-        state = OPTIONS;
+        state = KINECTMODE;
     }
     if(buttons[3]->pressed(in))
+    {
+        state = OPTIONS;
+    }
+    if(buttons[4]->pressed(in))
     {
         state = EXIT;
     }
@@ -82,17 +88,10 @@ void SoUApp::init()
     FMOD_System_PlaySound(system, FMOD_CHANNEL_FREE, musiques[0], 0, NULL);
 
     /// génération du terrain
-    for(int i = 0 ; i < images[7]->width() ; i++)
-    {
-        for(int j = 0 ; j < images[7]->height() ; j++)
-        {
-            images[7]->setPixel(i,j,((images[7]->getPixel(i,j)) & 0xFF1100BB));
-        }
-    }
     /// génération des étoiles
     for(int i = 0 ; i < 500 ; i++)
     {
-        images[7]->setPixel(random(0,images[7]->width()), random(0,images[7]->height()), color(random(200,255),random(200,255),random(180,200)));
+        images[itos(7)]->setPixel(random(0,images[itos(7)]->width()), random(0,images[itos(7)]->height()), color(random(200,255),random(200,255),random(180,200)));
     }
 
     /// création de la carte
@@ -100,6 +99,7 @@ void SoUApp::init()
 
     /// création des joueurs
     addHuman(new Player(1103, 0 , 0, 1, 1000, true, "Ben", new Crew(), new Vaisseau(0,0)));
+
     for(int i = 0 ; i < 15 ; i++)
     {
         addBot(new Player(random(0,999999), 0, 0, random(1,16), random(1000, 10000), false, "Computer " + i, new Crew(), new Vaisseau(STARSHIP2, random(0,(int)(objects[0]->getPosition()).w()) , random(0,(int)(objects[0]->getPosition()).h()))));
@@ -140,7 +140,17 @@ void SoUApp::app()
     {
         if(!objects[i]->isAlive())
         {
-            delete objects[i];
+            if(objects[i]==you->getStarship())
+            {
+                delete objects[i];
+                objects[i] = NULL;
+                you->setStarship(NULL);
+            }
+            else
+            {
+                delete objects[i];
+                objects[i] = NULL;
+            }
             objects.erase(objects.begin()+i);
         }
     }
@@ -156,6 +166,9 @@ void SoUApp::app()
         }
     }
 
+    /// màj des capteurs
+    radarManager();
+
     /// màj des objets
     for(unsigned int i = 1 ; i < objects.size() ; i++)
     {
@@ -169,7 +182,7 @@ void SoUApp::app()
     }
 
     /// màj du joueur
-    if()
+    if(you->getStarship()!=NULL)
     {
         you->getStarship()->update(in);
     }
@@ -189,8 +202,8 @@ void SoUApp::intro()    /// affichage du logo
     while(clign<256)
     {
         SDL_FillRect(SDL_GetVideoSurface(), 0, SDL_MapRGBA(SDL_GetVideoSurface()->format, 0, 0, 0, 0));
-        images[0]->setAlpha(clign);
-        images[0]->print(SDL_GetVideoSurface()->w/2 - images[0]->width()/2,SDL_GetVideoSurface()->h/2 - images[0]->height()/2);
+        images[itos(0)]->setAlpha(clign);
+        images[itos(0)]->print(SDL_GetVideoSurface()->w/2 - images[itos(0)]->width()/2,SDL_GetVideoSurface()->h/2 - images[itos(0)]->height()/2);
         clign+=5;
         fps();
         SDL_Flip(SDL_GetVideoSurface());
@@ -199,8 +212,8 @@ void SoUApp::intro()    /// affichage du logo
     while(clign<512)
     {
         SDL_FillRect(SDL_GetVideoSurface(), 0, SDL_MapRGBA(SDL_GetVideoSurface()->format, 0, 0, 0, 0));
-        images[1]->setAlpha(clign);
-        images[1]->print(SDL_GetVideoSurface()->w/2 - images[1]->width()/2,SDL_GetVideoSurface()->h/2 - images[1]->height()/2);
+        images[itos(1)]->setAlpha(clign);
+        images[itos(1)]->print(SDL_GetVideoSurface()->w/2 - images[itos(1)]->width()/2,SDL_GetVideoSurface()->h/2 - images[itos(1)]->height()/2);
         clign+=10;
         fps();
         SDL_Flip(SDL_GetVideoSurface());
@@ -238,16 +251,18 @@ void SoUApp::eventsManager()    /// gère les évènements
     }
 
     /// pour tirer
-    if(in->get_touche(SDLK_SPACE))
+    if(in->get_touche(SDLK_SPACE) && you->getStarship() != NULL)
     {
         (you->getStarship())->shoot();
     }
-    if(in->get_touche(SDLK_RETURN))
+    /// pour bouclier
+    if(in->get_touche(SDLK_RETURN) && you->getStarship() != NULL)
     {
-        (you->getStarship())->destroy();
+        (you->getStarship())->switchShield();
+        in->set_touche(SDLK_RETURN, 0);
     }
     /// sur clic on désigne une nouvelle cible
-    if(in->get_souris_boutons(SDL_BUTTON_RIGHT))
+    if(in->get_souris_boutons(SDL_BUTTON_RIGHT) && you->getStarship() != NULL)
     {
         you->getStarship()->setCible(Coordonnees(in->mouse(X)+cam->view().x(), in->mouse(Y)+cam->view().y(), 5, 5));
         in->set_souris_boutons(SDL_BUTTON_RIGHT,0);
@@ -314,6 +329,10 @@ int SoUApp::whatImage(int a, int b) /// couple les données pour obtenir un rendu
     if(a==SHOT2)
     {
         retour = 6;
+    }
+    if(a==SHIELD1)
+    {
+        retour = 25;
     }
     if(a==BUTTON1)
     {
@@ -385,5 +404,24 @@ void SoUApp::pullPlayer(int pid)
     }
 }
 
-
+void SoUApp::radarManager()
+{
+    for(unsigned int i = 0 ; i < players.size() ; i++)
+    {
+        if(players[i]->getStarship()!=NULL)
+        {
+            players[i]->getStarship()->clearRadar();
+            for(unsigned int j = 0 ; j < players.size() ; j++)
+            {
+                if(i != j && players[j]->getStarship()!=NULL)
+                {
+                    if(norme(players[i]->getStarship()->getPosition(),players[j]->getStarship()->getPosition())<=players[i]->getStarship()->getCapteur())
+                    {
+                        players[i]->getStarship()->addEchoRadar(players[j]->getStarship()->getPosition());
+                    }
+                }
+            }
+        }
+    }
+}
 

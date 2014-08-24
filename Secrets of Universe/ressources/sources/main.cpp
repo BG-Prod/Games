@@ -51,3 +51,18 @@ int main(int argc, char** argv)
     return 0;
 }
 
+/*** A FAIRE
+  **
+  ** systeme de tir
+  ** boucliers
+  ** IA avec zone de détection radar
+  ** scan de dossier
+  ** pop up de message
+  ** saisie clavier propre
+  ** charger sauvegarder
+  ** génération de vaisseau à partir de la base de données
+  ** créer la base de données
+  **
+  ** c'est déjà bien
+  **
+****/

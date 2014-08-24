@@ -32,6 +32,7 @@ Object::Object() : birth(getTime())
     position = Coordonnees(0,0,0,0);
     etat.push_back(TOP);
     alive = true;
+    isVisible = true;
     cible = Coordonnees(0,0,1,1);
 }
 
@@ -176,5 +177,10 @@ void Object::setCible(Coordonnees o)
 DisplayDatas Object::transitoryEvents()
 {
     return DisplayDatas(-1,-1,Coordonnees(0,0,0,0));
+}
+
+void Object::setVisible(bool choice)
+{
+    isVisible = choice;
 }
 

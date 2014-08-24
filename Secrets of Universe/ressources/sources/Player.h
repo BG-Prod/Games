@@ -38,6 +38,7 @@ class Player
         int getId();
         string getName();
         Vaisseau * getStarship();
+        void setStarship(Vaisseau * v);
 
         void setCoins(int v);
         void addCoins(int v);

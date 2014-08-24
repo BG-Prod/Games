@@ -22,11 +22,11 @@
 
 using namespace std;
 
-Screen::Screen()
+Screen::Screen()// : Screen(LARGEUR_ECRAN, HAUTEUR_ECRAN, false)
 {
     /// create a new window
     putenv("SDL_VIDEO_WINDOW_POS=center"); /// pour centrer la fenêtre
-    ecran = SDL_SetVideoMode(LARGEUR_ECRAN, HAUTEUR_ECRAN, 32, SDL_HWSURFACE|SDL_DOUBLEBUF|SDL_RESIZABLE/*|SDL_FULLSCREEN*/);
+    ecran = SDL_SetVideoMode(LARGEUR_ECRAN, HAUTEUR_ECRAN, 32, SDL_HWSURFACE|SDL_DOUBLEBUF|SDL_RESIZABLE);
     if ( !ecran )
     {
         printf("Unable to set personalized size video: %s\n", SDL_GetError());
@@ -36,12 +36,23 @@ Screen::Screen()
     videoBuffer = new Image(LARGEUR_ECRAN,HAUTEUR_ECRAN,0,0,0);
 }
 
-Screen::Screen(int w, int h)
+Screen::Screen(int w, int h, bool isFullScreen)
 {
     /// create a new window
     putenv("SDL_VIDEO_WINDOW_POS=center"); /// pour centrer la fenêtre
-    ecran = SDL_SetVideoMode(w, h, 32, SDL_HWSURFACE|SDL_DOUBLEBUF|SDL_RESIZABLE);
-
+    if(isFullScreen)
+    {
+        ecran = SDL_SetVideoMode(w, h, 32, SDL_HWSURFACE|SDL_DOUBLEBUF|SDL_RESIZABLE|SDL_FULLSCREEN);
+    }
+    else
+    {
+        ecran = SDL_SetVideoMode(w, h, 32, SDL_HWSURFACE|SDL_DOUBLEBUF|SDL_RESIZABLE);
+    }
+    if ( !ecran )
+    {
+        printf("Unable to set personalized size video: %s\n", SDL_GetError());
+        ecran = SDL_SetVideoMode(640, 480, 32, SDL_HWSURFACE|SDL_DOUBLEBUF|SDL_RESIZABLE);
+    }
 
     videoBuffer = new Image(w,h,0,0,0);
 }

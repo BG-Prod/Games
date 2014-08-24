@@ -34,7 +34,7 @@ class Weapon : public Object
         virtual ~Weapon();
 
         void init();
-        void use();
+        void use(Coordonnees c);
         void update();
 
     protected:

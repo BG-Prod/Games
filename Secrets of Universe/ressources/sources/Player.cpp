@@ -66,6 +66,11 @@ Vaisseau * Player::getStarship()
     return starship;
 }
 
+void Player::setStarship(Vaisseau * v)
+{
+    starship = v;
+}
+
 void Player::setCoins(int v)
 {
     coins = v;

@@ -24,50 +24,25 @@
 using namespace std;
 
 
-Vaisseau::Vaisseau() : Object(), energie(100), bouclier(100), coque(1000), capteur(100), teleporteur(100), hypernavigateur(100), moteur(100), pib(5)
-{
-    etat[0] = LEFT;
-    vitesse = 15;
-    type[0] = STARSHIP1;
-    alive = true;
-    activiteBouclier = false;
-    touched = false;
-
-    /// position du centre du vaisseau
-    position = Coordonnees(500,500,128,128,500,500,128,128);
-
-    /// armes
-    batterie = new Weapon(this);
-    sons.push_back(batterie);
-}
-
 Vaisseau::Vaisseau(int x, int y) : Vaisseau(STARSHIP1,x,y)
 {
-    displayDetails = "";
     joueur = 1;
 }
 
-Vaisseau::Vaisseau(int _type, int x, int y) : Object(), energie(100), bouclier(100), coque(100), capteur(100), teleporteur(100), hypernavigateur(100), moteur(100), pib(5)
+Vaisseau::Vaisseau(int _type, int x, int y) : Vaisseau(100, 100, 1000, 800, 15, random(2,16), _type,
+                 1000, 100, 100, 100, random(1,999999999), 5, Coordonnees(x,y,128,128,x,y,128,128),
+                 TOP, NULL, "", NULL)
 {
-    etat[0] = LEFT;
-    vitesse = 15;
-    type[0] = _type;
-    alive = true;
-    activiteBouclier = false;
-    touched = false;
-    joueur = random(2,16);
-
-    /// position du centre du vaisseau
-    position = Coordonnees(x,y,128,128,x,y,128,128);
-
-    /// armes
     batterie = new Weapon(this);
-    sons.push_back(batterie);
+    if(batterie != NULL)
+    {
+        sons.push_back(batterie);
+    }
 }
 
 Vaisseau::Vaisseau(int _energie, int _bouclier, int _coque, int _capteur, int _vitesse, int _joueur, int _type,
-                 int _masse, int _teleporteur, int _hypernavigateur, int _moteur, int _id, Coordonnees _position,
-                 states _etat, Object * _ancestor)
+                 int _masse, int _teleporteur, int _hypernavigateur, int _moteur, int _id, int _pib, Coordonnees _position,
+                 states _etat, Weapon * _arme, string _displayDetails, Object * _ancestor) : Object()
 {
     energie = _energie;
     bouclier =  _bouclier;
@@ -84,8 +59,17 @@ Vaisseau::Vaisseau(int _energie, int _bouclier, int _coque, int _capteur, int _v
     position = _position;
     etat[0] = _etat;
     ancestor = _ancestor;
+    alive = true;
+    activiteBouclier = false;
     touched = false;
-    sons.push_back(batterie);
+    pib = _pib;
+    displayDetails = _displayDetails;
+    /// armes
+    batterie = _arme;
+    if(batterie != NULL)
+    {
+        sons.push_back(batterie);
+    }
 }
 
 Vaisseau::~Vaisseau()
@@ -119,7 +103,14 @@ void Vaisseau::move()
 
 void Vaisseau::shoot()
 {
-    batterie->use();
+    if(weaponTarget<radar.size())
+    {
+        batterie->use(radar[weaponTarget]);
+    }
+    else
+    {
+        batterie->use(cible);
+    }
 }
 
 void Vaisseau::update(Input * in)
@@ -127,6 +118,15 @@ void Vaisseau::update(Input * in)
     /// màj des éléments
     move();
     batterie->update();
+    /// vérification de la viabilité du vaisseau
+    if(coque<=0)
+    {
+        alive = false;
+    }
+    if(activiteBouclier)
+    {
+
+    }
 }
 
 void Vaisseau::destroy()
@@ -140,6 +140,10 @@ DisplayDatas Vaisseau::transitoryEvents()
     if(!alive)
     {
         dt = DisplayDatas(EXPLOSION0,1,position,"animation");
+    }
+    else if(activiteBouclier)
+    {
+        dt = DisplayDatas(SHIELD1,1,position);
     }
 
     return dt;
@@ -175,5 +179,25 @@ void Vaisseau::collided(int perte)
 int Vaisseau::collisionPoints()
 {
     return 20;
+}
+
+void Vaisseau::switchShield()
+{
+    activiteBouclier = !activiteBouclier;
+}
+
+void Vaisseau::clearRadar()
+{
+    radar.clear();
+}
+
+void Vaisseau::addEchoRadar(Coordonnees c)
+{
+    radar.push_back(c);
+}
+
+int Vaisseau::getCapteur()
+{
+    return capteur;
 }
 

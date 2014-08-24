@@ -45,7 +45,7 @@ class Screen
 
     public:
         Screen();
-        Screen(int w, int h);
+        Screen(int w, int h, bool isFullScreen);
         virtual ~Screen();
 
         void resize();   /// change la taille de l'écran

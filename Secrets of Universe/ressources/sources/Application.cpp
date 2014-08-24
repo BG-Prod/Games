@@ -34,6 +34,11 @@ Application::Application()
     /// initialisation de l'aléatoire
     srand(time(NULL));
 
+    NOMBRE_IMAGE = 22;
+    NOMBRE_ANIM = 1;
+    NOMBRE_MUSIQUE = 1;
+    NOMBRE_POLICE = 0;
+
 	/// create new screen
 	screen = new Screen;
 	cam = new Camera;
@@ -56,7 +61,7 @@ Application::Application()
     animationManager = new AnimationManager(screen->buffer());
 
     /// Icone
-    images.at(0)->setAsIcon();
+    images["0"]->setAsIcon();
 
     /// titre
     SDL_WM_SetCaption("Application", NULL);
@@ -74,6 +79,7 @@ Application::~Application()
     delete screen;
     delete cam;
     delete in;
+    delete animationManager;
     fermeture();
 }
 
@@ -96,15 +102,12 @@ void Application::initialisation()
     FMOD_System_Init(system, 32, FMOD_INIT_NORMAL, NULL);
 
     /// initialisation et chargement des ressources
+    loadRessources();
     /// images
-    loadImages();
+    //loadImages();
     /// sons
-    musiques = NULL;
-    musiques = (FMOD_SOUND **) malloc (sizeof(FMOD_SOUND*)*NOMBRE_MUSIQUE);
     loadMusics();
     /// polices
-    polices = NULL;
-    polices = (TTF_Font **) malloc(sizeof(TTF_Font*) * NOMBRE_POLICE);
     loadFonts();
 }
 
@@ -121,12 +124,41 @@ void Application::fermeture()
     FMOD_System_Release(system);
 }
 
-
-void Application::loadImages()
+void Application::loadRessources()  /// new school with sqlite
 {
+    /// on commence par ouvrir labase de données
+    string link = cheminData + "ressources.db";
+    BDD * baseDeDonnees = new BDD((char*)link.c_str());
+
+    /// on recherche les informations
+    vector< vector< string > > result = baseDeDonnees->request("select link, details from image");
+
+    NOMBRE_IMAGE = result.size();
+
+    for(unsigned int i = 0 ; i < result.size() ; i++)
+    {
+        if(result[i][1]=="animation")
+        {
+            //images.push_back(new Animation(result[i][0]));
+            images[itos(i)] = new Animation(result[i][0]);
+        }
+        else
+        {
+       //     images.push_back(new Image(result[i][0]));
+            images[itos(i)] = new Image(result[i][0]);
+        }
+        images[itos(i)]->resize((double)(100.0*(SDL_GetVideoSurface()->h)/1080.0));
+    }
+
+    /// on finit en fermant la base de données
+    delete baseDeDonnees;
+}
+
+void Application::loadImages()  /// old school
+{/**
     string lien;
     char a[2];
-    for(int i = 0 ; i < NOMBRE_IMAGE ; i++)
+    for(unsigned int i = 0 ; i < NOMBRE_IMAGE ; i++)
     {
         itoa(i,a,10);
         if(i < 10)
@@ -141,7 +173,7 @@ void Application::loadImages()
         images.push_back(new Image(lien));
         images[i]->resize((double)(100.0*(SDL_GetVideoSurface()->h)/1080.0));
     }
-    for(int i = 0 ; i < NOMBRE_ANIM ; i++)
+    for(unsigned int i = 0 ; i < NOMBRE_ANIM ; i++)
     {
         itoa(i,a,10);
         if(i < 10)
@@ -155,30 +187,30 @@ void Application::loadImages()
 
         images.push_back(new Animation(lien));
         images[i]->resize((double)(100.0*(SDL_GetVideoSurface()->h)/1080.0));
-    }
+    }**/
 }
 
-void Application::loadMusics()
+void Application::loadMusics()  /// old school
 {
     string lien;
 
-    for(int i = 0 ; i < NOMBRE_MUSIQUE ; i++)
+    for(unsigned int i = 0 ; i < NOMBRE_MUSIQUE ; i++)
     {
         lien = cheminSon + "son01.mid";
-
+        musiques.push_back(NULL);
         FMOD_System_CreateSound(system, lien.c_str(), FMOD_SOFTWARE | FMOD_2D | FMOD_LOOP_NORMAL | FMOD_CREATESTREAM, 0, &musiques[i]);
         FMOD_Sound_SetLoopCount(musiques[i], -1);
     }
 }
 
-void Application::loadFonts()
+void Application::loadFonts()   /// old school
 {
     string lien;
 
-    for(int i = 0 ; i < NOMBRE_POLICE ; i++)
+    for(unsigned int i = 0 ; i < NOMBRE_POLICE ; i++)
     {
         lien = cheminPolice + "calibri.ttf";
-        polices[i] = TTF_OpenFont(lien.c_str(), 20);
+        polices.push_back(TTF_OpenFont(lien.c_str(), 20));
     }
 }
 
@@ -187,8 +219,9 @@ void Application::freeImages()
 {
     for(unsigned int i = 0 ; i < images.size() ; i++)
     {
-        delete images[i];
+        delete images[itos(i)];
     }
+    images.clear();
 }
 
 void Application::freeObjects()
@@ -197,28 +230,30 @@ void Application::freeObjects()
     {
         delete objects[i];
     }
+    objects.clear();
     for(unsigned int i = 0 ; i < interfaces.size() ; i++)
     {
         delete interfaces[i];
     }
+    interfaces.clear();
 }
 
 void Application::freeMusics()
 {
-    for(int i = 0 ; i < NOMBRE_MUSIQUE ; i++)
+    for(unsigned int i = 0 ; i < musiques.size() ; i++)
     {
         FMOD_Sound_Release(musiques[i]);
     }
-    free(musiques);
+    musiques.clear();
 }
 
 void Application::freeFonts()
 {
-    for(int i = 0 ; i < NOMBRE_POLICE ; i++)
+    for(int i = 0 ; i < polices.size() ; i++)
     {
         TTF_CloseFont(polices[i]);
     }
-    free(polices);
+    polices.clear();
 }
 
 /// Pour copier une SDL_Surface
@@ -269,11 +304,13 @@ void Application::run()
             this->menu();
             this->draw();
         }
-        this->init();
 
         /// permet de rentrer dans le bloc principal
         if(state!=EXIT)
         {
+            cout << "step 1" << endl;
+            init();
+            cout << "step 2" << endl;
             state = MAIN;
         }
 
@@ -330,14 +367,14 @@ void Application::draw()
                     relativePlace.x(relativePlace.x()-cam->view().x());
                     relativePlace.y(relativePlace.y()-cam->view().y());
                     tmp.coor = relativePlace;
-                    animationManager->pushAnim(tmp,(Animation*)images[numImage]);
+                    animationManager->pushAnim(tmp,(Animation*)images[itos(numImage)]);
                 }
                 else
                 {
                     Coordonnees relativePlace(tmp.coor);
                     relativePlace.x(relativePlace.x()-cam->view().x());
                     relativePlace.y(relativePlace.y()-cam->view().y());
-                    images[numImage]->print(screen->buffer(), (i==0)?cam->place():relativePlace, (i==0)?cam->view():cam->place());
+                    images[itos(numImage)]->print(screen->getBuffer(), (i==0)?cam->place():relativePlace, (i==0)?cam->view():cam->place());
                 }
             }
         }
@@ -359,7 +396,7 @@ void Application::draw()
             if(numImage >= 0)
             {
                 Coordonnees relativePlace(tmp.coor);
-                images[numImage]->print(screen->buffer(), relativePlace);
+                images[itos(numImage)]->print(screen->getBuffer(), relativePlace);
             }
             else if(numImage == -26)
             {
@@ -369,7 +406,7 @@ void Application::draw()
                 for(unsigned int k = 0 ; k < textToPrint.size() ; k++)
                 {
                     Coordonnees placeToBlitt(tmp.coor.x()+tmp.coor.w()/2-textToPrint[k]->width()/2,tmp.coor.y()+tmp.coor.h()/2-textToPrint[k]->height()/2, textToPrint[k]->width(), textToPrint[k]->height());
-                    textToPrint[k]->print(screen->buffer(), placeToBlitt);
+                    textToPrint[k]->print(screen->getBuffer(), placeToBlitt);
                 }
                 delete txt;
                 for(unsigned int incr = 0 ; incr < textToPrint.size() ; incr++)
@@ -410,8 +447,15 @@ int Application::whatImage(int a, int b)
 string Application::itos(long number)
 {
     ostringstream retour;
-    retour << number;
-    return string(retour.str());
+    if(number==0)
+    {
+        return "0";
+    }
+    else
+    {
+        retour << number;
+        return string(retour.str());
+    }
 }
 
 long Application::getTime()
@@ -419,3 +463,44 @@ long Application::getTime()
     return SDL_GetTicks();
 }
 
+DIR * Application::openDirectory(string url)
+{
+    DIR* retour = NULL;
+    retour = opendir(url.c_str());
+    if(retour == NULL)
+    {
+        perror("");
+    }
+    return retour;
+}
+
+void Application::closeDirectory(DIR * directory)
+{
+    if(closedir(directory) == -1)
+    {
+        perror("");
+    }
+}
+
+vector<string> Application::scanDirectory(string url)
+{
+    DIR * repertoire = openDirectory(url);
+    dirent * fichier = NULL;
+    vector<string> retour;
+    while ((fichier = readdir(repertoire)) != NULL)
+    {
+        retour.push_back(fichier->d_name);
+    }
+    closeDirectory(repertoire);
+    return retour;
+}
+
+double Application::norme(Coordonnees a, Coordonnees b)
+{
+    double aX = a.x() + a.w()/2,
+           bX = b.x() + b.w()/2,
+           aY = a.y() + a.h()/2,
+           bY = b.y() + b.h()/2;
+
+    return sqrt(pow(aX-bX,2)+pow(aY-bY,2));
+}

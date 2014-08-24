@@ -40,9 +40,10 @@ void Weapon::init()
 
 }
 
-void Weapon::use()
+void Weapon::use(Coordonnees c)
 {
     etat[0] = ancestor->getEtat();
+    cible = c;
     position = ancestor->getPosition();
     position += Coordonnees(64,64,1,1);
     salve.push_back(new Shot(this));

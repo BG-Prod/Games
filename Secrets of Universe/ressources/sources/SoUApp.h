@@ -54,6 +54,9 @@ class SoUApp : public Application
         void init();
         void menu();
         void eventsManager();
+        void radarManager();
+        void saveGame();
+        void loadGame();
 };
 
 #endif // SOUAPP_H

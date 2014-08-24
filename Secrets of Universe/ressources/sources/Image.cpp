@@ -19,6 +19,7 @@
 */
 
 #include "Image.h"
+#include <exception>
 
 using namespace std;
 
@@ -38,25 +39,21 @@ Image::Image(string link)
     name = link;
     if(!image)
     {   /// check errors
-        cout << "IMG_Load: %s\n" << IMG_GetError() << endl;
+        cout << "IMG_Load:\n" << IMG_GetError() << endl;
     }
 }
 
 Image::Image(SDL_Surface * pt)
 {
-    image = pt; ///SDL_DisplayFormat(IMG_Load(link.c_str()));
+    image = pt;
     x = 0, y = 0, w = image->w, h = image->h, alpha = 255;
     lastX = 0, lastY = 0;
     name = "copy from existing sdl surface";
 }
 
-Image::Image(int width, int height, Uint8 r, Uint8 g, Uint8 b)
+Image::Image(int width, int height, Uint8 r, Uint8 g, Uint8 b) : Image(width, height, r, g, b, 255)
 {
-    image = SDL_CreateRGBSurface(SDL_HWSURFACE, width, height, 32, 0, 0, 0, 0);
-    SDL_FillRect(image, NULL, SDL_MapRGBA(image->format, r, g, b, 255));
-    x = 0, y = 0, w = image->w, h = image->h, alpha = 255;
-    lastX = 0, lastY = 0;
-    name = "Colored surface";
+
 }
 
 Image::Image(int width, int height, Uint8 r, Uint8 g, Uint8 b, Uint8 a)
@@ -101,7 +98,7 @@ void Image::print(Coordonnees where, Coordonnees from)
     dou.y = from.y();
     dou.w = from.w();
     dou.h = from.h();
-    SDL_BlitSurface(image, &dou, SDL_GetVideoSurface(), &ou);
+    SDL_BlitSurface(getSurface(), &dou, SDL_GetVideoSurface(), &ou);
 }
 
 void Image::print(Image * buffer, Coordonnees where)
@@ -121,7 +118,7 @@ void Image::print(Image * buffer, Coordonnees where, Coordonnees from)
     dou.y = from.y();
     dou.w = from.w();
     dou.h = from.h();
-    SDL_BlitSurface(image, &dou, buffer->image, &ou);
+    SDL_BlitSurface(image, &dou, buffer->getSurface(), &ou);
 }
 
 void Image::resize(double percent)

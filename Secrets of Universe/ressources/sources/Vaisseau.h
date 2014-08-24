@@ -35,13 +35,12 @@
 class Vaisseau : public Object
 {
     public:
-        Vaisseau();
         Vaisseau(int,int); /// pour placer où on veut
         Vaisseau(int _type, int x, int y);
         /// constructeur de badass
         Vaisseau(int _energie, int _bouclier, int _coque, int _capteur, int _vitesse, int _joueur, int _type,
-                 int _masse, int _teleporteur, int _hypernavigateur, int _moteur, int _id, Coordonnees _position,
-                 states _etat, Object * _ancestor);
+                 int _masse, int _teleporteur, int _hypernavigateur, int _moteur, int _id, int _pib, Coordonnees _position,
+                 states _etat, Weapon * _arme, string _displayDetails, Object * _ancestor);
         virtual ~Vaisseau();
 
         void move();
@@ -51,13 +50,19 @@ class Vaisseau : public Object
         void update(Input * in);
         void collided(int);
         int collisionPoints();
+        void switchShield();
         DisplayDatas transitoryEvents();
+        void clearRadar();
+        void addEchoRadar(Coordonnees c);
+        int getCapteur();
 
     protected:
+        int weaponTarget = 0;
         int energie, bouclier, coque, capteur, vitesse, joueur,
         masse, teleporteur, hypernavigateur, moteur, pib;
         bool activiteBouclier, touched;
         Weapon * batterie;
+        vector<Coordonnees> radar;
 };
 
 #endif /// VAISSEAU_H_INCLUDED
