@@ -24,9 +24,13 @@
 #include <iostream>
 #include <cstdlib>
 #include <stdlib.h>
+#include <string>
 #include <stdio.h>
+#include <sstream>
 
 extern long random(int borneInf, int borneSup);  /// borne sup inclus
+
+using namespace std;
 
 class Coordonnees
 {
@@ -38,6 +42,8 @@ class Coordonnees
         Coordonnees &operator=(const Coordonnees &);
         Coordonnees &operator+=(const Coordonnees &);
         Coordonnees &operator=(const int[]);
+        string toString();
+        string itos(long);
 
         void modify(int,int,int,int);
         int x(){return data[0];}

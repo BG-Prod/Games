@@ -24,7 +24,7 @@ using namespace std;
 
 SoUApp::SoUApp() : Application()
 {
-    SDL_WM_SetCaption("Secrets of Universe", NULL);
+    this->windowAttributes();
 }
 
 SoUApp::~SoUApp()
@@ -262,6 +262,11 @@ void SoUApp::eventsManager()    /// gère les évènements
         you->getStarship()->setCible(Coordonnees(in->mouse(X)+cam->view().x(), in->mouse(Y)+cam->view().y(), 5, 5));
         in->set_souris_boutons(SDL_BUTTON_RIGHT,0);
     }
+}
+
+void SoUApp::windowAttributes()
+{
+    SDL_WM_SetCaption("Secrets of Universe", NULL);
 }
 
 int SoUApp::whatImage(int a, int b) /// couple les données pour obtenir un rendu

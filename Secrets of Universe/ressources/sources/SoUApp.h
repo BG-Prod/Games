@@ -39,6 +39,7 @@ class SoUApp : public Application
         virtual ~SoUApp();
 
         virtual void app();
+        virtual void windowAttributes();
 
         void addHuman(Player * p);
         void addBot(Player * p);

@@ -32,6 +32,23 @@ Shot::Shot(Object * o) : Object(), lifeTime(2500)
     ancestor = o;
     cible = o->getCible();
     alive = true;
+    if(etat[0]==LEFT)
+    {
+        movX = -vitesse;
+    }
+    else if(etat[0]==RIGHT)
+    {
+        movX = vitesse;
+    }
+    else if(etat[0]==TOP)
+    {
+        movY = -vitesse;
+    }
+    else if(etat[0]==BOTTOM)
+    {
+        movY = vitesse;
+    }
+    init();
 }
 
 Shot::~Shot()
@@ -41,80 +58,37 @@ Shot::~Shot()
 
 void Shot::init()
 {
-
+    /**
+    *** On déplace proportionnellement à la distance à parcourir le vaisseau sur les deux axes.
+    *** Ensuite on signale si on a bougé
+    **/
+    Coordonnees pos = Coordonnees(position.x()+position.w()/2, position.y()+position.h()/2, position.w(), position.h());
+    int vecX = cible.x()-pos.x();
+    int vecY = cible.y()-pos.y();
+    int base = abs(vecX)+abs(vecY);
+    if(base > vitesse) {
+        movX = vitesse*vecX/base;
+        movY = vitesse*vecY/base;
+        etat[0] = (abs(movX)>abs(movY)) ? (movX>0 ? RIGHT : LEFT) : (movY>0 ? BOTTOM : TOP);
+    }
 }
 
 void Shot::use()
 {
-
+    /**
+    *** On déplace proportionnellement à la distance à parcourir le vaisseau sur les deux axes.
+    *** Ensuite on signale si on a bougé
+    **/
+    position.x(position.x()+movX);
+    position.y(position.y()+movY);
+    hasMoved = true;
 }
 
 void Shot::update()
 {
-
+    use();
     alive &= (SDL_GetTicks() < (unsigned)birth+lifeTime);
 }
-
-/*******************************************
-!!!!!!!!!!! VERSION 1.0 !!!!!!!!!!!!!!!!!!!!
-void Shot::update()
-{
-    if(etat[0]==GAUCHE)
-    {
-        position.x(position.x()-vitesse);
-    }
-    else if(etat[0]==DROITE)
-    {
-        position.x(position.x()+vitesse);
-    }
-    else if(etat[0]==HAUT)
-    {
-        position.y(position.y()-vitesse);
-    }
-    else if(etat[0]==BAS)
-    {
-        position.y(position.y()+vitesse);
-    }
-}
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-*******************************************/
-/**
-void Shot::update()
-{
-    /// En commentaires la partie où la cible était un objet
-/**    if(cible != NULL && cible != this) {
-        int vecX = ((cible->getPosition()).x())-(position.x());
-        int vecY = ((cible->getPosition()).y())-(position.y());
-        int base = abs(vecX)+abs(vecY);
-        if(base != 0) {
-            int movX = vitesse*vecX/base;
-            int movY = vitesse*vecY/base;
-            position.x(position.x()+movX);
-            position.y(position.y()+movY);
-        }
-    }
-    else {**//**
-        if(etat[0]==LEFT)
-        {
-            position.x(position.x()-vitesse);
-        }
-        else if(etat[0]==RIGHT)
-        {
-            position.x(position.x()+vitesse);
-        }
-        else if(etat[0]==TOP)
-        {
-            position.y(position.y()-vitesse);
-        }
-        else if(etat[0]==BOTTOM)
-        {
-            position.y(position.y()+vitesse);
-        }
-///    }/**
-
-    alive &= (SDL_GetTicks() < (unsigned)birth+lifeTime);
-}
-**/
 
 int Shot::collisionPoints()
 {

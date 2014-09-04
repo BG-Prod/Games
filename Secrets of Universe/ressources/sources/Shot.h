@@ -40,8 +40,7 @@ class Shot : public Object
         void collided(int);
 
     protected:
-        int vitesse;
-        int force;
+        int vitesse, force, movX, movY;
         const int lifeTime;
         Image * image;
 };

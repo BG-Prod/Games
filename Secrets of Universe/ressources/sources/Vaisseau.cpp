@@ -70,6 +70,7 @@ Vaisseau::Vaisseau(int _energie, int _bouclier, int _coque, int _capteur, int _v
     {
         sons.push_back(batterie);
     }
+    weaponTarget = 0;
 }
 
 Vaisseau::~Vaisseau()
@@ -125,7 +126,7 @@ void Vaisseau::update(Input * in)
     }
     if(activiteBouclier)
     {
-
+        energie = energie<0 ? 0 : energie-2;
     }
 }
 
@@ -172,7 +173,7 @@ void Vaisseau::bot()
 
 void Vaisseau::collided(int perte)
 {
-    coque -= perte;
+    coque += bouclier-perte>0 ? 0 : bouclier-perte;
     touched = true;
 }
 

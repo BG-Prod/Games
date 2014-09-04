@@ -74,6 +74,7 @@ class Application
         virtual ~Application();
 
         virtual void init();
+        virtual void windowAttributes();
         virtual void intro();
         virtual void menu();
         virtual void app();

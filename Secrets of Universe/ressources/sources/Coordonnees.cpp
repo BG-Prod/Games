@@ -117,3 +117,26 @@ long random(int borneInf, int borneSup)  /// borne sup inclus
     return ((rand() % (borneSup + 1 - borneInf)) + borneInf);
 }
 
+string Coordonnees::toString()
+{
+    return string("{ ")+itos(x())+
+    string(" ; ")+itos(y())+
+    string(" ; ")+itos(w())+
+    string(" ; ")+itos(h())+
+    string(" }");
+}
+
+string Coordonnees::itos(long number)
+{
+    ostringstream retour;
+    if(number==0)
+    {
+        return "0";
+    }
+    else
+    {
+        retour << number;
+        return string(retour.str());
+    }
+}
+

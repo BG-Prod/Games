@@ -60,11 +60,8 @@ Application::Application()
     /// gestionnaire d'animations
     animationManager = new AnimationManager(screen->buffer());
 
-    /// Icone
-    images["0"]->setAsIcon();
-
-    /// titre
-    SDL_WM_SetCaption("Application", NULL);
+    /// set window attributes
+    this->windowAttributes();
 
     /// time
     tempsActuel = 0, tempsPrecedent = 0, screen_refresh = SCREEN_REFRESH;
@@ -81,6 +78,14 @@ Application::~Application()
     delete in;
     delete animationManager;
     fermeture();
+}
+
+void Application::windowAttributes()
+{
+    /// Icone
+    //images["0"]->setAsIcon();
+    /// titre
+    SDL_WM_SetCaption("Application", NULL);
 }
 
 void Application::initialisation()
@@ -102,9 +107,7 @@ void Application::initialisation()
     FMOD_System_Init(system, 32, FMOD_INIT_NORMAL, NULL);
 
     /// initialisation et chargement des ressources
-    loadRessources();
-    /// images
-    //loadImages();
+    loadRessources(); /// juste images pour l'instant
     /// sons
     loadMusics();
     /// polices
@@ -308,9 +311,7 @@ void Application::run()
         /// permet de rentrer dans le bloc principal
         if(state!=EXIT)
         {
-            cout << "step 1" << endl;
             init();
-            cout << "step 2" << endl;
             state = MAIN;
         }
 
