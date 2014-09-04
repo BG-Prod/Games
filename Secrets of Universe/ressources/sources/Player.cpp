@@ -35,6 +35,7 @@ Player::Player(int _id, int _xp, int _level, int _team, int _coins, bool _human,
     crew = _crew;
     name = _name;
     starship = _starship;
+    starshipOK = (starship != NULL);
     coins = _coins;
 }
 
@@ -63,12 +64,20 @@ int Player::getLevel()
 
 Vaisseau * Player::getStarship()
 {
-    return starship;
+    if(this->isStarshipOK())
+    {
+        return starship;
+    }
+    else
+    {
+        return NULL;
+    }
 }
 
 void Player::setStarship(Vaisseau * v)
 {
     starship = v;
+    starshipOK = (starship != NULL);
 }
 
 void Player::setCoins(int v)
@@ -84,5 +93,17 @@ void Player::addCoins(int v)
 int Player::getCoins()
 {
     return coins;
+}
+
+bool Player::isStarshipOK()
+{
+    return starshipOK;
+}
+
+void Player::eraseStarship()
+{
+    delete starship;
+    starship = NULL;
+    starshipOK = false;
 }
 

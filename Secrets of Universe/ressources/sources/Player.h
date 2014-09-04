@@ -39,15 +39,17 @@ class Player
         string getName();
         Vaisseau * getStarship();
         void setStarship(Vaisseau * v);
+        void eraseStarship();
 
         void setCoins(int v);
         void addCoins(int v);
         int getCoins();
         int getLevel();
+        bool isStarshipOK();
 
     protected:
         int id, xp, level, team, coins;
-        bool human;
+        bool human, starshipOK;
         Crew * crew;
         string name;
         Vaisseau * starship;

@@ -136,22 +136,17 @@ void SoUApp::app()
     cam->keepIn(objects[0]);
 
     /// sont-ils morts ?
-    for(unsigned int i = 0 ; i < objects.size() ; i++)
+    for(unsigned int i = 0 ; i < players.size() ; i++)
     {
-        if(!objects[i]->isAlive())
+        if(players[i]->isStarshipOK() && !(players[i]->getStarship()->isAlive()))
         {
-            if(objects[i]==you->getStarship())
+            unsigned int j = 0 ;
+            while( objects[j] != players[i]->getStarship() )
             {
-                delete objects[i];
-                objects[i] = NULL;
-                you->setStarship(NULL);
+                j++;
             }
-            else
-            {
-                delete objects[i];
-                objects[i] = NULL;
-            }
-            objects.erase(objects.begin()+i);
+            objects.erase(objects.begin()+j);
+            players[i]->eraseStarship();
         }
     }
     /// objets sur les bords ?
@@ -408,12 +403,12 @@ void SoUApp::radarManager()
 {
     for(unsigned int i = 0 ; i < players.size() ; i++)
     {
-        if(players[i]->getStarship()!=NULL)
+        if(players[i]->isStarshipOK())
         {
             players[i]->getStarship()->clearRadar();
             for(unsigned int j = 0 ; j < players.size() ; j++)
             {
-                if(i != j && players[j]->getStarship()!=NULL)
+                if(i != j && players[j]->isStarshipOK())
                 {
                     if(norme(players[i]->getStarship()->getPosition(),players[j]->getStarship()->getPosition())<=players[i]->getStarship()->getCapteur())
                     {
