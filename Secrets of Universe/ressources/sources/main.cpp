@@ -53,15 +53,35 @@ int main(int argc, char** argv)
 
 /*** A FAIRE
   **
-  ** systeme de tir
-  ** boucliers
-  ** IA avec zone de détection radar
-  ** scan de dossier
-  ** pop up de message
-  ** saisie clavier propre
-  ** charger sauvegarder
-  ** génération de vaisseau à partir de la base de données
-  ** créer la base de données
+  ** systeme de tir                         ===> 80%
+        -> faire en sorte que les vaisseaux puissent tirer
+        -> visée automatique après sélection de cible
+        -> régler problèmes de tir chelou
+  ** boucliers                              ===> 95%
+        -> les boucliers absorbent les dégats
+        -> les boucliers consomment de l'énergie
+        -> les boucliers s'arrete lorsque qu'il n'y a plus d'énergie
+        -> les boucliers stope s'ils sont détruits
+        -> activation/désactivation avec ESPACE
+  ** IA avec zone de détection radar        ===> 75%
+        -> il n'est possible d'intéragir qu'avec les vaisseaux de la zone "radar"
+        -> un vaisseau communique avec un allié et attaque un ennemi
+  ** scan de dossier                        ===> 30%
+        -> on va chercher les nouveaux media dans le dossier pour les rajouter à la base de données
+  ** pop up de message                      ===> 10%
+        -> crée un pop-up dans la fenetre d'execution
+        -> doit etre standard mais personalisable
+        -> ne suspend pas l'execution
+  ** saisie clavier propre                  ===>  5%
+        -> crée un champs de saisie simple
+  ** charger sauvegarder                    ===>  0%
+        -> permet de sauver et charger des parties
+        -> dans la base de données
+        -> sauve tous les objets du jeu
+  ** génération de vaisseau à partir de la base de données  ===> 00%
+        -> les constructeurs des vaisseaux doivent utiliser la base de données
+  ** créer la base de données               ===> 15%
+        -> pour toutes les carac du jeu : vaisseaux, perso, armes, sauvegardes, etc.
   **
   ** c'est déjà bien
   **

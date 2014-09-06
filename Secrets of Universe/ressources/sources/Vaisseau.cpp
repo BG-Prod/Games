@@ -173,7 +173,7 @@ void Vaisseau::bot()
 
 void Vaisseau::collided(int perte)
 {
-    coque += bouclier-perte>0 ? 0 : bouclier-perte;
+    coque += (activiteBouclier)? (bouclier-perte>0 ? 0 : bouclier-perte) : -perte;
     touched = true;
 }
 
