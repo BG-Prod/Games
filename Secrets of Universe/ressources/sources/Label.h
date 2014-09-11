@@ -9,8 +9,10 @@ class Label : public Interface
     public:
         Label();
         virtual ~Label();
+
     protected:
-    private:
+        string text;
+        int id;
 };
 
 #endif // LABEL_H

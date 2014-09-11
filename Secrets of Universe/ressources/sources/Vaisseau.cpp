@@ -202,3 +202,8 @@ int Vaisseau::getCapteur()
     return capteur;
 }
 
+void Vaisseau::hover()
+{
+
+}
+

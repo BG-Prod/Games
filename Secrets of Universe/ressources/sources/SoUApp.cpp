@@ -373,6 +373,10 @@ int SoUApp::whatImage(int a, int b) /// couple les données pour obtenir un rendu
     {
         retour = 22;
     }
+    if(a==COLORED_SURFACE)
+    {
+        retour = -11;
+    }
 
     return retour;
 }

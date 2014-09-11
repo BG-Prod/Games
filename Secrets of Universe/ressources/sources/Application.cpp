@@ -415,6 +415,10 @@ void Application::draw()
                     delete textToPrint[incr];
                 }
             }
+            else if(numImage == -11)
+            {
+                Image * constructedPicture = new Image(tmp.coor.w(), tmp.coor.h(), 100, 100, 100);
+            }
         }
     }
 

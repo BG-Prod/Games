@@ -30,7 +30,8 @@
 
 enum states{BOTTOM,TOP,RIGHT,LEFT,ON,OFF,DISABLED};
 enum types{BUTTON0,BUTTON1,BUTTON2,BUTTON3,BUTTON4,BUTTON5,TEXT1,TEXT2,WALLPAPER0,WALLPAPER1,STARSHIP1,STARSHIP2,SHOT1,SHOT2,SHIELD1,SHIELD2,
-EXPLOSION0,EXPLOSION1,BOARD1,SPACE_MAP_1,POPUP};
+EXPLOSION0,EXPLOSION1,BOARD1,SPACE_MAP_1,POPUP,COLORED_SURFACE};
+enum rendering{PICTURE,TEXT,NEW_SURFACE};
 
 class Object
 {
@@ -52,6 +53,9 @@ class Object
         void setCible(Coordonnees o);
         Coordonnees getCible(){return cible;}
         virtual DisplayDatas transitoryEvents();
+
+        virtual void hover();
+        virtual void onClick();
 
     protected:
         Object();               /// pour avoir une classe abstraite

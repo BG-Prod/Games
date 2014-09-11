@@ -55,6 +55,7 @@ class Vaisseau : public Object
         void clearRadar();
         void addEchoRadar(Coordonnees c);
         int getCapteur();
+        void hover();
 
     protected:
         int weaponTarget = 0;

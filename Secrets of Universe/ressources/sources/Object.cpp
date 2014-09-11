@@ -184,3 +184,13 @@ void Object::setVisible(bool choice)
     isVisible = choice;
 }
 
+void Object::hover()
+{
+
+}
+
+void Object::onClick()
+{
+
+}
+

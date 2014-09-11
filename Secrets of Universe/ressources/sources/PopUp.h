@@ -9,8 +9,8 @@ class PopUp : public Interface
     public:
         PopUp();
         virtual ~PopUp();
+
     protected:
-    private:
 };
 
 #endif // POPUP_H
