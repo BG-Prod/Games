@@ -8,6 +8,7 @@ class PopUp : public Interface
 {
     public:
         PopUp();
+        PopUp(string text, types t, long duration);
         virtual ~PopUp();
 
     protected:

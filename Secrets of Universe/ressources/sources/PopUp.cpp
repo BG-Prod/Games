@@ -2,7 +2,12 @@
 
 PopUp::PopUp()
 {
-    //ctor
+    type[0] = POPUP;
+}
+
+PopUp::PopUp(string text, types t, long duration)
+{
+    type[0] = t;
 }
 
 PopUp::~PopUp()

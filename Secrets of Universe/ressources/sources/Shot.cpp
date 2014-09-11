@@ -28,7 +28,7 @@ Shot::Shot(Object * o) : Object(), lifeTime(2500)
     position.h(12);
     type[0] = SHOT1;
     force = 10;
-    vitesse = 20;
+    vitesse = 50;
     ancestor = o;
     cible = o->getCible();
     alive = true;

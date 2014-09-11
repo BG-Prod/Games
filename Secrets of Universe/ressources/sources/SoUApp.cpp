@@ -415,13 +415,21 @@ void SoUApp::radarManager()
         if(players[i]->isStarshipOK())
         {
             players[i]->getStarship()->clearRadar();
+            Coordonnees pointA = Coordonnees(players[i]->getStarship()->getPosition().x() + players[i]->getStarship()->getPosition().w() / 2,
+                                             players[i]->getStarship()->getPosition().y() + players[i]->getStarship()->getPosition().h() / 2,
+                                             players[i]->getStarship()->getPosition().w(),
+                                             players[i]->getStarship()->getPosition().h());
             for(unsigned int j = 0 ; j < players.size() ; j++)
             {
                 if(i != j && players[j]->isStarshipOK())
                 {
-                    if(norme(players[i]->getStarship()->getPosition(),players[j]->getStarship()->getPosition())<=players[i]->getStarship()->getCapteur())
+                    Coordonnees pointB = Coordonnees(players[j]->getStarship()->getPosition().x() + players[j]->getStarship()->getPosition().w() / 2,
+                                                     players[j]->getStarship()->getPosition().y() + players[j]->getStarship()->getPosition().h() / 2,
+                                                     players[j]->getStarship()->getPosition().w(),
+                                                     players[j]->getStarship()->getPosition().h());
+                    if(norme(pointA,pointB)<=players[i]->getStarship()->getCapteur())
                     {
-                        players[i]->getStarship()->addEchoRadar(players[j]->getStarship()->getPosition());
+                        players[i]->getStarship()->addEchoRadar(pointB);
                     }
                 }
             }

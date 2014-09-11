@@ -111,6 +111,8 @@ class Application
     protected:
         void initialisation();        /// initialise le jeu
         void fermeture();             /// ferme le jeu
+        bool mouseOn(Object * o);                 /// la souris est-elle au dessus
+        void mouseManager();
 
         /// time
         int tempsPrecedent, tempsActuel, screen_refresh;

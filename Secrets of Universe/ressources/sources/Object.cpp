@@ -40,49 +40,6 @@ Object::~Object()
 {
     //dtor
 }
-/*********
-!!!!!!!!!!!!!!!!!
-!!! FIRST VERSION
-!!!!!!!!!!!!!!!!!
-bool Object::collision(Object * o)
-{
-    ///Les cotes des rectangles
-    int leftA, leftB;
-    int rightA, rightB;
-    int topA, topB;
-    int bottomA, bottomB;
-    ///Calcul les cotes du rectangle A
-    leftA = this->position.x();
-    rightA = this->position.x() + this->position.w();
-    topA = this->position.y();
-    bottomA = this->position.y() + this->position.h();
-    ///Calcul les cotes du rectangle B
-    leftB = o->position.x();
-    rightB = o->position.x() + o->position.w();
-    topB = o->position.y();
-    bottomB = o->position.y() + o->position.h();
-
-    ///Tests de collision
-    if( bottomA <= topB )
-    {
-        return false;
-    }
-    if( topA >= bottomB )
-    {
-        return false;
-    }
-    if( rightA <= leftB )
-    {
-        return false;
-    }
-    if( leftA >= rightB )
-    {
-        return false;
-    }
-    ///Si conditions collision detectee
-    return true;
-}
-******/
 
 void Object::collision(Object * o)
 {

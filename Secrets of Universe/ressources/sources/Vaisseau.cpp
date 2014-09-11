@@ -165,6 +165,10 @@ void Vaisseau::bot()
             /// attention utilisation absolue de la taille de la map
             cible = Coordonnees(random(0,4095),random(0,4095),0,0);
         }
+        if(weaponTarget>=0)
+        {
+            shoot();
+        }
         /// màj des éléments
         move();
         batterie->update();

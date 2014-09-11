@@ -304,6 +304,7 @@ void Application::run()
         {
             this->fps();
             in->update();
+            mouseManager();
             this->menu();
             this->draw();
         }
@@ -321,6 +322,7 @@ void Application::run()
         {
             this->fps();
             in->update();
+            mouseManager();
             this->app();
             this->draw();
 
@@ -509,3 +511,45 @@ double Application::norme(Coordonnees a, Coordonnees b)
 
     return sqrt(pow(aX-bX,2)+pow(aY-bY,2));
 }
+
+bool Application::mouseOn(Object * o)
+{
+    bool retour = false;
+
+    if(in->mouse(X) < o->getPosition().w()+o->getPosition().x()
+       && in->mouse(X) >= o->getPosition().x()
+       && in->mouse(Y) < o->getPosition().h()+o->getPosition().y()
+       && in->mouse(Y) >= o->getPosition().y())
+    {
+        retour = true;
+    }
+
+    return retour;
+}
+
+void Application::mouseManager()
+{
+    for(unsigned int i = 0 ; i < objects.size() ; i++)
+    {
+        if(mouseOn(objects[i]))
+        {
+            objects[i]->hover();
+            if(in->get_souris_boutons(1))
+            {
+                objects[i]->onClick();
+            }
+        }
+    }
+    for(unsigned int i = 0 ; i < interfaces.size() ; i++)
+    {
+        if(mouseOn(interfaces[i]))
+        {
+            interfaces[i]->hover();
+            if(in->get_souris_boutons(1))
+            {
+                interfaces[i]->onClick();
+            }
+        }
+    }
+}
+
