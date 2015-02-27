@@ -419,7 +419,11 @@ void Application::draw()
             }
             else if(numImage == -11)
             {
-                Image * constructedPicture = new Image(tmp.coor.w(), tmp.coor.h(), 100, 100, 100);
+                Image * constructedPicture = new Image(tmp.coor.w(), tmp.coor.h(), tmp.etat / 1000000, (tmp.etat / 1000)%1000, tmp.etat % 1000);
+                Coordonnees relativePlace(tmp.coor);
+                relativePlace.x(relativePlace.x()-cam->view().x());
+                relativePlace.y(relativePlace.y()-cam->view().y());
+                constructedPicture->print(screen->getBuffer(), relativePlace, cam->place());
             }
         }
     }
@@ -516,10 +520,10 @@ bool Application::mouseOn(Object * o)
 {
     bool retour = false;
 
-    if(in->mouse(X) < o->getPosition().w()+o->getPosition().x()
-       && in->mouse(X) >= o->getPosition().x()
-       && in->mouse(Y) < o->getPosition().h()+o->getPosition().y()
-       && in->mouse(Y) >= o->getPosition().y())
+    if(in->mouse(X)+cam->view().x() < o->getPosition().w()+o->getPosition().x()
+       && in->mouse(X)+cam->view().x() >= o->getPosition().x()
+       && in->mouse(Y)+cam->view().y() < o->getPosition().h()+o->getPosition().y()
+       && in->mouse(Y)+cam->view().y() >= o->getPosition().y())
     {
         retour = true;
     }

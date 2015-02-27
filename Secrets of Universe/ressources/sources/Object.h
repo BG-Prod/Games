@@ -52,7 +52,10 @@ class Object
         void setVisible(bool choice);
         void setCible(Coordonnees o);
         Coordonnees getCible(){return cible;}
-        virtual DisplayDatas transitoryEvents();
+        virtual vector<DisplayDatas> transitoryEvents();
+        void pushRender(DisplayDatas d);
+        void pushRender(vector<DisplayDatas> d);
+        void popRender(int num);
 
         virtual void hover();
         virtual void onClick();
@@ -64,11 +67,12 @@ class Object
         int id;
         std::vector<int> type;
         std::vector<Object*> sons;
+        std::vector<DisplayDatas> renduAnnexe;
         bool hasMoved;
         std::vector<int> etat;
         Object * ancestor;
         bool alive;
-        bool isVisible;
+        bool isVisible, isHover;
         Coordonnees cible;
         std::string name, displayDetails;
 };

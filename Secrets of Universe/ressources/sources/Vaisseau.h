@@ -51,11 +51,12 @@ class Vaisseau : public Object
         void collided(int);
         int collisionPoints();
         void switchShield();
-        DisplayDatas transitoryEvents();
+        vector<DisplayDatas> transitoryEvents();
         void clearRadar();
         void addEchoRadar(Coordonnees c);
         int getCapteur();
         void hover();
+        void onClick();
 
     protected:
         int weaponTarget = 0;

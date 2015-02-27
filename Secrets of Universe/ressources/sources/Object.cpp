@@ -33,6 +33,7 @@ Object::Object() : birth(getTime())
     etat.push_back(TOP);
     alive = true;
     isVisible = true;
+    isHover = false;
     cible = Coordonnees(0,0,1,1);
 }
 
@@ -95,7 +96,15 @@ vector<DisplayDatas> Object::print()
     vector<DisplayDatas> dt;
 
     dt.push_back(DisplayDatas(type[0],etat[0],position, displayDetails));
-    dt.push_back(transitoryEvents());
+    vector<DisplayDatas> tE = transitoryEvents();
+    for(int i = 0 ; i < tE.size() ; i++)
+    {
+        dt.push_back(tE[i]);
+    }
+    for(int i = 0 ; i < renduAnnexe.size() ; i++)
+    {
+        dt.push_back(renduAnnexe[i]);
+    }
     for(int i = 0 ; i < sons.size() ; i++)
     {
         vector<DisplayDatas> dt_sons = sons[i]->print();
@@ -106,6 +115,21 @@ vector<DisplayDatas> Object::print()
     }
 
     return dt;
+}
+
+void Object::pushRender(DisplayDatas d)
+{
+    renduAnnexe.push_back(d);
+}
+
+void Object::pushRender(vector<DisplayDatas> d)
+{
+    renduAnnexe.insert(renduAnnexe.end(),d.begin(),d.end());
+}
+
+void Object::popRender(int num)
+{
+    renduAnnexe.erase(renduAnnexe.begin()+num);
 }
 
 long Object::getTime()
@@ -131,9 +155,10 @@ void Object::setCible(Coordonnees o)
     }
 }
 
-DisplayDatas Object::transitoryEvents()
+vector<DisplayDatas> Object::transitoryEvents()
 {
-    return DisplayDatas(-1,-1,Coordonnees(0,0,0,0));
+    vector<DisplayDatas> a;
+    return a;
 }
 
 void Object::setVisible(bool choice)

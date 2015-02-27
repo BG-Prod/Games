@@ -98,9 +98,9 @@ void SoUApp::init()
     objects.push_back(new Map());
 
     /// création des joueurs
-    addHuman(new Player(1103, 0 , 0, 1, 1000, true, "Ben", new Crew(), new Vaisseau(0,0)));
+    addHuman(new Player(1103, 0 , 0, 1, 1000, true, "Ben", new Crew(), new Vaisseau(110,300)));
 
-    for(int i = 0 ; i < 15 ; i++)
+    for(int i = 0 ; i < 32 ; i++)
     {
         addBot(new Player(random(0,999999), 0, 0, random(1,16), random(1000, 10000), false, "Computer " + i, new Crew(), new Vaisseau(STARSHIP2, random(0,(int)(objects[0]->getPosition()).w()) , random(0,(int)(objects[0]->getPosition()).h()))));
     }
@@ -415,6 +415,7 @@ void SoUApp::radarManager()
         if(players[i]->isStarshipOK())
         {
             players[i]->getStarship()->clearRadar();
+            /** calcul du centre du vaisseau courant **/
             Coordonnees pointA = Coordonnees(players[i]->getStarship()->getPosition().x() + players[i]->getStarship()->getPosition().w() / 2,
                                              players[i]->getStarship()->getPosition().y() + players[i]->getStarship()->getPosition().h() / 2,
                                              players[i]->getStarship()->getPosition().w(),
@@ -423,6 +424,7 @@ void SoUApp::radarManager()
             {
                 if(i != j && players[j]->isStarshipOK())
                 {
+                    /** calcul du centre du vaisseau cible **/
                     Coordonnees pointB = Coordonnees(players[j]->getStarship()->getPosition().x() + players[j]->getStarship()->getPosition().w() / 2,
                                                      players[j]->getStarship()->getPosition().y() + players[j]->getStarship()->getPosition().h() / 2,
                                                      players[j]->getStarship()->getPosition().w(),

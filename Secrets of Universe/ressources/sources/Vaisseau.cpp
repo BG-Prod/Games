@@ -104,7 +104,7 @@ void Vaisseau::move()
 
 void Vaisseau::shoot()
 {
-    if(weaponTarget<radar.size())
+    if(weaponTarget<radar.size() && radar.size())
     {
         batterie->use(radar[weaponTarget]);
     }
@@ -135,16 +135,22 @@ void Vaisseau::destroy()
     alive = false;
 }
 
-DisplayDatas Vaisseau::transitoryEvents()
+vector<DisplayDatas> Vaisseau::transitoryEvents()
 {
-    DisplayDatas dt = DisplayDatas(-1,-1,Coordonnees(0,0,0,0));
+    vector<DisplayDatas> dt;
     if(!alive)
     {
-        dt = DisplayDatas(EXPLOSION0,1,position,"animation");
+        dt.push_back(DisplayDatas(EXPLOSION0,1,position,"animation"));
     }
     else if(activiteBouclier)
     {
-        dt = DisplayDatas(SHIELD1,1,position);
+        dt.push_back(DisplayDatas(SHIELD1,1,position));
+    }
+
+    if(isHover)
+    {
+        dt.push_back(DisplayDatas(COLORED_SURFACE,255000000,Coordonnees(position.x(),position.y(),position.w()*coque/(double)1000,2)));
+        /// rien il faut revoir
     }
 
     return dt;
@@ -209,5 +215,10 @@ int Vaisseau::getCapteur()
 void Vaisseau::hover()
 {
 
+}
+
+void Vaisseau::onClick()
+{
+    pushRender()
 }
 
